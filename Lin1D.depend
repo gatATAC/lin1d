@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1487368446 source:/home/pi/dev/Lin1D/main.cpp
+	<iostream>
+
+1487372614 source:/home/pi/dev/Lin1D/DRE.c
+	"DRE.h"
+
+1487373343 /home/pi/dev/Lin1D/DRE.h
+	"ProjectTypes.h"
+	"ProjectFlows.h"
+
+1487373281 /home/pi/dev/Lin1D/ProjectTypes.h
+	"DummyTypes.h"
+
+1487372701 /home/pi/dev/Lin1D/DummyTypes.h
+
+1487372667 /home/pi/dev/Lin1D/ProjectFlows.h
+	"ProjectTypes.h"
+	"ProjectFunctions.h"
+
+1487371514 /home/pi/dev/Lin1D/ProjectFunctions.h
+	"DummyFunctions.h"
+
+1487373804 /home/pi/dev/Lin1D/DummyFunctions.h
+	"ProjectTypes.h"
+
+1487366762 source:/home/pi/dev/Lin1D/lin1dFSM.c
+	"lin1dFSM.h"
+
+1487373262 /home/pi/dev/Lin1D/lin1dFSM.h
+	"lin1dFSM_CI.h"
+
+1487373605 /home/pi/dev/Lin1D/lin1dFSM_CI.h
+	<stdio.h>
+	<stdlib.h>
+	"ProjectTypes.h"
+	"DRE.h"
+
+1487373629 source:/home/pi/dev/Lin1D/lin1dFSM_CI.c
+	"lin1dFSM_CI.h"
+
