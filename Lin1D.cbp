@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DDUMMY_COMPILATION" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -32,6 +33,29 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="DRE.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="DRE.h" />
+		<Unit filename="DummyFunctions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="DummyFunctions.h" />
+		<Unit filename="DummyTypes.h" />
+		<Unit filename="ProjectFlows.h" />
+		<Unit filename="ProjectFunctions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ProjectFunctions.h" />
+		<Unit filename="ProjectTypes.h" />
+		<Unit filename="lin1dFSM.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lin1dFSM.h" />
+		<Unit filename="lin1dFSM_CI.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lin1dFSM_CI.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

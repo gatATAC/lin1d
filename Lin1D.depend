@@ -2,10 +2,10 @@
 1487368446 source:/home/pi/dev/Lin1D/main.cpp
 	<iostream>
 
-1487372614 source:/home/pi/dev/Lin1D/DRE.c
+1487378856 source:/home/pi/dev/Lin1D/DRE.c
 	"DRE.h"
 
-1487373343 /home/pi/dev/Lin1D/DRE.h
+1487411306 /home/pi/dev/Lin1D/DRE.h
 	"ProjectTypes.h"
 	"ProjectFlows.h"
 
@@ -38,4 +38,9 @@
 
 1487373629 source:/home/pi/dev/Lin1D/lin1dFSM_CI.c
 	"lin1dFSM_CI.h"
+
+1487373787 source:/home/pi/dev/Lin1D/DummyFunctions.c
+	"DummyFunctions.h"
+
+1487373703 source:/home/pi/dev/Lin1D/ProjectFunctions.c
 
