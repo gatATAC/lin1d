@@ -6,8 +6,6 @@
 #include "ProjectTypes.h"
 #include "DRE.h"
 
-/* ['Common declarations for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
-/* Generic code items' declarations */
 #define upReqAcq (dre.upReqAcq)
 #define downReqAcq (dre.downReqAcq)
 #define upReqDI (dre.upReqDI)
@@ -25,8 +23,18 @@
 #define appliedActDirection (dre.appliedActDirection)
 #define actDrvTimer (dre.actDrvTimer)
 #define loadPosAI (dre.loadPosAI)
+#define upButTimer (dre.upButTimer)
+#define downButTimer (dre.downButTimer)
+
+#ifndef CODEDESIGNER_VARS
+
+/* ['Common declarations for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
+/* Generic code items' declarations */
+
 
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
+
+#endif // CODEDESIGNER_VARS
 
 /* ['Common declarations for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* State ID data type */

@@ -29,6 +29,8 @@ t_timer actDrvTimer;
 // Power -- Does not need declaration actPosPow;
 // Power -- Does not need declaration actNegPow;
 uint16_t loadPosAI;
+t_timer upButTimer;
+t_timer downButTimer;
 
 } t_dre;
 
