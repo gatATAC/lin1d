@@ -15,8 +15,8 @@ void ActRectifier(  );
 /* ['ActDriving' begin (DON'T REMOVE THIS LINE!)] */
 /* State IDs */
 #define ID_ACTDRIVING_INIT 4
-#define ID_ACTDRIVING_WORK 5
-#define ID_ACTDRIVING_STABILIZE 6
+#define ID_ACTDRIVING_STABILIZE 5
+#define ID_ACTDRIVING_WORK 6
 #define ID_ACTDRIVING_DISSIPATE 7
 
 void ActDriving(  );
@@ -43,8 +43,8 @@ void UpButAcq(  );
 /* ['DownButAcq' begin (DON'T REMOVE THIS LINE!)] */
 /* State IDs */
 #define ID_DOWNBUTACQ_INIT 14
-#define ID_DOWNBUTACQ_PRESSED 15
-#define ID_DOWNBUTACQ_NOTPRESSED 16
+#define ID_DOWNBUTACQ_NOTPRESSED 15
+#define ID_DOWNBUTACQ_PRESSED 16
 
 void DownButAcq(  );
 /* ['DownButAcq' end (DON'T REMOVE THIS LINE!)] */

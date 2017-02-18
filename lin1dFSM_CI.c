@@ -2,10 +2,9 @@
 #include "lin1dFSM_CI.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
-#ifndef CODEDESIGNER_VARS
+#ifdef CODEDESIGNER_VARS
 /* ['Common definitions for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Generic code items' definitions */
-/**********
 t_upreqacq upReqAcq;
 t_downreqacq downReqAcq;
 BOOL upReqDI;
@@ -23,10 +22,8 @@ UI_10 loadPosAcq;
 t_appliedactdirection appliedActDirection;
 t_timer actDrvTimer;
 UI_10 loadPosAI;
-
 t_timer upButTimer;
 t_timer downButTimer;
-************/
 /* ['Common definitions for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
  #endif // CODEDESIGNER_VARS
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */

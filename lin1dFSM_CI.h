@@ -26,12 +26,29 @@
 #define upButTimer (dre.upButTimer)
 #define downButTimer (dre.downButTimer)
 
-#ifndef CODEDESIGNER_VARS
+#ifdef CODEDESIGNER_VARS
 
 /* ['Common declarations for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Generic code items' declarations */
-
-
+extern t_upreqacq upReqAcq;
+extern t_downreqacq downReqAcq;
+extern BOOL upReqDI;
+extern BOOL downReqDI;
+extern t_posmode posMode;
+extern t_actaction actAction;
+extern t_pwm pwmActAction;
+extern BOOL doDirFw;
+extern BOOL doDirBw;
+extern t_actenable actEnable;
+extern t_actdirection actDirection;
+extern t_pwm_duty rectifiedActAction;
+extern t_rectifiedactdirection rectifiedActDirection;
+extern UI_10 loadPosAcq;
+extern t_appliedactdirection appliedActDirection;
+extern t_timer actDrvTimer;
+extern UI_10 loadPosAI;
+extern t_timer upButTimer;
+extern t_timer downButTimer;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
 
 #endif // CODEDESIGNER_VARS

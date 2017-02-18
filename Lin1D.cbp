@@ -48,6 +48,7 @@
 		</Unit>
 		<Unit filename="ProjectFunctions.h" />
 		<Unit filename="ProjectTypes.h" />
+		<Unit filename="fsm/Lin1D.cdp" />
 		<Unit filename="lin1dFSM.c">
 			<Option compilerVar="CC" />
 		</Unit>
