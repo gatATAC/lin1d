@@ -34,3 +34,8 @@ bin
 /build
 /dist
 /Debug
+/.codelite/lin1d.session
+/.codelite/lin1d.tags
+/.codelite/refactoring.db
+/lin1d.mk
+/lin1d.txt

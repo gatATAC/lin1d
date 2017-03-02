@@ -2,7 +2,7 @@
 
 All:
 	@echo "----------Building project:[ lin1d - Debug ]----------"
-	@$(MAKE) -f  "lin1d.mk"
+	@"$(MAKE)" -f  "lin1d.mk"
 clean:
 	@echo "----------Cleaning project:[ lin1d - Debug ]----------"
-	@$(MAKE) -f  "lin1d.mk" clean
+	@"$(MAKE)" -f  "lin1d.mk" clean
