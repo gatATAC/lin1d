@@ -6,6 +6,8 @@
 #include "ProjectTypes.h"
 #include "DRE.h"
 
+extern t_dre dre;
+
 #define upReqAcq (dre.upReqAcq)
 #define downReqAcq (dre.downReqAcq)
 #define upReqDI (dre.upReqDI)
@@ -25,6 +27,14 @@
 #define loadPosAI (dre.loadPosAI)
 #define upButTimer (dre.upButTimer)
 #define downButTimer (dre.downButTimer)
+#define loadPosUpSwchAcq (dre.loadPosUpSwchAcq)
+#define loadPosDownSwchAcq (dre.loadPosDownSwchAcq)
+#define posAchieved (dre.posAchieved)
+#define ctrlError (dre.ctrlError)
+#define currentError (dre.currentError)
+#define brokenChainError (dre.brokenChainError)
+#define stuckActError (dre.stuckActError)
+
 
 #ifdef CODEDESIGNER_VARS
 
@@ -49,6 +59,17 @@ extern t_timer actDrvTimer;
 extern UI_10 loadPosAI;
 extern t_timer upButTimer;
 extern t_timer downButTimer;
+extern BOOL loadPosUpSwchDI;
+extern BOOL loadPosDownSwchDI;
+extern BOOL posAchieved;
+extern BOOL ctrlError;
+extern UI_10 driveCurrentAI;
+extern t_drivecurrentacq driveCurrentAcq;
+extern BOOL currentError;
+extern BOOL brokenChainError;
+extern BOOL stuckActError;
+extern BOOL loadPosUpSwchAcq;
+extern BOOL loadPosDownSwchAcq;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
 
 #endif // CODEDESIGNER_VARS

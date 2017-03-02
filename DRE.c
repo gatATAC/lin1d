@@ -166,6 +166,106 @@ pinMode(PORT_doDirBw, INPUT);
 // loadPosAI flow synthesis
 // (output disabled for ADC type)
 
+  
+// upButTimer flow acquisition
+// (setup input disabled for Timer type)
+// upButTimer flow synthesis
+// (output disabled for Timer type)
+
+  
+// downButTimer flow acquisition
+// (setup input disabled for Timer type)
+// downButTimer flow synthesis
+// (output disabled for Timer type)
+
+  
+// loadPosUpSwch flow acquisition
+// (setup input disabled for Switch type)
+// loadPosUpSwch flow synthesis
+// (output disabled for Switch type)
+
+  
+// loadPosDownSwch flow acquisition
+// (setup input disabled for Switch type)
+// loadPosDownSwch flow synthesis
+// (output disabled for Switch type)
+
+  
+// loadPosUpSwchDI flow acquisition
+void setup_loadPosUpSwchDI(void){ 
+pinMode(PORT_loadPosUpSwchDI, INPUT_PULLUP); 
+};
+// loadPosUpSwchDI flow synthesis
+// (output disabled for DI_pu type)
+
+  
+// loadPosDownSwchDI flow acquisition
+void setup_loadPosDownSwchDI(void){ 
+pinMode(PORT_loadPosDownSwchDI, INPUT_PULLUP); 
+};
+// loadPosDownSwchDI flow synthesis
+// (output disabled for DI_pu type)
+
+  
+// posAchieved flow acquisition
+// (setup input disabled for Flag type)
+// posAchieved flow synthesis
+// (output disabled for Flag type)
+
+  
+// ctrlError flow acquisition
+// (setup input disabled for Flag type)
+// ctrlError flow synthesis
+// (output disabled for Flag type)
+
+  
+// driveCurrent flow acquisition
+// (setup input disabled for Current type)
+// driveCurrent flow synthesis
+// (output disabled for Current type)
+
+  
+// driveCurrentAI flow acquisition
+
+// driveCurrentAI flow synthesis
+// (output disabled for ADC type)
+
+  
+// driveCurrentAcq flow acquisition
+// (setup input disabled for Variable type)
+// driveCurrentAcq flow synthesis
+// (output disabled for Variable type)
+
+  
+// currentError flow acquisition
+// (setup input disabled for Flag type)
+// currentError flow synthesis
+// (output disabled for Flag type)
+
+  
+// brokenChainError flow acquisition
+// (setup input disabled for Flag type)
+// brokenChainError flow synthesis
+// (output disabled for Flag type)
+
+  
+// stuckActError flow acquisition
+// (setup input disabled for Flag type)
+// stuckActError flow synthesis
+// (output disabled for Flag type)
+
+  
+// loadPosUpSwchAcq flow acquisition
+// (setup input disabled for Flag type)
+// loadPosUpSwchAcq flow synthesis
+// (output disabled for Flag type)
+
+  
+// loadPosDownSwchAcq flow acquisition
+// (setup input disabled for Flag type)
+// loadPosDownSwchAcq flow synthesis
+// (output disabled for Flag type)
+
 
 
 // --- DRE flow acquisition and flow synthesis functions ---
@@ -373,3 +473,121 @@ return analogRead(PORT_loadPosAI);
 };
 // loadPosAI flow synthesis
 // (output disabled for ADC type)
+
+  
+// upButTimer flow acquisition
+// (input disabled for Timer type)
+// upButTimer flow synthesis
+// (output disabled for Timer type)
+
+  
+// downButTimer flow acquisition
+// (input disabled for Timer type)
+// downButTimer flow synthesis
+// (output disabled for Timer type)
+
+  
+// loadPosUpSwch flow acquisition
+// (input disabled for Switch type)
+// loadPosUpSwch flow synthesis
+// (output disabled for Switch type)
+
+  
+// loadPosDownSwch flow acquisition
+// (input disabled for Switch type)
+// loadPosDownSwch flow synthesis
+// (output disabled for Switch type)
+
+  
+// loadPosUpSwchDI flow acquisition
+BOOL adquirir_loadPosUpSwchDI(void){ 
+#ifdef _DIAG_ACTIVE 
+if (diag.enable_loadPosUpSwchDI==TRUE) { 
+return diag.loadPosUpSwchDI; 
+} else { 
+#endif 
+return digitalRead(PORT_loadPosUpSwchDI); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+// loadPosUpSwchDI flow synthesis
+// (output disabled for DI_pu type)
+
+  
+// loadPosDownSwchDI flow acquisition
+BOOL adquirir_loadPosDownSwchDI(void){ 
+#ifdef _DIAG_ACTIVE 
+if (diag.enable_loadPosDownSwchDI==TRUE) { 
+return diag.loadPosDownSwchDI; 
+} else { 
+#endif 
+return digitalRead(PORT_loadPosDownSwchDI); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+// loadPosDownSwchDI flow synthesis
+// (output disabled for DI_pu type)
+
+  
+// posAchieved flow acquisition
+// (input disabled for Flag type)
+// posAchieved flow synthesis
+// (output disabled for Flag type)
+
+  
+// ctrlError flow acquisition
+// (input disabled for Flag type)
+// ctrlError flow synthesis
+// (output disabled for Flag type)
+
+  
+// driveCurrent flow acquisition
+// (input disabled for Current type)
+// driveCurrent flow synthesis
+// (output disabled for Current type)
+
+  
+// driveCurrentAI flow acquisition
+uint16_t acquire_driveCurrentAI(void){ 
+return analogRead(PORT_driveCurrentAI); 
+};
+// driveCurrentAI flow synthesis
+// (output disabled for ADC type)
+
+  
+// driveCurrentAcq flow acquisition
+// (input disabled for Variable type)
+// driveCurrentAcq flow synthesis
+// (output disabled for Variable type)
+
+  
+// currentError flow acquisition
+// (input disabled for Flag type)
+// currentError flow synthesis
+// (output disabled for Flag type)
+
+  
+// brokenChainError flow acquisition
+// (input disabled for Flag type)
+// brokenChainError flow synthesis
+// (output disabled for Flag type)
+
+  
+// stuckActError flow acquisition
+// (input disabled for Flag type)
+// stuckActError flow synthesis
+// (output disabled for Flag type)
+
+  
+// loadPosUpSwchAcq flow acquisition
+// (input disabled for Flag type)
+// loadPosUpSwchAcq flow synthesis
+// (output disabled for Flag type)
+
+  
+// loadPosDownSwchAcq flow acquisition
+// (input disabled for Flag type)
+// loadPosDownSwchAcq flow synthesis
+// (output disabled for Flag type)

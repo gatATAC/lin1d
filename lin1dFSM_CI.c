@@ -24,6 +24,17 @@ t_timer actDrvTimer;
 UI_10 loadPosAI;
 t_timer upButTimer;
 t_timer downButTimer;
+BOOL loadPosUpSwchDI;
+BOOL loadPosDownSwchDI;
+BOOL posAchieved;
+BOOL ctrlError;
+UI_10 driveCurrentAI;
+t_drivecurrentacq driveCurrentAcq;
+BOOL currentError;
+BOOL brokenChainError;
+BOOL stuckActError;
+BOOL loadPosUpSwchAcq;
+BOOL loadPosDownSwchAcq;
 /* ['Common definitions for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
  #endif // CODEDESIGNER_VARS
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */

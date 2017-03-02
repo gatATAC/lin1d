@@ -31,6 +31,20 @@ t_timer actDrvTimer;
 uint16_t loadPosAI;
 t_timer upButTimer;
 t_timer downButTimer;
+// Switch -- Does not need declaration loadPosUpSwch;
+// Switch -- Does not need declaration loadPosDownSwch;
+BOOL loadPosUpSwchDI;
+BOOL loadPosDownSwchDI;
+BOOL posAchieved;
+BOOL ctrlError;
+// Current -- Does not need declaration driveCurrent;
+uint16_t driveCurrentAI;
+t_drivecurrentacq driveCurrentAcq;
+BOOL currentError;
+BOOL brokenChainError;
+BOOL stuckActError;
+BOOL loadPosUpSwchAcq;
+BOOL loadPosDownSwchAcq;
 
 } t_dre;
 
@@ -75,246 +89,432 @@ t_timer actDrvTimer;
 // (null) No diag variables for actNegPow
 BOOL enable_loadPosAI;
 uint16_t loadPosAI;
+BOOL enable_upButTimer;
+t_timer upButTimer;
+BOOL enable_downButTimer;
+t_timer downButTimer;
+// (null) No diag variables for loadPosUpSwch
+// (null) No diag variables for loadPosDownSwch
+BOOL enable_loadPosUpSwchDI;
+BOOL loadPosUpSwchDI;
+BOOL enable_loadPosDownSwchDI;
+BOOL loadPosDownSwchDI;
+BOOL enable_posAchieved;
+BOOL posAchieved;
+BOOL enable_ctrlError;
+BOOL ctrlError;
+// (null) No diag variables for driveCurrent
+BOOL enable_driveCurrentAI;
+uint16_t driveCurrentAI;
+BOOL enable_driveCurrentAcq;
+t_drivecurrentacq driveCurrentAcq;
+BOOL enable_currentError;
+BOOL currentError;
+BOOL enable_brokenChainError;
+BOOL brokenChainError;
+BOOL enable_stuckActError;
+BOOL stuckActError;
+BOOL enable_loadPosUpSwchAcq;
+BOOL loadPosUpSwchAcq;
+BOOL enable_loadPosDownSwchAcq;
+BOOL loadPosDownSwchAcq;
 
 } t_diag;
 
 // Initialization functions
 
-
+  
 // upReq flow acquisition
 // (setup input disabled for Button type);
 // upReq flow synthesis
 // (output disabled for Button type);
-
+  
 // downReq flow acquisition
 // (setup input disabled for Button type);
 // downReq flow synthesis
 // (output disabled for Button type);
-
+  
 // loadPos flow acquisition
 // (setup input disabled for Position type);
 // loadPos flow synthesis
 // (output disabled for Position type);
-
+  
 // upReqAcq flow acquisition
 // (setup input disabled for Variable type);
 // upReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // downReqAcq flow acquisition
 // (setup input disabled for Variable type);
 // downReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // upReqDI flow acquisition
 void setup_upReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // downReqDI flow acquisition
 void setup_downReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // posMode flow acquisition
 // (setup input disabled for Variable type);
 // posMode flow synthesis
 // (output disabled for Variable type);
-
+  
 // actAction flow acquisition
 // (setup input disabled for Variable type);
 // actAction flow synthesis
 // (output disabled for Variable type);
-
+  
 // pwmActAction flow acquisition
 // (setup input disabled for PWM type);
 // pwmActAction flow synthesis
 void setup_pwmActAction(void);
-
+  
 // doDirFw flow acquisition
 void setup_doDirFw_input(void);
 // doDirFw flow synthesis
 void setup_doDirFw_output(void);
-
+  
 // doDirBw flow acquisition
 void setup_doDirBw_input(void);
 // doDirBw flow synthesis
 void setup_doDirBw_output(void);
-
+  
 // actEnable flow acquisition
 // (setup input disabled for Variable type);
 // actEnable flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDirection flow acquisition
 // (setup input disabled for Variable type);
 // actDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // rectifiedActAction flow acquisition
 // (setup input disabled for PWMDuty type);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type);
-
+  
 // rectifiedActDirection flow acquisition
 // (setup input disabled for Variable type);
 // rectifiedActDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // loadPosAcq flow acquisition
 
 // loadPosAcq flow synthesis
 // (output disabled for ADC type);
-
+  
 // appliedActDirection flow acquisition
 // (setup input disabled for Variable type);
 // appliedActDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDrvTimer flow acquisition
 // (setup input disabled for Timer type);
 // actDrvTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // loadTorque flow acquisition
 // (setup input disabled for Power type);
 // loadTorque flow synthesis
 // (output disabled for Power type);
-
+  
 // actPosPow flow acquisition
 // (setup input disabled for Power type);
 // actPosPow flow synthesis
 // (output disabled for Power type);
-
+  
 // actNegPow flow acquisition
 // (setup input disabled for Power type);
 // actNegPow flow synthesis
 // (output disabled for Power type);
-
+  
 // loadPosAI flow acquisition
 
 // loadPosAI flow synthesis
 // (output disabled for ADC type);
+  
+// upButTimer flow acquisition
+// (setup input disabled for Timer type);
+// upButTimer flow synthesis
+// (output disabled for Timer type);
+  
+// downButTimer flow acquisition
+// (setup input disabled for Timer type);
+// downButTimer flow synthesis
+// (output disabled for Timer type);
+  
+// loadPosUpSwch flow acquisition
+// (setup input disabled for Switch type);
+// loadPosUpSwch flow synthesis
+// (output disabled for Switch type);
+  
+// loadPosDownSwch flow acquisition
+// (setup input disabled for Switch type);
+// loadPosDownSwch flow synthesis
+// (output disabled for Switch type);
+  
+// loadPosUpSwchDI flow acquisition
+void setup_loadPosUpSwchDI(void);
+// loadPosUpSwchDI flow synthesis
+// (output disabled for DI_pu type);
+  
+// loadPosDownSwchDI flow acquisition
+void setup_loadPosDownSwchDI(void);
+// loadPosDownSwchDI flow synthesis
+// (output disabled for DI_pu type);
+  
+// posAchieved flow acquisition
+// (setup input disabled for Flag type);
+// posAchieved flow synthesis
+// (output disabled for Flag type);
+  
+// ctrlError flow acquisition
+// (setup input disabled for Flag type);
+// ctrlError flow synthesis
+// (output disabled for Flag type);
+  
+// driveCurrent flow acquisition
+// (setup input disabled for Current type);
+// driveCurrent flow synthesis
+// (output disabled for Current type);
+  
+// driveCurrentAI flow acquisition
+
+// driveCurrentAI flow synthesis
+// (output disabled for ADC type);
+  
+// driveCurrentAcq flow acquisition
+// (setup input disabled for Variable type);
+// driveCurrentAcq flow synthesis
+// (output disabled for Variable type);
+  
+// currentError flow acquisition
+// (setup input disabled for Flag type);
+// currentError flow synthesis
+// (output disabled for Flag type);
+  
+// brokenChainError flow acquisition
+// (setup input disabled for Flag type);
+// brokenChainError flow synthesis
+// (output disabled for Flag type);
+  
+// stuckActError flow acquisition
+// (setup input disabled for Flag type);
+// stuckActError flow synthesis
+// (output disabled for Flag type);
+  
+// loadPosUpSwchAcq flow acquisition
+// (setup input disabled for Flag type);
+// loadPosUpSwchAcq flow synthesis
+// (output disabled for Flag type);
+  
+// loadPosDownSwchAcq flow acquisition
+// (setup input disabled for Flag type);
+// loadPosDownSwchAcq flow synthesis
+// (output disabled for Flag type);
 
 // Input / Output functions
 
-
+  
 // upReq flow acquisition
 // (input disabled for Button type);
 // upReq flow synthesis
 // (output disabled for Button type);
-
+  
 // downReq flow acquisition
 // (input disabled for Button type);
 // downReq flow synthesis
 // (output disabled for Button type);
-
+  
 // loadPos flow acquisition
 // (input disabled for Position type);
 // loadPos flow synthesis
 // (output disabled for Position type);
-
+  
 // upReqAcq flow acquisition
 // (input disabled for Variable type);
 // upReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // downReqAcq flow acquisition
 // (input disabled for Variable type);
 // downReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // upReqDI flow acquisition
 BOOL adquirir_upReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // downReqDI flow acquisition
 BOOL adquirir_downReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // posMode flow acquisition
 // (input disabled for Variable type);
 // posMode flow synthesis
 // (output disabled for Variable type);
-
+  
 // actAction flow acquisition
 // (input disabled for Variable type);
 // actAction flow synthesis
 // (output disabled for Variable type);
-
+  
 // pwmActAction flow acquisition
 // (input disabled for PWM type);
 // pwmActAction flow synthesis
 void synthesize_pwmActAction(t_pwm value);
-
+  
 // doDirFw flow acquisition
 BOOL adquirir_doDirFw(void);
 // doDirFw flow synthesis
 void sintetizar_doDirFw(BOOL valor);
-
+  
 // doDirBw flow acquisition
 BOOL adquirir_doDirBw(void);
 // doDirBw flow synthesis
 void sintetizar_doDirBw(BOOL valor);
-
+  
 // actEnable flow acquisition
 // (input disabled for Variable type);
 // actEnable flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDirection flow acquisition
 // (input disabled for Variable type);
 // actDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // rectifiedActAction flow acquisition
 // (input disabled for PWMDuty type);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type);
-
+  
 // rectifiedActDirection flow acquisition
 // (input disabled for Variable type);
 // rectifiedActDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // loadPosAcq flow acquisition
 uint16_t acquire_loadPosAcq(void);
 // loadPosAcq flow synthesis
 // (output disabled for ADC type);
-
+  
 // appliedActDirection flow acquisition
 // (input disabled for Variable type);
 // appliedActDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDrvTimer flow acquisition
 // (input disabled for Timer type);
 // actDrvTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // loadTorque flow acquisition
 // (input disabled for Power type);
 // loadTorque flow synthesis
 // (output disabled for Power type);
-
+  
 // actPosPow flow acquisition
 // (input disabled for Power type);
 // actPosPow flow synthesis
 // (output disabled for Power type);
-
+  
 // actNegPow flow acquisition
 // (input disabled for Power type);
 // actNegPow flow synthesis
 // (output disabled for Power type);
-
+  
 // loadPosAI flow acquisition
 uint16_t acquire_loadPosAI(void);
 // loadPosAI flow synthesis
 // (output disabled for ADC type);
-
-extern t_dre dre;
-extern t_diag diag;
+  
+// upButTimer flow acquisition
+// (input disabled for Timer type);
+// upButTimer flow synthesis
+// (output disabled for Timer type);
+  
+// downButTimer flow acquisition
+// (input disabled for Timer type);
+// downButTimer flow synthesis
+// (output disabled for Timer type);
+  
+// loadPosUpSwch flow acquisition
+// (input disabled for Switch type);
+// loadPosUpSwch flow synthesis
+// (output disabled for Switch type);
+  
+// loadPosDownSwch flow acquisition
+// (input disabled for Switch type);
+// loadPosDownSwch flow synthesis
+// (output disabled for Switch type);
+  
+// loadPosUpSwchDI flow acquisition
+BOOL adquirir_loadPosUpSwchDI(void);
+// loadPosUpSwchDI flow synthesis
+// (output disabled for DI_pu type);
+  
+// loadPosDownSwchDI flow acquisition
+BOOL adquirir_loadPosDownSwchDI(void);
+// loadPosDownSwchDI flow synthesis
+// (output disabled for DI_pu type);
+  
+// posAchieved flow acquisition
+// (input disabled for Flag type);
+// posAchieved flow synthesis
+// (output disabled for Flag type);
+  
+// ctrlError flow acquisition
+// (input disabled for Flag type);
+// ctrlError flow synthesis
+// (output disabled for Flag type);
+  
+// driveCurrent flow acquisition
+// (input disabled for Current type);
+// driveCurrent flow synthesis
+// (output disabled for Current type);
+  
+// driveCurrentAI flow acquisition
+uint16_t acquire_driveCurrentAI(void);
+// driveCurrentAI flow synthesis
+// (output disabled for ADC type);
+  
+// driveCurrentAcq flow acquisition
+// (input disabled for Variable type);
+// driveCurrentAcq flow synthesis
+// (output disabled for Variable type);
+  
+// currentError flow acquisition
+// (input disabled for Flag type);
+// currentError flow synthesis
+// (output disabled for Flag type);
+  
+// brokenChainError flow acquisition
+// (input disabled for Flag type);
+// brokenChainError flow synthesis
+// (output disabled for Flag type);
+  
+// stuckActError flow acquisition
+// (input disabled for Flag type);
+// stuckActError flow synthesis
+// (output disabled for Flag type);
+  
+// loadPosUpSwchAcq flow acquisition
+// (input disabled for Flag type);
+// loadPosUpSwchAcq flow synthesis
+// (output disabled for Flag type);
+  
+// loadPosDownSwchAcq flow acquisition
+// (input disabled for Flag type);
+// loadPosDownSwchAcq flow synthesis
+// (output disabled for Flag type);
 
 #endif /* _DRE_H */

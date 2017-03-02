@@ -17,6 +17,7 @@ typedef t_pwm t_pwm_duty;
 typedef uint8_t t_rectifiedactdirection;
 typedef uint8_t t_appliedactdirection;
 typedef uint32_t t_timer;
+typedef uint16_t t_drivecurrentacq;
 
 #define CFG_ACT_DIRECTION_QUIET 0
 #define CFG_ACT_DIRECTION_FW 1
@@ -29,5 +30,14 @@ typedef uint32_t t_timer;
 #define CFG_DWN_BUT_PRESS_TIMER 50
 #define CFG_UP_BUT_UNPRESS_TIMER 50
 #define CFG_DWN_BUT_UNPRESS_TIMER 50
+
+#define CFG_ACT_ACTION_STOP 0
+#define CFG_ACT_ACTION_UP 1
+#define CFG_ACT_ACTION_DOWN 2
+
+#define CFG_POS_MODE_STOP 0
+#define CFG_POS_MODE_UP 1
+#define CFG_POS_MODE_DOWN 2
+
 
 #endif

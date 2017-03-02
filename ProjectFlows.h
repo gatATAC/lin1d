@@ -11,6 +11,10 @@
 #define PORT_doDirBw 4
 #define PORT_loadPosAcq 5
 #define PORT_loadPosAI 6
+#define PORT_loadPosUpSwchDI 7
+#define PORT_loadPosDownSwchDI 8
+#define PORT_driveCurrentAI 9
+
 
 #define CFG_PWM_RESOLUTION 12
 
