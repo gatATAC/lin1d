@@ -31,3 +31,5 @@ bin
 *.exe
 *.out
 *.app
+/build
+/dist
