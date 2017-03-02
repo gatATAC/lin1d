@@ -33,31 +33,39 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="DRE.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="DRE.h" />
-		<Unit filename="DummyFunctions.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="DummyFunctions.h" />
-		<Unit filename="DummyTypes.h" />
-		<Unit filename="ProjectFlows.h" />
-		<Unit filename="ProjectFunctions.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="ProjectFunctions.h" />
-		<Unit filename="ProjectTypes.h" />
 		<Unit filename="fsm/Lin1D.cdp" />
-		<Unit filename="lin1dFSM.c">
+		<Unit filename="maincb.cpp" />
+		<Unit filename="maincl.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="mainnb.cpp">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Unit filename="src/DRE.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="lin1dFSM.h" />
-		<Unit filename="lin1dFSM_CI.c">
+		<Unit filename="src/DRE.h" />
+		<Unit filename="src/DummyFunctions.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="lin1dFSM_CI.h" />
-		<Unit filename="main.cpp" />
+		<Unit filename="src/DummyFunctions.h" />
+		<Unit filename="src/DummyTypes.h" />
+		<Unit filename="src/ProjectFlows.h" />
+		<Unit filename="src/ProjectFunctions.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ProjectFunctions.h" />
+		<Unit filename="src/ProjectTypes.h" />
+		<Unit filename="src/lin1dFSM.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/lin1dFSM.h" />
+		<Unit filename="src/lin1dFSM_CI.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/lin1dFSM_CI.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

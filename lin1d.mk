@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=lin1d
 ConfigurationName      :=Debug
-WorkspacePath          := "/home/est/dev/gatatac/arduino/lin1d"
-ProjectPath            := "/home/est/dev/gatatac/arduino/lin1d"
+WorkspacePath          := "/home/pi/dev/lin1d"
+ProjectPath            := "/home/pi/dev/lin1d"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=est
+User                   :=
 Date                   :=03/02/17
-CodeLitePath           :="/home/est/.codelite"
+CodeLitePath           :="/home/pi/.codelite"
 LinkerName             :=/usr/bin/g++ 
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
 ObjectSuffix           :=.o
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/maincl.cpp$(ObjectSuffix) $(IntermediateDirectory)/DRE.c$(ObjectSuffix) $(IntermediateDirectory)/DummyFunctions.c$(ObjectSuffix) $(IntermediateDirectory)/lin1dFSM.c$(ObjectSuffix) $(IntermediateDirectory)/lin1dFSM_CI.c$(ObjectSuffix) $(IntermediateDirectory)/ProjectFunctions.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/maincl.cpp$(ObjectSuffix) $(IntermediateDirectory)/src_DRE.c$(ObjectSuffix) $(IntermediateDirectory)/src_DummyFunctions.c$(ObjectSuffix) $(IntermediateDirectory)/src_ProjectFunctions.c$(ObjectSuffix) $(IntermediateDirectory)/src_lin1dFSM.c$(ObjectSuffix) $(IntermediateDirectory)/src_lin1dFSM_CI.c$(ObjectSuffix) 
 
 
 
@@ -88,52 +88,52 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/maincl.cpp$(ObjectSuffix): maincl.cpp $(IntermediateDirectory)/maincl.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/est/dev/gatatac/arduino/lin1d/maincl.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/maincl.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/pi/dev/lin1d/maincl.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/maincl.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/maincl.cpp$(DependSuffix): maincl.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/maincl.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/maincl.cpp$(DependSuffix) -MM "maincl.cpp"
 
 $(IntermediateDirectory)/maincl.cpp$(PreprocessSuffix): maincl.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/maincl.cpp$(PreprocessSuffix) "maincl.cpp"
 
-$(IntermediateDirectory)/DRE.c$(ObjectSuffix): DRE.c $(IntermediateDirectory)/DRE.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/home/est/dev/gatatac/arduino/lin1d/DRE.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/DRE.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/DRE.c$(DependSuffix): DRE.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/DRE.c$(ObjectSuffix) -MF$(IntermediateDirectory)/DRE.c$(DependSuffix) -MM "DRE.c"
+$(IntermediateDirectory)/src_DRE.c$(ObjectSuffix): src/DRE.c $(IntermediateDirectory)/src_DRE.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/pi/dev/lin1d/src/DRE.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_DRE.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_DRE.c$(DependSuffix): src/DRE.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_DRE.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_DRE.c$(DependSuffix) -MM "src/DRE.c"
 
-$(IntermediateDirectory)/DRE.c$(PreprocessSuffix): DRE.c
-	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/DRE.c$(PreprocessSuffix) "DRE.c"
+$(IntermediateDirectory)/src_DRE.c$(PreprocessSuffix): src/DRE.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_DRE.c$(PreprocessSuffix) "src/DRE.c"
 
-$(IntermediateDirectory)/DummyFunctions.c$(ObjectSuffix): DummyFunctions.c $(IntermediateDirectory)/DummyFunctions.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/home/est/dev/gatatac/arduino/lin1d/DummyFunctions.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/DummyFunctions.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/DummyFunctions.c$(DependSuffix): DummyFunctions.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/DummyFunctions.c$(ObjectSuffix) -MF$(IntermediateDirectory)/DummyFunctions.c$(DependSuffix) -MM "DummyFunctions.c"
+$(IntermediateDirectory)/src_DummyFunctions.c$(ObjectSuffix): src/DummyFunctions.c $(IntermediateDirectory)/src_DummyFunctions.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/pi/dev/lin1d/src/DummyFunctions.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_DummyFunctions.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_DummyFunctions.c$(DependSuffix): src/DummyFunctions.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_DummyFunctions.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_DummyFunctions.c$(DependSuffix) -MM "src/DummyFunctions.c"
 
-$(IntermediateDirectory)/DummyFunctions.c$(PreprocessSuffix): DummyFunctions.c
-	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/DummyFunctions.c$(PreprocessSuffix) "DummyFunctions.c"
+$(IntermediateDirectory)/src_DummyFunctions.c$(PreprocessSuffix): src/DummyFunctions.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_DummyFunctions.c$(PreprocessSuffix) "src/DummyFunctions.c"
 
-$(IntermediateDirectory)/lin1dFSM.c$(ObjectSuffix): lin1dFSM.c $(IntermediateDirectory)/lin1dFSM.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/home/est/dev/gatatac/arduino/lin1d/lin1dFSM.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/lin1dFSM.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/lin1dFSM.c$(DependSuffix): lin1dFSM.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/lin1dFSM.c$(ObjectSuffix) -MF$(IntermediateDirectory)/lin1dFSM.c$(DependSuffix) -MM "lin1dFSM.c"
+$(IntermediateDirectory)/src_ProjectFunctions.c$(ObjectSuffix): src/ProjectFunctions.c $(IntermediateDirectory)/src_ProjectFunctions.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/pi/dev/lin1d/src/ProjectFunctions.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_ProjectFunctions.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_ProjectFunctions.c$(DependSuffix): src/ProjectFunctions.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_ProjectFunctions.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_ProjectFunctions.c$(DependSuffix) -MM "src/ProjectFunctions.c"
 
-$(IntermediateDirectory)/lin1dFSM.c$(PreprocessSuffix): lin1dFSM.c
-	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/lin1dFSM.c$(PreprocessSuffix) "lin1dFSM.c"
+$(IntermediateDirectory)/src_ProjectFunctions.c$(PreprocessSuffix): src/ProjectFunctions.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_ProjectFunctions.c$(PreprocessSuffix) "src/ProjectFunctions.c"
 
-$(IntermediateDirectory)/lin1dFSM_CI.c$(ObjectSuffix): lin1dFSM_CI.c $(IntermediateDirectory)/lin1dFSM_CI.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/home/est/dev/gatatac/arduino/lin1d/lin1dFSM_CI.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/lin1dFSM_CI.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/lin1dFSM_CI.c$(DependSuffix): lin1dFSM_CI.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/lin1dFSM_CI.c$(ObjectSuffix) -MF$(IntermediateDirectory)/lin1dFSM_CI.c$(DependSuffix) -MM "lin1dFSM_CI.c"
+$(IntermediateDirectory)/src_lin1dFSM.c$(ObjectSuffix): src/lin1dFSM.c $(IntermediateDirectory)/src_lin1dFSM.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/pi/dev/lin1d/src/lin1dFSM.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_lin1dFSM.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_lin1dFSM.c$(DependSuffix): src/lin1dFSM.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_lin1dFSM.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_lin1dFSM.c$(DependSuffix) -MM "src/lin1dFSM.c"
 
-$(IntermediateDirectory)/lin1dFSM_CI.c$(PreprocessSuffix): lin1dFSM_CI.c
-	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/lin1dFSM_CI.c$(PreprocessSuffix) "lin1dFSM_CI.c"
+$(IntermediateDirectory)/src_lin1dFSM.c$(PreprocessSuffix): src/lin1dFSM.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_lin1dFSM.c$(PreprocessSuffix) "src/lin1dFSM.c"
 
-$(IntermediateDirectory)/ProjectFunctions.c$(ObjectSuffix): ProjectFunctions.c $(IntermediateDirectory)/ProjectFunctions.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/home/est/dev/gatatac/arduino/lin1d/ProjectFunctions.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ProjectFunctions.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/ProjectFunctions.c$(DependSuffix): ProjectFunctions.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/ProjectFunctions.c$(ObjectSuffix) -MF$(IntermediateDirectory)/ProjectFunctions.c$(DependSuffix) -MM "ProjectFunctions.c"
+$(IntermediateDirectory)/src_lin1dFSM_CI.c$(ObjectSuffix): src/lin1dFSM_CI.c $(IntermediateDirectory)/src_lin1dFSM_CI.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "/home/pi/dev/lin1d/src/lin1dFSM_CI.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_lin1dFSM_CI.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_lin1dFSM_CI.c$(DependSuffix): src/lin1dFSM_CI.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_lin1dFSM_CI.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_lin1dFSM_CI.c$(DependSuffix) -MM "src/lin1dFSM_CI.c"
 
-$(IntermediateDirectory)/ProjectFunctions.c$(PreprocessSuffix): ProjectFunctions.c
-	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ProjectFunctions.c$(PreprocessSuffix) "ProjectFunctions.c"
+$(IntermediateDirectory)/src_lin1dFSM_CI.c$(PreprocessSuffix): src/lin1dFSM_CI.c
+	@$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_lin1dFSM_CI.c$(PreprocessSuffix) "src/lin1dFSM_CI.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

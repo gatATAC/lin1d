@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="lin1d" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Debug",
@@ -13,29 +16,28 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0005Debug000000000000]]>
-    </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
-  <VirtualDirectory Name="src">
+  <VirtualDirectory Name="prj">
     <File Name="maincl.cpp"/>
-    <File Name="DRE.c"/>
-    <File Name="DummyFunctions.c"/>
-    <File Name="lin1dFSM.c"/>
-    <File Name="lin1dFSM_CI.c"/>
     <File Name="maincb.cpp" ExcludeProjConfig="Debug"/>
     <File Name="mainnb.cpp" ExcludeProjConfig="Debug"/>
-    <File Name="ProjectFunctions.c"/>
-    <File Name="DRE.h"/>
-    <File Name="DummyFunctions.h"/>
-    <File Name="DummyTypes.h"/>
-    <File Name="lin1dFSM.h"/>
-    <File Name="lin1dFSM_CI.h"/>
-    <File Name="ProjectFlows.h"/>
-    <File Name="ProjectFunctions.h"/>
-    <File Name="ProjectTypes.h"/>
+    <VirtualDirectory Name="src">
+      <File Name="src/DRE.c"/>
+      <File Name="src/DRE.h"/>
+      <File Name="src/DummyFunctions.c"/>
+      <File Name="src/DummyFunctions.h"/>
+      <File Name="src/DummyTypes.h"/>
+      <File Name="src/ProjectFlows.h"/>
+      <File Name="src/ProjectFunctions.c"/>
+      <File Name="src/ProjectFunctions.h"/>
+      <File Name="src/ProjectTypes.h"/>
+      <File Name="src/lin1dFSM.c"/>
+      <File Name="src/lin1dFSM.h"/>
+      <File Name="src/lin1dFSM_CI.c"/>
+      <File Name="src/lin1dFSM_CI.h"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
