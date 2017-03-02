@@ -33,3 +33,4 @@ bin
 *.app
 /build
 /dist
+/Debug
