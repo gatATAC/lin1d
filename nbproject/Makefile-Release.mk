@@ -28,19 +28,19 @@ CND_DISTDIR=dist
 CND_BUILDDIR=build
 
 # Include project Makefile
-include Makefile
+include nb-Makefile.mk
 
 # Object Directory
 OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/DRE.o \
-	${OBJECTDIR}/DummyFunctions.o \
-	${OBJECTDIR}/ProjectFunctions.o \
-	${OBJECTDIR}/lin1dFSM.o \
-	${OBJECTDIR}/lin1dFSM_CI.o \
-	${OBJECTDIR}/mainnb.o
+	${OBJECTDIR}/mainnb.o \
+	${OBJECTDIR}/src/DRE.o \
+	${OBJECTDIR}/src/DummyFunctions.o \
+	${OBJECTDIR}/src/ProjectFunctions.o \
+	${OBJECTDIR}/src/lin1dFSM.o \
+	${OBJECTDIR}/src/lin1dFSM_CI.o
 
 
 # C Compiler Flags
@@ -67,35 +67,35 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/DRE.o: DRE.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DRE.o DRE.c
-
-${OBJECTDIR}/DummyFunctions.o: DummyFunctions.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DummyFunctions.o DummyFunctions.c
-
-${OBJECTDIR}/ProjectFunctions.o: ProjectFunctions.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProjectFunctions.o ProjectFunctions.c
-
-${OBJECTDIR}/lin1dFSM.o: lin1dFSM.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/lin1dFSM.o lin1dFSM.c
-
-${OBJECTDIR}/lin1dFSM_CI.o: lin1dFSM_CI.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/lin1dFSM_CI.o lin1dFSM_CI.c
-
 ${OBJECTDIR}/mainnb.o: mainnb.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
+
+${OBJECTDIR}/src/DRE.o: src/DRE.c 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DRE.o src/DRE.c
+
+${OBJECTDIR}/src/DummyFunctions.o: src/DummyFunctions.c 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DummyFunctions.o src/DummyFunctions.c
+
+${OBJECTDIR}/src/ProjectFunctions.o: src/ProjectFunctions.c 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.c
+
+${OBJECTDIR}/src/lin1dFSM.o: src/lin1dFSM.c 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM.o src/lin1dFSM.c
+
+${OBJECTDIR}/src/lin1dFSM_CI.o: src/lin1dFSM_CI.c 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM_CI.o src/lin1dFSM_CI.c
 
 # Subprojects
 .build-subprojects:

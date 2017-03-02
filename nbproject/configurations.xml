@@ -4,14 +4,16 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>DRE.h</itemPath>
-      <itemPath>DummyFunctions.h</itemPath>
-      <itemPath>DummyTypes.h</itemPath>
-      <itemPath>ProjectFlows.h</itemPath>
-      <itemPath>ProjectFunctions.h</itemPath>
-      <itemPath>ProjectTypes.h</itemPath>
-      <itemPath>lin1dFSM.h</itemPath>
-      <itemPath>lin1dFSM_CI.h</itemPath>
+      <logicalFolder name="f1" displayName="src" projectFiles="true">
+        <itemPath>src/DRE.h</itemPath>
+        <itemPath>src/DummyFunctions.h</itemPath>
+        <itemPath>src/DummyTypes.h</itemPath>
+        <itemPath>src/ProjectFlows.h</itemPath>
+        <itemPath>src/ProjectFunctions.h</itemPath>
+        <itemPath>src/ProjectTypes.h</itemPath>
+        <itemPath>src/lin1dFSM.h</itemPath>
+        <itemPath>src/lin1dFSM_CI.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -20,12 +22,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="embedded" projectFiles="true">
-        <itemPath>DRE.c</itemPath>
-        <itemPath>DummyFunctions.c</itemPath>
-        <itemPath>ProjectFunctions.c</itemPath>
-        <itemPath>lin1dFSM.c</itemPath>
-        <itemPath>lin1dFSM_CI.c</itemPath>
+      <logicalFolder name="f1" displayName="src" projectFiles="true">
+        <itemPath>src/DRE.c</itemPath>
+        <itemPath>src/DummyFunctions.c</itemPath>
+        <itemPath>src/ProjectFunctions.c</itemPath>
+        <itemPath>src/lin1dFSM.c</itemPath>
+        <itemPath>src/lin1dFSM_CI.c</itemPath>
       </logicalFolder>
       <itemPath>mainnb.cpp</itemPath>
     </logicalFolder>
@@ -38,14 +40,16 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>Makefile</itemPath>
+      <itemPath>fsm/Lin1D.cdp</itemPath>
+      <itemPath>fsm/Lin1D.xcos</itemPath>
+      <itemPath>nb-Makefile.mk</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <projectmakefile>Makefile</projectmakefile>
+  <projectmakefile>nb-Makefile.mk</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -56,33 +60,33 @@
           </preprocessorList>
         </cTool>
       </compileType>
-      <item path="DRE.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="DRE.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="DummyFunctions.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="DummyFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="DummyTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProjectFlows.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProjectFunctions.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="ProjectFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProjectTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lin1dFSM.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="lin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lin1dFSM_CI.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DRE.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/DummyFunctions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/DummyFunctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/DummyTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFunctions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM_CI.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -105,33 +109,33 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="DRE.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="DRE.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="DummyFunctions.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="DummyFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="DummyTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProjectFlows.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProjectFunctions.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="ProjectFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProjectTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lin1dFSM.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="lin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="lin1dFSM_CI.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DRE.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/DummyFunctions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/DummyFunctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/DummyTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFunctions.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM_CI.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

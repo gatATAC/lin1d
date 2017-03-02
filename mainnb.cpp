@@ -5,10 +5,10 @@
  */
 
 /* 
- * File:   mainnb.cpp
+ * File:   main.cpp
  * Author: txinto
  *
- * Created on 2 de marzo de 2017, 16:03
+ * Created on 2 de marzo de 2017, 18:54
  */
 
 #include <cstdlib>
