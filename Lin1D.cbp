@@ -34,6 +34,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="fsm/Lin1D.cdp" />
+		<Unit filename="fsm/Lin1D.xcos" />
 		<Unit filename="maincb.cpp" />
 		<Unit filename="maincl.cpp">
 			<Option compile="0" />
@@ -69,6 +70,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
