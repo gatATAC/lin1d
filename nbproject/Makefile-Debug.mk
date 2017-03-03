@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/mainnb.o \
 	${OBJECTDIR}/src/DRE.o \
-	${OBJECTDIR}/src/DummyFunctions.o \
 	${OBJECTDIR}/src/ProjectFunctions.o \
 	${OBJECTDIR}/src/lin1dFSM.o \
 	${OBJECTDIR}/src/lin1dFSM_CI.o
@@ -70,32 +69,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe: ${OBJECTFILES}
 ${OBJECTDIR}/mainnb.o: mainnb.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
 
-${OBJECTDIR}/src/DRE.o: src/DRE.c 
+${OBJECTDIR}/src/DRE.o: src/DRE.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -DDUMMY_COMPILATION -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DRE.o src/DRE.c
+	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DRE.o src/DRE.cpp
 
-${OBJECTDIR}/src/DummyFunctions.o: src/DummyFunctions.c 
+${OBJECTDIR}/src/ProjectFunctions.o: src/ProjectFunctions.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -DDUMMY_COMPILATION -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DummyFunctions.o src/DummyFunctions.c
+	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.cpp
 
-${OBJECTDIR}/src/ProjectFunctions.o: src/ProjectFunctions.c 
+${OBJECTDIR}/src/lin1dFSM.o: src/lin1dFSM.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -DDUMMY_COMPILATION -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.c
+	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM.o src/lin1dFSM.cpp
 
-${OBJECTDIR}/src/lin1dFSM.o: src/lin1dFSM.c 
+${OBJECTDIR}/src/lin1dFSM_CI.o: src/lin1dFSM_CI.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -DDUMMY_COMPILATION -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM.o src/lin1dFSM.c
-
-${OBJECTDIR}/src/lin1dFSM_CI.o: src/lin1dFSM_CI.c 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.c) -g -DDUMMY_COMPILATION -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM_CI.o src/lin1dFSM_CI.c
+	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM_CI.o src/lin1dFSM_CI.cpp
 
 # Subprojects
 .build-subprojects:

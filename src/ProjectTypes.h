@@ -1,9 +1,7 @@
 #ifndef _PROJECT_TYPES
 #define _PROJECT_TYPES
 
-#ifdef DUMMY_COMPILATION
-#include "DummyTypes.h"
-#endif
+#include <Arduino.h>
 
 typedef uint8_t BOOL;
 typedef uint8_t t_upreqacq;

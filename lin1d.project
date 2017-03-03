@@ -24,19 +24,16 @@
     <File Name="maincb.cpp" ExcludeProjConfig="Debug"/>
     <File Name="mainnb.cpp" ExcludeProjConfig="Debug"/>
     <VirtualDirectory Name="src">
-      <File Name="src/DRE.c"/>
+      <File Name="src/DRE.cpp"/>
       <File Name="src/DRE.h"/>
-      <File Name="src/DummyFunctions.c"/>
-      <File Name="src/DummyFunctions.h"/>
-      <File Name="src/DummyTypes.h"/>
+      <File Name="src/lin1dFSM.cpp"/>
+      <File Name="src/lin1dFSM.h"/>
+      <File Name="src/lin1dFSM_CI.cpp"/>
+      <File Name="src/lin1dFSM_CI.h"/>
       <File Name="src/ProjectFlows.h"/>
-      <File Name="src/ProjectFunctions.c"/>
+      <File Name="src/ProjectFunctions.cpp"/>
       <File Name="src/ProjectFunctions.h"/>
       <File Name="src/ProjectTypes.h"/>
-      <File Name="src/lin1dFSM.c"/>
-      <File Name="src/lin1dFSM.h"/>
-      <File Name="src/lin1dFSM_CI.c"/>
-      <File Name="src/lin1dFSM_CI.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
   <Settings Type="Executable">
@@ -51,8 +48,8 @@
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="Cross GCC ( x86_64-pc-cygwin )" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
       <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
-        <IncludePath Value="."/>
-        <Preprocessor Value="DUMMY_COMPILATION"/>
+        <IncludePath Value="../dummylib"/>
+        <IncludePath Value="../libraries/gatArduinOSEK"/>
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>

@@ -32,6 +32,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="../dummylib" />
+			<Add directory="../libraries/gatArduinOSEK" />
 		</Compiler>
 		<Unit filename="fsm/Lin1D.cdp" />
 		<Unit filename="fsm/Lin1D.xcos" />
@@ -44,28 +46,15 @@
 			<Option compile="0" />
 			<Option link="0" />
 		</Unit>
-		<Unit filename="src/DRE.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="src/DRE.cpp" />
 		<Unit filename="src/DRE.h" />
-		<Unit filename="src/DummyFunctions.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src/DummyFunctions.h" />
-		<Unit filename="src/DummyTypes.h" />
 		<Unit filename="src/ProjectFlows.h" />
-		<Unit filename="src/ProjectFunctions.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="src/ProjectFunctions.cpp" />
 		<Unit filename="src/ProjectFunctions.h" />
 		<Unit filename="src/ProjectTypes.h" />
-		<Unit filename="src/lin1dFSM.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="src/lin1dFSM.cpp" />
 		<Unit filename="src/lin1dFSM.h" />
-		<Unit filename="src/lin1dFSM_CI.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="src/lin1dFSM_CI.cpp" />
 		<Unit filename="src/lin1dFSM_CI.h" />
 		<Extensions>
 			<code_completion />
