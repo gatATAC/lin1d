@@ -88,20 +88,20 @@
 
 1488558135 e:\txinto\cvs\gatatac\arduino\dummylib\dummytypes.h
 
-1488558053 e:\txinto\cvs\gatatac\arduino\dummylib\serialclass.h
+1488798670 e:\txinto\cvs\gatatac\arduino\dummylib\serialclass.h
 	<stdio.h>
 	<stdlib.h>
 
 1488559323 e:\txinto\cvs\gatatac\arduino\dummylib\dummyfunctions.h
 
-1488480285 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\dre.cpp
+1488784208 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\dre.cpp
 	"DRE.h"
 
-1488480285 e:\txinto\cvs\gatatac\arduino\lin1d\src\dre.h
+1488784208 e:\txinto\cvs\gatatac\arduino\lin1d\src\dre.h
 	"ProjectTypes.h"
 	"ProjectFlows.h"
 
-1488558791 e:\txinto\cvs\gatatac\arduino\lin1d\src\projecttypes.h
+1488785101 e:\txinto\cvs\gatatac\arduino\lin1d\src\projecttypes.h
 	<Arduino.h>
 
 1488480285 e:\txinto\cvs\gatatac\arduino\lin1d\src\projectflows.h
@@ -111,23 +111,81 @@
 1488480285 e:\txinto\cvs\gatatac\arduino\lin1d\src\projectfunctions.h
 	"DummyFunctions.h"
 
-1488480285 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm.cpp
+1488785427 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm.cpp
 	"lin1dFSM.h"
-
-1488480285 e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm.h
-	"lin1dFSM_CI.h"
-
-1488480285 e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm_ci.h
-	<stdio.h>
-	<stdlib.h>
-	"ProjectTypes.h"
 	"DRE.h"
 
-1488480285 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm_ci.cpp
+1488784208 e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm.h
+	"lin1dFSM_CI.h"
+
+1488785410 e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm_ci.h
+	<stdio.h>
+	<stdlib.h>
+
+1488784208 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\lin1dfsm_ci.cpp
 	"lin1dFSM_CI.h"
 
 1488480285 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\projectfunctions.cpp
 
-1487576001 source:e:\txinto\cvs\gatatac\arduino\lin1d\maincb.cpp
+1488784208 source:e:\txinto\cvs\gatatac\arduino\lin1d\maincb.cpp
 	<iostream>
+
+1488784208 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_pinout.cpp
+	"gttc_types.h"
+	"prj_cfg.h"
+	"prj_pinout.h"
+	<Arduino.h>
+	<TM1638.h>
+
+1488558696 e:\txinto\cvs\gatatac\arduino\libraries\gatarduinosek\gttc_types.h
+	<Arduino.h>
+
+1488784208 e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_cfg.h
+
+1488784208 e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_pinout.h
+	<gttc_types.h>
+	"prj_input.h"
+	"prj_output.h"
+
+1488784208 e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_input.h
+
+1488784208 e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_output.h
+
+1488798323 e:\txinto\cvs\gatatac\arduino\dummylib\tm1638.h
+	"Arduino.h"
+	"TM16XX.h"
+	"TM16XXFonts.h"
+
+1488798524 e:\txinto\cvs\gatatac\arduino\dummylib\tm16xx.h
+	"Arduino.h"
+	<string>
+	"TM16XXFonts.h"
+
+1486485401 e:\txinto\cvs\gatatac\arduino\dummylib\tm16xxfonts.h
+
+1488784208 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_input.cpp
+	"prj_cfg.h"
+	"prj_input.h"
+	"prj_pinout.h"
+	"DRE.h"
+	<Arduino.h>
+	<TM1638.h>
+
+1488784208 source:e:\txinto\cvs\gatatac\arduino\lin1d\src\prj_output.cpp
+	"gttc_timer.h"
+	"prj_cfg.h"
+	"prj_output.h"
+	"prj_pinout.h"
+	"DRE.h"
+	<Arduino.h>
+	<TM1638.h>
+	<AccelStepper.h>
+
+1460635984 e:\txinto\cvs\gatatac\arduino\libraries\gatarduinosek\gttc_timer.h
+	"gttc_types.h"
+
+1488559491 e:\txinto\cvs\gatatac\arduino\dummylib\accelstepper.h
+	<stdlib.h>
+	<Arduino.h>
+	"DummyTypes.h"
 

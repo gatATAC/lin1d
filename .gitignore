@@ -39,3 +39,10 @@ bin
 /.codelite/refactoring.db
 /lin1d.mk
 /lin1d.txt
+/lib
+/.pioenvs
+/.piolibdeps
+/.clang_complete
+/.gcc-flags.json
+/.travis.yml
+/nbproject/private

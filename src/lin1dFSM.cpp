@@ -2,6 +2,43 @@
 #include "lin1dFSM.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
+#include "DRE.h"
+
+extern t_dre dre;
+
+#define upReqAcq (dre.upReqAcq)
+#define downReqAcq (dre.downReqAcq)
+#define upReqDI (dre.upReqDI)
+#define downReqDI (dre.downReqDI)
+#define posMode (dre.posMode)
+#define actAction (dre.actAction)
+#define pwmActAction (dre.pwmActAction)
+#define doDirFw (dre.doDirFw)
+#define doDirBw (dre.doDirBw)
+#define actEnable (dre.actEnable)
+#define actDirection (dre.actDirection)
+#define rectifiedActAction (dre.rectifiedActAction)
+#define rectifiedActDirection (dre.rectifiedActDirection)
+#define loadPosAcq (dre.loadPosAcq)
+#define appliedActDirection (dre.appliedActDirection)
+#define actDrvTimer (dre.actDrvTimer)
+#define loadPosAI (dre.loadPosAI)
+#define upButTimer (dre.upButTimer)
+#define downButTimer (dre.downButTimer)
+#define loadPosUpSwchDI (dre.loadPosUpSwchDI)
+#define loadPosDownSwchDI (dre.loadPosDownSwchDI)
+#define posAchieved (dre.posAchieved)
+#define ctrlError (dre.ctrlError)
+#define driveCurrentAI (dre.driveCurrentAI)
+#define driveCurrentAcq (dre.driveCurrentAcq)
+#define currentError (dre.currentError)
+#define brokenChainError (dre.brokenChainError)
+#define stuckActError (dre.stuckActError)
+#define loadPosUpSwchAcq (dre.loadPosUpSwchAcq)
+#define loadPosDownSwchAcq (dre.loadPosDownSwchAcq)
+#define upSwitchTimer (dre.upSwitchTimer)
+#define downSwitchTimer (dre.downSwitchTimer)
+
 /* ['ActRectifier' begin (DON'T REMOVE THIS LINE!)] */
 void ActRectifier(  )
 {

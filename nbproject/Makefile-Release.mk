@@ -39,7 +39,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/DRE.o \
 	${OBJECTDIR}/src/ProjectFunctions.o \
 	${OBJECTDIR}/src/lin1dFSM.o \
-	${OBJECTDIR}/src/lin1dFSM_CI.o
+	${OBJECTDIR}/src/lin1dFSM_CI.o \
+	${OBJECTDIR}/src/prj_input.o \
+	${OBJECTDIR}/src/prj_output.o \
+	${OBJECTDIR}/src/prj_pinout.o
 
 
 # C Compiler Flags
@@ -90,6 +93,21 @@ ${OBJECTDIR}/src/lin1dFSM_CI.o: src/lin1dFSM_CI.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM_CI.o src/lin1dFSM_CI.cpp
+
+${OBJECTDIR}/src/prj_input.o: src/prj_input.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_input.o src/prj_input.cpp
+
+${OBJECTDIR}/src/prj_output.o: src/prj_output.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_output.o src/prj_output.cpp
+
+${OBJECTDIR}/src/prj_pinout.o: src/prj_pinout.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_pinout.o src/prj_pinout.cpp
 
 # Subprojects
 .build-subprojects:

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
-
+#ifdef CODEDESIGNER_VARS
 /* ['Common declarations for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Generic code items' declarations */
 extern t_upreqacq upReqAcq;
@@ -38,7 +38,7 @@ extern BOOL loadPosDownSwchAcq;
 extern t_timer upSwitchTimer;
 extern t_timer downSwitchTimer;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
-
+#endif
 /* ['Common declarations for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* State ID data type */
 typedef unsigned long STATE_T;
