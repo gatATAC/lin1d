@@ -3,41 +3,6 @@
 #include <stdlib.h>
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
-#include "ProjectTypes.h"
-#include "DRE.h"
-
-extern t_dre dre;
-
-#define upReqAcq (dre.upReqAcq)
-#define downReqAcq (dre.downReqAcq)
-#define upReqDI (dre.upReqDI)
-#define downReqDI (dre.downReqDI)
-#define posMode (dre.posMode)
-
-#define actAction (dre.actAction)
-#define pwmActAction (dre.pwmActAction)
-#define doDirFw (dre.doDirFw)
-#define doDirBw (dre.doDirBw)
-#define actEnable (dre.actEnable)
-#define actDirection (dre.actDirection)
-#define rectifiedActAction (dre.rectifiedActAction)
-#define rectifiedActDirection (dre.rectifiedActDirection)
-#define appliedActDirection (dre.appliedActDirection)
-#define actDrvTimer (dre.actDrvTimer)
-#define loadPosAI (dre.loadPosAI)
-#define upButTimer (dre.upButTimer)
-#define downButTimer (dre.downButTimer)
-#define loadPosUpSwchAcq (dre.loadPosUpSwchAcq)
-#define loadPosDownSwchAcq (dre.loadPosDownSwchAcq)
-#define posAchieved (dre.posAchieved)
-#define ctrlError (dre.ctrlError)
-#define currentError (dre.currentError)
-#define brokenChainError (dre.brokenChainError)
-#define stuckActError (dre.stuckActError)
-
-
-#ifdef CODEDESIGNER_VARS
-
 /* ['Common declarations for 'Code items generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Generic code items' declarations */
 extern t_upreqacq upReqAcq;
@@ -70,9 +35,9 @@ extern BOOL brokenChainError;
 extern BOOL stuckActError;
 extern BOOL loadPosUpSwchAcq;
 extern BOOL loadPosDownSwchAcq;
+extern t_timer upSwitchTimer;
+extern t_timer downSwitchTimer;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
-
-#endif // CODEDESIGNER_VARS
 
 /* ['Common declarations for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* State ID data type */

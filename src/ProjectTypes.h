@@ -17,6 +17,9 @@ typedef uint8_t t_appliedactdirection;
 typedef uint32_t t_timer;
 typedef uint16_t t_drivecurrentacq;
 
+#define TRUE (1==1)
+#define FALSE (1==0)
+
 #define CFG_ACT_DIRECTION_QUIET 0
 #define CFG_ACT_DIRECTION_FW 1
 #define CFG_ACT_DIRECTION_BW 2

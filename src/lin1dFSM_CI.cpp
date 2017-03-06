@@ -35,8 +35,10 @@ BOOL brokenChainError;
 BOOL stuckActError;
 BOOL loadPosUpSwchAcq;
 BOOL loadPosDownSwchAcq;
+t_timer upSwitchTimer;
+t_timer downSwitchTimer;
 /* ['Common definitions for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
- #endif // CODEDESIGNER_VARS
+#endif // CODEDESIGNER_VARS
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Code items' definitions */
 /* ['Common definitions for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */

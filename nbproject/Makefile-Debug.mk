@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-Linux-x86
+CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -39,7 +39,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/DRE.o \
 	${OBJECTDIR}/src/ProjectFunctions.o \
 	${OBJECTDIR}/src/lin1dFSM.o \
-	${OBJECTDIR}/src/lin1dFSM_CI.o
+	${OBJECTDIR}/src/lin1dFSM_CI.o \
+	${OBJECTDIR}/src/prj_input.o \
+	${OBJECTDIR}/src/prj_output.o \
+	${OBJECTDIR}/src/prj_pinout.o
 
 
 # C Compiler Flags
@@ -60,9 +63,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -91,13 +94,28 @@ ${OBJECTDIR}/src/lin1dFSM_CI.o: src/lin1dFSM_CI.cpp
 	${RM} "$@.d"
 	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM_CI.o src/lin1dFSM_CI.cpp
 
+${OBJECTDIR}/src/prj_input.o: src/prj_input.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_input.o src/prj_input.cpp
+
+${OBJECTDIR}/src/prj_output.o: src/prj_output.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_output.o src/prj_output.cpp
+
+${OBJECTDIR}/src/prj_pinout.o: src/prj_pinout.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_pinout.o src/prj_pinout.cpp
+
 # Subprojects
 .build-subprojects:
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d
 
 # Subprojects
 .clean-subprojects:
