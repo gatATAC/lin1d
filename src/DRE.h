@@ -4,125 +4,191 @@
 #include "ProjectTypes.h"
 #include "ProjectFlows.h"
 
+
 typedef struct {
-    // Button -- Does not need declaration upReq;
-    // Button -- Does not need declaration downReq;
-    // Position -- Does not need declaration loadPos;
-    t_upreqacq upReqAcq;
-    t_downreqacq downReqAcq;
-    BOOL upReqDI;
-    BOOL downReqDI;
-    t_posmode posMode;
-    t_actaction actAction;
-    t_pwm pwmActAction;
-    BOOL doDirFw;
-    BOOL doDirBw;
-    t_actenable actEnable;
-    t_actdirection actDirection;
-    t_pwm_duty rectifiedActAction;
-    t_rectifiedactdirection rectifiedActDirection;
-    uint16_t loadPosAcq;
-    t_appliedactdirection appliedActDirection;
-    t_timer actDrvTimer;
-    // Power -- Does not need declaration loadTorque;
-    // Power -- Does not need declaration actPosPow;
-    // Power -- Does not need declaration actNegPow;
-    uint16_t loadPosAI;
-    t_timer upButTimer;
-    t_timer downButTimer;
-    // Switch -- Does not need declaration loadPosUpSwch;
-    // Switch -- Does not need declaration loadPosDownSwch;
-    BOOL loadPosUpSwchDI;
-    BOOL loadPosDownSwchDI;
-    BOOL posAchieved;
-    BOOL ctrlError;
-    // Current -- Does not need declaration driveCurrent;
-    uint16_t driveCurrentAI;
-    t_drivecurrentacq driveCurrentAcq;
-    BOOL currentError;
-    BOOL brokenChainError;
-    BOOL stuckActError;
-    BOOL loadPosUpSwchAcq;
-    BOOL loadPosDownSwchAcq;
-    t_timer upSwitchTimer;
-    t_timer downSwitchTimer;
+// Button -- Does not need declaration upReq;
+// Button -- Does not need declaration downReq;
+// Position -- Does not need declaration loadPos;
+t_upreqacq upReqAcq;
+t_downreqacq downReqAcq;
+BOOL upReqDI;
+BOOL downReqDI;
+t_posmode posMode;
+t_actaction actAction;
+t_pwm pwmActAction;
+BOOL doDirFw;
+BOOL doDirBw;
+t_actenable actEnable;
+t_actdirection actDirection;
+t_pwm_duty rectifiedActAction;
+t_rectifiedactdirection rectifiedActDirection;
+uint16_t loadPosAcq;
+t_appliedactdirection appliedActDirection;
+t_timer actDrvTimer;
+// Power -- Does not need declaration loadTorque;
+// Power -- Does not need declaration actPosPow;
+// Power -- Does not need declaration actNegPow;
+uint16_t loadPosAI;
+t_timer upButTimer;
+t_timer downButTimer;
+// Switch -- Does not need declaration loadPosUpSwch;
+// Switch -- Does not need declaration loadPosDownSwch;
+BOOL loadPosUpSwchDI;
+BOOL loadPosDownSwchDI;
+BOOL posAchieved;
+BOOL ctrlError;
+// Current -- Does not need declaration driveCurrent;
+uint16_t driveCurrentAI;
+t_drivecurrentacq driveCurrentAcq;
+BOOL currentError;
+BOOL brokenChainError;
+BOOL stuckActError;
+BOOL loadPosUpSwchAcq;
+BOOL loadPosDownSwchAcq;
+t_timer upSwitchTimer;
+t_timer downSwitchTimer;
+// Button -- Does not need declaration hmibut0;
+// Button -- Does not need declaration hmibut1;
+// Button -- Does not need declaration hmibut2;
+// Button -- Does not need declaration hmibut3;
+// Button -- Does not need declaration hmibut4;
+// Button -- Does not need declaration hmibut5;
+// Button -- Does not need declaration hmibut6;
+// Button -- Does not need declaration hmibut7;
+// LED -- Does not need declaration hmiled0;
+// LED -- Does not need declaration hmiled1;
+// LED -- Does not need declaration hmiled2;
+// LED -- Does not need declaration hmiled3;
+// LED -- Does not need declaration hmiled4;
+// LED -- Does not need declaration hmiled5;
+// LED -- Does not need declaration hmiled6;
+// LED -- Does not need declaration hmiled7;
+// DIGIT -- Does not need declaration hmidigit0;
+// DIGIT -- Does not need declaration hmidigit1;
+// DIGIT -- Does not need declaration hmidigit2;
+// DIGIT -- Does not need declaration hmidigit3;
+// DIGIT -- Does not need declaration hmidigit4;
+// DIGIT -- Does not need declaration hmidigit5;
+// DIGIT -- Does not need declaration hmidigit6;
+// DIGIT -- Does not need declaration hmidigit7;
+BOOL hmidata;
+// Clock -- Does not need declaration hmiclock;
+BOOL hmistrobe;
+t_hmibuttons hmibuttons;
+t_hmileds hmileds;
+t_hmidigits hmidigits;
 
 } t_dre;
 
 typedef struct {
-    // (null) No diag variables for upReq
-    // (null) No diag variables for downReq
-    // (null) No diag variables for loadPos
-    BOOL enable_upReqAcq;
-    t_upreqacq upReqAcq;
-    BOOL enable_downReqAcq;
-    t_downreqacq downReqAcq;
-    BOOL enable_upReqDI;
-    BOOL upReqDI;
-    BOOL enable_downReqDI;
-    BOOL downReqDI;
-    BOOL enable_posMode;
-    t_posmode posMode;
-    BOOL enable_actAction;
-    t_actaction actAction;
-    BOOL enable_pwmActAction;
-    t_pwm pwmActAction;
-    BOOL enable_doDirFw;
-    BOOL doDirFw;
-    BOOL enable_doDirBw;
-    BOOL doDirBw;
-    BOOL enable_actEnable;
-    t_actenable actEnable;
-    BOOL enable_actDirection;
-    t_actdirection actDirection;
-    BOOL enable_rectifiedActAction;
-    t_pwm_duty rectifiedActAction;
-    BOOL enable_rectifiedActDirection;
-    t_rectifiedactdirection rectifiedActDirection;
-    BOOL enable_loadPosAcq;
-    uint16_t loadPosAcq;
-    BOOL enable_appliedActDirection;
-    t_appliedactdirection appliedActDirection;
-    BOOL enable_actDrvTimer;
-    t_timer actDrvTimer;
-    // (null) No diag variables for loadTorque
-    // (null) No diag variables for actPosPow
-    // (null) No diag variables for actNegPow
-    BOOL enable_loadPosAI;
-    uint16_t loadPosAI;
-    BOOL enable_upButTimer;
-    t_timer upButTimer;
-    BOOL enable_downButTimer;
-    t_timer downButTimer;
-    // (null) No diag variables for loadPosUpSwch
-    // (null) No diag variables for loadPosDownSwch
-    BOOL enable_loadPosUpSwchDI;
-    BOOL loadPosUpSwchDI;
-    BOOL enable_loadPosDownSwchDI;
-    BOOL loadPosDownSwchDI;
-    BOOL enable_posAchieved;
-    BOOL posAchieved;
-    BOOL enable_ctrlError;
-    BOOL ctrlError;
-    // (null) No diag variables for driveCurrent
-    BOOL enable_driveCurrentAI;
-    uint16_t driveCurrentAI;
-    BOOL enable_driveCurrentAcq;
-    t_drivecurrentacq driveCurrentAcq;
-    BOOL enable_currentError;
-    BOOL currentError;
-    BOOL enable_brokenChainError;
-    BOOL brokenChainError;
-    BOOL enable_stuckActError;
-    BOOL stuckActError;
-    BOOL enable_loadPosUpSwchAcq;
-    BOOL loadPosUpSwchAcq;
-    BOOL enable_loadPosDownSwchAcq;
-    BOOL loadPosDownSwchAcq;
-    BOOL enable_upSwitchTimer;
-    t_timer upSwitchTimer;
-    BOOL enable_downSwitchTimer;
-    t_timer downSwitchTimer;
+// (null) No diag variables for upReq
+// (null) No diag variables for downReq
+// (null) No diag variables for loadPos
+BOOL enable_upReqAcq;
+t_upreqacq upReqAcq;
+BOOL enable_downReqAcq;
+t_downreqacq downReqAcq;
+BOOL enable_upReqDI;
+BOOL upReqDI;
+BOOL enable_downReqDI;
+BOOL downReqDI;
+BOOL enable_posMode;
+t_posmode posMode;
+BOOL enable_actAction;
+t_actaction actAction;
+BOOL enable_pwmActAction;
+t_pwm pwmActAction;
+BOOL enable_doDirFw;
+BOOL doDirFw;
+BOOL enable_doDirBw;
+BOOL doDirBw;
+BOOL enable_actEnable;
+t_actenable actEnable;
+BOOL enable_actDirection;
+t_actdirection actDirection;
+BOOL enable_rectifiedActAction;
+t_pwm_duty rectifiedActAction;
+BOOL enable_rectifiedActDirection;
+t_rectifiedactdirection rectifiedActDirection;
+BOOL enable_loadPosAcq;
+uint16_t loadPosAcq;
+BOOL enable_appliedActDirection;
+t_appliedactdirection appliedActDirection;
+BOOL enable_actDrvTimer;
+t_timer actDrvTimer;
+// (null) No diag variables for loadTorque
+// (null) No diag variables for actPosPow
+// (null) No diag variables for actNegPow
+BOOL enable_loadPosAI;
+uint16_t loadPosAI;
+BOOL enable_upButTimer;
+t_timer upButTimer;
+BOOL enable_downButTimer;
+t_timer downButTimer;
+// (null) No diag variables for loadPosUpSwch
+// (null) No diag variables for loadPosDownSwch
+BOOL enable_loadPosUpSwchDI;
+BOOL loadPosUpSwchDI;
+BOOL enable_loadPosDownSwchDI;
+BOOL loadPosDownSwchDI;
+BOOL enable_posAchieved;
+BOOL posAchieved;
+BOOL enable_ctrlError;
+BOOL ctrlError;
+// (null) No diag variables for driveCurrent
+BOOL enable_driveCurrentAI;
+uint16_t driveCurrentAI;
+BOOL enable_driveCurrentAcq;
+t_drivecurrentacq driveCurrentAcq;
+BOOL enable_currentError;
+BOOL currentError;
+BOOL enable_brokenChainError;
+BOOL brokenChainError;
+BOOL enable_stuckActError;
+BOOL stuckActError;
+BOOL enable_loadPosUpSwchAcq;
+BOOL loadPosUpSwchAcq;
+BOOL enable_loadPosDownSwchAcq;
+BOOL loadPosDownSwchAcq;
+BOOL enable_upSwitchTimer;
+t_timer upSwitchTimer;
+BOOL enable_downSwitchTimer;
+t_timer downSwitchTimer;
+// (null) No diag variables for hmibut0
+// (null) No diag variables for hmibut1
+// (null) No diag variables for hmibut2
+// (null) No diag variables for hmibut3
+// (null) No diag variables for hmibut4
+// (null) No diag variables for hmibut5
+// (null) No diag variables for hmibut6
+// (null) No diag variables for hmibut7
+// (null) No diag variables for hmiled0
+// (null) No diag variables for hmiled1
+// (null) No diag variables for hmiled2
+// (null) No diag variables for hmiled3
+// (null) No diag variables for hmiled4
+// (null) No diag variables for hmiled5
+// (null) No diag variables for hmiled6
+// (null) No diag variables for hmiled7
+// (null) No diag variables for hmidigit0
+// (null) No diag variables for hmidigit1
+// (null) No diag variables for hmidigit2
+// (null) No diag variables for hmidigit3
+// (null) No diag variables for hmidigit4
+// (null) No diag variables for hmidigit5
+// (null) No diag variables for hmidigit6
+// (null) No diag variables for hmidigit7
+BOOL enable_hmidata;
+BOOL hmidata;
+// (null) No diag variables for hmiclock
+BOOL enable_hmistrobe;
+BOOL hmistrobe;
+BOOL enable_hmibuttons;
+t_hmibuttons hmibuttons;
+BOOL enable_hmileds;
+t_hmileds hmileds;
+BOOL enable_hmidigits;
+t_hmidigits hmidigits;
 
 } t_diag;
 
@@ -334,6 +400,156 @@ void setup_loadPosDownSwchDI(void);
 // downSwitchTimer flow synthesis
 // (output disabled for Timer type);
 
+// hmibut0 flow acquisition
+// (setup input disabled for Button type);
+// hmibut0 flow synthesis
+// (output disabled for Button type);
+
+// hmibut1 flow acquisition
+// (setup input disabled for Button type);
+// hmibut1 flow synthesis
+// (output disabled for Button type);
+
+// hmibut2 flow acquisition
+// (setup input disabled for Button type);
+// hmibut2 flow synthesis
+// (output disabled for Button type);
+
+// hmibut3 flow acquisition
+// (setup input disabled for Button type);
+// hmibut3 flow synthesis
+// (output disabled for Button type);
+
+// hmibut4 flow acquisition
+// (setup input disabled for Button type);
+// hmibut4 flow synthesis
+// (output disabled for Button type);
+
+// hmibut5 flow acquisition
+// (setup input disabled for Button type);
+// hmibut5 flow synthesis
+// (output disabled for Button type);
+
+// hmibut6 flow acquisition
+// (setup input disabled for Button type);
+// hmibut6 flow synthesis
+// (output disabled for Button type);
+
+// hmibut7 flow acquisition
+// (setup input disabled for Button type);
+// hmibut7 flow synthesis
+// (output disabled for Button type);
+
+// hmiled0 flow acquisition
+// (setup input disabled for LED type);
+// hmiled0 flow synthesis
+// (output disabled for LED type);
+
+// hmiled1 flow acquisition
+// (setup input disabled for LED type);
+// hmiled1 flow synthesis
+// (output disabled for LED type);
+
+// hmiled2 flow acquisition
+// (setup input disabled for LED type);
+// hmiled2 flow synthesis
+// (output disabled for LED type);
+
+// hmiled3 flow acquisition
+// (setup input disabled for LED type);
+// hmiled3 flow synthesis
+// (output disabled for LED type);
+
+// hmiled4 flow acquisition
+// (setup input disabled for LED type);
+// hmiled4 flow synthesis
+// (output disabled for LED type);
+
+// hmiled5 flow acquisition
+// (setup input disabled for LED type);
+// hmiled5 flow synthesis
+// (output disabled for LED type);
+
+// hmiled6 flow acquisition
+// (setup input disabled for LED type);
+// hmiled6 flow synthesis
+// (output disabled for LED type);
+
+// hmiled7 flow acquisition
+// (setup input disabled for LED type);
+// hmiled7 flow synthesis
+// (output disabled for LED type);
+
+// hmidigit0 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit0 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit1 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit1 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit2 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit2 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit3 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit3 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit4 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit4 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit5 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit5 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit6 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit6 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit7 flow acquisition
+// (setup input disabled for DIGIT type);
+// hmidigit7 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidata flow acquisition
+void setup_hmidata_input(void);
+// hmidata flow synthesis
+void setup_hmidata_output(void);
+
+// hmiclock flow acquisition
+// (setup input disabled for Clock type);
+// hmiclock flow synthesis
+// (output disabled for Clock type);
+
+// hmistrobe flow acquisition
+void setup_hmistrobe_input(void);
+// hmistrobe flow synthesis
+void setup_hmistrobe_output(void);
+
+// hmibuttons flow acquisition
+// (setup input disabled for Variable type);
+// hmibuttons flow synthesis
+// (output disabled for Variable type);
+
+// hmileds flow acquisition
+// (setup input disabled for Variable type);
+// hmileds flow synthesis
+// (output disabled for Variable type);
+
+// hmidigits flow acquisition
+// (setup input disabled for Variable type);
+// hmidigits flow synthesis
+// (output disabled for Variable type);
+
 // Input / Output functions
 
 
@@ -541,5 +757,155 @@ uint16_t acquire_driveCurrentAI(void);
 // (input disabled for Timer type);
 // downSwitchTimer flow synthesis
 // (output disabled for Timer type);
+
+// hmibut0 flow acquisition
+// (input disabled for Button type);
+// hmibut0 flow synthesis
+// (output disabled for Button type);
+
+// hmibut1 flow acquisition
+// (input disabled for Button type);
+// hmibut1 flow synthesis
+// (output disabled for Button type);
+
+// hmibut2 flow acquisition
+// (input disabled for Button type);
+// hmibut2 flow synthesis
+// (output disabled for Button type);
+
+// hmibut3 flow acquisition
+// (input disabled for Button type);
+// hmibut3 flow synthesis
+// (output disabled for Button type);
+
+// hmibut4 flow acquisition
+// (input disabled for Button type);
+// hmibut4 flow synthesis
+// (output disabled for Button type);
+
+// hmibut5 flow acquisition
+// (input disabled for Button type);
+// hmibut5 flow synthesis
+// (output disabled for Button type);
+
+// hmibut6 flow acquisition
+// (input disabled for Button type);
+// hmibut6 flow synthesis
+// (output disabled for Button type);
+
+// hmibut7 flow acquisition
+// (input disabled for Button type);
+// hmibut7 flow synthesis
+// (output disabled for Button type);
+
+// hmiled0 flow acquisition
+// (input disabled for LED type);
+// hmiled0 flow synthesis
+// (output disabled for LED type);
+
+// hmiled1 flow acquisition
+// (input disabled for LED type);
+// hmiled1 flow synthesis
+// (output disabled for LED type);
+
+// hmiled2 flow acquisition
+// (input disabled for LED type);
+// hmiled2 flow synthesis
+// (output disabled for LED type);
+
+// hmiled3 flow acquisition
+// (input disabled for LED type);
+// hmiled3 flow synthesis
+// (output disabled for LED type);
+
+// hmiled4 flow acquisition
+// (input disabled for LED type);
+// hmiled4 flow synthesis
+// (output disabled for LED type);
+
+// hmiled5 flow acquisition
+// (input disabled for LED type);
+// hmiled5 flow synthesis
+// (output disabled for LED type);
+
+// hmiled6 flow acquisition
+// (input disabled for LED type);
+// hmiled6 flow synthesis
+// (output disabled for LED type);
+
+// hmiled7 flow acquisition
+// (input disabled for LED type);
+// hmiled7 flow synthesis
+// (output disabled for LED type);
+
+// hmidigit0 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit0 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit1 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit1 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit2 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit2 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit3 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit3 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit4 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit4 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit5 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit5 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit6 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit6 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidigit7 flow acquisition
+// (input disabled for DIGIT type);
+// hmidigit7 flow synthesis
+// (output disabled for DIGIT type);
+
+// hmidata flow acquisition
+BOOL adquirir_hmidata(void);
+// hmidata flow synthesis
+void sintetizar_hmidata(BOOL valor);
+
+// hmiclock flow acquisition
+// (input disabled for Clock type);
+// hmiclock flow synthesis
+// (output disabled for Clock type);
+
+// hmistrobe flow acquisition
+BOOL adquirir_hmistrobe(void);
+// hmistrobe flow synthesis
+void sintetizar_hmistrobe(BOOL valor);
+
+// hmibuttons flow acquisition
+// (input disabled for Variable type);
+// hmibuttons flow synthesis
+// (output disabled for Variable type);
+
+// hmileds flow acquisition
+// (input disabled for Variable type);
+// hmileds flow synthesis
+// (output disabled for Variable type);
+
+// hmidigits flow acquisition
+// (input disabled for Variable type);
+// hmidigits flow synthesis
+// (output disabled for Variable type);
 
 #endif /* _DRE_H */

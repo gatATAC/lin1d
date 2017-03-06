@@ -37,6 +37,11 @@ BOOL loadPosUpSwchAcq;
 BOOL loadPosDownSwchAcq;
 t_timer upSwitchTimer;
 t_timer downSwitchTimer;
+BOOL hmidata;
+BOOL hmistrobe;
+t_hmibuttons hmibuttons;
+t_hmileds hmileds;
+t_hmidigits hmidigits;
 /* ['Common definitions for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
 #endif // CODEDESIGNER_VARS
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */

@@ -37,6 +37,11 @@ extern BOOL loadPosUpSwchAcq;
 extern BOOL loadPosDownSwchAcq;
 extern t_timer upSwitchTimer;
 extern t_timer downSwitchTimer;
+extern BOOL hmidata;
+extern BOOL hmistrobe;
+extern t_hmibuttons hmibuttons;
+extern t_hmileds hmileds;
+extern t_hmidigits hmidigits;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
 #endif
 /* ['Common declarations for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */

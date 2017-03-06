@@ -3,6 +3,7 @@
 
 #include "ProjectTypes.h"
 #include "ProjectFunctions.h"
+#include "prj_cfg.h"
 
 #define PORT_upReqDI 0
 #define PORT_downReqDI 1

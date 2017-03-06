@@ -12,7 +12,7 @@
 //// Status LED
 #define CFG_LED_STATUS 13
 
-//// End of career switches 
+//// End of career switches
 #define CFG_ENDSWITCH_1_PIN 20
 #define CFG_ENDSWITCH_2_PIN 21
 
@@ -24,6 +24,8 @@
 #define CFG_TM1638_DATA_PIN 8
 #define CFG_TM1638_CLOCK_PIN 9
 #define CFG_TM1638_STROBE_PIN 10
+#define PORT_hmidata CFG_TM1638_DATA_PIN
+#define PORT_hmistrobe CFG_TM1638_STROBE_PIN
 
 //// DC MOTOR CONTROL
 //#define CFG_USE_MOTORCTRL 1
@@ -66,5 +68,8 @@
 #define CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR (0.438)  // 0.3 para zapp  // 0.6 - 2 para Sanyo Denki La fuente a 5V 2.4A  // 2 para nanotec (grande) // 2 para minebea
 #define CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET (50.0)  // 550.0 para zapp // 860 para Sanyo Denki  // 400 para nanotec (grande) // 900 para minebea // 550.0 para zapp nema 17
 #endif
+
+
+
 
 #endif /* _PRJ_CFG_H */

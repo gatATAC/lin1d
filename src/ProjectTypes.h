@@ -16,6 +16,9 @@ typedef uint8_t t_rectifiedactdirection;
 typedef uint8_t t_appliedactdirection;
 typedef uint32_t t_timer;
 typedef uint16_t t_drivecurrentacq;
+typedef byte t_hmibuttons;
+typedef word t_hmileds;
+typedef unsigned long t_hmidigits;
 
 #define TRUE (1==1)
 #define FALSE (1==0)
@@ -31,6 +34,9 @@ typedef uint16_t t_drivecurrentacq;
 #define CFG_DWN_BUT_PRESS_TIMER 50
 #define CFG_UP_BUT_UNPRESS_TIMER 50
 #define CFG_DWN_BUT_UNPRESS_TIMER 50
+
+#define CFG_BUTACQ_HMI_UP_MASK (1<<7)
+#define CFG_BUTACQ_HMI_DOWN_MASK (1<<0)
 
 #define CFG_UP_SWITCH_DETECT_TIMER 10
 #define CFG_DOWN_SWITCH_DETECT_TIMER 10
