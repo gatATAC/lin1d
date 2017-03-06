@@ -10,9 +10,9 @@ void pinoutInit(void) {
 
     uint8_t i;
 
-    pinMode(CFG_ENDSWITCH_1_PIN, INPUT_PULLUP);
+    pinMode(PORT_loadPosUpSwchDI, INPUT_PULLUP);
 
-    pinMode(CFG_ENDSWITCH_2_PIN, INPUT_PULLUP);
+    pinMode(PORT_loadPosDownSwchDI, INPUT_PULLUP);
 
     pinMode(CFG_SLIDER_DTA_PIN, INPUT);
     pinMode(CFG_SLIDER_DTB_PIN, INPUT);
@@ -21,10 +21,12 @@ void pinoutInit(void) {
 
 #ifdef CFG_USE_MOTORCTRL
 
-    analogWriteFrequency(CFG_MOTORCTRL_PWM_PIN, CFG_MOTORCTRL_FREQUENCY);
-    pinMode(CFG_MOTORCTRL_PWM_PIN, OUTPUT);
-    pinMode(CFG_MOTORCTRL_IN3_PIN, OUTPUT);
-    pinMode(CFG_MOTORCTRL_IN4_PIN, OUTPUT);
+    analogWriteFrequency(PORT_pwmActAction, CFG_MOTORCTRL_FREQUENCY);
+    pinMode(PORT_pwmActAction, OUTPUT);
+    pinMode(PORT_doDirFw, OUTPUT);
+    pinMode(PORT_doDirBw, OUTPUT);
 
 #endif
 }
+
+

@@ -21,7 +21,6 @@ BOOL doDirBw;
 t_actenable actEnable;
 t_actdirection actDirection;
 t_pwm_duty rectifiedActAction;
-t_rectifiedactdirection rectifiedActDirection;
 uint16_t loadPosAcq;
 t_appliedactdirection appliedActDirection;
 t_timer actDrvTimer;
@@ -71,9 +70,9 @@ t_timer downSwitchTimer;
 // DIGIT -- Does not need declaration hmidigit5;
 // DIGIT -- Does not need declaration hmidigit6;
 // DIGIT -- Does not need declaration hmidigit7;
-BOOL hmidata;
+// Bus -- Does not need declaration hmidata;
 // Clock -- Does not need declaration hmiclock;
-BOOL hmistrobe;
+// Bus -- Does not need declaration hmistrobe;
 t_hmibuttons hmibuttons;
 t_hmileds hmileds;
 t_hmidigits hmidigits;
@@ -108,8 +107,6 @@ BOOL enable_actDirection;
 t_actdirection actDirection;
 BOOL enable_rectifiedActAction;
 t_pwm_duty rectifiedActAction;
-BOOL enable_rectifiedActDirection;
-t_rectifiedactdirection rectifiedActDirection;
 BOOL enable_loadPosAcq;
 uint16_t loadPosAcq;
 BOOL enable_appliedActDirection;
@@ -178,11 +175,9 @@ t_timer downSwitchTimer;
 // (null) No diag variables for hmidigit5
 // (null) No diag variables for hmidigit6
 // (null) No diag variables for hmidigit7
-BOOL enable_hmidata;
-BOOL hmidata;
+// (null) No diag variables for hmidata
 // (null) No diag variables for hmiclock
-BOOL enable_hmistrobe;
-BOOL hmistrobe;
+// (null) No diag variables for hmistrobe
 BOOL enable_hmibuttons;
 t_hmibuttons hmibuttons;
 BOOL enable_hmileds;
@@ -194,357 +189,352 @@ t_hmidigits hmidigits;
 
 // Initialization functions
 
-
+  
 // upReq flow acquisition
 // (setup input disabled for Button type);
 // upReq flow synthesis
 // (output disabled for Button type);
-
+  
 // downReq flow acquisition
 // (setup input disabled for Button type);
 // downReq flow synthesis
 // (output disabled for Button type);
-
+  
 // loadPos flow acquisition
 // (setup input disabled for Position type);
 // loadPos flow synthesis
 // (output disabled for Position type);
-
+  
 // upReqAcq flow acquisition
 // (setup input disabled for Variable type);
 // upReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // downReqAcq flow acquisition
 // (setup input disabled for Variable type);
 // downReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // upReqDI flow acquisition
 void setup_upReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // downReqDI flow acquisition
 void setup_downReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // posMode flow acquisition
 // (setup input disabled for Variable type);
 // posMode flow synthesis
 // (output disabled for Variable type);
-
+  
 // actAction flow acquisition
 // (setup input disabled for Variable type);
 // actAction flow synthesis
 // (output disabled for Variable type);
-
+  
 // pwmActAction flow acquisition
 // (setup input disabled for PWM type);
 // pwmActAction flow synthesis
 void setup_pwmActAction(void);
-
+  
 // doDirFw flow acquisition
 void setup_doDirFw_input(void);
 // doDirFw flow synthesis
 void setup_doDirFw_output(void);
-
+  
 // doDirBw flow acquisition
 void setup_doDirBw_input(void);
 // doDirBw flow synthesis
 void setup_doDirBw_output(void);
-
+  
 // actEnable flow acquisition
 // (setup input disabled for Variable type);
 // actEnable flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDirection flow acquisition
 // (setup input disabled for Variable type);
 // actDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // rectifiedActAction flow acquisition
 // (setup input disabled for PWMDuty type);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type);
-
-// rectifiedActDirection flow acquisition
-// (setup input disabled for Variable type);
-// rectifiedActDirection flow synthesis
-// (output disabled for Variable type);
-
+  
 // loadPosAcq flow acquisition
 
 // loadPosAcq flow synthesis
 // (output disabled for ADC type);
-
+  
 // appliedActDirection flow acquisition
 // (setup input disabled for Variable type);
 // appliedActDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDrvTimer flow acquisition
 // (setup input disabled for Timer type);
 // actDrvTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // loadTorque flow acquisition
 // (setup input disabled for Power type);
 // loadTorque flow synthesis
 // (output disabled for Power type);
-
+  
 // actPosPow flow acquisition
 // (setup input disabled for Power type);
 // actPosPow flow synthesis
 // (output disabled for Power type);
-
+  
 // actNegPow flow acquisition
 // (setup input disabled for Power type);
 // actNegPow flow synthesis
 // (output disabled for Power type);
-
+  
 // loadPosAI flow acquisition
 
 // loadPosAI flow synthesis
 // (output disabled for ADC type);
-
+  
 // upButTimer flow acquisition
 // (setup input disabled for Timer type);
 // upButTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // downButTimer flow acquisition
 // (setup input disabled for Timer type);
 // downButTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // loadPosUpSwch flow acquisition
 // (setup input disabled for Switch type);
 // loadPosUpSwch flow synthesis
 // (output disabled for Switch type);
-
+  
 // loadPosDownSwch flow acquisition
 // (setup input disabled for Switch type);
 // loadPosDownSwch flow synthesis
 // (output disabled for Switch type);
-
+  
 // loadPosUpSwchDI flow acquisition
 void setup_loadPosUpSwchDI(void);
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // loadPosDownSwchDI flow acquisition
 void setup_loadPosDownSwchDI(void);
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // posAchieved flow acquisition
 // (setup input disabled for Flag type);
 // posAchieved flow synthesis
 // (output disabled for Flag type);
-
+  
 // ctrlError flow acquisition
 // (setup input disabled for Flag type);
 // ctrlError flow synthesis
 // (output disabled for Flag type);
-
+  
 // driveCurrent flow acquisition
 // (setup input disabled for Current type);
 // driveCurrent flow synthesis
 // (output disabled for Current type);
-
+  
 // driveCurrentAI flow acquisition
 
 // driveCurrentAI flow synthesis
 // (output disabled for ADC type);
-
+  
 // driveCurrentAcq flow acquisition
 // (setup input disabled for Variable type);
 // driveCurrentAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // currentError flow acquisition
 // (setup input disabled for Flag type);
 // currentError flow synthesis
 // (output disabled for Flag type);
-
+  
 // brokenChainError flow acquisition
 // (setup input disabled for Flag type);
 // brokenChainError flow synthesis
 // (output disabled for Flag type);
-
+  
 // stuckActError flow acquisition
 // (setup input disabled for Flag type);
 // stuckActError flow synthesis
 // (output disabled for Flag type);
-
+  
 // loadPosUpSwchAcq flow acquisition
 // (setup input disabled for Flag type);
 // loadPosUpSwchAcq flow synthesis
 // (output disabled for Flag type);
-
+  
 // loadPosDownSwchAcq flow acquisition
 // (setup input disabled for Flag type);
 // loadPosDownSwchAcq flow synthesis
 // (output disabled for Flag type);
-
+  
 // upSwitchTimer flow acquisition
 // (setup input disabled for Timer type);
 // upSwitchTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // downSwitchTimer flow acquisition
 // (setup input disabled for Timer type);
 // downSwitchTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // hmibut0 flow acquisition
 // (setup input disabled for Button type);
 // hmibut0 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut1 flow acquisition
 // (setup input disabled for Button type);
 // hmibut1 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut2 flow acquisition
 // (setup input disabled for Button type);
 // hmibut2 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut3 flow acquisition
 // (setup input disabled for Button type);
 // hmibut3 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut4 flow acquisition
 // (setup input disabled for Button type);
 // hmibut4 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut5 flow acquisition
 // (setup input disabled for Button type);
 // hmibut5 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut6 flow acquisition
 // (setup input disabled for Button type);
 // hmibut6 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut7 flow acquisition
 // (setup input disabled for Button type);
 // hmibut7 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmiled0 flow acquisition
 // (setup input disabled for LED type);
 // hmiled0 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled1 flow acquisition
 // (setup input disabled for LED type);
 // hmiled1 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled2 flow acquisition
 // (setup input disabled for LED type);
 // hmiled2 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled3 flow acquisition
 // (setup input disabled for LED type);
 // hmiled3 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled4 flow acquisition
 // (setup input disabled for LED type);
 // hmiled4 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled5 flow acquisition
 // (setup input disabled for LED type);
 // hmiled5 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled6 flow acquisition
 // (setup input disabled for LED type);
 // hmiled6 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled7 flow acquisition
 // (setup input disabled for LED type);
 // hmiled7 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmidigit0 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit0 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit1 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit1 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit2 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit2 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit3 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit3 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit4 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit4 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit5 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit5 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit6 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit6 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit7 flow acquisition
 // (setup input disabled for DIGIT type);
 // hmidigit7 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidata flow acquisition
-void setup_hmidata_input(void);
+// (setup input disabled for Bus type);
 // hmidata flow synthesis
-void setup_hmidata_output(void);
-
+// (output disabled for Bus type);
+  
 // hmiclock flow acquisition
 // (setup input disabled for Clock type);
 // hmiclock flow synthesis
 // (output disabled for Clock type);
-
+  
 // hmistrobe flow acquisition
-void setup_hmistrobe_input(void);
+// (setup input disabled for Bus type);
 // hmistrobe flow synthesis
-void setup_hmistrobe_output(void);
-
+// (output disabled for Bus type);
+  
 // hmibuttons flow acquisition
 // (setup input disabled for Variable type);
 // hmibuttons flow synthesis
 // (output disabled for Variable type);
-
+  
 // hmileds flow acquisition
 // (setup input disabled for Variable type);
 // hmileds flow synthesis
 // (output disabled for Variable type);
-
+  
 // hmidigits flow acquisition
 // (setup input disabled for Variable type);
 // hmidigits flow synthesis
@@ -552,360 +542,357 @@ void setup_hmistrobe_output(void);
 
 // Input / Output functions
 
-
+  
 // upReq flow acquisition
 // (input disabled for Button type);
 // upReq flow synthesis
 // (output disabled for Button type);
-
+  
 // downReq flow acquisition
 // (input disabled for Button type);
 // downReq flow synthesis
 // (output disabled for Button type);
-
+  
 // loadPos flow acquisition
 // (input disabled for Position type);
 // loadPos flow synthesis
 // (output disabled for Position type);
-
+  
 // upReqAcq flow acquisition
 // (input disabled for Variable type);
 // upReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // downReqAcq flow acquisition
 // (input disabled for Variable type);
 // downReqAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // upReqDI flow acquisition
 BOOL adquirir_upReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // downReqDI flow acquisition
 BOOL adquirir_downReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // posMode flow acquisition
 // (input disabled for Variable type);
 // posMode flow synthesis
 // (output disabled for Variable type);
-
+  
 // actAction flow acquisition
 // (input disabled for Variable type);
 // actAction flow synthesis
 // (output disabled for Variable type);
-
+  
 // pwmActAction flow acquisition
 // (input disabled for PWM type);
 // pwmActAction flow synthesis
 void synthesize_pwmActAction(t_pwm value);
-
+  
 // doDirFw flow acquisition
 BOOL adquirir_doDirFw(void);
 // doDirFw flow synthesis
 void sintetizar_doDirFw(BOOL valor);
-
+  
 // doDirBw flow acquisition
 BOOL adquirir_doDirBw(void);
 // doDirBw flow synthesis
 void sintetizar_doDirBw(BOOL valor);
-
+  
 // actEnable flow acquisition
 // (input disabled for Variable type);
 // actEnable flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDirection flow acquisition
 // (input disabled for Variable type);
 // actDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // rectifiedActAction flow acquisition
 // (input disabled for PWMDuty type);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type);
-
-// rectifiedActDirection flow acquisition
-// (input disabled for Variable type);
-// rectifiedActDirection flow synthesis
-// (output disabled for Variable type);
-
+  
 // loadPosAcq flow acquisition
 uint16_t acquire_loadPosAcq(void);
 // loadPosAcq flow synthesis
 // (output disabled for ADC type);
-
+  
 // appliedActDirection flow acquisition
 // (input disabled for Variable type);
 // appliedActDirection flow synthesis
 // (output disabled for Variable type);
-
+  
 // actDrvTimer flow acquisition
 // (input disabled for Timer type);
 // actDrvTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // loadTorque flow acquisition
 // (input disabled for Power type);
 // loadTorque flow synthesis
 // (output disabled for Power type);
-
+  
 // actPosPow flow acquisition
 // (input disabled for Power type);
 // actPosPow flow synthesis
 // (output disabled for Power type);
-
+  
 // actNegPow flow acquisition
 // (input disabled for Power type);
 // actNegPow flow synthesis
 // (output disabled for Power type);
-
+  
 // loadPosAI flow acquisition
 uint16_t acquire_loadPosAI(void);
 // loadPosAI flow synthesis
 // (output disabled for ADC type);
-
+  
 // upButTimer flow acquisition
 // (input disabled for Timer type);
 // upButTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // downButTimer flow acquisition
 // (input disabled for Timer type);
 // downButTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // loadPosUpSwch flow acquisition
 // (input disabled for Switch type);
 // loadPosUpSwch flow synthesis
 // (output disabled for Switch type);
-
+  
 // loadPosDownSwch flow acquisition
 // (input disabled for Switch type);
 // loadPosDownSwch flow synthesis
 // (output disabled for Switch type);
-
+  
 // loadPosUpSwchDI flow acquisition
 BOOL adquirir_loadPosUpSwchDI(void);
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // loadPosDownSwchDI flow acquisition
 BOOL adquirir_loadPosDownSwchDI(void);
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type);
-
+  
 // posAchieved flow acquisition
 // (input disabled for Flag type);
 // posAchieved flow synthesis
 // (output disabled for Flag type);
-
+  
 // ctrlError flow acquisition
 // (input disabled for Flag type);
 // ctrlError flow synthesis
 // (output disabled for Flag type);
-
+  
 // driveCurrent flow acquisition
 // (input disabled for Current type);
 // driveCurrent flow synthesis
 // (output disabled for Current type);
-
+  
 // driveCurrentAI flow acquisition
 uint16_t acquire_driveCurrentAI(void);
 // driveCurrentAI flow synthesis
 // (output disabled for ADC type);
-
+  
 // driveCurrentAcq flow acquisition
 // (input disabled for Variable type);
 // driveCurrentAcq flow synthesis
 // (output disabled for Variable type);
-
+  
 // currentError flow acquisition
 // (input disabled for Flag type);
 // currentError flow synthesis
 // (output disabled for Flag type);
-
+  
 // brokenChainError flow acquisition
 // (input disabled for Flag type);
 // brokenChainError flow synthesis
 // (output disabled for Flag type);
-
+  
 // stuckActError flow acquisition
 // (input disabled for Flag type);
 // stuckActError flow synthesis
 // (output disabled for Flag type);
-
+  
 // loadPosUpSwchAcq flow acquisition
 // (input disabled for Flag type);
 // loadPosUpSwchAcq flow synthesis
 // (output disabled for Flag type);
-
+  
 // loadPosDownSwchAcq flow acquisition
 // (input disabled for Flag type);
 // loadPosDownSwchAcq flow synthesis
 // (output disabled for Flag type);
-
+  
 // upSwitchTimer flow acquisition
 // (input disabled for Timer type);
 // upSwitchTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // downSwitchTimer flow acquisition
 // (input disabled for Timer type);
 // downSwitchTimer flow synthesis
 // (output disabled for Timer type);
-
+  
 // hmibut0 flow acquisition
 // (input disabled for Button type);
 // hmibut0 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut1 flow acquisition
 // (input disabled for Button type);
 // hmibut1 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut2 flow acquisition
 // (input disabled for Button type);
 // hmibut2 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut3 flow acquisition
 // (input disabled for Button type);
 // hmibut3 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut4 flow acquisition
 // (input disabled for Button type);
 // hmibut4 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut5 flow acquisition
 // (input disabled for Button type);
 // hmibut5 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut6 flow acquisition
 // (input disabled for Button type);
 // hmibut6 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmibut7 flow acquisition
 // (input disabled for Button type);
 // hmibut7 flow synthesis
 // (output disabled for Button type);
-
+  
 // hmiled0 flow acquisition
 // (input disabled for LED type);
 // hmiled0 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled1 flow acquisition
 // (input disabled for LED type);
 // hmiled1 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled2 flow acquisition
 // (input disabled for LED type);
 // hmiled2 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled3 flow acquisition
 // (input disabled for LED type);
 // hmiled3 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled4 flow acquisition
 // (input disabled for LED type);
 // hmiled4 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled5 flow acquisition
 // (input disabled for LED type);
 // hmiled5 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled6 flow acquisition
 // (input disabled for LED type);
 // hmiled6 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmiled7 flow acquisition
 // (input disabled for LED type);
 // hmiled7 flow synthesis
 // (output disabled for LED type);
-
+  
 // hmidigit0 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit0 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit1 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit1 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit2 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit2 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit3 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit3 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit4 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit4 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit5 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit5 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit6 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit6 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidigit7 flow acquisition
 // (input disabled for DIGIT type);
 // hmidigit7 flow synthesis
 // (output disabled for DIGIT type);
-
+  
 // hmidata flow acquisition
-BOOL adquirir_hmidata(void);
+// (input disabled for Bus type);
 // hmidata flow synthesis
-void sintetizar_hmidata(BOOL valor);
-
+// (output disabled for Bus type);
+  
 // hmiclock flow acquisition
 // (input disabled for Clock type);
 // hmiclock flow synthesis
 // (output disabled for Clock type);
-
+  
 // hmistrobe flow acquisition
-BOOL adquirir_hmistrobe(void);
+// (input disabled for Bus type);
 // hmistrobe flow synthesis
-void sintetizar_hmistrobe(BOOL valor);
-
+// (output disabled for Bus type);
+  
 // hmibuttons flow acquisition
 // (input disabled for Variable type);
 // hmibuttons flow synthesis
 // (output disabled for Variable type);
-
+  
 // hmileds flow acquisition
 // (input disabled for Variable type);
 // hmileds flow synthesis
 // (output disabled for Variable type);
-
+  
 // hmidigits flow acquisition
 // (input disabled for Variable type);
 // hmidigits flow synthesis
 // (output disabled for Variable type);
 
 #endif /* _DRE_H */
+
+

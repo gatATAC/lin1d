@@ -6,7 +6,10 @@
 #include <gttc_types.h>
 #include "prj_input.h"
 #include "prj_output.h"
+#include "ProjectFlows.h"
 
 void pinoutInit(void);
 
 #endif // _PRJ_PINOUT_H
+
+

@@ -17,25 +17,25 @@ AccelStepper stepper1(AccelStepper::FULL4WIRE, CFG_ACCELSTEPPER_IN1_PIN, CFG_ACC
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
-
 void processMotorCtrl(void) {
-    if (dre.direction == CFG_MOTORCTRL_DIR_FW) {
-        digitalWrite(CFG_MOTORCTRL_IN3_PIN, HIGH);
+    if (dre.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
+        digitalWrite(PORT_doDirFw, HIGH);
     } else {
-        digitalWrite(CFG_MOTORCTRL_IN3_PIN, LOW);
+        digitalWrite(PORT_doDirBw, LOW);
     }
-    if (dre.direction == CFG_MOTORCTRL_DIR_BW) {
-        digitalWrite(CFG_MOTORCTRL_IN4_PIN, HIGH);
+    if (dre.appliedActDirection == CFG_MOTORCTRL_DIR_BW) {
+        digitalWrite(PORT_doDirFw, LOW);
     } else {
-        digitalWrite(CFG_MOTORCTRL_IN4_PIN, LOW);
+        digitalWrite(PORT_doDirBw, HIGH);
     }
-    if (dre.motorCtrlDuty > 0) {
+    analogWrite(PORT_pwmActAction, dre.rectifiedActAction);
+
+    // If motor works, then the status led will be light on
+    if (dre.rectifiedActAction > 0) {
         digitalWrite(CFG_LED_STATUS, HIGH);
     } else {
         digitalWrite(CFG_LED_STATUS, LOW);
     }
-    //dre.motorCtrlDuty = 0;
-    analogWrite(CFG_MOTORCTRL_PWM_PIN, dre.motorCtrlDuty);
 }
 #endif
 
@@ -59,28 +59,6 @@ void prjOutput(void) {
 
     Serial.println("ledmask!");
     counter = 0;
-
-    /*
-      uint8_t i;
-      ledMask=0x0000;
-      for (i=0;i<NUM_LEDS;i++){
-        if(dre.buttonState[i]) {
-          dre.ledState[i]=2;
-        } else {
-          dre.ledState[i]=0;
-        }
-        if (dre.ledState[i]>0){
-          if (dre.ledState[i]>1){
-            ledMask |= (0x0100 << i);
-          }
-          else {
-            ledMask |= (0x0100 << i);
-          }
-        }
-      }
-        module.setDisplayToDecNumber(CYCLE_TIME_MICROS, 0);
-        module.setLEDs(ledMask);
-     */
 
 #ifdef CFG_USE_MOTORCTRL
     processMotorCtrl();
@@ -123,3 +101,5 @@ void prjOutput(void) {
 #endif
 
 }
+
+

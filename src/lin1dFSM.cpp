@@ -18,7 +18,6 @@ extern t_dre dre;
 #define actEnable (dre.actEnable)
 #define actDirection (dre.actDirection)
 #define rectifiedActAction (dre.rectifiedActAction)
-#define rectifiedActDirection (dre.rectifiedActDirection)
 #define loadPosAcq (dre.loadPosAcq)
 #define appliedActDirection (dre.appliedActDirection)
 #define actDrvTimer (dre.actDrvTimer)
@@ -56,8 +55,8 @@ void ActRectifier(  )
             /* Transition ID: ID_ACTRECTIFIER_FROMINITTOQUIET */
             /* Actions: */
             /* ['<global>::setActuationQuiet' begin] */
-            rectifiedActAction = (t_pwm) 0;
-            actDirection = CFG_ACT_DIRECTION_QUIET;
+            rectifiedActAction=(t_pwm)0; 
+            actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
             /* ['<global>::execActDriving' begin] */
             ActDriving();
@@ -68,94 +67,94 @@ void ActRectifier(  )
         /* State ID: ID_ACTRECTIFIER_QUIET */
         case ID_ACTRECTIFIER_QUIET:
         {
-            if( actAction>0 )
-            {
-                /* Transition ID: ID_ACTRECTIFIER_FROMQUIETTOFW */
-                /* Actions: */
-                /* ['<global>::setActuationModule' begin] */
-                if (actAction >= 0) {
-                    rectifiedActAction = (t_pwm) actAction;
-                } else {
-                    rectifiedActAction = (t_pwm) (-actAction);
-                }
-                /* ['<global>::setActuationModule' end] */
-                /* ['<global>::setActuationFw' begin] */
-                actDirection = CFG_ACT_DIRECTION_FW;
-                /* ['<global>::setActuationFw' end] */
-                /* ['<global>::execActDriving' begin] */
-                ActDriving();
-                /* ['<global>::execActDriving' end] */
-                state = ID_ACTRECTIFIER_FW;
-            }
-            else if( actAction<0 )
+            if( actAction<0 )
             {
                 /* Transition ID: ID_ACTRECTIFIER_FROMQUIETTOBW */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
-                if (actAction >= 0) {
-                    rectifiedActAction = (t_pwm) actAction;
+                if (actAction>=0){
+                  rectifiedActAction=(t_pwm)actAction;
                 } else {
-                    rectifiedActAction = (t_pwm) (-actAction);
+                  rectifiedActAction=(t_pwm)(-actAction);
                 }
                 /* ['<global>::setActuationModule' end] */
                 /* ['<global>::setActuationBw' begin] */
-                actDirection = CFG_ACT_DIRECTION_BW;
+                actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
                 /* ['<global>::execActDriving' end] */
                 state = ID_ACTRECTIFIER_BW;
             }
-            break;
-        }
-        /* State ID: ID_ACTRECTIFIER_BW */
-        case ID_ACTRECTIFIER_BW:
-        {
-            if( actAction>0 )
+            else if( actAction>0 )
             {
-                /* Transition ID: ID_ACTRECTIFIER_FROMBWTOFW */
+                /* Transition ID: ID_ACTRECTIFIER_FROMQUIETTOFW */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
-                if (actAction >= 0) {
-                    rectifiedActAction = (t_pwm) actAction;
+                if (actAction>=0){
+                  rectifiedActAction=(t_pwm)actAction;
                 } else {
-                    rectifiedActAction = (t_pwm) (-actAction);
+                  rectifiedActAction=(t_pwm)(-actAction);
                 }
                 /* ['<global>::setActuationModule' end] */
                 /* ['<global>::setActuationFw' begin] */
-                actDirection = CFG_ACT_DIRECTION_FW;
+                actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
                 /* ['<global>::execActDriving' end] */
                 state = ID_ACTRECTIFIER_FW;
             }
-            else if( actAction==0 )
+            break;
+        }
+        /* State ID: ID_ACTRECTIFIER_BW */
+        case ID_ACTRECTIFIER_BW:
+        {
+            if( actAction==0 )
             {
                 /* Transition ID: ID_ACTRECTIFIER_FROMBWTOQUIET */
                 /* Actions: */
                 /* ['<global>::setActuationQuiet' begin] */
-                rectifiedActAction = (t_pwm) 0;
-                actDirection = CFG_ACT_DIRECTION_QUIET;
+                rectifiedActAction=(t_pwm)0; 
+                actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
                 /* ['<global>::execActDriving' end] */
                 state = ID_ACTRECTIFIER_QUIET;
             }
+            else if( actAction>0 )
+            {
+                /* Transition ID: ID_ACTRECTIFIER_FROMBWTOFW */
+                /* Actions: */
+                /* ['<global>::setActuationModule' begin] */
+                if (actAction>=0){
+                  rectifiedActAction=(t_pwm)actAction;
+                } else {
+                  rectifiedActAction=(t_pwm)(-actAction);
+                }
+                /* ['<global>::setActuationModule' end] */
+                /* ['<global>::setActuationFw' begin] */
+                actDirection=CFG_ACT_DIRECTION_FW;
+                /* ['<global>::setActuationFw' end] */
+                /* ['<global>::execActDriving' begin] */
+                ActDriving();
+                /* ['<global>::execActDriving' end] */
+                state = ID_ACTRECTIFIER_FW;
+            }
             else if( actAction<0 )
             {
                 /* Transition ID: ID_ACTRECTIFIER_BWLOOP */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
-                if (actAction >= 0) {
-                    rectifiedActAction = (t_pwm) actAction;
+                if (actAction>=0){
+                  rectifiedActAction=(t_pwm)actAction;
                 } else {
-                    rectifiedActAction = (t_pwm) (-actAction);
+                  rectifiedActAction=(t_pwm)(-actAction);
                 }
                 /* ['<global>::setActuationModule' end] */
                 /* ['<global>::setActuationBw' begin] */
-                actDirection = CFG_ACT_DIRECTION_BW;
+                actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
@@ -171,27 +170,46 @@ void ActRectifier(  )
                 /* Transition ID: ID_ACTRECTIFIER_FROMFWTOQUIET */
                 /* Actions: */
                 /* ['<global>::setActuationQuiet' begin] */
-                rectifiedActAction = (t_pwm) 0;
-                actDirection = CFG_ACT_DIRECTION_QUIET;
+                rectifiedActAction=(t_pwm)0; 
+                actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
                 /* ['<global>::execActDriving' end] */
                 state = ID_ACTRECTIFIER_QUIET;
             }
+            else if( actAction<0 )
+            {
+                /* Transition ID: ID_ACTRECTIFIER_FROMFWTOBW */
+                /* Actions: */
+                /* ['<global>::setActuationModule' begin] */
+                if (actAction>=0){
+                  rectifiedActAction=(t_pwm)actAction;
+                } else {
+                  rectifiedActAction=(t_pwm)(-actAction);
+                }
+                /* ['<global>::setActuationModule' end] */
+                /* ['<global>::setActuationBw' begin] */
+                actDirection=CFG_ACT_DIRECTION_BW;
+                /* ['<global>::setActuationBw' end] */
+                /* ['<global>::execActDriving' begin] */
+                ActDriving();
+                /* ['<global>::execActDriving' end] */
+                state = ID_ACTRECTIFIER_BW;
+            }
             else if( actAction>0 )
             {
                 /* Transition ID: ID_ACTRECTIFIER_FWLOOP */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
-                if (actAction >= 0) {
-                    rectifiedActAction = (t_pwm) actAction;
+                if (actAction>=0){
+                  rectifiedActAction=(t_pwm)actAction;
                 } else {
-                    rectifiedActAction = (t_pwm) (-actAction);
+                  rectifiedActAction=(t_pwm)(-actAction);
                 }
                 /* ['<global>::setActuationModule' end] */
                 /* ['<global>::setActuationFw' begin] */
-                actDirection = CFG_ACT_DIRECTION_FW;
+                actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
@@ -217,13 +235,13 @@ void ActDriving(  )
             /* Transition ID: ID_ACTDRIVING_TOSTAB */
             /* Actions: */
             /* ['<global>::stopActuation' begin] */
-            synthesize_pwmActAction((t_pwm) 0);
+            synthesize_pwmActAction((t_pwm)0);
             /* ['<global>::stopActuation' end] */
             /* ['<global>::applyDirection' begin] */
-            appliedActDirection = actDirection;
+            appliedActDirection=actDirection;
             /* ['<global>::applyDirection' end] */
             /* ['<global>::resetActDriverTimer' begin] */
-            actDrvTimer = 0L;
+            actDrvTimer=0L;
             /* ['<global>::resetActDriverTimer' end] */
             state = ID_ACTDRIVING_STABILIZE;
             break;
@@ -231,7 +249,21 @@ void ActDriving(  )
         /* State ID: ID_ACTDRIVING_STABILIZE */
         case ID_ACTDRIVING_STABILIZE:
         {
-            if( (actDirection!=CFG_ACT_DIRECTION_QUIET) && (actDrvTimer>=CFG_ACT_DRIVER_STAB_TIME) )
+            if( appliedActDirection!=actDirection )
+            {
+                /* Transition ID: ID_ACTDRIVING_DIRCHANGEDURINGSTAB */
+                /* Actions: */
+                /* ['<global>::stopActuation' begin] */
+                synthesize_pwmActAction((t_pwm)0);
+                /* ['<global>::stopActuation' end] */
+                /* ['<global>::applyDirection' begin] */
+                appliedActDirection=actDirection;
+                /* ['<global>::applyDirection' end] */
+                /* ['<global>::resetActDriverTimer' begin] */
+                actDrvTimer=0L;
+                /* ['<global>::resetActDriverTimer' end] */
+            }
+            else if( (actDirection!=CFG_ACT_DIRECTION_QUIET) && (actDrvTimer>=CFG_ACT_DRIVER_STAB_TIME) )
             {
                 /* Transition ID: ID_ACTDRIVING_FROMSTABTOWORK */
                 /* Actions: */
@@ -239,30 +271,16 @@ void ActDriving(  )
                 synthesize_pwmActAction(rectifiedActAction);
                 /* ['<global>::applyActuation' end] */
                 /* ['<global>::resetActDriverTimer' begin] */
-                actDrvTimer = 0L;
+                actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_ACTDRIVING_WORK;
-            }
-            else if( appliedActDirection!=actDirection )
-            {
-                /* Transition ID: ID_ACTDRIVING_DIRCHANGEDURINGSTAB */
-                /* Actions: */
-                /* ['<global>::stopActuation' begin] */
-                synthesize_pwmActAction((t_pwm) 0);
-                /* ['<global>::stopActuation' end] */
-                /* ['<global>::applyDirection' begin] */
-                appliedActDirection = actDirection;
-                /* ['<global>::applyDirection' end] */
-                /* ['<global>::resetActDriverTimer' begin] */
-                actDrvTimer = 0L;
-                /* ['<global>::resetActDriverTimer' end] */
             }
             else
             {
                 /* Transition ID: ID_ACTDRIVING_STABLOOP */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
-                synthesize_pwmActAction((t_pwm) 0);
+                synthesize_pwmActAction((t_pwm)0);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::incrementActDriverTimer' begin] */
                 actDrvTimer++;
@@ -278,10 +296,10 @@ void ActDriving(  )
                 /* Transition ID: ID_ACTDRIVING_TODISSIPATE */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
-                synthesize_pwmActAction((t_pwm) 0);
+                synthesize_pwmActAction((t_pwm)0);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::resetActDriverTimer' begin] */
-                actDrvTimer = 0L;
+                actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_ACTDRIVING_DISSIPATE;
             }
@@ -295,13 +313,13 @@ void ActDriving(  )
                 /* Transition ID: ID_ACTDRIVING_ENDDISSIPATE */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
-                synthesize_pwmActAction((t_pwm) 0);
+                synthesize_pwmActAction((t_pwm)0);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::applyDirection' begin] */
-                appliedActDirection = actDirection;
+                appliedActDirection=actDirection;
                 /* ['<global>::applyDirection' end] */
                 /* ['<global>::resetActDriverTimer' begin] */
-                actDrvTimer = 0L;
+                actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_ACTDRIVING_STABILIZE;
             }
@@ -310,7 +328,7 @@ void ActDriving(  )
                 /* Transition ID: ID_ACTDRIVING_DISSIPATELOOP */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
-                synthesize_pwmActAction((t_pwm) 0);
+                synthesize_pwmActAction((t_pwm)0);
                 /* ['<global>::stopActuation' end] */
                 /* ['<global>::incrementActDriverTimer' begin] */
                 actDrvTimer++;
@@ -336,8 +354,8 @@ void ActEnabler(  )
             /* Transition ID: ID_ACTENABLER_FROMINITTODISABLE */
             /* Actions: */
             /* ['<global>::setActuationQuiet' begin] */
-            rectifiedActAction = (t_pwm) 0;
-            actDirection = CFG_ACT_DIRECTION_QUIET;
+            rectifiedActAction=(t_pwm)0; 
+            actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
             /* ['<global>::execActDriving' begin] */
             ActDriving();
@@ -367,8 +385,8 @@ void ActEnabler(  )
                 /* Transition ID: ID_ACTENABLER_TODISABLE */
                 /* Actions: */
                 /* ['<global>::setActuationQuiet' begin] */
-                rectifiedActAction = (t_pwm) 0;
-                actDirection = CFG_ACT_DIRECTION_QUIET;
+                rectifiedActAction=(t_pwm)0; 
+                actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
                 /* ['<global>::execActDriving' begin] */
                 ActDriving();
@@ -403,10 +421,10 @@ void UpButAcq(  )
             /* Transition ID: ID_UPBUTACQ_INITIAL */
             /* Actions: */
             /* ['<global>::resetUpButTimer' begin] */
-            upButTimer = 0L;
+            upButTimer=0L;
             /* ['<global>::resetUpButTimer' end] */
             /* ['<global>::clearUpButton' begin] */
-            upReqAcq = FALSE;
+            upReqAcq=FALSE;
             /* ['<global>::clearUpButton' end] */
             state = ID_UPBUTACQ_NOTPRESSED;
             break;
@@ -414,7 +432,19 @@ void UpButAcq(  )
         /* State ID: ID_UPBUTACQ_NOTPRESSED */
         case ID_UPBUTACQ_NOTPRESSED:
         {
-            if( ((upReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) )
+            if( ((upReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_UP_BUT_PRESS_TIMER) )
+            {
+                /* Transition ID: ID_UPBUTACQ_PRESS */
+                /* Actions: */
+                /* ['<global>::resetUpButTimer' begin] */
+                upButTimer=0L;
+                /* ['<global>::resetUpButTimer' end] */
+                /* ['<global>::setUpButton' begin] */
+                upReqAcq=TRUE;
+                /* ['<global>::setUpButton' end] */
+                state = ID_UPBUTACQ_PRESSED;
+            }
+            else if( ((upReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) )
             {
                 /* Transition ID: ID_UPBUTACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -427,27 +457,28 @@ void UpButAcq(  )
                 /* Transition ID: ID_UPBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpButTimer' begin] */
-                upButTimer = 0L;
+                upButTimer=0L;
                 /* ['<global>::resetUpButTimer' end] */
-            }
-            else if( ((upReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_UP_BUT_PRESS_TIMER) )
-            {
-                /* Transition ID: ID_UPBUTACQ_PRESS */
-                /* Actions: */
-                /* ['<global>::resetUpButTimer' begin] */
-                upButTimer = 0L;
-                /* ['<global>::resetUpButTimer' end] */
-                /* ['<global>::setUpButton' begin] */
-                upReqAcq = TRUE;
-                /* ['<global>::setUpButton' end] */
-                state = ID_UPBUTACQ_PRESSED;
             }
             break;
         }
         /* State ID: ID_UPBUTACQ_PRESSED */
         case ID_UPBUTACQ_PRESSED:
         {
-            if( ((upReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) )
+            if( ((upReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_UP_BUT_UNPRESS_TIMER)
+ )
+            {
+                /* Transition ID: ID_UPBUTACQ_UNPRESS */
+                /* Actions: */
+                /* ['<global>::resetUpButTimer' begin] */
+                upButTimer=0L;
+                /* ['<global>::resetUpButTimer' end] */
+                /* ['<global>::clearUpButton' begin] */
+                upReqAcq=FALSE;
+                /* ['<global>::clearUpButton' end] */
+                state = ID_UPBUTACQ_NOTPRESSED;
+            }
+            else if( ((upReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) )
             {
                 /* Transition ID: ID_UPBUTACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -460,21 +491,8 @@ void UpButAcq(  )
                 /* Transition ID: ID_UPBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpButTimer' begin] */
-                upButTimer = 0L;
+                upButTimer=0L;
                 /* ['<global>::resetUpButTimer' end] */
-            }
-            else if( ((upReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_UP_BUT_UNPRESS_TIMER)
- )
-            {
-                /* Transition ID: ID_UPBUTACQ_UNPRESS */
-                /* Actions: */
-                /* ['<global>::resetUpButTimer' begin] */
-                upButTimer = 0L;
-                /* ['<global>::resetUpButTimer' end] */
-                /* ['<global>::clearUpButton' begin] */
-                upReqAcq = FALSE;
-                /* ['<global>::clearUpButton' end] */
-                state = ID_UPBUTACQ_NOTPRESSED;
             }
             break;
         }
@@ -496,18 +514,30 @@ void DownButAcq(  )
             /* Transition ID: ID_DOWNBUTACQ_INITIAL */
             /* Actions: */
             /* ['<global>::resetDownButTimer' begin] */
-            downButTimer = 0L;
+            downButTimer=0L;
             /* ['<global>::resetDownButTimer' end] */
-            /* ['<global>::setDownButton' begin] */
-            downReqAcq = TRUE;
-            /* ['<global>::setDownButton' end] */
+            /* ['<global>::clearDownButton' begin] */
+            downReqAcq=FALSE;
+            /* ['<global>::clearDownButton' end] */
             state = ID_DOWNBUTACQ_NOTPRESSED;
             break;
         }
         /* State ID: ID_DOWNBUTACQ_NOTPRESSED */
         case ID_DOWNBUTACQ_NOTPRESSED:
         {
-            if( ((downReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) )
+            if( ((downReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_DWN_BUT_PRESS_TIMER) )
+            {
+                /* Transition ID: ID_DOWNBUTACQ_PRESS */
+                /* Actions: */
+                /* ['<global>::resetDownButTimer' begin] */
+                downButTimer=0L;
+                /* ['<global>::resetDownButTimer' end] */
+                /* ['<global>::setDownButton' begin] */
+                downReqAcq=TRUE;
+                /* ['<global>::setDownButton' end] */
+                state = ID_DOWNBUTACQ_PRESSED;
+            }
+            else if( ((downReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) )
             {
                 /* Transition ID: ID_DOWNBUTACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -520,27 +550,27 @@ void DownButAcq(  )
                 /* Transition ID: ID_DOWNBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownButTimer' begin] */
-                downButTimer = 0L;
+                downButTimer=0L;
                 /* ['<global>::resetDownButTimer' end] */
-            }
-            else if( ((downReqDI==TRUE) || (hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_DWN_BUT_PRESS_TIMER) )
-            {
-                /* Transition ID: ID_DOWNBUTACQ_PRESS */
-                /* Actions: */
-                /* ['<global>::resetDownButTimer' begin] */
-                downButTimer = 0L;
-                /* ['<global>::resetDownButTimer' end] */
-                /* ['<global>::setDownButton' begin] */
-                downReqAcq = TRUE;
-                /* ['<global>::setDownButton' end] */
-                state = ID_DOWNBUTACQ_PRESSED;
             }
             break;
         }
         /* State ID: ID_DOWNBUTACQ_PRESSED */
         case ID_DOWNBUTACQ_PRESSED:
         {
-            if( ((downReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) )
+            if( ((downReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_DWN_BUT_UNPRESS_TIMER) )
+            {
+                /* Transition ID: ID_DOWNBUTACQ_UNPRESS */
+                /* Actions: */
+                /* ['<global>::resetDownButTimer' begin] */
+                downButTimer=0L;
+                /* ['<global>::resetDownButTimer' end] */
+                /* ['<global>::clearDownButton' begin] */
+                downReqAcq=FALSE;
+                /* ['<global>::clearDownButton' end] */
+                state = ID_DOWNBUTACQ_NOTPRESSED;
+            }
+            else if( ((downReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) )
             {
                 /* Transition ID: ID_DOWNBUTACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -553,20 +583,8 @@ void DownButAcq(  )
                 /* Transition ID: ID_DOWNBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownButTimer' begin] */
-                downButTimer = 0L;
+                downButTimer=0L;
                 /* ['<global>::resetDownButTimer' end] */
-            }
-            else if( ((downReqDI==FALSE) && !(hmibuttons & CFG_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_DWN_BUT_UNPRESS_TIMER) )
-            {
-                /* Transition ID: ID_DOWNBUTACQ_UNPRESS */
-                /* Actions: */
-                /* ['<global>::resetDownButTimer' begin] */
-                downButTimer = 0L;
-                /* ['<global>::resetDownButTimer' end] */
-                /* ['<global>::clearDownButton' begin] */
-                downReqAcq = FALSE;
-                /* ['<global>::clearDownButton' end] */
-                state = ID_DOWNBUTACQ_NOTPRESSED;
             }
             break;
         }
@@ -588,10 +606,10 @@ void PosControl(  )
             /* Transition ID: ID_POSCONTROL_INITIAL */
             /* Actions: */
             /* ['<global>::stopAction' begin] */
-            actAction = CFG_ACT_ACTION_STOP;
+            actAction=CFG_ACT_ACTION_STOP;
             /* ['<global>::stopAction' end] */
             /* ['<global>::cleanError' begin] */
-            ctrlError = FALSE;
+            ctrlError=FALSE;
             /* ['<global>::cleanError' end] */
             state = ID_POSCONTROL_STOP;
             break;
@@ -599,50 +617,50 @@ void PosControl(  )
         /* State ID: ID_POSCONTROL_STOP */
         case ID_POSCONTROL_STOP:
         {
-            if( ((loadPosDownSwchAcq==FALSE) && (posMode==CFG_POS_MODE_DOWN)) && (ctrlError==FALSE) )
-            {
-                /* Transition ID: ID_POSCONTROL_TODOWN */
-                /* Actions: */
-                /* ['<global>::downAction' begin] */
-                actAction = CFG_ACT_ACTION_DOWN;
-                posAchieved = FALSE;
-                /* ['<global>::downAction' end] */
-                state = ID_POSCONTROL_GOINGDOWN;
-            }
-            else if( (posMode=CFG_POS_MODE_UP) && (loadPosUpSwchAcq==FALSE) && (ctrlError==FALSE) )
+            if( (posMode == CFG_POS_MODE_UP) && (loadPosUpSwchAcq == FALSE) && (ctrlError == FALSE) )
             {
                 /* Transition ID: ID_POSCONTROL_TOUP */
                 /* Actions: */
                 /* ['<global>::upAction' begin] */
-                actAction = CFG_ACT_ACTION_UP;
-                posAchieved = FALSE;
+                actAction=CFG_ACT_ACTION_UP;
+                posAchieved=FALSE;
                 /* ['<global>::upAction' end] */
                 state = ID_POSCONTROL_GOINGUP;
+            }
+            else if( ((loadPosDownSwchAcq==FALSE) && (posMode==CFG_POS_MODE_DOWN)) && (ctrlError==FALSE) )
+            {
+                /* Transition ID: ID_POSCONTROL_TODOWN */
+                /* Actions: */
+                /* ['<global>::downAction' begin] */
+                actAction=CFG_ACT_ACTION_DOWN;
+                posAchieved=FALSE;
+                /* ['<global>::downAction' end] */
+                state = ID_POSCONTROL_GOINGDOWN;
             }
             break;
         }
         /* State ID: ID_POSCONTROL_GOINGUP */
         case ID_POSCONTROL_GOINGUP:
         {
-            if( posMode!=CFG_POS_MODE_UP )
-            {
-                /* Transition ID: ID_POSCONTROL_CANCEL */
-                /* Actions: */
-                /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
-                /* ['<global>::stopAction' end] */
-                state = ID_POSCONTROL_STOP;
-            }
-            else if( (currentError==TRUE) || (brokenChainError==TRUE) || (stuckActError==TRUE) )
+            if( (currentError==TRUE) || (brokenChainError==TRUE) || (stuckActError==TRUE) )
             {
                 /* Transition ID: ID_POSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction=CFG_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::setError' begin] */
-                ctrlError = TRUE;
+                ctrlError=TRUE;
                 /* ['<global>::setError' end] */
+                state = ID_POSCONTROL_STOP;
+            }
+            else if( posMode!=CFG_POS_MODE_UP )
+            {
+                /* Transition ID: ID_POSCONTROL_CANCEL */
+                /* Actions: */
+                /* ['<global>::stopAction' begin] */
+                actAction=CFG_ACT_ACTION_STOP;
+                /* ['<global>::stopAction' end] */
                 state = ID_POSCONTROL_STOP;
             }
             else if( loadPosUpSwchAcq==TRUE )
@@ -650,10 +668,10 @@ void PosControl(  )
                 /* Transition ID: ID_POSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction=CFG_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::notifyAchieved' begin] */
-                posAchieved = TRUE;
+                posAchieved=TRUE;
                 /* ['<global>::notifyAchieved' end] */
                 state = ID_POSCONTROL_STOP;
             }
@@ -662,25 +680,25 @@ void PosControl(  )
         /* State ID: ID_POSCONTROL_GOINGDOWN */
         case ID_POSCONTROL_GOINGDOWN:
         {
-            if( posMode!=CFG_POS_MODE_DOWN )
-            {
-                /* Transition ID: ID_POSCONTROL_CANCEL */
-                /* Actions: */
-                /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
-                /* ['<global>::stopAction' end] */
-                state = ID_POSCONTROL_STOP;
-            }
-            else if( (currentError==TRUE) || (brokenChainError==TRUE) || (stuckActError==TRUE) )
+            if( (currentError==TRUE) || (brokenChainError==TRUE) || (stuckActError==TRUE) )
             {
                 /* Transition ID: ID_POSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction=CFG_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::setError' begin] */
-                ctrlError = TRUE;
+                ctrlError=TRUE;
                 /* ['<global>::setError' end] */
+                state = ID_POSCONTROL_STOP;
+            }
+            else if( posMode!=CFG_POS_MODE_DOWN )
+            {
+                /* Transition ID: ID_POSCONTROL_CANCEL */
+                /* Actions: */
+                /* ['<global>::stopAction' begin] */
+                actAction=CFG_ACT_ACTION_STOP;
+                /* ['<global>::stopAction' end] */
                 state = ID_POSCONTROL_STOP;
             }
             else if( loadPosDownSwchAcq==TRUE )
@@ -688,10 +706,10 @@ void PosControl(  )
                 /* Transition ID: ID_POSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction=CFG_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::notifyAchieved' begin] */
-                posAchieved = TRUE;
+                posAchieved=TRUE;
                 /* ['<global>::notifyAchieved' end] */
                 state = ID_POSCONTROL_STOP;
             }
@@ -700,82 +718,90 @@ void PosControl(  )
     }
 }
 /* ['PosControl' end (DON'T REMOVE THIS LINE!)] */
-
+STATE_T state = ID_MODESELECTOR_INIT;
 /* ['ModeSelector' begin (DON'T REMOVE THIS LINE!)] */
 void ModeSelector(  )
 {
     /* set initial state */
     static STATE_T state = ID_MODESELECTOR_INIT;
 
-    /* State ID: ID_MODESELECTOR_INIT */
-    if( state==ID_MODESELECTOR_INIT )
+    switch( state )
     {
-        /* Transition ID: ID_MODESELECTOR_INITIAL */
-        /* Actions: */
-        /* ['<global>::setStopMode' begin] */
-        posMode = CFG_POS_MODE_STOP;
-        /* ['<global>::setStopMode' end] */
-        state = ID_MODESELECTOR_STOP;
-    }
-    /* State ID: ID_MODESELECTOR_STOP */
-    else if( state==ID_MODESELECTOR_STOP )
-    {
-        if( downReqAcq==TRUE )
+        /* State ID: ID_MODESELECTOR_INIT */
+        case ID_MODESELECTOR_INIT:
         {
-            /* Transition ID: ID_MODESELECTOR_TODOWN */
-            /* Actions: */
-            /* ['<global>::setDownMode' begin] */
-            posMode = CFG_POS_MODE_DOWN;
-            /* ['<global>::setDownMode' end] */
-            state = ID_MODESELECTOR_DOWN;
-        }
-        else if( upReqAcq==TRUE && downReqAcq==FALSE )
-        {
-            /* Transition ID: ID_MODESELECTOR_TOUP */
-            /* Actions: */
-            /* ['<global>::setUpMode' begin] */
-            posMode = CFG_POS_MODE_UP;
-            /* ['<global>::setUpMode' end] */
-            state = ID_MODESELECTOR_UP;
-        }
-    }
-    /* State ID: ID_MODESELECTOR_UP */
-    else if( state==ID_MODESELECTOR_UP )
-    {
-        if( ( downReqAcq==TRUE ) || ( posAchieved==TRUE ) || ( ctrlError==TRUE ) )
-        {
-            /* Transition ID: ID_MODESELECTOR_OPTIMIZED_TRANSITION_1 */
+            /* Transition ID: ID_MODESELECTOR_INITIAL */
             /* Actions: */
             /* ['<global>::setStopMode' begin] */
-            posMode = CFG_POS_MODE_STOP;
-            /* ['<global>::setStopMode' end] */
-            state = ID_MODESELECTOR_STOPWAIT;
-        }
-    }
-    /* State ID: ID_MODESELECTOR_STOPWAIT */
-    else if( state==ID_MODESELECTOR_STOPWAIT )
-    {
-        if( (downReqAcq==FALSE && upReqAcq==FALSE) )
-        {
-            /* Transition ID: ID_MODESELECTOR_RELEASE */
-            /* Actions: */
-            /* ['<global>::setStopMode' begin] */
-            posMode = CFG_POS_MODE_STOP;
+            posMode=CFG_POS_MODE_STOP;
             /* ['<global>::setStopMode' end] */
             state = ID_MODESELECTOR_STOP;
+            break;
         }
-    }
-    /* State ID: ID_MODESELECTOR_DOWN */
-    else if( state==ID_MODESELECTOR_DOWN )
-    {
-        if( ( upReqAcq==TRUE && downReqAcq==FALSE ) || ( posAchieved==TRUE ) || ( ctrlError==TRUE ) )
+        /* State ID: ID_MODESELECTOR_STOP */
+        case ID_MODESELECTOR_STOP:
         {
-            /* Transition ID: ID_MODESELECTOR_OPTIMIZED_TRANSITION_1 */
-            /* Actions: */
-            /* ['<global>::setStopMode' begin] */
-            posMode = CFG_POS_MODE_STOP;
-            /* ['<global>::setStopMode' end] */
-            state = ID_MODESELECTOR_STOPWAIT;
+            if( upReqAcq==TRUE && downReqAcq==FALSE )
+            {
+                /* Transition ID: ID_MODESELECTOR_TOUP */
+                /* Actions: */
+                /* ['<global>::setUpMode' begin] */
+                posMode=CFG_POS_MODE_UP;
+                /* ['<global>::setUpMode' end] */
+                state = ID_MODESELECTOR_UP;
+            }
+            else if( downReqAcq==TRUE )
+            {
+                /* Transition ID: ID_MODESELECTOR_TODOWN */
+                /* Actions: */
+                /* ['<global>::setDownMode' begin] */
+                posMode=CFG_POS_MODE_DOWN;
+                /* ['<global>::setDownMode' end] */
+                state = ID_MODESELECTOR_DOWN;
+            }
+            break;
+        }
+        /* State ID: ID_MODESELECTOR_UP */
+        case ID_MODESELECTOR_UP:
+        {
+            if( ( downReqAcq==TRUE ) || ( ctrlError==TRUE ) || ( posAchieved==TRUE ) )
+            {
+                /* Transition ID: ID_MODESELECTOR_OPTIMIZED_TRANSITION_1 */
+                /* Actions: */
+                /* ['<global>::setStopMode' begin] */
+                posMode=CFG_POS_MODE_STOP;
+                /* ['<global>::setStopMode' end] */
+                state = ID_MODESELECTOR_STOPWAIT;
+            }
+            break;
+        }
+        /* State ID: ID_MODESELECTOR_STOPWAIT */
+        case ID_MODESELECTOR_STOPWAIT:
+        {
+            if( (downReqAcq==FALSE && upReqAcq==FALSE) )
+            {
+                /* Transition ID: ID_MODESELECTOR_RELEASE */
+                /* Actions: */
+                /* ['<global>::setStopMode' begin] */
+                posMode=CFG_POS_MODE_STOP;
+                /* ['<global>::setStopMode' end] */
+                state = ID_MODESELECTOR_STOP;
+            }
+            break;
+        }
+        /* State ID: ID_MODESELECTOR_DOWN */
+        case ID_MODESELECTOR_DOWN:
+        {
+            if( ( upReqAcq==TRUE && downReqAcq==FALSE ) || ( ctrlError==TRUE ) || ( posAchieved==TRUE ) )
+            {
+                /* Transition ID: ID_MODESELECTOR_OPTIMIZED_TRANSITION_1 */
+                /* Actions: */
+                /* ['<global>::setStopMode' begin] */
+                posMode=CFG_POS_MODE_STOP;
+                /* ['<global>::setStopMode' end] */
+                state = ID_MODESELECTOR_STOPWAIT;
+            }
+            break;
         }
     }
 }
@@ -806,7 +832,19 @@ void downSwitchAcq(  )
         /* State ID: ID_DOWNSWITCHACQ_NOTDETECTED */
         case ID_DOWNSWITCHACQ_NOTDETECTED:
         {
-            if( (loadPosDownSwchDI ==TRUE) )
+            if( (loadPosDownSwchDI==TRUE) && (downSwitchTimer > CFG_DOWN_SWITCH_DETECT_TIMER) )
+            {
+                /* Transition ID: ID_DOWNSWITCHACQ_DETECT */
+                /* Actions: */
+                /* ['<global>::resetDownSwitchTimer' begin] */
+                downSwitchTimer=0L;
+                /* ['<global>::resetDownSwitchTimer' end] */
+                /* ['<global>::setDownSwitch' begin] */
+                loadPosDownSwchAcq = TRUE;
+                /* ['<global>::setDownSwitch' end] */
+                state = ID_DOWNSWITCHACQ_DETECTED;
+            }
+            else if( (loadPosDownSwchDI ==TRUE) )
             {
                 /* Transition ID: ID_DOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -822,32 +860,12 @@ void downSwitchAcq(  )
                 downSwitchTimer=0L;
                 /* ['<global>::resetDownSwitchTimer' end] */
             }
-            else if( (loadPosDownSwchDI==TRUE) && (downSwitchTimer > CFG_DOWN_SWITCH_DETECT_TIMER) )
-            {
-                /* Transition ID: ID_DOWNSWITCHACQ_DETECT */
-                /* Actions: */
-                /* ['<global>::resetDownSwitchTimer' begin] */
-                downSwitchTimer=0L;
-                /* ['<global>::resetDownSwitchTimer' end] */
-                /* ['<global>::setDownSwitch' begin] */
-                loadPosDownSwchAcq = TRUE;
-                /* ['<global>::setDownSwitch' end] */
-                state = ID_DOWNSWITCHACQ_DETECTED;
-            }
             break;
         }
         /* State ID: ID_DOWNSWITCHACQ_DETECTED */
         case ID_DOWNSWITCHACQ_DETECTED:
         {
-            if( (loadPosDownSwchDI ==TRUE) )
-            {
-                /* Transition ID: ID_DOWNSWITCHACQ_LOOP */
-                /* Actions: */
-                /* ['<global>::resetDownSwitchTimer' begin] */
-                downSwitchTimer=0L;
-                /* ['<global>::resetDownSwitchTimer' end] */
-            }
-            else if( (loadPosDownSwchDI ==FALSE) && (downSwitchTimer > CFG_DOWN_SWITCH_DETECT_TIMER) )
+            if( (loadPosDownSwchDI ==FALSE) && (downSwitchTimer > CFG_DOWN_SWITCH_DETECT_TIMER) )
             {
                 /* Transition ID: ID_DOWNSWITCHACQ_UNDETECT */
                 /* Actions: */
@@ -866,6 +884,14 @@ void downSwitchAcq(  )
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
                 /* ['<global>::incrementDownSwitchTimer' end] */
+            }
+            else if( (loadPosDownSwchDI ==TRUE) )
+            {
+                /* Transition ID: ID_DOWNSWITCHACQ_LOOP */
+                /* Actions: */
+                /* ['<global>::resetDownSwitchTimer' begin] */
+                downSwitchTimer=0L;
+                /* ['<global>::resetDownSwitchTimer' end] */
             }
             break;
         }
@@ -898,7 +924,19 @@ void upSwitchAcq(  )
         /* State ID: ID_UPSWITCHACQ_NOTDETECTED */
         case ID_UPSWITCHACQ_NOTDETECTED:
         {
-            if( (loadPosUpSwchDI ==TRUE) )
+            if( (loadPosUpSwchDI==TRUE) && (upSwitchTimer > CFG_UP_SWITCH_DETECT_TIMER) )
+            {
+                /* Transition ID: ID_UPSWITCHACQ_DETECT */
+                /* Actions: */
+                /* ['<global>::resetUpSwitchTimer' begin] */
+                upSwitchTimer=0L;
+                /* ['<global>::resetUpSwitchTimer' end] */
+                /* ['<global>::setUpSwitch' begin] */
+                loadPosUpSwchAcq = TRUE;
+                /* ['<global>::setUpSwitch' end] */
+                state = ID_UPSWITCHACQ_DETECTED;
+            }
+            else if( (loadPosUpSwchDI ==TRUE) )
             {
                 /* Transition ID: ID_UPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -914,24 +952,24 @@ void upSwitchAcq(  )
                 upSwitchTimer=0L;
                 /* ['<global>::resetUpSwitchTimer' end] */
             }
-            else if( (loadPosUpSwchDI==TRUE) && (upSwitchTimer > CFG_UP_SWITCH_DETECT_TIMER) )
-            {
-                /* Transition ID: ID_UPSWITCHACQ_DETECT */
-                /* Actions: */
-                /* ['<global>::resetUpSwitchTimer' begin] */
-                upSwitchTimer=0L;
-                /* ['<global>::resetUpSwitchTimer' end] */
-                /* ['<global>::setUpSwitch' begin] */
-                loadPosUpSwchAcq = TRUE;
-                /* ['<global>::setUpSwitch' end] */
-                state = ID_UPSWITCHACQ_DETECTED;
-            }
             break;
         }
         /* State ID: ID_UPSWITCHACQ_DETECTED */
         case ID_UPSWITCHACQ_DETECTED:
         {
-            if( (loadPosUpSwchDI == FALSE) )
+            if( (loadPosUpSwchDI ==FALSE) && (upSwitchTimer > CFG_UP_SWITCH_DETECT_TIMER) )
+            {
+                /* Transition ID: ID_UPSWITCHACQ_UNDETECT */
+                /* Actions: */
+                /* ['<global>::resetUpSwitchTimer' begin] */
+                upSwitchTimer=0L;
+                /* ['<global>::resetUpSwitchTimer' end] */
+                /* ['<global>::clearUpSwitch' begin] */
+                loadPosUpSwchAcq = FALSE;
+                /* ['<global>::clearUpSwitch' end] */
+                state = ID_UPSWITCHACQ_NOTDETECTED;
+            }
+            else if( (loadPosUpSwchDI == FALSE) )
             {
                 /* Transition ID: ID_UPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
@@ -946,18 +984,6 @@ void upSwitchAcq(  )
                 /* ['<global>::resetUpSwitchTimer' begin] */
                 upSwitchTimer=0L;
                 /* ['<global>::resetUpSwitchTimer' end] */
-            }
-            else if( (loadPosUpSwchDI ==FALSE) && (upSwitchTimer > CFG_UP_SWITCH_DETECT_TIMER) )
-            {
-                /* Transition ID: ID_UPSWITCHACQ_UNDETECT */
-                /* Actions: */
-                /* ['<global>::resetUpSwitchTimer' begin] */
-                upSwitchTimer=0L;
-                /* ['<global>::resetUpSwitchTimer' end] */
-                /* ['<global>::clearUpSwitch' begin] */
-                loadPosUpSwchAcq = FALSE;
-                /* ['<global>::clearUpSwitch' end] */
-                state = ID_UPSWITCHACQ_NOTDETECTED;
             }
             break;
         }

@@ -119,12 +119,6 @@ pinMode(PORT_doDirBw, INPUT);
 // (output disabled for PWMDuty type)
 
   
-// rectifiedActDirection flow acquisition
-// (setup input disabled for Variable type)
-// rectifiedActDirection flow synthesis
-// (output disabled for Variable type)
-
-  
 // loadPosAcq flow acquisition
 
 // loadPosAcq flow synthesis
@@ -424,14 +418,9 @@ pinMode(PORT_loadPosDownSwchDI, INPUT_PULLUP);
 
   
 // hmidata flow acquisition
-void setup_hmidata_input(void){ 
-pinMode(PORT_hmidata, INPUT);
-};
-
+// (setup input disabled for Bus type)
 // hmidata flow synthesis
-void setup_hmidata_output(void){ 
-pinMode(PORT_hmidata, INPUT);
-};
+// (output disabled for Bus type)
 
   
 // hmiclock flow acquisition
@@ -441,14 +430,9 @@ pinMode(PORT_hmidata, INPUT);
 
   
 // hmistrobe flow acquisition
-void setup_hmistrobe_input(void){ 
-pinMode(PORT_hmistrobe, INPUT);
-};
-
+// (setup input disabled for Bus type)
 // hmistrobe flow synthesis
-void setup_hmistrobe_output(void){ 
-pinMode(PORT_hmistrobe, INPUT);
-};
+// (output disabled for Bus type)
 
   
 // hmibuttons flow acquisition
@@ -623,12 +607,6 @@ digitalWrite(PORT_doDirBw,valor);
 // (input disabled for PWMDuty type)
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type)
-
-  
-// rectifiedActDirection flow acquisition
-// (input disabled for Variable type)
-// rectifiedActDirection flow synthesis
-// (output disabled for Variable type)
 
   
 // loadPosAcq flow acquisition
@@ -952,29 +930,9 @@ return analogRead(PORT_driveCurrentAI);
 
   
 // hmidata flow acquisition
-BOOL adquirir_hmidata(void){ 
-#ifdef _DIAG_ACTIVE 
-if (diag.enable_hmidata==TRUE) { 
-return diag.hmidata; 
-} else { 
-#endif 
-return digitalRead(PORT_hmidata); 
-#ifdef _DIAG_ACTIVE 
-} 
-#endif 
-};
+// (input disabled for Bus type)
 // hmidata flow synthesis
-void sintetizar_hmidata(BOOL valor){ 
-#ifdef _DIAG_ACTIVE 
-if (diag.enable_hmidata==TRUE) { 
-digitalWrite(PORT_hmidata,diag.hmidata); 
-} else { 
-#endif 
-digitalWrite(PORT_hmidata,valor); 
-#ifdef _DIAG_ACTIVE 
-} 
-#endif 
-};
+// (output disabled for Bus type)
 
   
 // hmiclock flow acquisition
@@ -984,29 +942,9 @@ digitalWrite(PORT_hmidata,valor);
 
   
 // hmistrobe flow acquisition
-BOOL adquirir_hmistrobe(void){ 
-#ifdef _DIAG_ACTIVE 
-if (diag.enable_hmistrobe==TRUE) { 
-return diag.hmistrobe; 
-} else { 
-#endif 
-return digitalRead(PORT_hmistrobe); 
-#ifdef _DIAG_ACTIVE 
-} 
-#endif 
-};
+// (input disabled for Bus type)
 // hmistrobe flow synthesis
-void sintetizar_hmistrobe(BOOL valor){ 
-#ifdef _DIAG_ACTIVE 
-if (diag.enable_hmistrobe==TRUE) { 
-digitalWrite(PORT_hmistrobe,diag.hmistrobe); 
-} else { 
-#endif 
-digitalWrite(PORT_hmistrobe,valor); 
-#ifdef _DIAG_ACTIVE 
-} 
-#endif 
-};
+// (output disabled for Bus type)
 
   
 // hmibuttons flow acquisition
@@ -1025,3 +963,5 @@ digitalWrite(PORT_hmistrobe,valor);
 // (input disabled for Variable type)
 // hmidigits flow synthesis
 // (output disabled for Variable type)
+
+

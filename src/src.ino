@@ -33,16 +33,17 @@
 #include "prj_input.h"  // <-- The input module reads the microcontroller pinout
 #include "prj_output.h"  // <-- The output module writes the microcontroller pinout
 #include "lin1dFSM.h"
+#include "monitor.h"
 
 #include <TM1638.h>
 
 // define a module on data pin 11, clock pin 2 and strobe pin 12
-TM1638 module(CFG_TM1638_DATA_PIN, CFG_TM1638_CLOCK_PIN, CFG_TM1638_STROBE_PIN);
+TM1638 module(PORT_hmidata, PORT_hmiclock, PORT_hmistrobe);
 
 extern t_dre dre;
 
 void dreInit(){
-      // Button -- Does not need declaration upReq;
+    // Button -- Does not need declaration upReq;
     // Button -- Does not need declaration downReq;
     // Position -- Does not need declaration loadPos;
     dre.upReqAcq = FALSE;
@@ -57,7 +58,6 @@ void dreInit(){
     dre.actEnable = FALSE;
     dre.actDirection = CFG_ACT_DIRECTION_QUIET;
     dre.rectifiedActAction = 0;
-    dre.rectifiedActDirection = CFG_ACT_DIRECTION_QUIET;
     dre.loadPosAcq = 0;
     dre.appliedActDirection = CFG_ACT_DIRECTION_QUIET;
     dre.actDrvTimer = 0L;
@@ -81,6 +81,9 @@ void dreInit(){
     dre.loadPosDownSwchAcq = FALSE;
     dre.upSwitchTimer = 0L;
     dre.downSwitchTimer = 0L;
+    dre.hmibuttons = 0;
+    dre.hmileds = 0;
+    dre.hmidigits = 0L;
 }
 
 /* ---------------------------------------*/
@@ -98,9 +101,8 @@ void fsmTasks(void) {
   PosControl(  );
 
   // Actuation
-  ActEnabler(  );
-  ActRectifier(  );
-  ActDriving(  );
+  //ActEnabler(  );
+  //ActRectifier(  );
 }
 
 
@@ -115,21 +117,23 @@ void setup() {
   dreInit();
 
   ////////////// Pinout init
-  pinoutInit();
+  //pinoutInit();
 
   ////////////// Input init
   prjInputInit();
 
   ////////////// FSM init
-
   fsmTasks();
 
   ////////////// Output Init
-  prjOutputInit();
+  //prjOutputInit();
 
+  ////////////// Monitor Init
+  monitorInit();
+  
   ////////////// Comms init 
   // initialize serial communication at 115200 bits per second:
-  Serial.begin(115200);
+  //Serial.begin(115200);
 
 }
 
@@ -146,6 +150,9 @@ void loop()
 
   ////////////// FSM tasks
   fsmTasks();
+
+  ////////////// Monitoring tasks 
+  monitorExec();
   
   // ----------- End of Cycle Synchronization ----------------
 #if 1
@@ -160,6 +167,8 @@ void loop()
 #endif  
 
   ////////////// Output task 
-  prjOutput();
+  //prjOutput();
 
 }
+
+
