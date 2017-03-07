@@ -44,3 +44,4 @@ t_hmidigits hmidigits;
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Code items' definitions */
 /* ['Common definitions for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
+

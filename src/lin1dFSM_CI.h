@@ -40,10 +40,11 @@ extern t_hmibuttons hmibuttons;
 extern t_hmileds hmileds;
 extern t_hmidigits hmidigits;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
-#endif
+#endif // CODEDESIGNER_VARS
 /* ['Common declarations for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* State ID data type */
 typedef unsigned long STATE_T;
 
 /* Declaration of code items used in state charts */
 /* ['Common declarations for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
+

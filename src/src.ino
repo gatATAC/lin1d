@@ -38,52 +38,52 @@
 #include <TM1638.h>
 
 // define a module on data pin 11, clock pin 2 and strobe pin 12
-TM1638 module(PORT_hmidata, PORT_hmiclock, PORT_hmistrobe);
+TM1638 module(PORT_FM1hmidata, PORT_FM1hmiclock, PORT_FM1hmistrobe);
 
-extern t_dre dre;
+extern t_dreFM1 dreFM1;
 
 void dreInit(){
     // Button -- Does not need declaration upReq;
     // Button -- Does not need declaration downReq;
     // Position -- Does not need declaration loadPos;
-    dre.upReqAcq = FALSE;
-    dre.downReqAcq = FALSE;
-    dre.upReqDI = FALSE;
-    dre.downReqDI = FALSE;
-    dre.posMode = CFG_POS_MODE_STOP;
-    dre.actAction = 0;
-    dre.pwmActAction = 0;
-    dre.doDirFw = FALSE;
-    dre.doDirBw = FALSE;
-    dre.actEnable = FALSE;
-    dre.actDirection = CFG_ACT_DIRECTION_QUIET;
-    dre.rectifiedActAction = 0;
-    dre.loadPosAcq = 0;
-    dre.appliedActDirection = CFG_ACT_DIRECTION_QUIET;
-    dre.actDrvTimer = 0L;
+    dreFM1.upReqAcq = FALSE;
+    dreFM1.downReqAcq = FALSE;
+    dreFM1.upReqDI = FALSE;
+    dreFM1.downReqDI = FALSE;
+    dreFM1.posMode = CFG_POS_MODE_STOP;
+    dreFM1.actAction = 0;
+    dreFM1.pwmActAction = 0;
+    dreFM1.doDirFw = FALSE;
+    dreFM1.doDirBw = FALSE;
+    dreFM1.actEnable = FALSE;
+    dreFM1.actDirection = CFG_ACT_DIRECTION_QUIET;
+    dreFM1.rectifiedActAction = 0;
+    dreFM1.loadPosAcq = 0;
+    dreFM1.appliedActDirection = CFG_ACT_DIRECTION_QUIET;
+    dreFM1.actDrvTimer = 0L;
     // Power -- Does not need declaration loadTorque;
     // Power -- Does not need declaration actPosPow;
     // Power -- Does not need declaration actNegPow;
-    dre.loadPosAI = 0;
-    dre.upButTimer = 0L;
-    dre.downButTimer = 0L;
-    dre.loadPosUpSwchDI = FALSE;
-    dre.loadPosDownSwchDI = FALSE;
-    dre.posAchieved = FALSE;
-    dre.ctrlError = FALSE;
+    dreFM1.loadPosAI = 0;
+    dreFM1.upButTimer = 0L;
+    dreFM1.downButTimer = 0L;
+    dreFM1.loadPosUpSwchDI = FALSE;
+    dreFM1.loadPosDownSwchDI = FALSE;
+    dreFM1.posAchieved = FALSE;
+    dreFM1.ctrlError = FALSE;
     // Current -- Does not need declaration driveCurrent;
-    dre.driveCurrentAI = 0;
-    dre.driveCurrentAcq = 0;
-    dre.currentError = FALSE;
-    dre.brokenChainError = FALSE;
-    dre.stuckActError = FALSE;
-    dre.loadPosUpSwchAcq = FALSE;
-    dre.loadPosDownSwchAcq = FALSE;
-    dre.upSwitchTimer = 0L;
-    dre.downSwitchTimer = 0L;
-    dre.hmibuttons = 0;
-    dre.hmileds = 0;
-    dre.hmidigits = 0L;
+    dreFM1.driveCurrentAI = 0;
+    dreFM1.driveCurrentAcq = 0;
+    dreFM1.currentError = FALSE;
+    dreFM1.brokenChainError = FALSE;
+    dreFM1.stuckActError = FALSE;
+    dreFM1.loadPosUpSwchAcq = FALSE;
+    dreFM1.loadPosDownSwchAcq = FALSE;
+    dreFM1.upSwitchTimer = 0L;
+    dreFM1.downSwitchTimer = 0L;
+    dreFM1.hmibuttons = 0;
+    dreFM1.hmileds = 0;
+    dreFM1.hmidigits = 0L;
 }
 
 /* ---------------------------------------*/
@@ -91,18 +91,18 @@ void dreInit(){
 /***** FSM tasks *****/
 void fsmTasks(void) {
   // Acquisition
-  UpButAcq(  );
-  DownButAcq(  );
-  upSwitchAcq(  );
-  downSwitchAcq(  );
+  FM1UpButAcq(  );
+  FM1DownButAcq(  );
+  FM1upSwitchAcq(  );
+  FM1downSwitchAcq(  );
 
   // Government
-  ModeSelector(  );
-  PosControl(  );
+  FM1ModeSelector(  );
+  FM1PosControl(  );
 
   // Actuation
-  //ActEnabler(  );
-  //ActRectifier(  );
+  //FM1ActEnabler(  );
+  //FM1ActRectifier(  );
 }
 
 
@@ -170,5 +170,9 @@ void loop()
   //prjOutput();
 
 }
+
+
+
+
 
 

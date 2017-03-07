@@ -8,8 +8,8 @@
         <object type="udGeneratorCategory">
           <property name="id" type="long">50001</property>
           <property name="Output directory" type="dirname">/home/est/dev/gatatac/arduino/lin1d/src</property>
-          <property name="Base file name" type="string">lin1dFSM</property>
-          <property name="Code items file name" type="string">lin1dFSM_CI</property>
+          <property name="Base file name" type="string">FM1lin1dFSM</property>
+          <property name="Code items file name" type="string">FM1lin1dFSM_CI</property>
           <property name="Generate code descriptions" type="bool">1</property>
           <property name="Synchronize before generation" type="bool">1</property>
         </object>
@@ -33,7 +33,7 @@
   </project_properties>
   <object type="udPackageItem">
     <property name="id" type="long">20006</property>
-    <property name="name" type="string">Linear 1D stage</property>
+    <property name="name" type="string">FM1Linear 1D stage</property>
     <object type="udPackageItem">
       <property name="id" type="long">30024</property>
       <property name="name" type="string">lin1d</property>
@@ -43,7 +43,7 @@
       <property name="name" type="string">lin1d_but</property>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40011</property>
-        <property name="name" type="string">DownButAcq</property>
+        <property name="name" type="string">FM1DownButAcq</property>
         <property name="description" type="string">Funcion Buttons Acquisition desplegada en el subsistema lin1d_but en la maquina de estados DownButAcq</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -435,7 +435,7 @@
       <property name="name" type="string">lin1d_but_sw</property>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40010</property>
-        <property name="name" type="string">UpButAcq</property>
+        <property name="name" type="string">FM1UpButAcq</property>
         <property name="description" type="string">Funcion Buttons Acquisition desplegada en el subsistema lin1d_but_sw en la maquina de estados UpButAcq</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -823,7 +823,7 @@
       <property name="name" type="string">lin1d_servo_md</property>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40012</property>
-        <property name="name" type="string">ModeSelector</property>
+        <property name="name" type="string">FM1ModeSelector</property>
         <property name="description" type="string">Funcion Mode Selector desplegada en el subsistema lin1d_servo_md en la maquina de estados ModeSelector</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -1335,7 +1335,7 @@
       <property name="name" type="string">lin1d_servo_ctrl</property>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40013</property>
-        <property name="name" type="string">PosControl</property>
+        <property name="name" type="string">FM1PosControl</property>
         <property name="description" type="string">Funcion Servo Control desplegada en el subsistema lin1d_servo_ctrl en la maquina de estados PosControl</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -1821,7 +1821,7 @@
       <property name="name" type="string">lin1d_servo_drive</property>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40007</property>
-        <property name="name" type="string">ActEnabler</property>
+        <property name="name" type="string">FM1ActEnabler</property>
         <property name="description" type="string">Funcion Actuator Drive desplegada en el subsistema lin1d_servo_drive en la maquina de estados ActEnabler</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -2063,7 +2063,7 @@
       </object>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40009</property>
-        <property name="name" type="string">ActDriving</property>
+        <property name="name" type="string">FM1ActDriving</property>
         <property name="description" type="string">Funcion Actuator Drive desplegada en el subsistema lin1d_servo_drive en la maquina de estados ActDriving</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -2091,7 +2091,7 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">2</property>
                 <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                <property name="size" type="realpoint">26.000000,18.000000</property>
+                <property name="size" type="realpoint">36.000000,18.000000</property>
                 <property name="text" type="string">INIT</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2136,8 +2136,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">4</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">495.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;  / [stopActuation(), applyDirection(), resetActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;["stopActuation()", "applyDirection()", "resetActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2158,8 +2158,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">6</property>
-                <property name="relative_position" type="realpoint">15.000000,5.000000</property>
-                <property name="size" type="realpoint">72.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
+                <property name="size" type="realpoint">21.000000,18.000000</property>
                 <property name="text" type="string">STABILIZE</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2201,8 +2201,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">8</property>
                 <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">407.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;  / [stopActuation(), incrementActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;["stopActuation()", "incrementActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2247,8 +2247,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">10</property>
                 <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">601.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt; 20 : stabTimeExpiredToMove() / [applyActuation(), resetActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;stabTimeExpiredToMove() / [["applyActuation()", "resetActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2304,8 +2304,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">12</property>
                 <property name="relative_position" type="realpoint">-142.000000,40.000000</property>
-                <property name="size" type="realpoint">727.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt; 10 : directionRequestChanged() / [stopActuation(), applyDirection(), resetActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;directionRequestChanged() / [["stopActuation()", "applyDirection()", "resetActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2326,8 +2326,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">14</property>
-                <property name="relative_position" type="realpoint">28.000000,5.000000</property>
-                <property name="size" type="realpoint">47.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
+                <property name="size" type="realpoint">21.000000,18.000000</property>
                 <property name="text" type="string">WORK</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2372,8 +2372,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">16</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">568.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt; directionRequestChanged() / [stopActuation(), resetActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;directionRequestChanged() / [["stopActuation()", "resetActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2394,8 +2394,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">18</property>
-                <property name="relative_position" type="realpoint">15.000000,5.000000</property>
-                <property name="size" type="realpoint">72.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
+                <property name="size" type="realpoint">21.000000,18.000000</property>
                 <property name="text" type="string">DISSIPATE</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2448,8 +2448,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">20</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">673.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt; 10 : dissipTimeExpired() / [stopActuation(), applyDirection(), resetActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;dissipTimeExpired() / [["stopActuation()", "applyDirection()", "resetActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2490,8 +2490,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">22</property>
                 <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">407.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;  / [stopActuation(), incrementActDriverTimer()] &gt;&gt;</property>
+                <property name="size" type="realpoint">89.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;["stopActuation()", "incrementActDriverTimer()"]] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2500,7 +2500,7 @@
       </object>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40008</property>
-        <property name="name" type="string">ActRectifier</property>
+        <property name="name" type="string">FM1ActRectifier</property>
         <property name="description" type="string">Funcion Actuator Drive desplegada en el subsistema lin1d_servo_drive en la maquina de estados ActRectifier</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -2528,7 +2528,7 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">2</property>
                 <property name="relative_position" type="realpoint">0.000000,25.000000</property>
-                <property name="size" type="realpoint">36.000000,18.000000</property>
+                <property name="size" type="realpoint">26.000000,18.000000</property>
                 <property name="text" type="string">INIT</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2566,8 +2566,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">4</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;["setActuationQuiet()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">363.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt;  / [setActuationQuiet(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2588,8 +2588,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">6</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">29.000000,5.000000</property>
+                <property name="size" type="realpoint">44.000000,18.000000</property>
                 <property name="text" type="string">QUIET</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2642,8 +2642,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">8</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;negativeActionRequested() / [["setActuationModule()", "setActuationBw()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">744.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; 10 : negativeActionRequested() / [setActuationModule(), setActuationBw(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2694,8 +2694,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">10</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;positiveActionRequested() / [["setActuationModule()", "setActuationFw()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">701.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; positiveActionRequested() / [setActuationModule(), setActuationFw(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2716,8 +2716,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">12</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">39.000000,5.000000</property>
+                <property name="size" type="realpoint">24.000000,18.000000</property>
                 <property name="text" type="string">FW</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2770,8 +2770,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">14</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;negativeActionRequested() / [["setActuationModule()", "setActuationBw()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">744.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; 20 : negativeActionRequested() / [setActuationModule(), setActuationBw(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2816,8 +2816,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">16</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;noActionRequested() / [["setActuationQuiet()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">550.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; 10 : noActionRequested() / [setActuationQuiet(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2872,8 +2872,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">18</property>
                 <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;positiveActionRequested() / [["setActuationModule()", "setActuationFw()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">701.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; positiveActionRequested() / [setActuationModule(), setActuationFw(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2894,8 +2894,8 @@
             <property name="title" type="serializabledynamicnocreate">
               <object type="uddLabelElement">
                 <property name="id" type="long">20</property>
-                <property name="relative_position" type="realpoint">41.000000,5.000000</property>
-                <property name="size" type="realpoint">21.000000,18.000000</property>
+                <property name="relative_position" type="realpoint">39.000000,5.000000</property>
+                <property name="size" type="realpoint">24.000000,18.000000</property>
                 <property name="text" type="string">BW</property>
                 <property name="label_type" type="int">1</property>
               </object>
@@ -2948,8 +2948,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">22</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;positiveActionRequested() / [["setActuationModule()", "setActuationFw()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">736.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; 20 : positiveActionRequested() / [setActuationModule(), setActuationFw(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -2994,8 +2994,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">24</property>
                 <property name="relative_position" type="realpoint">-142.000000,-40.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;noActionRequested() / [["setActuationQuiet()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">550.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; 10 : noActionRequested() / [setActuationQuiet(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -3050,8 +3050,8 @@
               <object type="uddLabelElement">
                 <property name="id" type="long">26</property>
                 <property name="relative_position" type="realpoint">-142.000000,0.000000</property>
-                <property name="size" type="realpoint">89.000000,18.000000</property>
-                <property name="text" type="string">&lt;&lt;negativeActionRequested() / [["setActuationModule()", "setActuationBw()", "execActDriving()"]] &gt;&gt;</property>
+                <property name="size" type="realpoint">709.000000,18.000000</property>
+                <property name="text" type="string">&lt;&lt; negativeActionRequested() / [setActuationModule(), setActuationBw(), execActDriving()] &gt;&gt;</property>
                 <property name="label_type" type="int">3</property>
               </object>
             </property>
@@ -3088,7 +3088,7 @@
       <property name="name" type="string">lin1d_servo_posSens_sw</property>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40014</property>
-        <property name="name" type="string">upSwitchAcq</property>
+        <property name="name" type="string">FM1upSwitchAcq</property>
         <property name="description" type="string">Funcion Position Sensor desplegada en el subsistema lin1d_servo_posSens_sw en la maquina de estados upSwitchAcq</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -3472,7 +3472,7 @@
       </object>
       <object type="udHStateChartDiagramItem">
         <property name="id" type="long">40015</property>
-        <property name="name" type="string">downSwitchAcq</property>
+        <property name="name" type="string">FM1downSwitchAcq</property>
         <property name="description" type="string">Funcion Position Sensor desplegada en el subsistema lin1d_servo_posSens_sw en la maquina de estados downSwitchAcq</property>
         <property name="diagram_type" type="string">State Chart</property>
         <property name="generate_code" type="bool">1</property>
@@ -3895,7 +3895,7 @@
       <property name="id" type="long">50006</property>
       <property name="name" type="string">downButtonPressed</property>
       <property name="description" type="string">Down Button is being pressed</property>
-      <property name="code" type="string">((downReqDI==TRUE) || (hmibuttons &amp; CFG_BUTACQ_HMI_DOWN_MASK))</property>
+      <property name="code" type="string">((downReqDI==TRUE) || (hmibuttons &amp; CFG_FM1_BUTACQ_HMI_DOWN_MASK))</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::downButtonPressed</property>
       <property name="inline" type="bool">1</property>
@@ -3909,7 +3909,7 @@
       <property name="id" type="long">50007</property>
       <property name="name" type="string">expiredTimeDownButtonPressed</property>
       <property name="description" type="string">The Down button is being pressed more than a given time</property>
-      <property name="code" type="string">((downReqDI==TRUE) || (hmibuttons &amp; CFG_BUTACQ_HMI_DOWN_MASK)) &amp;&amp; (downButTimer &gt; CFG_DWN_BUT_PRESS_TIMER)</property>
+      <property name="code" type="string">((downReqDI==TRUE) || (hmibuttons &amp; CFG_FM1_BUTACQ_HMI_DOWN_MASK)) &amp;&amp; (downButTimer &gt; CFG_FM1_DWN_BUT_PRESS_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeDownButtonPressed</property>
       <property name="inline" type="bool">1</property>
@@ -3923,7 +3923,7 @@
       <property name="id" type="long">50008</property>
       <property name="name" type="string">expiredTimeDownButtonNotPressed</property>
       <property name="description" type="string">The Down button is not being pressed during a given time.</property>
-      <property name="code" type="string">((downReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_BUTACQ_HMI_DOWN_MASK)) &amp;&amp; (downButTimer &gt; CFG_DWN_BUT_UNPRESS_TIMER)</property>
+      <property name="code" type="string">((downReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_FM1_BUTACQ_HMI_DOWN_MASK)) &amp;&amp; (downButTimer &gt; CFG_FM1_DWN_BUT_UNPRESS_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeDownButtonNotPressed</property>
       <property name="inline" type="bool">1</property>
@@ -3937,7 +3937,7 @@
       <property name="id" type="long">50009</property>
       <property name="name" type="string">downButtonNotPresed</property>
       <property name="description" type="string">Down Button is not being pressed</property>
-      <property name="code" type="string">((downReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_BUTACQ_HMI_DOWN_MASK))</property>
+      <property name="code" type="string">((downReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_FM1_BUTACQ_HMI_DOWN_MASK))</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::downButtonNotPresed</property>
       <property name="inline" type="bool">1</property>
@@ -3951,7 +3951,7 @@
       <property name="id" type="long">50010</property>
       <property name="name" type="string">upButtonPressed</property>
       <property name="description" type="string">Up Button is being pressed</property>
-      <property name="code" type="string">((upReqDI==TRUE) || (hmibuttons &amp; CFG_BUTACQ_HMI_UP_MASK))</property>
+      <property name="code" type="string">((upReqDI==TRUE) || (hmibuttons &amp; CFG_FM1_BUTACQ_HMI_UP_MASK))</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::upButtonPressed</property>
       <property name="inline" type="bool">1</property>
@@ -3965,7 +3965,7 @@
       <property name="id" type="long">50011</property>
       <property name="name" type="string">expiredTimeUpButtonPressed</property>
       <property name="description" type="string">The Up button is being pressed more than a given time</property>
-      <property name="code" type="string">((upReqDI==TRUE) || (hmibuttons &amp; CFG_BUTACQ_HMI_UP_MASK)) &amp;&amp; (upButTimer &gt; CFG_UP_BUT_PRESS_TIMER)</property>
+      <property name="code" type="string">((upReqDI==TRUE) || (hmibuttons &amp; CFG_FM1_BUTACQ_HMI_UP_MASK)) &amp;&amp; (upButTimer &gt; CFG_FM1_UP_BUT_PRESS_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeUpButtonPressed</property>
       <property name="inline" type="bool">1</property>
@@ -3979,7 +3979,7 @@
       <property name="id" type="long">50012</property>
       <property name="name" type="string">upButtonNotPresed</property>
       <property name="description" type="string">Up Button is not being pressed</property>
-      <property name="code" type="string">((upReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_BUTACQ_HMI_UP_MASK))</property>
+      <property name="code" type="string">((upReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_FM1_BUTACQ_HMI_UP_MASK))</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::upButtonNotPresed</property>
       <property name="inline" type="bool">1</property>
@@ -3993,7 +3993,7 @@
       <property name="id" type="long">50013</property>
       <property name="name" type="string">expiredTimeUpButtonNotPressed</property>
       <property name="description" type="string">The Up button is not being pressed during a given time.</property>
-      <property name="code" type="string">((upReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_BUTACQ_HMI_UP_MASK)) &amp;&amp; (upButTimer &gt; CFG_UP_BUT_UNPRESS_TIMER)
+      <property name="code" type="string">((upReqDI==FALSE) &amp;&amp; !(hmibuttons &amp; CFG_FM1_BUTACQ_HMI_UP_MASK)) &amp;&amp; (upButTimer &gt; CFG_FM1_UP_BUT_UNPRESS_TIMER)
 </property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeUpButtonNotPressed</property>
@@ -4204,7 +4204,7 @@
       <property name="id" type="long">50028</property>
       <property name="name" type="string">stabTimeExpiredToMove</property>
       <property name="description" type="string">The timer to control the stabilization stage of the actuator driver has expired, and the action is not to be quiet.</property>
-      <property name="code" type="string">(actDirection!=CFG_ACT_DIRECTION_QUIET) &amp;&amp; (actDrvTimer&gt;=CFG_ACT_DRIVER_STAB_TIME)</property>
+      <property name="code" type="string">(actDirection!=CFG_ACT_DIRECTION_QUIET) &amp;&amp; (actDrvTimer&gt;=CFG_FM1_ACT_DRIVER_STAB_TIME)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::stabTimeExpiredToMove</property>
       <property name="inline" type="bool">1</property>
@@ -4232,7 +4232,7 @@
       <property name="id" type="long">50030</property>
       <property name="name" type="string">dissipTimeExpired</property>
       <property name="description" type="string">The timer to control the dissipation stage of the actuator driver has expired.</property>
-      <property name="code" type="string">actDrvTimer&gt;=CFG_ACT_DRIVER_DISSIP_TIME</property>
+      <property name="code" type="string">actDrvTimer&gt;=CFG_FM1_ACT_DRIVER_DISSIP_TIME</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::dissipTimeExpired</property>
       <property name="inline" type="bool">1</property>
@@ -4316,7 +4316,7 @@
       <property name="id" type="long">50036</property>
       <property name="name" type="string">expiredTimeUpSwitchDetected</property>
       <property name="description" type="string">The Up switch is being detected more than a given time</property>
-      <property name="code" type="string">(loadPosUpSwchDI==TRUE) &amp;&amp; (upSwitchTimer &gt; CFG_UP_SWITCH_DETECT_TIMER)</property>
+      <property name="code" type="string">(loadPosUpSwchDI==TRUE) &amp;&amp; (upSwitchTimer &gt; CFG_FM1_UP_SWITCH_DETECT_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeUpSwitchDetected</property>
       <property name="inline" type="bool">1</property>
@@ -4330,7 +4330,7 @@
       <property name="id" type="long">50037</property>
       <property name="name" type="string">expiredTimeUpSwitchNotDetected</property>
       <property name="description" type="string">The Up switch is not being detected during a given time.</property>
-      <property name="code" type="string">(loadPosUpSwchDI ==FALSE) &amp;&amp; (upSwitchTimer &gt; CFG_UP_SWITCH_DETECT_TIMER)</property>
+      <property name="code" type="string">(loadPosUpSwchDI ==FALSE) &amp;&amp; (upSwitchTimer &gt; CFG_FM1_UP_SWITCH_DETECT_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeUpSwitchNotDetected</property>
       <property name="inline" type="bool">1</property>
@@ -4358,7 +4358,7 @@
       <property name="id" type="long">50039</property>
       <property name="name" type="string">expiredTimeDwnSwitchDetected</property>
       <property name="description" type="string">The Down switch is being detected more than a given time</property>
-      <property name="code" type="string">(loadPosDownSwchDI==TRUE) &amp;&amp; (downSwitchTimer &gt; CFG_DOWN_SWITCH_DETECT_TIMER)</property>
+      <property name="code" type="string">(loadPosDownSwchDI==TRUE) &amp;&amp; (downSwitchTimer &gt; CFG_FM1_DOWN_SWITCH_DETECT_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeDwnSwitchDetected</property>
       <property name="inline" type="bool">1</property>
@@ -4386,7 +4386,7 @@
       <property name="id" type="long">50041</property>
       <property name="name" type="string">expiredTimeDownSwitchNotDetected</property>
       <property name="description" type="string">The Down switch is not being detected during a given time.</property>
-      <property name="code" type="string">(loadPosDownSwchDI ==FALSE) &amp;&amp; (downSwitchTimer &gt; CFG_DOWN_SWITCH_DETECT_TIMER)</property>
+      <property name="code" type="string">(loadPosDownSwchDI ==FALSE) &amp;&amp; (downSwitchTimer &gt; CFG_FM1_DOWN_SWITCH_DETECT_TIMER)</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::expiredTimeDownSwitchNotDetected</property>
       <property name="inline" type="bool">1</property>
@@ -4662,7 +4662,7 @@ actDirection=CFG_ACT_DIRECTION_QUIET;</property>
       <property name="id" type="long">50061</property>
       <property name="name" type="string">execActDriving</property>
       <property name="description" type="string">This action is used to execute the submachine ActDriving.</property>
-      <property name="code" type="string">ActDriving();</property>
+      <property name="code" type="string">FM1ActDriving();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::execActDriving</property>
       <property name="inline" type="bool">1</property>
@@ -4676,7 +4676,7 @@ actDirection=CFG_ACT_DIRECTION_QUIET;</property>
       <property name="id" type="long">50062</property>
       <property name="name" type="string">execActRectifier</property>
       <property name="description" type="string">Executes the rectifier FSM</property>
-      <property name="code" type="string">ActRectifier();</property>
+      <property name="code" type="string">FM1ActRectifier();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::execActRectifier</property>
       <property name="inline" type="bool">1</property>
@@ -4690,7 +4690,7 @@ actDirection=CFG_ACT_DIRECTION_QUIET;</property>
       <property name="id" type="long">50063</property>
       <property name="name" type="string">stopActuation</property>
       <property name="description" type="string">Stops the actuation by setting a duty of 0 in the PWM channel.</property>
-      <property name="code" type="string">synthesize_pwmActAction((t_pwm)0);</property>
+      <property name="code" type="string">synthesize_FM1pwmActAction((t_pwm)0);</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::stopActuation</property>
       <property name="inline" type="bool">1</property>
@@ -4746,7 +4746,7 @@ actDirection=CFG_ACT_DIRECTION_QUIET;</property>
       <property name="id" type="long">50067</property>
       <property name="name" type="string">applyActuation</property>
       <property name="description" type="string">Applies the rectifiedActAction to the PWM channel.</property>
-      <property name="code" type="string">synthesize_pwmActAction(rectifiedActAction);</property>
+      <property name="code" type="string">synthesize_FM1pwmActAction(rectifiedActAction);</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::applyActuation</property>
       <property name="inline" type="bool">1</property>
