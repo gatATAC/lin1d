@@ -8,7 +8,7 @@ typedef uint8_t t_upreqacq;
 typedef uint8_t t_downreqacq;
 typedef uint8_t t_posmode;
 typedef uint16_t t_pwm;
-typedef t_pwm t_actaction;
+typedef int16_t t_actaction;
 typedef BOOL t_actenable;
 typedef uint8_t t_actdirection;
 typedef t_pwm t_pwm_duty;
@@ -26,10 +26,6 @@ typedef unsigned long t_hmidigits;
 #define CFG_ACT_DIRECTION_FW 1
 #define CFG_ACT_DIRECTION_BW 2
 
-#define CFG_ACT_ACTION_STOP 0
-#define CFG_ACT_ACTION_UP 1
-#define CFG_ACT_ACTION_DOWN 2
-
 #define CFG_POS_MODE_STOP 0
 #define CFG_POS_MODE_UP 1
 #define CFG_POS_MODE_DOWN 2
@@ -43,6 +39,12 @@ typedef unsigned long t_hmidigits;
 #endif
 
 #endif
+
+
+
+
+
+
 
 
 

@@ -28,14 +28,7 @@ void processMotorCtrl(void) {
     } else {
         digitalWrite(PORT_doDirBw, HIGH);
     }
-    analogWrite(PORT_pwmActAction, dreFM1.rectifiedActAction);
-
-    // If motor works, then the status led will be light on
-    if (dreFM1.rectifiedActAction > 0) {
-        digitalWrite(CFG_LED_STATUS, HIGH);
-    } else {
-        digitalWrite(CFG_LED_STATUS, LOW);
-    }
+    analogWrite(PORT_pwmActAction, dreFM1.appliedActAction);
 }
 #endif
 
@@ -49,6 +42,13 @@ void prjOutputInit(void) {
     //analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
     processMotorCtrl();
 #endif
+
+    // If motor works, then the status led will be light on
+    if (dreFM1.appliedActAction > 0) {
+        digitalWrite(CFG_LED_STATUS, HIGH);
+    } else {
+        digitalWrite(CFG_LED_STATUS, LOW);
+    }
 }
 
 char buf[17];
@@ -101,6 +101,12 @@ void prjOutput(void) {
 #endif
 
 }
+
+
+
+
+
+
 
 
 

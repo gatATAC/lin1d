@@ -1,8 +1,8 @@
-#include "FM1DRE.h"
+#include "POLDRE.h"
 
 // --- DRE data structure declaration ---
-t_dreFM1 dreFM1;
-t_diagFM1 diagFM1;
+t_drePOL drePOL;
+t_diagPOL diagPOL;
 
 // --- DRE flow initialization functions ---
 
@@ -39,16 +39,16 @@ t_diagFM1 diagFM1;
 
   
 // upReqDI flow acquisition
-void setup_FM1upReqDI(void){ 
-pinMode(PORT_FM1upReqDI, INPUT_PULLUP); 
+void setup_POLupReqDI(void){ 
+pinMode(PORT_POLupReqDI, INPUT_PULLUP); 
 };
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
 
   
 // downReqDI flow acquisition
-void setup_FM1downReqDI(void){ 
-pinMode(PORT_FM1downReqDI, INPUT_PULLUP); 
+void setup_POLdownReqDI(void){ 
+pinMode(PORT_POLdownReqDI, INPUT_PULLUP); 
 };
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
@@ -69,35 +69,35 @@ pinMode(PORT_FM1downReqDI, INPUT_PULLUP);
 // pwmActAction flow acquisition
 // (setup input disabled for PWM type)
 // pwmActAction flow synthesis
-void setup_FM1pwmActAction(void){ 
+void setup_POLpwmActAction(void){ 
 #ifndef _PWM_RES_SET_
 #define _PWM_RES_SET_
 analogWriteResolution(CFG_PWM_RESOLUTION);
 #endif
-analogWriteFrequency(PORT_FM1pwmActAction, PORT_FM1pwmActAction_FREQ);
+analogWriteFrequency(PORT_POLpwmActAction, PORT_POLpwmActAction_FREQ);
 };
 
 
   
 // doDirFw flow acquisition
-void setup_FM1doDirFw_input(void){ 
-pinMode(PORT_FM1doDirFw, INPUT);
+void setup_POLdoDirFw_input(void){ 
+pinMode(PORT_POLdoDirFw, INPUT);
 };
 
 // doDirFw flow synthesis
-void setup_FM1doDirFw_output(void){ 
-pinMode(PORT_FM1doDirFw, INPUT);
+void setup_POLdoDirFw_output(void){ 
+pinMode(PORT_POLdoDirFw, INPUT);
 };
 
   
 // doDirBw flow acquisition
-void setup_FM1doDirBw_input(void){ 
-pinMode(PORT_FM1doDirBw, INPUT);
+void setup_POLdoDirBw_input(void){ 
+pinMode(PORT_POLdoDirBw, INPUT);
 };
 
 // doDirBw flow synthesis
-void setup_FM1doDirBw_output(void){ 
-pinMode(PORT_FM1doDirBw, INPUT);
+void setup_POLdoDirBw_output(void){ 
+pinMode(PORT_POLdoDirBw, INPUT);
 };
 
   
@@ -186,16 +186,16 @@ pinMode(PORT_FM1doDirBw, INPUT);
 
   
 // loadPosUpSwchDI flow acquisition
-void setup_FM1loadPosUpSwchDI(void){ 
-pinMode(PORT_FM1loadPosUpSwchDI, INPUT_PULLUP); 
+void setup_POLloadPosUpSwchDI(void){ 
+pinMode(PORT_POLloadPosUpSwchDI, INPUT_PULLUP); 
 };
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type)
 
   
 // loadPosDownSwchDI flow acquisition
-void setup_FM1loadPosDownSwchDI(void){ 
-pinMode(PORT_FM1loadPosDownSwchDI, INPUT_PULLUP); 
+void setup_POLloadPosDownSwchDI(void){ 
+pinMode(PORT_POLloadPosDownSwchDI, INPUT_PULLUP); 
 };
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type)
@@ -494,13 +494,13 @@ pinMode(PORT_FM1loadPosDownSwchDI, INPUT_PULLUP);
 
   
 // upReqDI flow acquisition
-BOOL adquirir_FM1upReqDI(void){ 
+BOOL adquirir_POLupReqDI(void){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_upReqDI==TRUE) { 
-return diagFM1.upReqDI; 
+if (diagPOL.enable_upReqDI==TRUE) { 
+return diagPOL.upReqDI; 
 } else { 
 #endif 
-return digitalRead(PORT_FM1upReqDI); 
+return digitalRead(PORT_POLupReqDI); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
@@ -510,13 +510,13 @@ return digitalRead(PORT_FM1upReqDI);
 
   
 // downReqDI flow acquisition
-BOOL adquirir_FM1downReqDI(void){ 
+BOOL adquirir_POLdownReqDI(void){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_downReqDI==TRUE) { 
-return diagFM1.downReqDI; 
+if (diagPOL.enable_downReqDI==TRUE) { 
+return diagPOL.downReqDI; 
 } else { 
 #endif 
-return digitalRead(PORT_FM1downReqDI); 
+return digitalRead(PORT_POLdownReqDI); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
@@ -540,31 +540,31 @@ return digitalRead(PORT_FM1downReqDI);
 // pwmActAction flow acquisition
 // (input disabled for PWM type)
 // pwmActAction flow synthesis
-void synthesize_FM1pwmActAction(t_pwm value){ 
-analogWrite(PORT_FM1pwmActAction, value); 
+void synthesize_POLpwmActAction(t_pwm value){ 
+analogWrite(PORT_POLpwmActAction, value); 
 };
 
   
 // doDirFw flow acquisition
-BOOL adquirir_FM1doDirFw(void){ 
+BOOL adquirir_POLdoDirFw(void){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_doDirFw==TRUE) { 
-return diagFM1.doDirFw; 
+if (diagPOL.enable_doDirFw==TRUE) { 
+return diagPOL.doDirFw; 
 } else { 
 #endif 
-return digitalRead(PORT_FM1doDirFw); 
+return digitalRead(PORT_POLdoDirFw); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
 };
 // doDirFw flow synthesis
-void sintetizar_FM1doDirFw(BOOL valor){ 
+void sintetizar_POLdoDirFw(BOOL valor){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_doDirFw==TRUE) { 
-digitalWrite(PORT_FM1doDirFw,diagFM1.doDirFw); 
+if (diagPOL.enable_doDirFw==TRUE) { 
+digitalWrite(PORT_POLdoDirFw,diagPOL.doDirFw); 
 } else { 
 #endif 
-digitalWrite(PORT_FM1doDirFw,valor); 
+digitalWrite(PORT_POLdoDirFw,valor); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
@@ -572,25 +572,25 @@ digitalWrite(PORT_FM1doDirFw,valor);
 
   
 // doDirBw flow acquisition
-BOOL adquirir_FM1doDirBw(void){ 
+BOOL adquirir_POLdoDirBw(void){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_doDirBw==TRUE) { 
-return diagFM1.doDirBw; 
+if (diagPOL.enable_doDirBw==TRUE) { 
+return diagPOL.doDirBw; 
 } else { 
 #endif 
-return digitalRead(PORT_FM1doDirBw); 
+return digitalRead(PORT_POLdoDirBw); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
 };
 // doDirBw flow synthesis
-void sintetizar_FM1doDirBw(BOOL valor){ 
+void sintetizar_POLdoDirBw(BOOL valor){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_doDirBw==TRUE) { 
-digitalWrite(PORT_FM1doDirBw,diagFM1.doDirBw); 
+if (diagPOL.enable_doDirBw==TRUE) { 
+digitalWrite(PORT_POLdoDirBw,diagPOL.doDirBw); 
 } else { 
 #endif 
-digitalWrite(PORT_FM1doDirBw,valor); 
+digitalWrite(PORT_POLdoDirBw,valor); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
@@ -616,8 +616,8 @@ digitalWrite(PORT_FM1doDirBw,valor);
 
   
 // loadPosAcq flow acquisition
-uint16_t acquire_FM1loadPosAcq(void){ 
-return analogRead(PORT_FM1loadPosAcq); 
+uint16_t acquire_POLloadPosAcq(void){ 
+return analogRead(PORT_POLloadPosAcq); 
 };
 // loadPosAcq flow synthesis
 // (output disabled for ADC type)
@@ -654,8 +654,8 @@ return analogRead(PORT_FM1loadPosAcq);
 
   
 // loadPosAI flow acquisition
-uint16_t acquire_FM1loadPosAI(void){ 
-return analogRead(PORT_FM1loadPosAI); 
+uint16_t acquire_POLloadPosAI(void){ 
+return analogRead(PORT_POLloadPosAI); 
 };
 // loadPosAI flow synthesis
 // (output disabled for ADC type)
@@ -686,13 +686,13 @@ return analogRead(PORT_FM1loadPosAI);
 
   
 // loadPosUpSwchDI flow acquisition
-BOOL adquirir_FM1loadPosUpSwchDI(void){ 
+BOOL adquirir_POLloadPosUpSwchDI(void){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_loadPosUpSwchDI==TRUE) { 
-return diagFM1.loadPosUpSwchDI; 
+if (diagPOL.enable_loadPosUpSwchDI==TRUE) { 
+return diagPOL.loadPosUpSwchDI; 
 } else { 
 #endif 
-return digitalRead(PORT_FM1loadPosUpSwchDI); 
+return digitalRead(PORT_POLloadPosUpSwchDI); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
@@ -702,13 +702,13 @@ return digitalRead(PORT_FM1loadPosUpSwchDI);
 
   
 // loadPosDownSwchDI flow acquisition
-BOOL adquirir_FM1loadPosDownSwchDI(void){ 
+BOOL adquirir_POLloadPosDownSwchDI(void){ 
 #ifdef _DIAG_ACTIVE 
-if (diagFM1.enable_loadPosDownSwchDI==TRUE) { 
-return diagFM1.loadPosDownSwchDI; 
+if (diagPOL.enable_loadPosDownSwchDI==TRUE) { 
+return diagPOL.loadPosDownSwchDI; 
 } else { 
 #endif 
-return digitalRead(PORT_FM1loadPosDownSwchDI); 
+return digitalRead(PORT_POLloadPosDownSwchDI); 
 #ifdef _DIAG_ACTIVE 
 } 
 #endif 
@@ -736,8 +736,8 @@ return digitalRead(PORT_FM1loadPosDownSwchDI);
 
   
 // driveCurrentAI flow acquisition
-uint16_t acquire_FM1driveCurrentAI(void){ 
-return analogRead(PORT_FM1driveCurrentAI); 
+uint16_t acquire_POLdriveCurrentAI(void){ 
+return analogRead(PORT_POLdriveCurrentAI); 
 };
 // driveCurrentAI flow synthesis
 // (output disabled for ADC type)
@@ -975,6 +975,4 @@ return analogRead(PORT_FM1driveCurrentAI);
 // (input disabled for PWMDuty type)
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type)
-
-
 

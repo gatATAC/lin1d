@@ -30,17 +30,21 @@
 /***** Project includes *****/
 #include "prj_pinout.h" // <-- The pinout of the project
 #include "FM1DRE.h"    // <-- The DRE of the project (global variables pools to share)
+#include "POLDRE.h"    // <-- The DRE of the project (global variables pools to share)
 #include "prj_input.h"  // <-- The input module reads the microcontroller pinout
 #include "prj_output.h"  // <-- The output module writes the microcontroller pinout
 #include "FM1lin1dFSM.h"
+#include "POLlin1dFSM.h"
 #include "monitor.h"
 
 #include <TM1638.h>
 
 // define a module on data pin 11, clock pin 2 and strobe pin 12
 TM1638 module(PORT_FM1hmidata, PORT_FM1hmiclock, PORT_FM1hmistrobe);
+//TM1638 module(PORT_POLhmidata, PORT_POLhmiclock, PORT_POLhmistrobe); // Both subsystems (POL and FM1) share same hmi
 
 extern t_dreFM1 dreFM1;
+extern t_drePOL drePOL;
 
 void dreInit(){
     // Button -- Does not need declaration upReq;
@@ -55,7 +59,7 @@ void dreInit(){
     dreFM1.pwmActAction = 0;
     dreFM1.doDirFw = FALSE;
     dreFM1.doDirBw = FALSE;
-    dreFM1.actEnable = FALSE;
+    dreFM1.actEnable = TRUE;
     dreFM1.actDirection = CFG_ACT_DIRECTION_QUIET;
     dreFM1.rectifiedActAction = 0;
     dreFM1.loadPosAcq = 0;
@@ -84,6 +88,48 @@ void dreInit(){
     dreFM1.hmibuttons = 0;
     dreFM1.hmileds = 0;
     dreFM1.hmidigits = 0L;
+
+    // Button -- Does not need declaration upReq;
+    // Button -- Does not need declaration downReq;
+    // Position -- Does not need declaration loadPos;
+    drePOL.upReqAcq = FALSE;
+    drePOL.downReqAcq = FALSE;
+    drePOL.upReqDI = FALSE;
+    drePOL.downReqDI = FALSE;
+    drePOL.posMode = CFG_POS_MODE_STOP;
+    drePOL.actAction = 0;
+    drePOL.pwmActAction = 0;
+    drePOL.doDirFw = FALSE;
+    drePOL.doDirBw = FALSE;
+    drePOL.actEnable = TRUE;
+    drePOL.actDirection = CFG_ACT_DIRECTION_QUIET;
+    drePOL.rectifiedActAction = 0;
+    drePOL.loadPosAcq = 0;
+    drePOL.appliedActDirection = CFG_ACT_DIRECTION_QUIET;
+    drePOL.actDrvTimer = 0L;
+    // Power -- Does not need declaration loadTorque;
+    // Power -- Does not need declaration actPosPow;
+    // Power -- Does not need declaration actNegPow;
+    drePOL.loadPosAI = 0;
+    drePOL.upButTimer = 0L;
+    drePOL.downButTimer = 0L;
+    drePOL.loadPosUpSwchDI = FALSE;
+    drePOL.loadPosDownSwchDI = FALSE;
+    drePOL.posAchieved = FALSE;
+    drePOL.ctrlError = FALSE;
+    // Current -- Does not need declaration driveCurrent;
+    drePOL.driveCurrentAI = 0;
+    drePOL.driveCurrentAcq = 0;
+    drePOL.currentError = FALSE;
+    drePOL.brokenChainError = FALSE;
+    drePOL.stuckActError = FALSE;
+    drePOL.loadPosUpSwchAcq = FALSE;
+    drePOL.loadPosDownSwchAcq = FALSE;
+    drePOL.upSwitchTimer = 0L;
+    drePOL.downSwitchTimer = 0L;
+    drePOL.hmibuttons = 0;
+    drePOL.hmileds = 0;
+    drePOL.hmidigits = 0L;    
 }
 
 /* ---------------------------------------*/
@@ -101,8 +147,20 @@ void fsmTasks(void) {
   FM1PosControl(  );
 
   // Actuation
-  //FM1ActEnabler(  );
-  //FM1ActRectifier(  );
+  FM1ActEnabler(  );
+
+    // Acquisition
+  POLUpButAcq(  );
+  POLDownButAcq(  );
+  POLupSwitchAcq(  );
+  POLdownSwitchAcq(  );
+
+  // Government
+  POLModeSelector(  );
+  POLPosControl(  );
+
+  // Actuation
+  POLActEnabler(  );
 }
 
 
@@ -170,6 +228,12 @@ void loop()
   //prjOutput();
 
 }
+
+
+
+
+
+
 
 
 

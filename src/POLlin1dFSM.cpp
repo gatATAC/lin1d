@@ -1,60 +1,61 @@
 /* ['Common headers' begin (DON'T REMOVE THIS LINE!)] */
-#include "FM1lin1dFSM.h"
+#include "POLlin1dFSM.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
-#include "FM1DRE.h"
+#include "POLDRE.h"
+#include "FM1DRE.h"       // Both subsystems (POL and FM1) share same hmi
 
-extern t_dreFM1 dreFM1;
+extern t_drePOL drePOL;
+extern t_dreFM1 dreFM1;   // Both subsystems (POL and FM1) share same hmi
 
-#define upReqAcq (dreFM1.upReqAcq)
-#define downReqAcq (dreFM1.downReqAcq)
-#define upReqDI (dreFM1.upReqDI)
-#define downReqDI (dreFM1.downReqDI)
-#define posMode (dreFM1.posMode)
-#define actAction (dreFM1.actAction)
-#define pwmActAction (dreFM1.pwmActAction)
-#define doDirFw (dreFM1.doDirFw)
-#define doDirBw (dreFM1.doDirBw)
-#define actEnable (dreFM1.actEnable)
-#define actDirection (dreFM1.actDirection)
-#define appliedActAction (dreFM1.appliedActAction)
-#define loadPosAcq (dreFM1.loadPosAcq)
-#define appliedActDirection (dreFM1.appliedActDirection)
-#define actDrvTimer (dreFM1.actDrvTimer)
-#define loadPosAI (dreFM1.loadPosAI)
-#define upButTimer (dreFM1.upButTimer)
-#define downButTimer (dreFM1.downButTimer)
-#define loadPosUpSwchDI (dreFM1.loadPosUpSwchDI)
-#define loadPosDownSwchDI (dreFM1.loadPosDownSwchDI)
-#define posAchieved (dreFM1.posAchieved)
-#define ctrlError (dreFM1.ctrlError)
-#define driveCurrentAI (dreFM1.driveCurrentAI)
-#define driveCurrentAcq (dreFM1.driveCurrentAcq)
-#define currentError (dreFM1.currentError)
-#define brokenChainError (dreFM1.brokenChainError)
-#define stuckActError (dreFM1.stuckActError)
-#define loadPosUpSwchAcq (dreFM1.loadPosUpSwchAcq)
-#define loadPosDownSwchAcq (dreFM1.loadPosDownSwchAcq)
-#define upSwitchTimer (dreFM1.upSwitchTimer)
-#define downSwitchTimer (dreFM1.downSwitchTimer)
-#define hmibuttons (dreFM1.hmibuttons)
-#define hmileds (dreFM1.hmileds)
-#define hmidigits (dreFM1.hmidigits)
-#define rectifiedActAction (dreFM1.rectifiedActAction)
+#define upReqAcq (drePOL.upReqAcq)
+#define downReqAcq (drePOL.downReqAcq)
+#define upReqDI (drePOL.upReqDI)
+#define downReqDI (drePOL.downReqDI)
+#define posMode (drePOL.posMode)
+#define actAction (drePOL.actAction)
+#define pwmActAction (drePOL.pwmActAction)
+#define doDirFw (drePOL.doDirFw)
+#define doDirBw (drePOL.doDirBw)
+#define actEnable (drePOL.actEnable)
+#define actDirection (drePOL.actDirection)
+#define appliedActAction (drePOL.appliedActAction)
+#define loadPosAcq (drePOL.loadPosAcq)
+#define appliedActDirection (drePOL.appliedActDirection)
+#define actDrvTimer (drePOL.actDrvTimer)
+#define loadPosAI (drePOL.loadPosAI)
+#define upButTimer (drePOL.upButTimer)
+#define downButTimer (drePOL.downButTimer)
+#define loadPosUpSwchDI (drePOL.loadPosUpSwchDI)
+#define loadPosDownSwchDI (drePOL.loadPosDownSwchDI)
+#define posAchieved (drePOL.posAchieved)
+#define ctrlError (drePOL.ctrlError)
+#define driveCurrentAI (drePOL.driveCurrentAI)
+#define driveCurrentAcq (drePOL.driveCurrentAcq)
+#define currentError (drePOL.currentError)
+#define brokenChainError (drePOL.brokenChainError)
+#define stuckActError (drePOL.stuckActError)
+#define loadPosUpSwchAcq (drePOL.loadPosUpSwchAcq)
+#define loadPosDownSwchAcq (drePOL.loadPosDownSwchAcq)
+#define upSwitchTimer (drePOL.upSwitchTimer)
+#define downSwitchTimer (drePOL.downSwitchTimer)
+#define hmibuttons (dreFM1.hmibuttons)    // Both subsystems (POL and FM1) share same hmi
+#define hmileds (dreFM1.hmileds)          // Both subsystems (POL and FM1) share same hmi
+#define hmidigits (dreFM1.hmidigits)      // Both subsystems (POL and FM1) share same hmi
+#define rectifiedActAction (drePOL.rectifiedActAction)
 
-
-/* ['FM1downSwitchAcq' begin (DON'T REMOVE THIS LINE!)] */
-void FM1downSwitchAcq(  )
+/* ['POLdownSwitchAcq' begin (DON'T REMOVE THIS LINE!)] */
+void POLdownSwitchAcq(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1DOWNSWITCHACQ_INIT;
+    static STATE_T state = ID_POLDOWNSWITCHACQ_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1DOWNSWITCHACQ_INIT */
-        case ID_FM1DOWNSWITCHACQ_INIT:
+        /* State ID: ID_POLDOWNSWITCHACQ_INIT */
+        case ID_POLDOWNSWITCHACQ_INIT:
         {
-            /* Transition ID: ID_FM1DOWNSWITCHACQ_INITIAL */
+            /* Transition ID: ID_POLDOWNSWITCHACQ_INITIAL */
             /* Actions: */
             /* ['<global>::resetDownSwitchTimer' begin] */
             downSwitchTimer=0L;
@@ -62,15 +63,15 @@ void FM1downSwitchAcq(  )
             /* ['<global>::clearDownSwitch' begin] */
             loadPosDownSwchAcq = FALSE;
             /* ['<global>::clearDownSwitch' end] */
-            state = ID_FM1DOWNSWITCHACQ_NOTDETECTED;
+            state = ID_POLDOWNSWITCHACQ_NOTDETECTED;
             break;
         }
-        /* State ID: ID_FM1DOWNSWITCHACQ_NOTDETECTED */
-        case ID_FM1DOWNSWITCHACQ_NOTDETECTED:
+        /* State ID: ID_POLDOWNSWITCHACQ_NOTDETECTED */
+        case ID_POLDOWNSWITCHACQ_NOTDETECTED:
         {
-            if( (loadPosDownSwchDI==TRUE) && (downSwitchTimer > CFG_FM1_DOWN_SWITCH_DETECT_TIMER) )
+            if( (loadPosDownSwchDI==TRUE) && (downSwitchTimer > CFG_POL_DOWN_SWITCH_DETECT_TIMER) )
             {
-                /* Transition ID: ID_FM1DOWNSWITCHACQ_DETECT */
+                /* Transition ID: ID_POLDOWNSWITCHACQ_DETECT */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
                 downSwitchTimer=0L;
@@ -78,11 +79,11 @@ void FM1downSwitchAcq(  )
                 /* ['<global>::setDownSwitch' begin] */
                 loadPosDownSwchAcq = TRUE;
                 /* ['<global>::setDownSwitch' end] */
-                state = ID_FM1DOWNSWITCHACQ_DETECTED;
+                state = ID_POLDOWNSWITCHACQ_DETECTED;
             }
             else if( (loadPosDownSwchDI ==TRUE) )
             {
-                /* Transition ID: ID_FM1DOWNSWITCHACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLDOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
@@ -90,7 +91,7 @@ void FM1downSwitchAcq(  )
             }
             else if( (loadPosDownSwchDI == FALSE) )
             {
-                /* Transition ID: ID_FM1DOWNSWITCHACQ_LOOP */
+                /* Transition ID: ID_POLDOWNSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
                 downSwitchTimer=0L;
@@ -98,12 +99,12 @@ void FM1downSwitchAcq(  )
             }
             break;
         }
-        /* State ID: ID_FM1DOWNSWITCHACQ_DETECTED */
-        case ID_FM1DOWNSWITCHACQ_DETECTED:
+        /* State ID: ID_POLDOWNSWITCHACQ_DETECTED */
+        case ID_POLDOWNSWITCHACQ_DETECTED:
         {
-            if( (loadPosDownSwchDI ==FALSE) && (downSwitchTimer > CFG_FM1_DOWN_SWITCH_DETECT_TIMER) )
+            if( (loadPosDownSwchDI ==FALSE) && (downSwitchTimer > CFG_POL_DOWN_SWITCH_DETECT_TIMER) )
             {
-                /* Transition ID: ID_FM1DOWNSWITCHACQ_UNDETECT */
+                /* Transition ID: ID_POLDOWNSWITCHACQ_UNDETECT */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
                 downSwitchTimer=0L;
@@ -111,11 +112,11 @@ void FM1downSwitchAcq(  )
                 /* ['<global>::clearDownSwitch' begin] */
                 loadPosDownSwchAcq = FALSE;
                 /* ['<global>::clearDownSwitch' end] */
-                state = ID_FM1DOWNSWITCHACQ_NOTDETECTED;
+                state = ID_POLDOWNSWITCHACQ_NOTDETECTED;
             }
             else if( (loadPosDownSwchDI == FALSE) )
             {
-                /* Transition ID: ID_FM1DOWNSWITCHACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLDOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
@@ -123,7 +124,7 @@ void FM1downSwitchAcq(  )
             }
             else if( (loadPosDownSwchDI ==TRUE) )
             {
-                /* Transition ID: ID_FM1DOWNSWITCHACQ_LOOP */
+                /* Transition ID: ID_POLDOWNSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
                 downSwitchTimer=0L;
@@ -133,20 +134,20 @@ void FM1downSwitchAcq(  )
         }
     }
 }
-/* ['FM1downSwitchAcq' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLdownSwitchAcq' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1upSwitchAcq' begin (DON'T REMOVE THIS LINE!)] */
-void FM1upSwitchAcq(  )
+/* ['POLupSwitchAcq' begin (DON'T REMOVE THIS LINE!)] */
+void POLupSwitchAcq(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1UPSWITCHACQ_INIT;
+    static STATE_T state = ID_POLUPSWITCHACQ_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1UPSWITCHACQ_INIT */
-        case ID_FM1UPSWITCHACQ_INIT:
+        /* State ID: ID_POLUPSWITCHACQ_INIT */
+        case ID_POLUPSWITCHACQ_INIT:
         {
-            /* Transition ID: ID_FM1UPSWITCHACQ_INITIAL */
+            /* Transition ID: ID_POLUPSWITCHACQ_INITIAL */
             /* Actions: */
             /* ['<global>::resetUpSwitchTimer' begin] */
             upSwitchTimer=0L;
@@ -154,15 +155,15 @@ void FM1upSwitchAcq(  )
             /* ['<global>::clearUpSwitch' begin] */
             loadPosUpSwchAcq = FALSE;
             /* ['<global>::clearUpSwitch' end] */
-            state = ID_FM1UPSWITCHACQ_NOTDETECTED;
+            state = ID_POLUPSWITCHACQ_NOTDETECTED;
             break;
         }
-        /* State ID: ID_FM1UPSWITCHACQ_NOTDETECTED */
-        case ID_FM1UPSWITCHACQ_NOTDETECTED:
+        /* State ID: ID_POLUPSWITCHACQ_NOTDETECTED */
+        case ID_POLUPSWITCHACQ_NOTDETECTED:
         {
-            if( (loadPosUpSwchDI==TRUE) && (upSwitchTimer > CFG_FM1_UP_SWITCH_DETECT_TIMER) )
+            if( (loadPosUpSwchDI==TRUE) && (upSwitchTimer > CFG_POL_UP_SWITCH_DETECT_TIMER) )
             {
-                /* Transition ID: ID_FM1UPSWITCHACQ_DETECT */
+                /* Transition ID: ID_POLUPSWITCHACQ_DETECT */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */
                 upSwitchTimer=0L;
@@ -170,11 +171,11 @@ void FM1upSwitchAcq(  )
                 /* ['<global>::setUpSwitch' begin] */
                 loadPosUpSwchAcq = TRUE;
                 /* ['<global>::setUpSwitch' end] */
-                state = ID_FM1UPSWITCHACQ_DETECTED;
+                state = ID_POLUPSWITCHACQ_DETECTED;
             }
             else if( (loadPosUpSwchDI ==TRUE) )
             {
-                /* Transition ID: ID_FM1UPSWITCHACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLUPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpSwitchTimer' begin] */
                 upSwitchTimer++;
@@ -182,7 +183,7 @@ void FM1upSwitchAcq(  )
             }
             else if( (loadPosUpSwchDI == FALSE) )
             {
-                /* Transition ID: ID_FM1UPSWITCHACQ_LOOP */
+                /* Transition ID: ID_POLUPSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */
                 upSwitchTimer=0L;
@@ -190,12 +191,12 @@ void FM1upSwitchAcq(  )
             }
             break;
         }
-        /* State ID: ID_FM1UPSWITCHACQ_DETECTED */
-        case ID_FM1UPSWITCHACQ_DETECTED:
+        /* State ID: ID_POLUPSWITCHACQ_DETECTED */
+        case ID_POLUPSWITCHACQ_DETECTED:
         {
-            if( (loadPosUpSwchDI ==FALSE) && (upSwitchTimer > CFG_FM1_UP_SWITCH_DETECT_TIMER) )
+            if( (loadPosUpSwchDI ==FALSE) && (upSwitchTimer > CFG_POL_UP_SWITCH_DETECT_TIMER) )
             {
-                /* Transition ID: ID_FM1UPSWITCHACQ_UNDETECT */
+                /* Transition ID: ID_POLUPSWITCHACQ_UNDETECT */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */
                 upSwitchTimer=0L;
@@ -203,11 +204,11 @@ void FM1upSwitchAcq(  )
                 /* ['<global>::clearUpSwitch' begin] */
                 loadPosUpSwchAcq = FALSE;
                 /* ['<global>::clearUpSwitch' end] */
-                state = ID_FM1UPSWITCHACQ_NOTDETECTED;
+                state = ID_POLUPSWITCHACQ_NOTDETECTED;
             }
             else if( (loadPosUpSwchDI == FALSE) )
             {
-                /* Transition ID: ID_FM1UPSWITCHACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLUPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpSwitchTimer' begin] */
                 upSwitchTimer++;
@@ -215,7 +216,7 @@ void FM1upSwitchAcq(  )
             }
             else if( (loadPosUpSwchDI ==TRUE) )
             {
-                /* Transition ID: ID_FM1UPSWITCHACQ_LOOP */
+                /* Transition ID: ID_POLUPSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */
                 upSwitchTimer=0L;
@@ -225,37 +226,37 @@ void FM1upSwitchAcq(  )
         }
     }
 }
-/* ['FM1upSwitchAcq' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLupSwitchAcq' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1ActRectifier' begin (DON'T REMOVE THIS LINE!)] */
-void FM1ActRectifier(  )
+/* ['POLActRectifier' begin (DON'T REMOVE THIS LINE!)] */
+void POLActRectifier(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1ACTRECTIFIER_INIT;
+    static STATE_T state = ID_POLACTRECTIFIER_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1ACTRECTIFIER_INIT */
-        case ID_FM1ACTRECTIFIER_INIT:
+        /* State ID: ID_POLACTRECTIFIER_INIT */
+        case ID_POLACTRECTIFIER_INIT:
         {
-            /* Transition ID: ID_FM1ACTRECTIFIER_FROMINITTOQUIET */
+            /* Transition ID: ID_POLACTRECTIFIER_FROMINITTOQUIET */
             /* Actions: */
             /* ['<global>::setActuationQuiet' begin] */
             rectifiedActAction=(t_pwm)0; 
             actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
             /* ['<global>::execActDriving' begin] */
-            FM1ActDriving();
+            POLActDriving();
             /* ['<global>::execActDriving' end] */
-            state = ID_FM1ACTRECTIFIER_QUIET;
+            state = ID_POLACTRECTIFIER_QUIET;
             break;
         }
-        /* State ID: ID_FM1ACTRECTIFIER_QUIET */
-        case ID_FM1ACTRECTIFIER_QUIET:
+        /* State ID: ID_POLACTRECTIFIER_QUIET */
+        case ID_POLACTRECTIFIER_QUIET:
         {
             if( actAction<0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FROMQUIETTOBW */
+                /* Transition ID: ID_POLACTRECTIFIER_FROMQUIETTOBW */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
                 if (actAction>=0){
@@ -268,13 +269,13 @@ void FM1ActRectifier(  )
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTRECTIFIER_BW;
+                state = ID_POLACTRECTIFIER_BW;
             }
             else if( actAction>0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FROMQUIETTOFW */
+                /* Transition ID: ID_POLACTRECTIFIER_FROMQUIETTOFW */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
                 if (actAction>=0){
@@ -287,31 +288,31 @@ void FM1ActRectifier(  )
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTRECTIFIER_FW;
+                state = ID_POLACTRECTIFIER_FW;
             }
             break;
         }
-        /* State ID: ID_FM1ACTRECTIFIER_BW */
-        case ID_FM1ACTRECTIFIER_BW:
+        /* State ID: ID_POLACTRECTIFIER_BW */
+        case ID_POLACTRECTIFIER_BW:
         {
             if( actAction==0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FROMBWTOQUIET */
+                /* Transition ID: ID_POLACTRECTIFIER_FROMBWTOQUIET */
                 /* Actions: */
                 /* ['<global>::setActuationQuiet' begin] */
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTRECTIFIER_QUIET;
+                state = ID_POLACTRECTIFIER_QUIET;
             }
             else if( actAction>0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FROMBWTOFW */
+                /* Transition ID: ID_POLACTRECTIFIER_FROMBWTOFW */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
                 if (actAction>=0){
@@ -324,13 +325,13 @@ void FM1ActRectifier(  )
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTRECTIFIER_FW;
+                state = ID_POLACTRECTIFIER_FW;
             }
             else if( actAction<0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_BWLOOP */
+                /* Transition ID: ID_POLACTRECTIFIER_BWLOOP */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
                 if (actAction>=0){
@@ -343,30 +344,30 @@ void FM1ActRectifier(  )
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
             }
             break;
         }
-        /* State ID: ID_FM1ACTRECTIFIER_FW */
-        case ID_FM1ACTRECTIFIER_FW:
+        /* State ID: ID_POLACTRECTIFIER_FW */
+        case ID_POLACTRECTIFIER_FW:
         {
             if( actAction==0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FROMFWTOQUIET */
+                /* Transition ID: ID_POLACTRECTIFIER_FROMFWTOQUIET */
                 /* Actions: */
                 /* ['<global>::setActuationQuiet' begin] */
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTRECTIFIER_QUIET;
+                state = ID_POLACTRECTIFIER_QUIET;
             }
             else if( actAction<0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FROMFWTOBW */
+                /* Transition ID: ID_POLACTRECTIFIER_FROMFWTOBW */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
                 if (actAction>=0){
@@ -379,13 +380,13 @@ void FM1ActRectifier(  )
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTRECTIFIER_BW;
+                state = ID_POLACTRECTIFIER_BW;
             }
             else if( actAction>0 )
             {
-                /* Transition ID: ID_FM1ACTRECTIFIER_FWLOOP */
+                /* Transition ID: ID_POLACTRECTIFIER_FWLOOP */
                 /* Actions: */
                 /* ['<global>::setActuationModule' begin] */
                 if (actAction>=0){
@@ -398,27 +399,27 @@ void FM1ActRectifier(  )
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
             }
             break;
         }
     }
 }
-/* ['FM1ActRectifier' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLActRectifier' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1ActDriving' begin (DON'T REMOVE THIS LINE!)] */
-void FM1ActDriving(  )
+/* ['POLActDriving' begin (DON'T REMOVE THIS LINE!)] */
+void POLActDriving(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1ACTDRIVING_INIT;
+    static STATE_T state = ID_POLACTDRIVING_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1ACTDRIVING_INIT */
-        case ID_FM1ACTDRIVING_INIT:
+        /* State ID: ID_POLACTDRIVING_INIT */
+        case ID_POLACTDRIVING_INIT:
         {
-            /* Transition ID: ID_FM1ACTDRIVING_TOSTAB */
+            /* Transition ID: ID_POLACTDRIVING_TOSTAB */
             /* Actions: */
             /* ['<global>::stopActuation' begin] */
             appliedActAction=0;
@@ -429,15 +430,15 @@ void FM1ActDriving(  )
             /* ['<global>::resetActDriverTimer' begin] */
             actDrvTimer=0L;
             /* ['<global>::resetActDriverTimer' end] */
-            state = ID_FM1ACTDRIVING_STABILIZE;
+            state = ID_POLACTDRIVING_STABILIZE;
             break;
         }
-        /* State ID: ID_FM1ACTDRIVING_STABILIZE */
-        case ID_FM1ACTDRIVING_STABILIZE:
+        /* State ID: ID_POLACTDRIVING_STABILIZE */
+        case ID_POLACTDRIVING_STABILIZE:
         {
             if( appliedActDirection!=actDirection )
             {
-                /* Transition ID: ID_FM1ACTDRIVING_DIRCHANGEDURINGSTAB */
+                /* Transition ID: ID_POLACTDRIVING_DIRCHANGEDURINGSTAB */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
@@ -449,9 +450,9 @@ void FM1ActDriving(  )
                 actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
             }
-            else if( (actDirection!=CFG_ACT_DIRECTION_QUIET) && (actDrvTimer>=CFG_FM1_ACT_DRIVER_STAB_TIME) )
+            else if( (actDirection!=CFG_ACT_DIRECTION_QUIET) && (actDrvTimer>=CFG_POL_ACT_DRIVER_STAB_TIME) )
             {
-                /* Transition ID: ID_FM1ACTDRIVING_FROMSTABTOWORK */
+                /* Transition ID: ID_POLACTDRIVING_FROMSTABTOWORK */
                 /* Actions: */
                 /* ['<global>::applyActuation' begin] */
                 appliedActAction=rectifiedActAction;
@@ -459,11 +460,11 @@ void FM1ActDriving(  )
                 /* ['<global>::resetActDriverTimer' begin] */
                 actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
-                state = ID_FM1ACTDRIVING_WORK;
+                state = ID_POLACTDRIVING_WORK;
             }
             else
             {
-                /* Transition ID: ID_FM1ACTDRIVING_STABLOOP */
+                /* Transition ID: ID_POLACTDRIVING_STABLOOP */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
@@ -474,12 +475,12 @@ void FM1ActDriving(  )
             }
             break;
         }
-        /* State ID: ID_FM1ACTDRIVING_WORK */
-        case ID_FM1ACTDRIVING_WORK:
+        /* State ID: ID_POLACTDRIVING_WORK */
+        case ID_POLACTDRIVING_WORK:
         {
             if( appliedActDirection!=actDirection )
             {
-                /* Transition ID: ID_FM1ACTDRIVING_TODISSIPATE */
+                /* Transition ID: ID_POLACTDRIVING_TODISSIPATE */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
@@ -487,16 +488,16 @@ void FM1ActDriving(  )
                 /* ['<global>::resetActDriverTimer' begin] */
                 actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
-                state = ID_FM1ACTDRIVING_DISSIPATE;
+                state = ID_POLACTDRIVING_DISSIPATE;
             }
             break;
         }
-        /* State ID: ID_FM1ACTDRIVING_DISSIPATE */
-        case ID_FM1ACTDRIVING_DISSIPATE:
+        /* State ID: ID_POLACTDRIVING_DISSIPATE */
+        case ID_POLACTDRIVING_DISSIPATE:
         {
-            if( actDrvTimer>=CFG_FM1_ACT_DRIVER_DISSIP_TIME )
+            if( actDrvTimer>=CFG_POL_ACT_DRIVER_DISSIP_TIME )
             {
-                /* Transition ID: ID_FM1ACTDRIVING_ENDDISSIPATE */
+                /* Transition ID: ID_POLACTDRIVING_ENDDISSIPATE */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
@@ -507,11 +508,11 @@ void FM1ActDriving(  )
                 /* ['<global>::resetActDriverTimer' begin] */
                 actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
-                state = ID_FM1ACTDRIVING_STABILIZE;
+                state = ID_POLACTDRIVING_STABILIZE;
             }
             else
             {
-                /* Transition ID: ID_FM1ACTDRIVING_DISSIPATELOOP */
+                /* Transition ID: ID_POLACTDRIVING_DISSIPATELOOP */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
@@ -524,87 +525,87 @@ void FM1ActDriving(  )
         }
     }
 }
-/* ['FM1ActDriving' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLActDriving' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1ActEnabler' begin (DON'T REMOVE THIS LINE!)] */
-void FM1ActEnabler(  )
+/* ['POLActEnabler' begin (DON'T REMOVE THIS LINE!)] */
+void POLActEnabler(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1ACTENABLER_INIT;
+    static STATE_T state = ID_POLACTENABLER_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1ACTENABLER_INIT */
-        case ID_FM1ACTENABLER_INIT:
+        /* State ID: ID_POLACTENABLER_INIT */
+        case ID_POLACTENABLER_INIT:
         {
-            /* Transition ID: ID_FM1ACTENABLER_FROMINITTODISABLE */
+            /* Transition ID: ID_POLACTENABLER_FROMINITTODISABLE */
             /* Actions: */
             /* ['<global>::setActuationQuiet' begin] */
             rectifiedActAction=(t_pwm)0; 
             actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
             /* ['<global>::execActDriving' begin] */
-            FM1ActDriving();
+            POLActDriving();
             /* ['<global>::execActDriving' end] */
-            state = ID_FM1ACTENABLER_DISABLED;
+            state = ID_POLACTENABLER_DISABLED;
             break;
         }
-        /* State ID: ID_FM1ACTENABLER_DISABLED */
-        case ID_FM1ACTENABLER_DISABLED:
+        /* State ID: ID_POLACTENABLER_DISABLED */
+        case ID_POLACTENABLER_DISABLED:
         {
             if( actEnable==TRUE )
             {
-                /* Transition ID: ID_FM1ACTENABLER_TOENABLE */
+                /* Transition ID: ID_POLACTENABLER_TOENABLE */
                 /* Actions: */
                 /* ['<global>::execActRectifier' begin] */
-                FM1ActRectifier();
+                POLActRectifier();
                 /* ['<global>::execActRectifier' end] */
-                state = ID_FM1ACTENABLER_ENABLED;
+                state = ID_POLACTENABLER_ENABLED;
             }
             break;
         }
-        /* State ID: ID_FM1ACTENABLER_ENABLED */
-        case ID_FM1ACTENABLER_ENABLED:
+        /* State ID: ID_POLACTENABLER_ENABLED */
+        case ID_POLACTENABLER_ENABLED:
         {
             if( actEnable==FALSE )
             {
-                /* Transition ID: ID_FM1ACTENABLER_TODISABLE */
+                /* Transition ID: ID_POLACTENABLER_TODISABLE */
                 /* Actions: */
                 /* ['<global>::setActuationQuiet' begin] */
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
                 /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
+                POLActDriving();
                 /* ['<global>::execActDriving' end] */
-                state = ID_FM1ACTENABLER_DISABLED;
+                state = ID_POLACTENABLER_DISABLED;
             }
             else
             {
-                /* Transition ID: ID_FM1ACTENABLER_LOOP */
+                /* Transition ID: ID_POLACTENABLER_LOOP */
                 /* Actions: */
                 /* ['<global>::execActRectifier' begin] */
-                FM1ActRectifier();
+                POLActRectifier();
                 /* ['<global>::execActRectifier' end] */
             }
             break;
         }
     }
 }
-/* ['FM1ActEnabler' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLActEnabler' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1PosControl' begin (DON'T REMOVE THIS LINE!)] */
-void FM1PosControl(  )
+/* ['POLPosControl' begin (DON'T REMOVE THIS LINE!)] */
+void POLPosControl(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1POSCONTROL_INIT;
+    static STATE_T state = ID_POLPOSCONTROL_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1POSCONTROL_INIT */
-        case ID_FM1POSCONTROL_INIT:
+        /* State ID: ID_POLPOSCONTROL_INIT */
+        case ID_POLPOSCONTROL_INIT:
         {
-            /* Transition ID: ID_FM1POSCONTROL_INITIAL */
+            /* Transition ID: ID_POLPOSCONTROL_INITIAL */
             /* Actions: */
             /* ['<global>::stopAction' begin] */
             actAction=CFG_ACT_ACTION_STOP;
@@ -612,40 +613,40 @@ void FM1PosControl(  )
             /* ['<global>::cleanError' begin] */
             ctrlError=FALSE;
             /* ['<global>::cleanError' end] */
-            state = ID_FM1POSCONTROL_STOP;
+            state = ID_POLPOSCONTROL_STOP;
             break;
         }
-        /* State ID: ID_FM1POSCONTROL_STOP */
-        case ID_FM1POSCONTROL_STOP:
+        /* State ID: ID_POLPOSCONTROL_STOP */
+        case ID_POLPOSCONTROL_STOP:
         {
             if( (posMode == CFG_POS_MODE_UP) && (loadPosUpSwchAcq == FALSE) && (ctrlError == FALSE) )
             {
-                /* Transition ID: ID_FM1POSCONTROL_TOUP */
+                /* Transition ID: ID_POLPOSCONTROL_TOUP */
                 /* Actions: */
                 /* ['<global>::upAction' begin] */
                 actAction=CFG_ACT_ACTION_UP;
                 posAchieved=FALSE;
                 /* ['<global>::upAction' end] */
-                state = ID_FM1POSCONTROL_GOINGUP;
+                state = ID_POLPOSCONTROL_GOINGUP;
             }
             else if( ((loadPosDownSwchAcq==FALSE) && (posMode==CFG_POS_MODE_DOWN)) && (ctrlError==FALSE) )
             {
-                /* Transition ID: ID_FM1POSCONTROL_TODOWN */
+                /* Transition ID: ID_POLPOSCONTROL_TODOWN */
                 /* Actions: */
                 /* ['<global>::downAction' begin] */
                 actAction=CFG_ACT_ACTION_DOWN;
                 posAchieved=FALSE;
                 /* ['<global>::downAction' end] */
-                state = ID_FM1POSCONTROL_GOINGDOWN;
+                state = ID_POLPOSCONTROL_GOINGDOWN;
             }
             break;
         }
-        /* State ID: ID_FM1POSCONTROL_GOINGUP */
-        case ID_FM1POSCONTROL_GOINGUP:
+        /* State ID: ID_POLPOSCONTROL_GOINGUP */
+        case ID_POLPOSCONTROL_GOINGUP:
         {
             if( (currentError==TRUE) || (brokenChainError==TRUE) || (stuckActError==TRUE) )
             {
-                /* Transition ID: ID_FM1POSCONTROL_ERROR */
+                /* Transition ID: ID_POLPOSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
                 actAction=CFG_ACT_ACTION_STOP;
@@ -653,20 +654,20 @@ void FM1PosControl(  )
                 /* ['<global>::setError' begin] */
                 ctrlError=TRUE;
                 /* ['<global>::setError' end] */
-                state = ID_FM1POSCONTROL_STOP;
+                state = ID_POLPOSCONTROL_STOP;
             }
             else if( posMode!=CFG_POS_MODE_UP )
             {
-                /* Transition ID: ID_FM1POSCONTROL_CANCEL */
+                /* Transition ID: ID_POLPOSCONTROL_CANCEL */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
                 actAction=CFG_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
-                state = ID_FM1POSCONTROL_STOP;
+                state = ID_POLPOSCONTROL_STOP;
             }
             else if( loadPosUpSwchAcq==TRUE )
             {
-                /* Transition ID: ID_FM1POSCONTROL_FINISHED */
+                /* Transition ID: ID_POLPOSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
                 actAction=CFG_ACT_ACTION_STOP;
@@ -674,16 +675,16 @@ void FM1PosControl(  )
                 /* ['<global>::notifyAchieved' begin] */
                 posAchieved=TRUE;
                 /* ['<global>::notifyAchieved' end] */
-                state = ID_FM1POSCONTROL_STOP;
+                state = ID_POLPOSCONTROL_STOP;
             }
             break;
         }
-        /* State ID: ID_FM1POSCONTROL_GOINGDOWN */
-        case ID_FM1POSCONTROL_GOINGDOWN:
+        /* State ID: ID_POLPOSCONTROL_GOINGDOWN */
+        case ID_POLPOSCONTROL_GOINGDOWN:
         {
             if( (currentError==TRUE) || (brokenChainError==TRUE) || (stuckActError==TRUE) )
             {
-                /* Transition ID: ID_FM1POSCONTROL_ERROR */
+                /* Transition ID: ID_POLPOSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
                 actAction=CFG_ACT_ACTION_STOP;
@@ -691,20 +692,20 @@ void FM1PosControl(  )
                 /* ['<global>::setError' begin] */
                 ctrlError=TRUE;
                 /* ['<global>::setError' end] */
-                state = ID_FM1POSCONTROL_STOP;
+                state = ID_POLPOSCONTROL_STOP;
             }
             else if( posMode!=CFG_POS_MODE_DOWN )
             {
-                /* Transition ID: ID_FM1POSCONTROL_CANCEL */
+                /* Transition ID: ID_POLPOSCONTROL_CANCEL */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
                 actAction=CFG_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
-                state = ID_FM1POSCONTROL_STOP;
+                state = ID_POLPOSCONTROL_STOP;
             }
             else if( loadPosDownSwchAcq==TRUE )
             {
-                /* Transition ID: ID_FM1POSCONTROL_FINISHED */
+                /* Transition ID: ID_POLPOSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
                 actAction=CFG_ACT_ACTION_STOP;
@@ -712,114 +713,114 @@ void FM1PosControl(  )
                 /* ['<global>::notifyAchieved' begin] */
                 posAchieved=TRUE;
                 /* ['<global>::notifyAchieved' end] */
-                state = ID_FM1POSCONTROL_STOP;
+                state = ID_POLPOSCONTROL_STOP;
             }
             break;
         }
     }
 }
-/* ['FM1PosControl' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLPosControl' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1ModeSelector' begin (DON'T REMOVE THIS LINE!)] */
-void FM1ModeSelector(  )
+/* ['POLModeSelector' begin (DON'T REMOVE THIS LINE!)] */
+void POLModeSelector(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1MODESELECTOR_INIT;
+    static STATE_T state = ID_POLMODESELECTOR_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1MODESELECTOR_INIT */
-        case ID_FM1MODESELECTOR_INIT:
+        /* State ID: ID_POLMODESELECTOR_INIT */
+        case ID_POLMODESELECTOR_INIT:
         {
-            /* Transition ID: ID_FM1MODESELECTOR_INITIAL */
+            /* Transition ID: ID_POLMODESELECTOR_INITIAL */
             /* Actions: */
             /* ['<global>::setStopMode' begin] */
             posMode=CFG_POS_MODE_STOP;
             /* ['<global>::setStopMode' end] */
-            state = ID_FM1MODESELECTOR_STOP;
+            state = ID_POLMODESELECTOR_STOP;
             break;
         }
-        /* State ID: ID_FM1MODESELECTOR_STOP */
-        case ID_FM1MODESELECTOR_STOP:
+        /* State ID: ID_POLMODESELECTOR_STOP */
+        case ID_POLMODESELECTOR_STOP:
         {
             if( upReqAcq==TRUE && downReqAcq==FALSE )
             {
-                /* Transition ID: ID_FM1MODESELECTOR_TOUP */
+                /* Transition ID: ID_POLMODESELECTOR_TOUP */
                 /* Actions: */
                 /* ['<global>::setUpMode' begin] */
                 posMode=CFG_POS_MODE_UP;
                 /* ['<global>::setUpMode' end] */
-                state = ID_FM1MODESELECTOR_UP;
+                state = ID_POLMODESELECTOR_UP;
             }
             else if( downReqAcq==TRUE )
             {
-                /* Transition ID: ID_FM1MODESELECTOR_TODOWN */
+                /* Transition ID: ID_POLMODESELECTOR_TODOWN */
                 /* Actions: */
                 /* ['<global>::setDownMode' begin] */
                 posMode=CFG_POS_MODE_DOWN;
                 /* ['<global>::setDownMode' end] */
-                state = ID_FM1MODESELECTOR_DOWN;
+                state = ID_POLMODESELECTOR_DOWN;
             }
             break;
         }
-        /* State ID: ID_FM1MODESELECTOR_UP */
-        case ID_FM1MODESELECTOR_UP:
+        /* State ID: ID_POLMODESELECTOR_UP */
+        case ID_POLMODESELECTOR_UP:
         {
             if( ( downReqAcq==TRUE ) || ( ctrlError==TRUE ) || ( posAchieved==TRUE ) )
             {
-                /* Transition ID: ID_FM1MODESELECTOR_OPTIMIZED_TRANSITION_1 */
+                /* Transition ID: ID_POLMODESELECTOR_OPTIMIZED_TRANSITION_1 */
                 /* Actions: */
                 /* ['<global>::setStopMode' begin] */
                 posMode=CFG_POS_MODE_STOP;
                 /* ['<global>::setStopMode' end] */
-                state = ID_FM1MODESELECTOR_STOPWAIT;
+                state = ID_POLMODESELECTOR_STOPWAIT;
             }
             break;
         }
-        /* State ID: ID_FM1MODESELECTOR_STOPWAIT */
-        case ID_FM1MODESELECTOR_STOPWAIT:
+        /* State ID: ID_POLMODESELECTOR_STOPWAIT */
+        case ID_POLMODESELECTOR_STOPWAIT:
         {
             if( (downReqAcq==FALSE && upReqAcq==FALSE) )
             {
-                /* Transition ID: ID_FM1MODESELECTOR_RELEASE */
+                /* Transition ID: ID_POLMODESELECTOR_RELEASE */
                 /* Actions: */
                 /* ['<global>::setStopMode' begin] */
                 posMode=CFG_POS_MODE_STOP;
                 /* ['<global>::setStopMode' end] */
-                state = ID_FM1MODESELECTOR_STOP;
+                state = ID_POLMODESELECTOR_STOP;
             }
             break;
         }
-        /* State ID: ID_FM1MODESELECTOR_DOWN */
-        case ID_FM1MODESELECTOR_DOWN:
+        /* State ID: ID_POLMODESELECTOR_DOWN */
+        case ID_POLMODESELECTOR_DOWN:
         {
             if( ( upReqAcq==TRUE && downReqAcq==FALSE ) || ( ctrlError==TRUE ) || ( posAchieved==TRUE ) )
             {
-                /* Transition ID: ID_FM1MODESELECTOR_OPTIMIZED_TRANSITION_1 */
+                /* Transition ID: ID_POLMODESELECTOR_OPTIMIZED_TRANSITION_1 */
                 /* Actions: */
                 /* ['<global>::setStopMode' begin] */
                 posMode=CFG_POS_MODE_STOP;
                 /* ['<global>::setStopMode' end] */
-                state = ID_FM1MODESELECTOR_STOPWAIT;
+                state = ID_POLMODESELECTOR_STOPWAIT;
             }
             break;
         }
     }
 }
-/* ['FM1ModeSelector' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLModeSelector' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1UpButAcq' begin (DON'T REMOVE THIS LINE!)] */
-void FM1UpButAcq(  )
+/* ['POLUpButAcq' begin (DON'T REMOVE THIS LINE!)] */
+void POLUpButAcq(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1UPBUTACQ_INIT;
+    static STATE_T state = ID_POLUPBUTACQ_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1UPBUTACQ_INIT */
-        case ID_FM1UPBUTACQ_INIT:
+        /* State ID: ID_POLUPBUTACQ_INIT */
+        case ID_POLUPBUTACQ_INIT:
         {
-            /* Transition ID: ID_FM1UPBUTACQ_INITIAL */
+            /* Transition ID: ID_POLUPBUTACQ_INITIAL */
             /* Actions: */
             /* ['<global>::resetUpButTimer' begin] */
             upButTimer=0L;
@@ -827,15 +828,15 @@ void FM1UpButAcq(  )
             /* ['<global>::clearUpButton' begin] */
             upReqAcq=FALSE;
             /* ['<global>::clearUpButton' end] */
-            state = ID_FM1UPBUTACQ_NOTPRESSED;
+            state = ID_POLUPBUTACQ_NOTPRESSED;
             break;
         }
-        /* State ID: ID_FM1UPBUTACQ_NOTPRESSED */
-        case ID_FM1UPBUTACQ_NOTPRESSED:
+        /* State ID: ID_POLUPBUTACQ_NOTPRESSED */
+        case ID_POLUPBUTACQ_NOTPRESSED:
         {
-            if( ((upReqDI==TRUE) || (hmibuttons & CFG_FM1_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_FM1_UP_BUT_PRESS_TIMER) )
+            if( ((upReqDI==TRUE) || (hmibuttons & CFG_POL_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_POL_UP_BUT_PRESS_TIMER) )
             {
-                /* Transition ID: ID_FM1UPBUTACQ_PRESS */
+                /* Transition ID: ID_POLUPBUTACQ_PRESS */
                 /* Actions: */
                 /* ['<global>::resetUpButTimer' begin] */
                 upButTimer=0L;
@@ -843,19 +844,19 @@ void FM1UpButAcq(  )
                 /* ['<global>::setUpButton' begin] */
                 upReqAcq=TRUE;
                 /* ['<global>::setUpButton' end] */
-                state = ID_FM1UPBUTACQ_PRESSED;
+                state = ID_POLUPBUTACQ_PRESSED;
             }
-            else if( ((upReqDI==TRUE) || (hmibuttons & CFG_FM1_BUTACQ_HMI_UP_MASK)) )
+            else if( ((upReqDI==TRUE) || (hmibuttons & CFG_POL_BUTACQ_HMI_UP_MASK)) )
             {
-                /* Transition ID: ID_FM1UPBUTACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLUPBUTACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpButTimer' begin] */
                 upButTimer++;
                 /* ['<global>::incrementUpButTimer' end] */
             }
-            else if( ((upReqDI==FALSE) && !(hmibuttons & CFG_FM1_BUTACQ_HMI_UP_MASK)) )
+            else if( ((upReqDI==FALSE) && !(hmibuttons & CFG_POL_BUTACQ_HMI_UP_MASK)) )
             {
-                /* Transition ID: ID_FM1UPBUTACQ_LOOP */
+                /* Transition ID: ID_POLUPBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpButTimer' begin] */
                 upButTimer=0L;
@@ -863,13 +864,13 @@ void FM1UpButAcq(  )
             }
             break;
         }
-        /* State ID: ID_FM1UPBUTACQ_PRESSED */
-        case ID_FM1UPBUTACQ_PRESSED:
+        /* State ID: ID_POLUPBUTACQ_PRESSED */
+        case ID_POLUPBUTACQ_PRESSED:
         {
-            if( ((upReqDI==FALSE) && !(hmibuttons & CFG_FM1_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_FM1_UP_BUT_UNPRESS_TIMER)
+            if( ((upReqDI==FALSE) && !(hmibuttons & CFG_POL_BUTACQ_HMI_UP_MASK)) && (upButTimer > CFG_POL_UP_BUT_UNPRESS_TIMER)
  )
             {
-                /* Transition ID: ID_FM1UPBUTACQ_UNPRESS */
+                /* Transition ID: ID_POLUPBUTACQ_UNPRESS */
                 /* Actions: */
                 /* ['<global>::resetUpButTimer' begin] */
                 upButTimer=0L;
@@ -877,19 +878,19 @@ void FM1UpButAcq(  )
                 /* ['<global>::clearUpButton' begin] */
                 upReqAcq=FALSE;
                 /* ['<global>::clearUpButton' end] */
-                state = ID_FM1UPBUTACQ_NOTPRESSED;
+                state = ID_POLUPBUTACQ_NOTPRESSED;
             }
-            else if( ((upReqDI==FALSE) && !(hmibuttons & CFG_FM1_BUTACQ_HMI_UP_MASK)) )
+            else if( ((upReqDI==FALSE) && !(hmibuttons & CFG_POL_BUTACQ_HMI_UP_MASK)) )
             {
-                /* Transition ID: ID_FM1UPBUTACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLUPBUTACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpButTimer' begin] */
                 upButTimer++;
                 /* ['<global>::incrementUpButTimer' end] */
             }
-            else if( ((upReqDI==TRUE) || (hmibuttons & CFG_FM1_BUTACQ_HMI_UP_MASK)) )
+            else if( ((upReqDI==TRUE) || (hmibuttons & CFG_POL_BUTACQ_HMI_UP_MASK)) )
             {
-                /* Transition ID: ID_FM1UPBUTACQ_LOOP */
+                /* Transition ID: ID_POLUPBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpButTimer' begin] */
                 upButTimer=0L;
@@ -899,20 +900,20 @@ void FM1UpButAcq(  )
         }
     }
 }
-/* ['FM1UpButAcq' end (DON'T REMOVE THIS LINE!)] */
+/* ['POLUpButAcq' end (DON'T REMOVE THIS LINE!)] */
 
-/* ['FM1DownButAcq' begin (DON'T REMOVE THIS LINE!)] */
-void FM1DownButAcq(  )
+/* ['POLDownButAcq' begin (DON'T REMOVE THIS LINE!)] */
+void POLDownButAcq(  )
 {
     /* set initial state */
-    static STATE_T state = ID_FM1DOWNBUTACQ_INIT;
+    static STATE_T state = ID_POLDOWNBUTACQ_INIT;
 
     switch( state )
     {
-        /* State ID: ID_FM1DOWNBUTACQ_INIT */
-        case ID_FM1DOWNBUTACQ_INIT:
+        /* State ID: ID_POLDOWNBUTACQ_INIT */
+        case ID_POLDOWNBUTACQ_INIT:
         {
-            /* Transition ID: ID_FM1DOWNBUTACQ_INITIAL */
+            /* Transition ID: ID_POLDOWNBUTACQ_INITIAL */
             /* Actions: */
             /* ['<global>::resetDownButTimer' begin] */
             downButTimer=0L;
@@ -920,15 +921,15 @@ void FM1DownButAcq(  )
             /* ['<global>::clearDownButton' begin] */
             downReqAcq=FALSE;
             /* ['<global>::clearDownButton' end] */
-            state = ID_FM1DOWNBUTACQ_NOTPRESSED;
+            state = ID_POLDOWNBUTACQ_NOTPRESSED;
             break;
         }
-        /* State ID: ID_FM1DOWNBUTACQ_NOTPRESSED */
-        case ID_FM1DOWNBUTACQ_NOTPRESSED:
+        /* State ID: ID_POLDOWNBUTACQ_NOTPRESSED */
+        case ID_POLDOWNBUTACQ_NOTPRESSED:
         {
-            if( ((downReqDI==TRUE) || (hmibuttons & CFG_FM1_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_FM1_DWN_BUT_PRESS_TIMER) )
+            if( ((downReqDI==TRUE) || (hmibuttons & CFG_POL_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_POL_DWN_BUT_PRESS_TIMER) )
             {
-                /* Transition ID: ID_FM1DOWNBUTACQ_PRESS */
+                /* Transition ID: ID_POLDOWNBUTACQ_PRESS */
                 /* Actions: */
                 /* ['<global>::resetDownButTimer' begin] */
                 downButTimer=0L;
@@ -936,19 +937,19 @@ void FM1DownButAcq(  )
                 /* ['<global>::setDownButton' begin] */
                 downReqAcq=TRUE;
                 /* ['<global>::setDownButton' end] */
-                state = ID_FM1DOWNBUTACQ_PRESSED;
+                state = ID_POLDOWNBUTACQ_PRESSED;
             }
-            else if( ((downReqDI==TRUE) || (hmibuttons & CFG_FM1_BUTACQ_HMI_DOWN_MASK)) )
+            else if( ((downReqDI==TRUE) || (hmibuttons & CFG_POL_BUTACQ_HMI_DOWN_MASK)) )
             {
-                /* Transition ID: ID_FM1DOWNBUTACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLDOWNBUTACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownButTimer' begin] */
                 downButTimer++;
                 /* ['<global>::incrementDownButTimer' end] */
             }
-            else if( ((downReqDI==FALSE) && !(hmibuttons & CFG_FM1_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_FM1_DWN_BUT_UNPRESS_TIMER) )
+            else if( ((downReqDI==FALSE) && !(hmibuttons & CFG_POL_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_POL_DWN_BUT_UNPRESS_TIMER) )
             {
-                /* Transition ID: ID_FM1DOWNBUTACQ_LOOP */
+                /* Transition ID: ID_POLDOWNBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownButTimer' begin] */
                 downButTimer=0L;
@@ -956,12 +957,12 @@ void FM1DownButAcq(  )
             }
             break;
         }
-        /* State ID: ID_FM1DOWNBUTACQ_PRESSED */
-        case ID_FM1DOWNBUTACQ_PRESSED:
+        /* State ID: ID_POLDOWNBUTACQ_PRESSED */
+        case ID_POLDOWNBUTACQ_PRESSED:
         {
-            if( ((downReqDI==FALSE) && !(hmibuttons & CFG_FM1_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_FM1_DWN_BUT_UNPRESS_TIMER) )
+            if( ((downReqDI==FALSE) && !(hmibuttons & CFG_POL_BUTACQ_HMI_DOWN_MASK)) && (downButTimer > CFG_POL_DWN_BUT_UNPRESS_TIMER) )
             {
-                /* Transition ID: ID_FM1DOWNBUTACQ_UNPRESS */
+                /* Transition ID: ID_POLDOWNBUTACQ_UNPRESS */
                 /* Actions: */
                 /* ['<global>::resetDownButTimer' begin] */
                 downButTimer=0L;
@@ -969,19 +970,19 @@ void FM1DownButAcq(  )
                 /* ['<global>::clearDownButton' begin] */
                 downReqAcq=FALSE;
                 /* ['<global>::clearDownButton' end] */
-                state = ID_FM1DOWNBUTACQ_NOTPRESSED;
+                state = ID_POLDOWNBUTACQ_NOTPRESSED;
             }
-            else if( ((downReqDI==FALSE) && !(hmibuttons & CFG_FM1_BUTACQ_HMI_DOWN_MASK)) )
+            else if( ((downReqDI==FALSE) && !(hmibuttons & CFG_POL_BUTACQ_HMI_DOWN_MASK)) )
             {
-                /* Transition ID: ID_FM1DOWNBUTACQ_TIMERINCREMENT */
+                /* Transition ID: ID_POLDOWNBUTACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownButTimer' begin] */
                 downButTimer++;
                 /* ['<global>::incrementDownButTimer' end] */
             }
-            else if( ((downReqDI==TRUE) || (hmibuttons & CFG_FM1_BUTACQ_HMI_DOWN_MASK)) )
+            else if( ((downReqDI==TRUE) || (hmibuttons & CFG_POL_BUTACQ_HMI_DOWN_MASK)) )
             {
-                /* Transition ID: ID_FM1DOWNBUTACQ_LOOP */
+                /* Transition ID: ID_POLDOWNBUTACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownButTimer' begin] */
                 downButTimer=0L;
@@ -991,6 +992,5 @@ void FM1DownButAcq(  )
         }
     }
 }
-/* ['FM1DownButAcq' end (DON'T REMOVE THIS LINE!)] */
-
+/* ['POLDownButAcq' end (DON'T REMOVE THIS LINE!)] */
 

@@ -1,5 +1,5 @@
 /* ['Common headers' begin (DON'T REMOVE THIS LINE!)] */
-#include "FM1lin1dFSM_CI.h"
+#include "POLlin1dFSM_CI.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
 #ifdef CODEDESIGNER_VARS
@@ -46,5 +46,4 @@ t_pwm_duty rectifiedActAction;
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Code items' definitions */
 /* ['Common definitions for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
-
 

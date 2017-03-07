@@ -1,5 +1,5 @@
-#ifndef _FM1_DRE_H
-#define _FM1_DRE_H
+#ifndef _POL_DRE_H
+#define _POL_DRE_H
 
 #include "ProjectTypes.h"
 #include "ProjectFlows.h"
@@ -78,7 +78,7 @@ t_hmileds hmileds;
 t_hmidigits hmidigits;
 t_pwm_duty rectifiedActAction;
 
-} t_dreFM1;
+} t_drePOL;
 
 typedef struct {
 // (null) No diag variables for upReq
@@ -188,7 +188,7 @@ t_hmidigits hmidigits;
 BOOL enable_rectifiedActAction;
 t_pwm_duty rectifiedActAction;
 
-} t_diagFM1;
+} t_diagPOL;
 
 // Initialization functions
 
@@ -219,12 +219,12 @@ t_pwm_duty rectifiedActAction;
 // (output disabled for Variable type);
   
 // upReqDI flow acquisition
-void setup_FM1upReqDI(void);
+void setup_POLupReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
   
 // downReqDI flow acquisition
-void setup_FM1downReqDI(void);
+void setup_POLdownReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
   
@@ -241,17 +241,17 @@ void setup_FM1downReqDI(void);
 // pwmActAction flow acquisition
 // (setup input disabled for PWM type);
 // pwmActAction flow synthesis
-void setup_FM1pwmActAction(void);
+void setup_POLpwmActAction(void);
   
 // doDirFw flow acquisition
-void setup_FM1doDirFw_input(void);
+void setup_POLdoDirFw_input(void);
 // doDirFw flow synthesis
-void setup_FM1doDirFw_output(void);
+void setup_POLdoDirFw_output(void);
   
 // doDirBw flow acquisition
-void setup_FM1doDirBw_input(void);
+void setup_POLdoDirBw_input(void);
 // doDirBw flow synthesis
-void setup_FM1doDirBw_output(void);
+void setup_POLdoDirBw_output(void);
   
 // actEnable flow acquisition
 // (setup input disabled for Variable type);
@@ -324,12 +324,12 @@ void setup_FM1doDirBw_output(void);
 // (output disabled for Switch type);
   
 // loadPosUpSwchDI flow acquisition
-void setup_FM1loadPosUpSwchDI(void);
+void setup_POLloadPosUpSwchDI(void);
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type);
   
 // loadPosDownSwchDI flow acquisition
-void setup_FM1loadPosDownSwchDI(void);
+void setup_POLloadPosDownSwchDI(void);
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type);
   
@@ -577,12 +577,12 @@ void setup_FM1loadPosDownSwchDI(void);
 // (output disabled for Variable type);
   
 // upReqDI flow acquisition
-BOOL adquirir_FM1upReqDI(void);
+BOOL adquirir_POLupReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
   
 // downReqDI flow acquisition
-BOOL adquirir_FM1downReqDI(void);
+BOOL adquirir_POLdownReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
   
@@ -599,17 +599,17 @@ BOOL adquirir_FM1downReqDI(void);
 // pwmActAction flow acquisition
 // (input disabled for PWM type);
 // pwmActAction flow synthesis
-void synthesize_FM1pwmActAction(t_pwm value);
+void synthesize_POLpwmActAction(t_pwm value);
   
 // doDirFw flow acquisition
-BOOL adquirir_FM1doDirFw(void);
+BOOL adquirir_POLdoDirFw(void);
 // doDirFw flow synthesis
-void sintetizar_FM1doDirFw(BOOL valor);
+void sintetizar_POLdoDirFw(BOOL valor);
   
 // doDirBw flow acquisition
-BOOL adquirir_FM1doDirBw(void);
+BOOL adquirir_POLdoDirBw(void);
 // doDirBw flow synthesis
-void sintetizar_FM1doDirBw(BOOL valor);
+void sintetizar_POLdoDirBw(BOOL valor);
   
 // actEnable flow acquisition
 // (input disabled for Variable type);
@@ -627,7 +627,7 @@ void sintetizar_FM1doDirBw(BOOL valor);
 // (output disabled for PWMDuty type);
   
 // loadPosAcq flow acquisition
-uint16_t acquire_FM1loadPosAcq(void);
+uint16_t acquire_POLloadPosAcq(void);
 // loadPosAcq flow synthesis
 // (output disabled for ADC type);
   
@@ -657,7 +657,7 @@ uint16_t acquire_FM1loadPosAcq(void);
 // (output disabled for Power type);
   
 // loadPosAI flow acquisition
-uint16_t acquire_FM1loadPosAI(void);
+uint16_t acquire_POLloadPosAI(void);
 // loadPosAI flow synthesis
 // (output disabled for ADC type);
   
@@ -682,12 +682,12 @@ uint16_t acquire_FM1loadPosAI(void);
 // (output disabled for Switch type);
   
 // loadPosUpSwchDI flow acquisition
-BOOL adquirir_FM1loadPosUpSwchDI(void);
+BOOL adquirir_POLloadPosUpSwchDI(void);
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type);
   
 // loadPosDownSwchDI flow acquisition
-BOOL adquirir_FM1loadPosDownSwchDI(void);
+BOOL adquirir_POLloadPosDownSwchDI(void);
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type);
   
@@ -707,7 +707,7 @@ BOOL adquirir_FM1loadPosDownSwchDI(void);
 // (output disabled for Current type);
   
 // driveCurrentAI flow acquisition
-uint16_t acquire_FM1driveCurrentAI(void);
+uint16_t acquire_POLdriveCurrentAI(void);
 // driveCurrentAI flow synthesis
 // (output disabled for ADC type);
   
@@ -907,6 +907,4 @@ uint16_t acquire_FM1driveCurrentAI(void);
 // (output disabled for PWMDuty type);
 
 #endif /* _DRE_H */
-
-
 
