@@ -2,7 +2,7 @@
 #include "prj_cfg.h"
 #include "prj_output.h"
 #include "prj_pinout.h"
-#include "DRE.h"
+#include "FM1DRE.h"
 #include <Arduino.h>
 
 #include <TM1638.h>

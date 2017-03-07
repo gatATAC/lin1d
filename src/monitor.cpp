@@ -1,5 +1,5 @@
 #include "monitor.h"
-#include "DRE.h"
+#include "FM1DRE.h"
 
 
 #include <TM1638.h>
@@ -7,7 +7,7 @@
 extern TM1638 module;
 extern t_dreFM1 dreFM1;
 
-#include "lin1dFSM_CI.h"
+#include "FM1lin1dFSM_CI.h"
 extern STATE_T state;
 
 void monitorInit(){

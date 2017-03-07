@@ -29,10 +29,10 @@
 
 /***** Project includes *****/
 #include "prj_pinout.h" // <-- The pinout of the project
-#include "DRE.h"    // <-- The DRE of the project (global variables pools to share)
+#include "FM1DRE.h"    // <-- The DRE of the project (global variables pools to share)
 #include "prj_input.h"  // <-- The input module reads the microcontroller pinout
 #include "prj_output.h"  // <-- The output module writes the microcontroller pinout
-#include "lin1dFSM.h"
+#include "FM1lin1dFSM.h"
 #include "monitor.h"
 
 #include <TM1638.h>

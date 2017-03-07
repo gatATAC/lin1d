@@ -1,8 +1,8 @@
 /* ['Common headers' begin (DON'T REMOVE THIS LINE!)] */
-#include "lin1dFSM.h"
+#include "FM1lin1dFSM.h"
 /* ['Common headers' end (DON'T REMOVE THIS LINE!)] */
 
-#include "DRE.h"
+#include "FM1DRE.h"
 
 extern t_dreFM1 dreFM1;
 
