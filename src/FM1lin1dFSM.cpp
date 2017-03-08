@@ -244,9 +244,6 @@ void FM1ActRectifier(  )
             rectifiedActAction=(t_pwm)0; 
             actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
-            /* ['<global>::execActDriving' begin] */
-            FM1ActDriving();
-            /* ['<global>::execActDriving' end] */
             state = ID_FM1ACTRECTIFIER_QUIET;
             break;
         }
@@ -267,9 +264,6 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationBw' begin] */
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_BW;
             }
             else if( actAction>0 )
@@ -286,9 +280,6 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationFw' begin] */
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_FW;
             }
             break;
@@ -304,9 +295,6 @@ void FM1ActRectifier(  )
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_QUIET;
             }
             else if( actAction>0 )
@@ -323,9 +311,6 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationFw' begin] */
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_FW;
             }
             else if( actAction<0 )
@@ -342,9 +327,6 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationBw' begin] */
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
             }
             break;
         }
@@ -359,9 +341,6 @@ void FM1ActRectifier(  )
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_QUIET;
             }
             else if( actAction<0 )
@@ -378,9 +357,6 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationBw' begin] */
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_BW;
             }
             else if( actAction>0 )
@@ -397,9 +373,6 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationFw' begin] */
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
             }
             break;
         }
@@ -543,9 +516,6 @@ void FM1ActEnabler(  )
             rectifiedActAction=(t_pwm)0; 
             actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
-            /* ['<global>::execActDriving' begin] */
-            FM1ActDriving();
-            /* ['<global>::execActDriving' end] */
             state = ID_FM1ACTENABLER_DISABLED;
             break;
         }
@@ -574,9 +544,6 @@ void FM1ActEnabler(  )
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
-                /* ['<global>::execActDriving' begin] */
-                FM1ActDriving();
-                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTENABLER_DISABLED;
             }
             else
@@ -992,5 +959,4 @@ void FM1DownButAcq(  )
     }
 }
 /* ['FM1DownButAcq' end (DON'T REMOVE THIS LINE!)] */
-
 

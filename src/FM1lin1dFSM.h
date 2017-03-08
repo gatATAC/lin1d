@@ -23,9 +23,9 @@ void FM1upSwitchAcq(  );
 /* ['FM1ActRectifier' begin (DON'T REMOVE THIS LINE!)] */
 /* State IDs */
 #define ID_FM1ACTRECTIFIER_INIT 6
-#define ID_FM1ACTRECTIFIER_QUIET 7
+#define ID_FM1ACTRECTIFIER_BW 7
 #define ID_FM1ACTRECTIFIER_FW 8
-#define ID_FM1ACTRECTIFIER_BW 9
+#define ID_FM1ACTRECTIFIER_QUIET 9
 
 void FM1ActRectifier(  );
 /* ['FM1ActRectifier' end (DON'T REMOVE THIS LINE!)] */
@@ -33,9 +33,9 @@ void FM1ActRectifier(  );
 /* ['FM1ActDriving' begin (DON'T REMOVE THIS LINE!)] */
 /* State IDs */
 #define ID_FM1ACTDRIVING_INIT 10
-#define ID_FM1ACTDRIVING_STABILIZE 11
-#define ID_FM1ACTDRIVING_WORK 12
-#define ID_FM1ACTDRIVING_DISSIPATE 13
+#define ID_FM1ACTDRIVING_DISSIPATE 11
+#define ID_FM1ACTDRIVING_STABILIZE 12
+#define ID_FM1ACTDRIVING_WORK 13
 
 void FM1ActDriving(  );
 /* ['FM1ActDriving' end (DON'T REMOVE THIS LINE!)] */
@@ -43,8 +43,8 @@ void FM1ActDriving(  );
 /* ['FM1ActEnabler' begin (DON'T REMOVE THIS LINE!)] */
 /* State IDs */
 #define ID_FM1ACTENABLER_INIT 14
-#define ID_FM1ACTENABLER_DISABLED 15
-#define ID_FM1ACTENABLER_ENABLED 16
+#define ID_FM1ACTENABLER_ENABLED 15
+#define ID_FM1ACTENABLER_DISABLED 16
 
 void FM1ActEnabler(  );
 /* ['FM1ActEnabler' end (DON'T REMOVE THIS LINE!)] */
@@ -87,5 +87,4 @@ void FM1UpButAcq(  );
 
 void FM1DownButAcq(  );
 /* ['FM1DownButAcq' end (DON'T REMOVE THIS LINE!)] */
-
 

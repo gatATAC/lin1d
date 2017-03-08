@@ -148,6 +148,7 @@ void fsmTasks(void) {
 
   // Actuation
   FM1ActEnabler(  );
+  FM1ActDriving(  );
 
     // Acquisition
   POLUpButAcq(  );
@@ -228,6 +229,7 @@ void loop()
   //prjOutput();
 
 }
+
 
 
 
