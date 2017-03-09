@@ -162,6 +162,7 @@ void fsmTasks(void) {
 
   // Actuation
   POLActEnabler(  );
+  POLActDriving(  );
 }
 
 
@@ -229,6 +230,7 @@ void loop()
   //prjOutput();
 
 }
+
 
 
 

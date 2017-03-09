@@ -47,3 +47,4 @@ t_pwm_duty rectifiedActAction;
 /* Code items' definitions */
 /* ['Common definitions for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
 
+

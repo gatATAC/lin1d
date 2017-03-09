@@ -51,3 +51,4 @@ typedef unsigned long STATE_T;
 /* Declaration of code items used in state charts */
 /* ['Common declarations for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
 
+
