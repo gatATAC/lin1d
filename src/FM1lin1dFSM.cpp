@@ -244,6 +244,9 @@ void FM1ActRectifier(  )
             rectifiedActAction=(t_pwm)0; 
             actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
+            /* ['<global>::execActDriving' begin] */
+            FM1ActDriving();
+            /* ['<global>::execActDriving' end] */
             state = ID_FM1ACTRECTIFIER_QUIET;
             break;
         }
@@ -264,6 +267,9 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationBw' begin] */
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_BW;
             }
             else if( actAction>0 )
@@ -280,6 +286,9 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationFw' begin] */
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_FW;
             }
             break;
@@ -295,6 +304,9 @@ void FM1ActRectifier(  )
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_QUIET;
             }
             else if( actAction>0 )
@@ -311,6 +323,9 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationFw' begin] */
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_FW;
             }
             else if( actAction<0 )
@@ -327,6 +342,9 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationBw' begin] */
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
             }
             break;
         }
@@ -341,6 +359,9 @@ void FM1ActRectifier(  )
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_QUIET;
             }
             else if( actAction<0 )
@@ -357,6 +378,9 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationBw' begin] */
                 actDirection=CFG_ACT_DIRECTION_BW;
                 /* ['<global>::setActuationBw' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTRECTIFIER_BW;
             }
             else if( actAction>0 )
@@ -373,6 +397,9 @@ void FM1ActRectifier(  )
                 /* ['<global>::setActuationFw' begin] */
                 actDirection=CFG_ACT_DIRECTION_FW;
                 /* ['<global>::setActuationFw' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
             }
             break;
         }
@@ -391,7 +418,7 @@ void FM1ActDriving(  )
         /* State ID: ID_FM1ACTDRIVING_INIT */
         case ID_FM1ACTDRIVING_INIT:
         {
-            /* Transition ID: ID_FM1ACTDRIVING_TOSTAB */
+            /* Transition ID: ID_FM1ACTDRIVING_TODISSIPATE */
             /* Actions: */
             /* ['<global>::stopActuation' begin] */
             appliedActAction=0;
@@ -402,7 +429,40 @@ void FM1ActDriving(  )
             /* ['<global>::resetActDriverTimer' begin] */
             actDrvTimer=0L;
             /* ['<global>::resetActDriverTimer' end] */
-            state = ID_FM1ACTDRIVING_STABILIZE;
+            state = ID_FM1ACTDRIVING_DISSIPATE;
+            break;
+        }
+        /* State ID: ID_FM1ACTDRIVING_DISSIPATE */
+        case ID_FM1ACTDRIVING_DISSIPATE:
+        {
+            if( actDrvTimer>=CFG_FM1_ACT_DRIVER_DISSIP_TIME )
+            {
+                /* Transition ID: ID_FM1ACTDRIVING_ENDDISSIPATE */
+                /* Actions: */
+                /* ['<global>::stopActuation' begin] */
+                appliedActAction=0;
+                /* ['<global>::stopActuation' end] */
+                /* ['<global>::applyDirection' begin] */
+                appliedActDirection=actDirection;
+                /* ['<global>::applyDirection' end] */
+                /* ['<global>::resetActDriverTimer' begin] */
+                actDrvTimer=0L;
+                /* ['<global>::resetActDriverTimer' end] */
+                state = ID_FM1ACTDRIVING_STABILIZE;
+            }
+            else
+            {
+                /* Transition ID: ID_FM1ACTDRIVING_DISSIPATELOOP */
+                /* Actions: */
+                /* ['<global>::stopActuation' begin] */
+                appliedActAction=0;
+                /* ['<global>::stopActuation' end] */
+                /* ['<global>::incrementActDriverDissipTimer' begin] */
+                if (actDrvTimer<CFG_FM1_ACT_DRIVER_DISSIP_TIME ) {
+                  actDrvTimer++;
+                }
+                /* ['<global>::incrementActDriverDissipTimer' end] */
+            }
             break;
         }
         /* State ID: ID_FM1ACTDRIVING_STABILIZE */
@@ -434,16 +494,19 @@ void FM1ActDriving(  )
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_FM1ACTDRIVING_WORK;
             }
-            else
+            else if( actDirection!=CFG_ACT_DIRECTION_QUIET
+ )
             {
                 /* Transition ID: ID_FM1ACTDRIVING_STABLOOP */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
                 /* ['<global>::stopActuation' end] */
-                /* ['<global>::incrementActDriverTimer' begin] */
-                actDrvTimer++;
-                /* ['<global>::incrementActDriverTimer' end] */
+                /* ['<global>::incrementActDriverStabTimer' begin] */
+                if (actDrvTimer<CFG_FM1_ACT_DRIVER_STAB_TIME ) {
+                  actDrvTimer++;
+                }
+                /* ['<global>::incrementActDriverStabTimer' end] */
             }
             break;
         }
@@ -461,37 +524,6 @@ void FM1ActDriving(  )
                 actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_FM1ACTDRIVING_DISSIPATE;
-            }
-            break;
-        }
-        /* State ID: ID_FM1ACTDRIVING_DISSIPATE */
-        case ID_FM1ACTDRIVING_DISSIPATE:
-        {
-            if( actDrvTimer>=CFG_FM1_ACT_DRIVER_DISSIP_TIME )
-            {
-                /* Transition ID: ID_FM1ACTDRIVING_ENDDISSIPATE */
-                /* Actions: */
-                /* ['<global>::stopActuation' begin] */
-                appliedActAction=0;
-                /* ['<global>::stopActuation' end] */
-                /* ['<global>::applyDirection' begin] */
-                appliedActDirection=actDirection;
-                /* ['<global>::applyDirection' end] */
-                /* ['<global>::resetActDriverTimer' begin] */
-                actDrvTimer=0L;
-                /* ['<global>::resetActDriverTimer' end] */
-                state = ID_FM1ACTDRIVING_STABILIZE;
-            }
-            else
-            {
-                /* Transition ID: ID_FM1ACTDRIVING_DISSIPATELOOP */
-                /* Actions: */
-                /* ['<global>::stopActuation' begin] */
-                appliedActAction=0;
-                /* ['<global>::stopActuation' end] */
-                /* ['<global>::incrementActDriverTimer' begin] */
-                actDrvTimer++;
-                /* ['<global>::incrementActDriverTimer' end] */
             }
             break;
         }
@@ -516,6 +548,9 @@ void FM1ActEnabler(  )
             rectifiedActAction=(t_pwm)0; 
             actDirection=CFG_ACT_DIRECTION_QUIET;
             /* ['<global>::setActuationQuiet' end] */
+            /* ['<global>::execActDriving' begin] */
+            FM1ActDriving();
+            /* ['<global>::execActDriving' end] */
             state = ID_FM1ACTENABLER_DISABLED;
             break;
         }
@@ -544,6 +579,9 @@ void FM1ActEnabler(  )
                 rectifiedActAction=(t_pwm)0; 
                 actDirection=CFG_ACT_DIRECTION_QUIET;
                 /* ['<global>::setActuationQuiet' end] */
+                /* ['<global>::execActDriving' begin] */
+                FM1ActDriving();
+                /* ['<global>::execActDriving' end] */
                 state = ID_FM1ACTENABLER_DISABLED;
             }
             else

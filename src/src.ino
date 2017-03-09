@@ -218,7 +218,7 @@ void loop()
   // Now the microcontroller will loose time until the end of cycle sincronization time expires
   boolean timSync=timerSync();
   while(timSync==false){
-    if ((CYCLE_TIME_MICROS-elapsedMicros)>CYCLE_SECURITY_TIME_MICROS){
+    if ((CYCLE_TIME_IN_MICROS-elapsedMicros)>CYCLE_SECURITY_TIME_MICROS){
     }
     // timerSync returns true when the end of cycle syncronization time expired.
     timSync=timerSync();
@@ -229,6 +229,10 @@ void loop()
   //prjOutput();
 
 }
+
+
+
+
 
 
 

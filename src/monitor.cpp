@@ -82,16 +82,20 @@ void monitorExec(){
 #else
     //dreFM1.hmidigits += 10000L * abs(dreFM1.actAction);
     //dreFM1.hmidigits += abs(drePOL.actAction);
-    //dreFM1.hmidigits += 10000L * dreFM1.appliedActAction;
-    //dreFM1.hmidigits += (dreFM1.actDrvTimer*(CYCLE_TIME_IN_MICROS))/1000L;
-    dreFM1.hmidigits += 10000L * drePOL.appliedActAction;  // Both subsystems (POL and FM1) share same hmi
-    dreFM1.hmidigits += (drePOL.actDrvTimer*(CYCLE_TIME_IN_MICROS))/1000L;  // Both subsystems (POL and FM1) share same hmi
+    dreFM1.hmidigits += 10000L * dreFM1.appliedActAction;
+    dreFM1.hmidigits += (dreFM1.actDrvTimer*(CYCLE_TIME_IN_MICROS))/1000L;
+    //dreFM1.hmidigits += 10000L * drePOL.appliedActAction;  // Both subsystems (POL and FM1) share same hmi
+    //dreFM1.hmidigits += (drePOL.actDrvTimer*(CYCLE_TIME_IN_MICROS))/1000L;  // Both subsystems (POL and FM1) share same hmi
 #endif  
 
   // Set leds & digits
   module.setLEDs(dreFM1.hmileds);
   module.setDisplayToDecNumber(dreFM1.hmidigits, 0);
 }
+
+
+
+
 
 
 

@@ -419,7 +419,7 @@ void POLActDriving(  )
         /* State ID: ID_POLACTDRIVING_INIT */
         case ID_POLACTDRIVING_INIT:
         {
-            /* Transition ID: ID_POLACTDRIVING_TOSTAB */
+            /* Transition ID: ID_POLACTDRIVING_TODISSIPATE */
             /* Actions: */
             /* ['<global>::stopActuation' begin] */
             appliedActAction=0;
@@ -430,7 +430,40 @@ void POLActDriving(  )
             /* ['<global>::resetActDriverTimer' begin] */
             actDrvTimer=0L;
             /* ['<global>::resetActDriverTimer' end] */
-            state = ID_POLACTDRIVING_STABILIZE;
+            state = ID_POLACTDRIVING_DISSIPATE;
+            break;
+        }
+        /* State ID: ID_POLACTDRIVING_DISSIPATE */
+        case ID_POLACTDRIVING_DISSIPATE:
+        {
+            if( actDrvTimer>=CFG_POL_ACT_DRIVER_DISSIP_TIME )
+            {
+                /* Transition ID: ID_POLACTDRIVING_ENDDISSIPATE */
+                /* Actions: */
+                /* ['<global>::stopActuation' begin] */
+                appliedActAction=0;
+                /* ['<global>::stopActuation' end] */
+                /* ['<global>::applyDirection' begin] */
+                appliedActDirection=actDirection;
+                /* ['<global>::applyDirection' end] */
+                /* ['<global>::resetActDriverTimer' begin] */
+                actDrvTimer=0L;
+                /* ['<global>::resetActDriverTimer' end] */
+                state = ID_POLACTDRIVING_STABILIZE;
+            }
+            else
+            {
+                /* Transition ID: ID_POLACTDRIVING_DISSIPATELOOP */
+                /* Actions: */
+                /* ['<global>::stopActuation' begin] */
+                appliedActAction=0;
+                /* ['<global>::stopActuation' end] */
+                /* ['<global>::incrementActDriverDissipTimer' begin] */
+                if (actDrvTimer<CFG_POL_ACT_DRIVER_DISSIP_TIME ) {
+                  actDrvTimer++;
+                }
+                /* ['<global>::incrementActDriverDissipTimer' end] */
+            }
             break;
         }
         /* State ID: ID_POLACTDRIVING_STABILIZE */
@@ -462,16 +495,19 @@ void POLActDriving(  )
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_POLACTDRIVING_WORK;
             }
-            else
+            else if( actDirection!=CFG_ACT_DIRECTION_QUIET
+ )
             {
                 /* Transition ID: ID_POLACTDRIVING_STABLOOP */
                 /* Actions: */
                 /* ['<global>::stopActuation' begin] */
                 appliedActAction=0;
                 /* ['<global>::stopActuation' end] */
-                /* ['<global>::incrementActDriverTimer' begin] */
-                actDrvTimer++;
-                /* ['<global>::incrementActDriverTimer' end] */
+                /* ['<global>::incrementActDriverStabTimer' begin] */
+                if (actDrvTimer<CFG_POL_ACT_DRIVER_STAB_TIME ) {
+                  actDrvTimer++;
+                }
+                /* ['<global>::incrementActDriverStabTimer' end] */
             }
             break;
         }
@@ -489,37 +525,6 @@ void POLActDriving(  )
                 actDrvTimer=0L;
                 /* ['<global>::resetActDriverTimer' end] */
                 state = ID_POLACTDRIVING_DISSIPATE;
-            }
-            break;
-        }
-        /* State ID: ID_POLACTDRIVING_DISSIPATE */
-        case ID_POLACTDRIVING_DISSIPATE:
-        {
-            if( actDrvTimer>=CFG_POL_ACT_DRIVER_DISSIP_TIME )
-            {
-                /* Transition ID: ID_POLACTDRIVING_ENDDISSIPATE */
-                /* Actions: */
-                /* ['<global>::stopActuation' begin] */
-                appliedActAction=0;
-                /* ['<global>::stopActuation' end] */
-                /* ['<global>::applyDirection' begin] */
-                appliedActDirection=actDirection;
-                /* ['<global>::applyDirection' end] */
-                /* ['<global>::resetActDriverTimer' begin] */
-                actDrvTimer=0L;
-                /* ['<global>::resetActDriverTimer' end] */
-                state = ID_POLACTDRIVING_STABILIZE;
-            }
-            else
-            {
-                /* Transition ID: ID_POLACTDRIVING_DISSIPATELOOP */
-                /* Actions: */
-                /* ['<global>::stopActuation' begin] */
-                appliedActAction=0;
-                /* ['<global>::stopActuation' end] */
-                /* ['<global>::incrementActDriverTimer' begin] */
-                actDrvTimer++;
-                /* ['<global>::incrementActDriverTimer' end] */
             }
             break;
         }
