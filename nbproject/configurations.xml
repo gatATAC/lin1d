@@ -60,7 +60,7 @@
   </logicalFolder>
   <projectmakefile>nb-Makefile.mk</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
+    <conf name="Debug" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -72,13 +72,21 @@
             <pElem>../dummylib</pElem>
             <pElem>../libraries/gatArduinOSEK</pElem>
           </incDir>
+          <preprocessorList>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
         </cTool>
         <ccTool>
           <incDir>
             <pElem>../dummylib</pElem>
             <pElem>../libraries/gatArduinOSEK</pElem>
           </incDir>
+          <preprocessorList>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
         </ccTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -138,7 +146,7 @@
         </ccTool>
       </item>
     </conf>
-    <conf name="Release" type="1">
+    <conf name="Release" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
@@ -165,6 +173,8 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <archiverTool>
+        </archiverTool>
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>

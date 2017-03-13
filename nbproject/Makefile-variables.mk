@@ -9,16 +9,16 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=lin1d
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/lin1d
+CND_ARTIFACT_NAME_Debug=liblin1d.a
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/liblin1d.a
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
 CND_PACKAGE_NAME_Debug=lin1d.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/lin1d.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=lin1d
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/lin1d
+CND_ARTIFACT_NAME_Release=liblin1d.a
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/liblin1d.a
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
 CND_PACKAGE_NAME_Release=lin1d.tar
 CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/lin1d.tar
