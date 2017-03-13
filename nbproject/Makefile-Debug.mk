@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
-CND_DLIB_EXT=so
+CND_PLATFORM=Cygwin-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -36,10 +36,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/mainnb.o \
-	${OBJECTDIR}/src/DRE.o \
+	${OBJECTDIR}/src/FM1DRE.o \
+	${OBJECTDIR}/src/FM1lin1dFSM.o \
+	${OBJECTDIR}/src/FM1lin1dFSM_CI.o \
+	${OBJECTDIR}/src/POLDRE.o \
+	${OBJECTDIR}/src/POLlin1dFSM.o \
+	${OBJECTDIR}/src/POLlin1dFSM_CI.o \
 	${OBJECTDIR}/src/ProjectFunctions.o \
-	${OBJECTDIR}/src/lin1dFSM.o \
-	${OBJECTDIR}/src/lin1dFSM_CI.o \
+	${OBJECTDIR}/src/monitor.o \
 	${OBJECTDIR}/src/prj_input.o \
 	${OBJECTDIR}/src/prj_output.o \
 	${OBJECTDIR}/src/prj_pinout.o \
@@ -64,9 +68,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -75,25 +79,45 @@ ${OBJECTDIR}/mainnb.o: mainnb.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
 
-${OBJECTDIR}/src/DRE.o: src/DRE.cpp 
+${OBJECTDIR}/src/FM1DRE.o: src/FM1DRE.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/DRE.o src/DRE.cpp
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1DRE.o src/FM1DRE.cpp
+
+${OBJECTDIR}/src/FM1lin1dFSM.o: src/FM1lin1dFSM.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1lin1dFSM.o src/FM1lin1dFSM.cpp
+
+${OBJECTDIR}/src/FM1lin1dFSM_CI.o: src/FM1lin1dFSM_CI.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1lin1dFSM_CI.o src/FM1lin1dFSM_CI.cpp
+
+${OBJECTDIR}/src/POLDRE.o: src/POLDRE.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLDRE.o src/POLDRE.cpp
+
+${OBJECTDIR}/src/POLlin1dFSM.o: src/POLlin1dFSM.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLlin1dFSM.o src/POLlin1dFSM.cpp
+
+${OBJECTDIR}/src/POLlin1dFSM_CI.o: src/POLlin1dFSM_CI.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLlin1dFSM_CI.o src/POLlin1dFSM_CI.cpp
 
 ${OBJECTDIR}/src/ProjectFunctions.o: src/ProjectFunctions.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.cpp
 
-${OBJECTDIR}/src/lin1dFSM.o: src/lin1dFSM.cpp 
+${OBJECTDIR}/src/monitor.o: src/monitor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM.o src/lin1dFSM.cpp
-
-${OBJECTDIR}/src/lin1dFSM_CI.o: src/lin1dFSM_CI.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.c) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lin1dFSM_CI.o src/lin1dFSM_CI.cpp
+	$(COMPILE.cc) -g -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/monitor.o src/monitor.cpp
 
 ${OBJECTDIR}/src/prj_input.o: src/prj_input.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -121,7 +145,7 @@ ${OBJECTDIR}/src/src.o: src/src.ino
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/lin1d.exe
 
 # Subprojects
 .clean-subprojects:

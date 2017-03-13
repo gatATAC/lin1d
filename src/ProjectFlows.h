@@ -162,14 +162,22 @@
 
 #endif
 
-#ifdef CFG_USE_SERVO
-#define CFG_FM1_SERVO_PIN SERVO_PIN_A
+#ifdef CFG_FM1_USE_SERVO
+#include <Servo.h>
+#define CFG_FM1_SERVO_PIN 6
 #define CFG_FM1_SERVO_POS_MIN 0
 #define CFG_FM1_SERVO_POS_MAX 179
+#define CFG_FM1_PARKED_ANGLE 30
+#define CFG_FM1_ACTIVE_ANGLE 150
+#endif
 
-#define CFG_POL_SERVO_PIN SERVO_PIN_B
+#ifdef CFG_POL_USE_SERVO
+#include <Servo.h>
+#define CFG_POL_SERVO_PIN 5
 #define CFG_POL_SERVO_POS_MIN 0
 #define CFG_POL_SERVO_POS_MAX 179
+#define CFG_POL_PARKED_ANGLE 30
+#define CFG_POL_ACTIVE_ANGLE 150
 #endif
 
 #endif

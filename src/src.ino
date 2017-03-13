@@ -186,7 +186,7 @@ void setup() {
   fsmTasks();
 
   ////////////// Output Init
-  //prjOutputInit();
+  prjOutputInit();
 
   ////////////// Monitor Init
   monitorInit();
@@ -227,7 +227,7 @@ void loop()
 #endif  
 
   ////////////// Output task 
-  //prjOutput();
+  prjOutput();
 
 }
 

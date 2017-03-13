@@ -83,6 +83,7 @@ void monitorExec(){
     //dreFM1.hmidigits += 10000L * abs(dreFM1.actAction);
     //dreFM1.hmidigits += abs(drePOL.actAction);
     dreFM1.hmidigits += 1000000L * dreFM1.appliedActAction/100;
+    //dreFM1.hmidigits += 1000000L * dreFM1.pwmServoEnable;
     dreFM1.hmidigits += 10000L * ((dreFM1.actDrvTimer/100)*(CYCLE_TIME_IN_MICROS))/1000L;
     dreFM1.hmidigits += 100L * drePOL.appliedActAction/100;  // Both subsystems (POL and FM1) share same hmi
     dreFM1.hmidigits += ((drePOL.actDrvTimer/100)*(CYCLE_TIME_IN_MICROS))/1000L;  // Both subsystems (POL and FM1) share same hmi

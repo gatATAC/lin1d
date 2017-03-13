@@ -5,12 +5,16 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="src" projectFiles="true">
-        <itemPath>src/DRE.h</itemPath>
+        <itemPath>src/FM1DRE.h</itemPath>
+        <itemPath>src/FM1lin1dFSM.h</itemPath>
+        <itemPath>src/FM1lin1dFSM_CI.h</itemPath>
+        <itemPath>src/POLDRE.h</itemPath>
+        <itemPath>src/POLlin1dFSM.h</itemPath>
+        <itemPath>src/POLlin1dFSM_CI.h</itemPath>
         <itemPath>src/ProjectFlows.h</itemPath>
         <itemPath>src/ProjectFunctions.h</itemPath>
         <itemPath>src/ProjectTypes.h</itemPath>
-        <itemPath>src/lin1dFSM.h</itemPath>
-        <itemPath>src/lin1dFSM_CI.h</itemPath>
+        <itemPath>src/monitor.h</itemPath>
         <itemPath>src/prj_cfg.h</itemPath>
         <itemPath>src/prj_input.h</itemPath>
         <itemPath>src/prj_output.h</itemPath>
@@ -25,10 +29,14 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="src" projectFiles="true">
-        <itemPath>src/DRE.cpp</itemPath>
+        <itemPath>src/FM1DRE.cpp</itemPath>
+        <itemPath>src/FM1lin1dFSM.cpp</itemPath>
+        <itemPath>src/FM1lin1dFSM_CI.cpp</itemPath>
+        <itemPath>src/POLDRE.cpp</itemPath>
+        <itemPath>src/POLlin1dFSM.cpp</itemPath>
+        <itemPath>src/POLlin1dFSM_CI.cpp</itemPath>
         <itemPath>src/ProjectFunctions.cpp</itemPath>
-        <itemPath>src/lin1dFSM.cpp</itemPath>
-        <itemPath>src/lin1dFSM_CI.cpp</itemPath>
+        <itemPath>src/monitor.cpp</itemPath>
         <itemPath>src/prj_input.cpp</itemPath>
         <itemPath>src/prj_output.cpp</itemPath>
         <itemPath>src/prj_pinout.cpp</itemPath>
@@ -74,9 +82,29 @@
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/DRE.cpp" ex="false" tool="0" flavor2="0">
+      <item path="src/FM1DRE.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/DRE.h" ex="false" tool="3" flavor2="0">
+      <item path="src/FM1DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLDRE.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/POLDRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -86,13 +114,9 @@
       </item>
       <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/lin1dFSM.cpp" ex="false" tool="0" flavor2="0">
+      <item path="src/monitor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/lin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/lin1dFSM_CI.cpp" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      <item path="src/monitor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -144,9 +168,29 @@
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/DRE.cpp" ex="false" tool="0" flavor2="0">
+      <item path="src/FM1DRE.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/DRE.h" ex="false" tool="3" flavor2="0">
+      <item path="src/FM1DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLDRE.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/POLDRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -156,13 +200,9 @@
       </item>
       <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/lin1dFSM.cpp" ex="false" tool="0" flavor2="0">
+      <item path="src/monitor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/lin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/lin1dFSM_CI.cpp" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      <item path="src/monitor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
       </item>
