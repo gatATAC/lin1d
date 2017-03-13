@@ -40,11 +40,18 @@ t_hmibuttons hmibuttons;
 t_hmileds hmileds;
 t_hmidigits hmidigits;
 t_pwm_duty rectifiedActAction;
+t_forcedpos forcedPos;
+BOOL stepCtrlA;
+BOOL stepCtrlB;
+BOOL stepB;
+t_pwmservoanglefdback pwmServoAngleFdback;
+t_pwmservoenable pwmServoEnable;
+t_pwmservosetpoint pwmServoSetPoint;
+BOOL pwmServoActive;
+BOOL pwmServoPwm;
 /* ['Common definitions for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
 #endif /* CODEDESIGNER_VARS */
 
 /* ['Common definitions for 'Hierarchical State Chart generator'' begin (DON'T REMOVE THIS LINE!)] */
 /* Code items' definitions */
 /* ['Common definitions for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
-
-

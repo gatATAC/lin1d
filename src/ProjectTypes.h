@@ -3,6 +3,8 @@
 
 #include <Arduino.h>
 
+typedef uint16_t t_tbd;
+
 typedef uint8_t BOOL;
 typedef uint8_t t_upreqacq;
 typedef uint8_t t_downreqacq;
@@ -18,6 +20,10 @@ typedef uint16_t t_drivecurrentacq;
 typedef byte t_hmibuttons;
 typedef word t_hmileds;
 typedef unsigned long t_hmidigits;
+typedef t_tbd  t_forcedpos;
+typedef t_tbd  t_pwmservoanglefdback;
+typedef t_tbd t_pwmservoenable;
+typedef t_tbd t_pwmservosetpoint;
 
 #define TRUE (1==1)
 #define FALSE (1==0)

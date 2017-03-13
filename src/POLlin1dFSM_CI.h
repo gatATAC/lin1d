@@ -41,6 +41,15 @@ extern t_hmibuttons hmibuttons;
 extern t_hmileds hmileds;
 extern t_hmidigits hmidigits;
 extern t_pwm_duty rectifiedActAction;
+extern t_forcedpos forcedPos;
+extern BOOL stepCtrlA;
+extern BOOL stepCtrlB;
+extern BOOL stepB;
+extern t_pwmservoanglefdback pwmServoAngleFdback;
+extern t_pwmservoenable pwmServoEnable;
+extern t_pwmservosetpoint pwmServoSetPoint;
+extern BOOL pwmServoActive;
+extern BOOL pwmServoPwm;
 /* ['Common declarations for 'Code items generator'' end (DON'T REMOVE THIS LINE!)] */
 #endif /* CODEDESIGNER_VARS */
 
@@ -50,4 +59,3 @@ typedef unsigned long STATE_T;
 
 /* Declaration of code items used in state charts */
 /* ['Common declarations for 'Hierarchical State Chart generator'' end (DON'T REMOVE THIS LINE!)] */
-

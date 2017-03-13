@@ -84,6 +84,17 @@
 #define PORT_POLhmiclock 9
 #define PORT_POLhmistrobe 10
 
+#define PORT_FM1stepCtrlA 0
+#define PORT_FM1stepCtrlB 0
+#define PORT_FM1stepA 0
+#define PORT_FM1stepB 0
+
+#define PORT_POLstepCtrlA 0
+#define PORT_POLstepCtrlB 0
+#define PORT_POLstepA 0
+#define PORT_POLstepB 0
+
+
 #define CFG_PWM_RESOLUTION 12
 
 #define PORT_FM1pwmActAction_FREQ 100
@@ -152,9 +163,13 @@
 #endif
 
 #ifdef CFG_USE_SERVO
-#define CFG_SERVO_PIN SERVO_PIN_A
-#define CFG_SERVO_POS_MIN 0
-#define CFG_SERVO_POS_MAX 179
+#define CFG_FM1_SERVO_PIN SERVO_PIN_A
+#define CFG_FM1_SERVO_POS_MIN 0
+#define CFG_FM1_SERVO_POS_MAX 179
+
+#define CFG_POL_SERVO_PIN SERVO_PIN_B
+#define CFG_POL_SERVO_POS_MIN 0
+#define CFG_POL_SERVO_POS_MAX 179
 #endif
 
 #endif

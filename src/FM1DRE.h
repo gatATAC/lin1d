@@ -24,7 +24,7 @@ t_pwm_duty appliedActAction;
 uint16_t loadPosAcq;
 t_appliedactdirection appliedActDirection;
 t_timer actDrvTimer;
-// Power -- Does not need declaration loadTorque;
+// TBD -- Does not need declaration dcTorque;
 // Power -- Does not need declaration actPosPow;
 // Power -- Does not need declaration actNegPow;
 uint16_t loadPosAI;
@@ -77,6 +77,21 @@ t_hmibuttons hmibuttons;
 t_hmileds hmileds;
 t_hmidigits hmidigits;
 t_pwm_duty rectifiedActAction;
+t_forcedpos forcedPos;
+// Position -- Does not need declaration stepperAngle;
+// Position -- Does not need declaration stepperSetPoint;
+// Position -- Does not need declaration stepperEnable;
+BOOL stepCtrlA;
+BOOL stepCtrlB;
+// Power -- Does not need declaration stepA;
+BOOL stepB;
+t_pwmservoanglefdback pwmServoAngleFdback;
+t_pwmservoenable pwmServoEnable;
+t_pwmservosetpoint pwmServoSetPoint;
+BOOL pwmServoActive;
+BOOL pwmServoPwm;
+// Position -- Does not need declaration pwmServoAngle;
+// TBD -- Does not need declaration loadTorque;
 
 } t_dreFM1;
 
@@ -114,7 +129,7 @@ BOOL enable_appliedActDirection;
 t_appliedactdirection appliedActDirection;
 BOOL enable_actDrvTimer;
 t_timer actDrvTimer;
-// (null) No diag variables for loadTorque
+// (null) No diag variables for dcTorque
 // (null) No diag variables for actPosPow
 // (null) No diag variables for actNegPow
 BOOL enable_loadPosAI;
@@ -187,6 +202,30 @@ BOOL enable_hmidigits;
 t_hmidigits hmidigits;
 BOOL enable_rectifiedActAction;
 t_pwm_duty rectifiedActAction;
+BOOL enable_forcedPos;
+t_forcedpos forcedPos;
+// (null) No diag variables for stepperAngle
+// (null) No diag variables for stepperSetPoint
+// (null) No diag variables for stepperEnable
+BOOL enable_stepCtrlA;
+BOOL stepCtrlA;
+BOOL enable_stepCtrlB;
+BOOL stepCtrlB;
+// (null) No diag variables for stepA
+BOOL enable_stepB;
+BOOL stepB;
+BOOL enable_pwmServoAngleFdback;
+t_pwmservoanglefdback pwmServoAngleFdback;
+BOOL enable_pwmServoEnable;
+t_pwmservoenable pwmServoEnable;
+BOOL enable_pwmServoSetPoint;
+t_pwmservosetpoint pwmServoSetPoint;
+BOOL enable_pwmServoActive;
+BOOL pwmServoActive;
+BOOL enable_pwmServoPwm;
+BOOL pwmServoPwm;
+// (null) No diag variables for pwmServoAngle
+// (null) No diag variables for loadTorque
 
 } t_diagFM1;
 
@@ -283,10 +322,10 @@ void setup_FM1doDirBw_output(void);
 // actDrvTimer flow synthesis
 // (output disabled for Timer type);
   
-// loadTorque flow acquisition
-// (setup input disabled for Power type);
-// loadTorque flow synthesis
-// (output disabled for Power type);
+// dcTorque flow acquisition
+// (setup input disabled for TBD type);
+// dcTorque flow synthesis
+// (output disabled for TBD type);
   
 // actPosPow flow acquisition
 // (setup input disabled for Power type);
@@ -547,6 +586,81 @@ void setup_FM1loadPosDownSwchDI(void);
 // (setup input disabled for PWMDuty type);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type);
+  
+// forcedPos flow acquisition
+// (setup input disabled for Variable type);
+// forcedPos flow synthesis
+// (output disabled for Variable type);
+  
+// stepperAngle flow acquisition
+// (setup input disabled for Position type);
+// stepperAngle flow synthesis
+// (output disabled for Position type);
+  
+// stepperSetPoint flow acquisition
+// (setup input disabled for Position type);
+// stepperSetPoint flow synthesis
+// (output disabled for Position type);
+  
+// stepperEnable flow acquisition
+// (setup input disabled for Position type);
+// stepperEnable flow synthesis
+// (output disabled for Position type);
+  
+// stepCtrlA flow acquisition
+void setup_FM1stepCtrlA_input(void);
+// stepCtrlA flow synthesis
+void setup_FM1stepCtrlA_output(void);
+  
+// stepCtrlB flow acquisition
+void setup_FM1stepCtrlB_input(void);
+// stepCtrlB flow synthesis
+void setup_FM1stepCtrlB_output(void);
+  
+// stepA flow acquisition
+// (setup input disabled for Power type);
+// stepA flow synthesis
+// (output disabled for Power type);
+  
+// stepB flow acquisition
+void setup_FM1stepB_input(void);
+// stepB flow synthesis
+void setup_FM1stepB_output(void);
+  
+// pwmServoAngleFdback flow acquisition
+// (setup input disabled for Variable type);
+// pwmServoAngleFdback flow synthesis
+// (output disabled for Variable type);
+  
+// pwmServoEnable flow acquisition
+// (setup input disabled for Variable type);
+// pwmServoEnable flow synthesis
+// (output disabled for Variable type);
+  
+// pwmServoSetPoint flow acquisition
+// (setup input disabled for Variable type);
+// pwmServoSetPoint flow synthesis
+// (output disabled for Variable type);
+  
+// pwmServoActive flow acquisition
+// (setup input disabled for Flag type);
+// pwmServoActive flow synthesis
+// (output disabled for Flag type);
+  
+// pwmServoPwm flow acquisition
+// (setup input disabled for Flag type);
+// pwmServoPwm flow synthesis
+// (output disabled for Flag type);
+  
+// pwmServoAngle flow acquisition
+// (setup input disabled for Position type);
+// pwmServoAngle flow synthesis
+// (output disabled for Position type);
+  
+// loadTorque flow acquisition
+// (setup input disabled for TBD type);
+// loadTorque flow synthesis
+// (output disabled for TBD type);
 
 // Input / Output functions
 
@@ -641,10 +755,10 @@ uint16_t acquire_FM1loadPosAcq(void);
 // actDrvTimer flow synthesis
 // (output disabled for Timer type);
   
-// loadTorque flow acquisition
-// (input disabled for Power type);
-// loadTorque flow synthesis
-// (output disabled for Power type);
+// dcTorque flow acquisition
+// (input disabled for TBD type);
+// dcTorque flow synthesis
+// (output disabled for TBD type);
   
 // actPosPow flow acquisition
 // (input disabled for Power type);
@@ -905,13 +1019,80 @@ uint16_t acquire_FM1driveCurrentAI(void);
 // (input disabled for PWMDuty type);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type);
+  
+// forcedPos flow acquisition
+// (input disabled for Variable type);
+// forcedPos flow synthesis
+// (output disabled for Variable type);
+  
+// stepperAngle flow acquisition
+// (input disabled for Position type);
+// stepperAngle flow synthesis
+// (output disabled for Position type);
+  
+// stepperSetPoint flow acquisition
+// (input disabled for Position type);
+// stepperSetPoint flow synthesis
+// (output disabled for Position type);
+  
+// stepperEnable flow acquisition
+// (input disabled for Position type);
+// stepperEnable flow synthesis
+// (output disabled for Position type);
+  
+// stepCtrlA flow acquisition
+BOOL adquirir_FM1stepCtrlA(void);
+// stepCtrlA flow synthesis
+void sintetizar_FM1stepCtrlA(BOOL valor);
+  
+// stepCtrlB flow acquisition
+BOOL adquirir_FM1stepCtrlB(void);
+// stepCtrlB flow synthesis
+void sintetizar_FM1stepCtrlB(BOOL valor);
+  
+// stepA flow acquisition
+// (input disabled for Power type);
+// stepA flow synthesis
+// (output disabled for Power type);
+  
+// stepB flow acquisition
+BOOL adquirir_FM1stepB(void);
+// stepB flow synthesis
+void sintetizar_FM1stepB(BOOL valor);
+  
+// pwmServoAngleFdback flow acquisition
+// (input disabled for Variable type);
+// pwmServoAngleFdback flow synthesis
+// (output disabled for Variable type);
+  
+// pwmServoEnable flow acquisition
+// (input disabled for Variable type);
+// pwmServoEnable flow synthesis
+// (output disabled for Variable type);
+  
+// pwmServoSetPoint flow acquisition
+// (input disabled for Variable type);
+// pwmServoSetPoint flow synthesis
+// (output disabled for Variable type);
+  
+// pwmServoActive flow acquisition
+// (input disabled for Flag type);
+// pwmServoActive flow synthesis
+// (output disabled for Flag type);
+  
+// pwmServoPwm flow acquisition
+// (input disabled for Flag type);
+// pwmServoPwm flow synthesis
+// (output disabled for Flag type);
+  
+// pwmServoAngle flow acquisition
+// (input disabled for Position type);
+// pwmServoAngle flow synthesis
+// (output disabled for Position type);
+  
+// loadTorque flow acquisition
+// (input disabled for TBD type);
+// loadTorque flow synthesis
+// (output disabled for TBD type);
 
 #endif /* _DRE_H */
-
-
-
-
-
-
-
-

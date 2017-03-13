@@ -137,10 +137,10 @@ pinMode(PORT_POLdoDirBw, INPUT);
 // (output disabled for Timer type)
 
   
-// loadTorque flow acquisition
-// (setup input disabled for Power type)
-// loadTorque flow synthesis
-// (output disabled for Power type)
+// dcTorque flow acquisition
+// (setup input disabled for TBD type)
+// dcTorque flow synthesis
+// (output disabled for TBD type)
 
   
 // actPosPow flow acquisition
@@ -458,6 +458,111 @@ pinMode(PORT_POLloadPosDownSwchDI, INPUT_PULLUP);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type)
 
+  
+// forcedPos flow acquisition
+// (setup input disabled for Variable type)
+// forcedPos flow synthesis
+// (output disabled for Variable type)
+
+  
+// stepperAngle flow acquisition
+// (setup input disabled for Position type)
+// stepperAngle flow synthesis
+// (output disabled for Position type)
+
+  
+// stepperSetPoint flow acquisition
+// (setup input disabled for Position type)
+// stepperSetPoint flow synthesis
+// (output disabled for Position type)
+
+  
+// stepperEnable flow acquisition
+// (setup input disabled for Position type)
+// stepperEnable flow synthesis
+// (output disabled for Position type)
+
+  
+// stepCtrlA flow acquisition
+void setup_POLstepCtrlA_input(void){ 
+pinMode(PORT_POLstepCtrlA, INPUT);
+};
+
+// stepCtrlA flow synthesis
+void setup_POLstepCtrlA_output(void){ 
+pinMode(PORT_POLstepCtrlA, INPUT);
+};
+
+  
+// stepCtrlB flow acquisition
+void setup_POLstepCtrlB_input(void){ 
+pinMode(PORT_POLstepCtrlB, INPUT);
+};
+
+// stepCtrlB flow synthesis
+void setup_POLstepCtrlB_output(void){ 
+pinMode(PORT_POLstepCtrlB, INPUT);
+};
+
+  
+// stepA flow acquisition
+// (setup input disabled for Power type)
+// stepA flow synthesis
+// (output disabled for Power type)
+
+  
+// stepB flow acquisition
+void setup_POLstepB_input(void){ 
+pinMode(PORT_POLstepB, INPUT);
+};
+
+// stepB flow synthesis
+void setup_POLstepB_output(void){ 
+pinMode(PORT_POLstepB, INPUT);
+};
+
+  
+// pwmServoAngleFdback flow acquisition
+// (setup input disabled for Variable type)
+// pwmServoAngleFdback flow synthesis
+// (output disabled for Variable type)
+
+  
+// pwmServoEnable flow acquisition
+// (setup input disabled for Variable type)
+// pwmServoEnable flow synthesis
+// (output disabled for Variable type)
+
+  
+// pwmServoSetPoint flow acquisition
+// (setup input disabled for Variable type)
+// pwmServoSetPoint flow synthesis
+// (output disabled for Variable type)
+
+  
+// pwmServoActive flow acquisition
+// (setup input disabled for Flag type)
+// pwmServoActive flow synthesis
+// (output disabled for Flag type)
+
+  
+// pwmServoPwm flow acquisition
+// (setup input disabled for Flag type)
+// pwmServoPwm flow synthesis
+// (output disabled for Flag type)
+
+  
+// pwmServoAngle flow acquisition
+// (setup input disabled for Position type)
+// pwmServoAngle flow synthesis
+// (output disabled for Position type)
+
+  
+// loadTorque flow acquisition
+// (setup input disabled for TBD type)
+// loadTorque flow synthesis
+// (output disabled for TBD type)
+
 
 
 // --- DRE flow acquisition and flow synthesis functions ---
@@ -635,10 +740,10 @@ return analogRead(PORT_POLloadPosAcq);
 // (output disabled for Timer type)
 
   
-// loadTorque flow acquisition
-// (input disabled for Power type)
-// loadTorque flow synthesis
-// (output disabled for Power type)
+// dcTorque flow acquisition
+// (input disabled for TBD type)
+// dcTorque flow synthesis
+// (output disabled for TBD type)
 
   
 // actPosPow flow acquisition
@@ -976,8 +1081,152 @@ return analogRead(PORT_POLdriveCurrentAI);
 // rectifiedActAction flow synthesis
 // (output disabled for PWMDuty type)
 
+  
+// forcedPos flow acquisition
+// (input disabled for Variable type)
+// forcedPos flow synthesis
+// (output disabled for Variable type)
 
+  
+// stepperAngle flow acquisition
+// (input disabled for Position type)
+// stepperAngle flow synthesis
+// (output disabled for Position type)
 
+  
+// stepperSetPoint flow acquisition
+// (input disabled for Position type)
+// stepperSetPoint flow synthesis
+// (output disabled for Position type)
 
+  
+// stepperEnable flow acquisition
+// (input disabled for Position type)
+// stepperEnable flow synthesis
+// (output disabled for Position type)
 
+  
+// stepCtrlA flow acquisition
+BOOL adquirir_POLstepCtrlA(void){ 
+#ifdef _DIAG_ACTIVE 
+if (diagPOL.enable_stepCtrlA==TRUE) { 
+return diagPOL.stepCtrlA; 
+} else { 
+#endif 
+return digitalRead(PORT_POLstepCtrlA); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+// stepCtrlA flow synthesis
+void sintetizar_POLstepCtrlA(BOOL valor){ 
+#ifdef _DIAG_ACTIVE 
+if (diagPOL.enable_stepCtrlA==TRUE) { 
+digitalWrite(PORT_POLstepCtrlA,diagPOL.stepCtrlA); 
+} else { 
+#endif 
+digitalWrite(PORT_POLstepCtrlA,valor); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
 
+  
+// stepCtrlB flow acquisition
+BOOL adquirir_POLstepCtrlB(void){ 
+#ifdef _DIAG_ACTIVE 
+if (diagPOL.enable_stepCtrlB==TRUE) { 
+return diagPOL.stepCtrlB; 
+} else { 
+#endif 
+return digitalRead(PORT_POLstepCtrlB); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+// stepCtrlB flow synthesis
+void sintetizar_POLstepCtrlB(BOOL valor){ 
+#ifdef _DIAG_ACTIVE 
+if (diagPOL.enable_stepCtrlB==TRUE) { 
+digitalWrite(PORT_POLstepCtrlB,diagPOL.stepCtrlB); 
+} else { 
+#endif 
+digitalWrite(PORT_POLstepCtrlB,valor); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+
+  
+// stepA flow acquisition
+// (input disabled for Power type)
+// stepA flow synthesis
+// (output disabled for Power type)
+
+  
+// stepB flow acquisition
+BOOL adquirir_POLstepB(void){ 
+#ifdef _DIAG_ACTIVE 
+if (diagPOL.enable_stepB==TRUE) { 
+return diagPOL.stepB; 
+} else { 
+#endif 
+return digitalRead(PORT_POLstepB); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+// stepB flow synthesis
+void sintetizar_POLstepB(BOOL valor){ 
+#ifdef _DIAG_ACTIVE 
+if (diagPOL.enable_stepB==TRUE) { 
+digitalWrite(PORT_POLstepB,diagPOL.stepB); 
+} else { 
+#endif 
+digitalWrite(PORT_POLstepB,valor); 
+#ifdef _DIAG_ACTIVE 
+} 
+#endif 
+};
+
+  
+// pwmServoAngleFdback flow acquisition
+// (input disabled for Variable type)
+// pwmServoAngleFdback flow synthesis
+// (output disabled for Variable type)
+
+  
+// pwmServoEnable flow acquisition
+// (input disabled for Variable type)
+// pwmServoEnable flow synthesis
+// (output disabled for Variable type)
+
+  
+// pwmServoSetPoint flow acquisition
+// (input disabled for Variable type)
+// pwmServoSetPoint flow synthesis
+// (output disabled for Variable type)
+
+  
+// pwmServoActive flow acquisition
+// (input disabled for Flag type)
+// pwmServoActive flow synthesis
+// (output disabled for Flag type)
+
+  
+// pwmServoPwm flow acquisition
+// (input disabled for Flag type)
+// pwmServoPwm flow synthesis
+// (output disabled for Flag type)
+
+  
+// pwmServoAngle flow acquisition
+// (input disabled for Position type)
+// pwmServoAngle flow synthesis
+// (output disabled for Position type)
+
+  
+// loadTorque flow acquisition
+// (input disabled for TBD type)
+// loadTorque flow synthesis
+// (output disabled for TBD type)

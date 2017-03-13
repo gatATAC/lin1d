@@ -18,6 +18,8 @@
 //// STEPPING MOTOR USING ACCELSTEPPER LIBRARY (NOT BLOCKING)
 //#define CFG_USE_ACCELSTEPPER
 
+#define CFG_USE_SERVO
+
 /////// Diagnostics ////////////
 #define _DIAG_ACTIVE 1
 
