@@ -151,6 +151,12 @@
 
 #endif
 
+#ifdef CFG_USE_SERVO
+#define CFG_SERVO_PIN SERVO_PIN_A
+#define CFG_SERVO_POS_MIN 0
+#define CFG_SERVO_POS_MAX 179
+#endif
+
 #endif
 
 
