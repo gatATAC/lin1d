@@ -46,3 +46,4 @@ bin
 /.gcc-flags.json
 /.travis.yml
 /nbproject/private
+/arch/*.ods#

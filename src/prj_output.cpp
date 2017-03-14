@@ -12,10 +12,10 @@ extern TM1638 module;
 extern t_dreFM1 dreFM1;
 extern t_drePOL drePOL;
 
-#ifdef CFG_USE_ACCELSTEPPER
+#ifdef CFG_FM1_USE_ACCELSTEPPER
 #include <AccelStepper.h>
 
-AccelStepper stepper1(AccelStepper::FULL4WIRE, CFG_ACCELSTEPPER_IN1_PIN, CFG_ACCELSTEPPER_IN2_PIN, CFG_ACCELSTEPPER_IN3_PIN, CFG_ACCELSTEPPER_IN4_PIN);
+AccelStepper fm1Stepper(AccelStepper::FULL4WIRE, CFG_FM1_ACCELSTEPPER_IN1_PIN, CFG_FM1_ACCELSTEPPER_IN2_PIN, CFG_FM1_ACCELSTEPPER_IN3_PIN, CFG_FM1_ACCELSTEPPER_IN4_PIN);
 #endif
 
 #ifdef CFG_FM1_USE_SERVO
@@ -45,8 +45,9 @@ void processMotorCtrl(void) {
 
 void prjOutputInit(void) {
 
-#ifdef CFG_USE_ACCELSTEPPER
-    stepper1.setAcceleration(CFG_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
+#ifdef CFG_FM1_USE_ACCELSTEPPER
+    fm1Stepper.setAcceleration(CFG_FM1_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
+    fm1Stepper.setMaxSpeed(CFG_FM1_ACCELSTEPPER_MAX_SPEED);
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
@@ -75,50 +76,35 @@ void prjOutput(void) {
     processMotorCtrl();
 #endif
 
-#ifdef CFG_USE_ACCELSTEPPER
-    long dist;
-    bool stopped = false;
-
-    dreFM1.maxSpeed = (dreFM1.sliderA * CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR) + CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET;
-    stepper1.setMaxSpeed(dreFM1.maxSpeed);
-    if (dreFM1.stepper1status == CFG_ACCELSTEPPER_STATUS_QUIET) {
-        stepper1.moveTo(dreFM1.currentTarget);
-        dreFM1.stepper1status = CFG_ACCELSTEPPER_STATUS_MOVING;
+#ifdef CFG_FM1_USE_ACCELSTEPPER
+    if (dreFM1.posMode == CFG_POS_MODE_UP){
+      dreFM1.stepperEnable = TRUE;
+      dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_ACTIVE_POS;
     } else {
-        dist = stepper1.distanceToGo();
-        if (dist < 10 && dist > -10) {
-            Serial.printf("dist: %d\n", dist);
-            if (dist == 0) {
-                //stepper1.moveTo(-stepper1.currentPosition());
-                dreFM1.stepper1status = CFG_ACCELSTEPPER_STATUS_QUIET;
-                dreFM1.currentTarget = -dreFM1.currentTarget;
-                stepper1.disableOutputs();
-            } else {
-                if (!dreFM1.loadPosUpSwchAcq && dreFM1.loadPosDownSwchAcq) {
-                    stepper1.run();
-                } else {
-                    stepper1.disableOutputs();
-                }
-            }
-        } else {
-            if (!dreFM1.loadPosUpSwchAcq && dreFM1.loadPosDownSwchAcq) {
-                stepper1.run();
-            } else {
-                stepper1.disableOutputs();
-            }
-        }
+      if (dreFM1.posMode == CFG_POS_MODE_DOWN){
+        dreFM1.stepperEnable = TRUE;
+        dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_PARKED_POS;
+      } else {
+        dreFM1.stepperEnable = FALSE;
+      }
     }
-
+    if (dreFM1.stepperEnable) {
+        fm1Stepper.enableOutputs();
+        fm1Stepper.moveTo(dreFM1.stepperSetPoint);
+    } else {
+        fm1Stepper.disableOutputs();
+    }
+    fm1Stepper.run();
 #endif
 
 #ifdef CFG_FM1_USE_SERVO
     if (dreFM1.posMode == CFG_POS_MODE_UP){
       dreFM1.pwmServoEnable = TRUE;
-      dreFM1.pwmServoSetPoint = CFG_FM1_ACTIVE_ANGLE;
+      dreFM1.pwmServoSetPoint = CFG_FM1_SERVO_ACTIVE_ANGLE;
     } else {
       if (dreFM1.posMode == CFG_POS_MODE_DOWN){
         dreFM1.pwmServoEnable = TRUE;
-        dreFM1.pwmServoSetPoint = CFG_FM1_PARKED_ANGLE;
+        dreFM1.pwmServoSetPoint = CFG_FM1_SERVO_PARKED_ANGLE;
       } else {
         dreFM1.pwmServoEnable = FALSE;
         dreFM1.pwmServoSetPoint = 0;   
@@ -135,11 +121,11 @@ void prjOutput(void) {
 #ifdef CFG_POL_USE_SERVO
     if (drePOL.posMode==CFG_POS_MODE_UP){
       drePOL.pwmServoEnable = TRUE;
-      drePOL.pwmServoSetPoint = CFG_POL_ACTIVE_ANGLE;
+      drePOL.pwmServoSetPoint = CFG_POL_SERVO_ACTIVE_ANGLE;
     } else {
       if (drePOL.posMode==CFG_POS_MODE_DOWN){
         drePOL.pwmServoEnable = TRUE;
-        drePOL.pwmServoSetPoint = CFG_POL_PARKED_ANGLE;        
+        drePOL.pwmServoSetPoint = CFG_POL_SERVO_PARKED_ANGLE;        
       } else {
         drePOL.pwmServoEnable = FALSE;
         drePOL.pwmServoSetPoint = 0;

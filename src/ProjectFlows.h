@@ -67,8 +67,8 @@
 #define PORT_FM1loadPosDownSwchDI 21
 #define PORT_FM1driveCurrentAI 9
 #define PORT_FM1hmidata 8
-#define PORT_FM1hmiclock 9
-#define PORT_FM1hmistrobe 10
+#define PORT_FM1hmiclock 2
+#define PORT_FM1hmistrobe 7
 
 #define PORT_POLupReqDI 0
 #define PORT_POLdownReqDI 1
@@ -147,37 +147,35 @@
 
 #endif
 
-#ifdef CFG_USE_ACCELSTEPPER
+#ifdef CFG_FM1_USE_ACCELSTEPPER
 
-#define CFG_ACCELSTEPPER_IN1_PIN 16
-#define CFG_ACCELSTEPPER_IN2_PIN 15
-#define CFG_ACCELSTEPPER_IN3_PIN 19
-#define CFG_ACCELSTEPPER_IN4_PIN 18
-#define CFG_ACCELSTEPPER_STATUS_QUIET 0
-#define CFG_ACCELSTEPPER_STATUS_MOVING 1
-#define CFG_ACCELSTEPPER_POS 2000                     // 2000 para zapp (arbitrario)
-#define CFG_ACCELSTEPPER_ACCEL 3000.0  // 1000 para zapp  // 2000 a 4000 para sanyo denki// 3000 para nanotec  // 5000 para minebea
-#define CFG_ACCELSTEPPER_SPEED_SLIDERA_FACTOR (0.438)  // 0.3 para zapp  // 0.6 - 2 para Sanyo Denki La fuente a 5V 2.4A  // 2 para nanotec (grande) // 2 para minebea
-#define CFG_ACCELSTEPPER_SPEED_SLIDERA_OFFSET (50.0)  // 550.0 para zapp // 860 para Sanyo Denki  // 400 para nanotec (grande) // 900 para minebea // 550.0 para zapp nema 17
+#define CFG_FM1_ACCELSTEPPER_IN1_PIN 16
+#define CFG_FM1_ACCELSTEPPER_IN2_PIN 15
+#define CFG_FM1_ACCELSTEPPER_IN3_PIN 19
+#define CFG_FM1_ACCELSTEPPER_IN4_PIN 18
+#define CFG_FM1_ACCELSTEPPER_PARKED_POS 0
+#define CFG_FM1_ACCELSTEPPER_ACTIVE_POS 4000
+#define CFG_FM1_ACCELSTEPPER_ACCEL 3000.0
+#define CFG_FM1_ACCELSTEPPER_MAX_SPEED (300.0) 
 
 #endif
 
 #ifdef CFG_FM1_USE_SERVO
 #include <Servo.h>
-#define CFG_FM1_SERVO_PIN 6
+#define CFG_FM1_SERVO_PIN 9
 #define CFG_FM1_SERVO_POS_MIN 0
 #define CFG_FM1_SERVO_POS_MAX 179
-#define CFG_FM1_PARKED_ANGLE 30
-#define CFG_FM1_ACTIVE_ANGLE 150
+#define CFG_FM1_SERVO_PARKED_ANGLE 30
+#define CFG_FM1_SERVO_ACTIVE_ANGLE 150
 #endif
 
 #ifdef CFG_POL_USE_SERVO
 #include <Servo.h>
-#define CFG_POL_SERVO_PIN 5
+#define CFG_POL_SERVO_PIN 10
 #define CFG_POL_SERVO_POS_MIN 0
 #define CFG_POL_SERVO_POS_MAX 179
-#define CFG_POL_PARKED_ANGLE 30
-#define CFG_POL_ACTIVE_ANGLE 150
+#define CFG_POL_SERVO_PARKED_ANGLE 30
+#define CFG_POL_SERVO_ACTIVE_ANGLE 150
 #endif
 
 #endif

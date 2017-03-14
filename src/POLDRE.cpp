@@ -472,15 +472,15 @@ pinMode(PORT_POLloadPosDownSwchDI, INPUT_PULLUP);
 
   
 // stepperSetPoint flow acquisition
-// (setup input disabled for Position type)
+// (setup input disabled for Variable type)
 // stepperSetPoint flow synthesis
-// (output disabled for Position type)
+// (output disabled for Variable type)
 
   
 // stepperEnable flow acquisition
-// (setup input disabled for Position type)
+// (setup input disabled for Flag type)
 // stepperEnable flow synthesis
-// (output disabled for Position type)
+// (output disabled for Flag type)
 
   
 // stepCtrlA flow acquisition
@@ -1095,15 +1095,15 @@ return analogRead(PORT_POLdriveCurrentAI);
 
   
 // stepperSetPoint flow acquisition
-// (input disabled for Position type)
+// (input disabled for Variable type)
 // stepperSetPoint flow synthesis
-// (output disabled for Position type)
+// (output disabled for Variable type)
 
   
 // stepperEnable flow acquisition
-// (input disabled for Position type)
+// (input disabled for Flag type)
 // stepperEnable flow synthesis
-// (output disabled for Position type)
+// (output disabled for Flag type)
 
   
 // stepCtrlA flow acquisition

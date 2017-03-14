@@ -79,8 +79,8 @@ t_hmidigits hmidigits;
 t_pwm_duty rectifiedActAction;
 t_forcedpos forcedPos;
 // Position -- Does not need declaration stepperAngle;
-// Position -- Does not need declaration stepperSetPoint;
-// Position -- Does not need declaration stepperEnable;
+t_steppersetpoint stepperSetPoint;
+BOOL stepperEnable;
 BOOL stepCtrlA;
 BOOL stepCtrlB;
 // Power -- Does not need declaration stepA;
@@ -205,8 +205,10 @@ t_pwm_duty rectifiedActAction;
 BOOL enable_forcedPos;
 t_forcedpos forcedPos;
 // (null) No diag variables for stepperAngle
-// (null) No diag variables for stepperSetPoint
-// (null) No diag variables for stepperEnable
+BOOL enable_stepperSetPoint;
+t_steppersetpoint stepperSetPoint;
+BOOL enable_stepperEnable;
+BOOL stepperEnable;
 BOOL enable_stepCtrlA;
 BOOL stepCtrlA;
 BOOL enable_stepCtrlB;
@@ -598,14 +600,14 @@ void setup_FM1loadPosDownSwchDI(void);
 // (output disabled for Position type);
   
 // stepperSetPoint flow acquisition
-// (setup input disabled for Position type);
+// (setup input disabled for Variable type);
 // stepperSetPoint flow synthesis
-// (output disabled for Position type);
+// (output disabled for Variable type);
   
 // stepperEnable flow acquisition
-// (setup input disabled for Position type);
+// (setup input disabled for Flag type);
 // stepperEnable flow synthesis
-// (output disabled for Position type);
+// (output disabled for Flag type);
   
 // stepCtrlA flow acquisition
 void setup_FM1stepCtrlA_input(void);
@@ -1031,14 +1033,14 @@ uint16_t acquire_FM1driveCurrentAI(void);
 // (output disabled for Position type);
   
 // stepperSetPoint flow acquisition
-// (input disabled for Position type);
+// (input disabled for Variable type);
 // stepperSetPoint flow synthesis
-// (output disabled for Position type);
+// (output disabled for Variable type);
   
 // stepperEnable flow acquisition
-// (input disabled for Position type);
+// (input disabled for Flag type);
 // stepperEnable flow synthesis
-// (output disabled for Position type);
+// (output disabled for Flag type);
   
 // stepCtrlA flow acquisition
 BOOL adquirir_FM1stepCtrlA(void);

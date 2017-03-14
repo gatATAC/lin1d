@@ -24,6 +24,7 @@ typedef t_tbd  t_forcedpos;
 typedef t_tbd  t_pwmservoanglefdback;
 typedef t_tbd t_pwmservoenable;
 typedef t_tbd t_pwmservosetpoint;
+typedef t_tbd t_steppersetpoint;
 
 #define TRUE (1==1)
 #define FALSE (1==0)
