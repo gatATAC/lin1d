@@ -31,6 +31,7 @@ typedef t_tbd t_pwmservoenable;
 typedef t_tbd t_pwmservosetpoint;
 typedef long t_steppersetpoint;
 typedef t_steppersetpoint t_pwmservoanglefdback;
+typedef t_steppersetpoint t_stepperanglefdback;
 
 #define CFG_ACT_DIRECTION_QUIET 0
 #define CFG_ACT_DIRECTION_FW 1

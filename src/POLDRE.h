@@ -83,7 +83,7 @@ typedef struct {
     BOOL stepCtrlA;
     BOOL stepCtrlB;
     // Power -- Does not need declaration stepA;
-    BOOL stepB;
+    // Power -- Does not need declaration stepB;
     t_pwmservoanglefdback pwmServoAngleFdback;
     t_pwmservoenable pwmServoEnable;
     t_pwmservosetpoint pwmServoSetPoint;
@@ -91,6 +91,8 @@ typedef struct {
     BOOL pwmServoPwm;
     // Position -- Does not need declaration pwmServoAngle;
     // TBD -- Does not need declaration loadTorque;
+    BOOL stepperServoActive;
+    t_stepperanglefdback stepperAngleFdback;
 
 } t_drePOL;
 
@@ -213,8 +215,7 @@ typedef struct {
     BOOL enable_stepCtrlB;
     BOOL stepCtrlB;
     // (null) No diag variables for stepA
-    BOOL enable_stepB;
-    BOOL stepB;
+    // (null) No diag variables for stepB
     BOOL enable_pwmServoAngleFdback;
     t_pwmservoanglefdback pwmServoAngleFdback;
     BOOL enable_pwmServoEnable;
@@ -227,6 +228,10 @@ typedef struct {
     BOOL pwmServoPwm;
     // (null) No diag variables for pwmServoAngle
     // (null) No diag variables for loadTorque
+    BOOL enable_stepperServoActive;
+    BOOL stepperServoActive;
+    BOOL enable_stepperAngleFdback;
+    t_stepperanglefdback stepperAngleFdback;
 
 } t_diagPOL;
 
@@ -624,9 +629,9 @@ void setup_POLstepCtrlB_output(void);
 // (output disabled for Power type);
 
 // stepB flow acquisition
-void setup_POLstepB_input(void);
+// (setup input disabled for Power type);
 // stepB flow synthesis
-void setup_POLstepB_output(void);
+// (output disabled for Power type);
 
 // pwmServoAngleFdback flow acquisition
 // (setup input disabled for Variable type);
@@ -662,6 +667,16 @@ void setup_POLstepB_output(void);
 // (setup input disabled for TBD type);
 // loadTorque flow synthesis
 // (output disabled for TBD type);
+
+// stepperServoActive flow acquisition
+// (setup input disabled for Flag type);
+// stepperServoActive flow synthesis
+// (output disabled for Flag type);
+
+// stepperAngleFdback flow acquisition
+// (setup input disabled for Variable type);
+// stepperAngleFdback flow synthesis
+// (output disabled for Variable type);
 
 // Input / Output functions
 
@@ -1057,9 +1072,9 @@ void sintetizar_POLstepCtrlB(BOOL valor);
 // (output disabled for Power type);
 
 // stepB flow acquisition
-BOOL adquirir_POLstepB(void);
+// (input disabled for Power type);
 // stepB flow synthesis
-void sintetizar_POLstepB(BOOL valor);
+// (output disabled for Power type);
 
 // pwmServoAngleFdback flow acquisition
 // (input disabled for Variable type);
@@ -1095,5 +1110,15 @@ void sintetizar_POLstepB(BOOL valor);
 // (input disabled for TBD type);
 // loadTorque flow synthesis
 // (output disabled for TBD type);
+
+// stepperServoActive flow acquisition
+// (input disabled for Flag type);
+// stepperServoActive flow synthesis
+// (output disabled for Flag type);
+
+// stepperAngleFdback flow acquisition
+// (input disabled for Variable type);
+// stepperAngleFdback flow synthesis
+// (output disabled for Variable type);
 
 #endif /* _DRE_H */

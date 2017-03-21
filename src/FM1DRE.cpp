@@ -525,16 +525,9 @@ void setup_FM1stepCtrlB_output(void) {
 
 
 // stepB flow acquisition
-
-void setup_FM1stepB_input(void) {
-    pinMode(PORT_FM1stepB, INPUT);
-};
-
+// (setup input disabled for Power type)
 // stepB flow synthesis
-
-void setup_FM1stepB_output(void) {
-    pinMode(PORT_FM1stepB, INPUT);
-};
+// (output disabled for Power type)
 
 
 // pwmServoAngleFdback flow acquisition
@@ -577,6 +570,18 @@ void setup_FM1stepB_output(void) {
 // (setup input disabled for TBD type)
 // loadTorque flow synthesis
 // (output disabled for TBD type)
+
+
+// stepperServoActive flow acquisition
+// (setup input disabled for Flag type)
+// stepperServoActive flow synthesis
+// (output disabled for Flag type)
+
+
+// stepperAngleFdback flow acquisition
+// (setup input disabled for Variable type)
+// stepperAngleFdback flow synthesis
+// (output disabled for Variable type)
 
 
 
@@ -1196,31 +1201,9 @@ void sintetizar_FM1stepCtrlB(BOOL valor) {
 
 
 // stepB flow acquisition
-
-BOOL adquirir_FM1stepB(void) {
-#ifdef _DIAG_ACTIVE 
-    if (diagFM1.enable_stepB == TRUE) {
-        return diagFM1.stepB;
-    } else {
-#endif 
-        return digitalRead(PORT_FM1stepB);
-#ifdef _DIAG_ACTIVE 
-    }
-#endif 
-};
+// (input disabled for Power type)
 // stepB flow synthesis
-
-void sintetizar_FM1stepB(BOOL valor) {
-#ifdef _DIAG_ACTIVE 
-    if (diagFM1.enable_stepB == TRUE) {
-        digitalWrite(PORT_FM1stepB, diagFM1.stepB);
-    } else {
-#endif 
-        digitalWrite(PORT_FM1stepB, valor);
-#ifdef _DIAG_ACTIVE 
-    }
-#endif 
-};
+// (output disabled for Power type)
 
 
 // pwmServoAngleFdback flow acquisition
@@ -1263,3 +1246,15 @@ void sintetizar_FM1stepB(BOOL valor) {
 // (input disabled for TBD type)
 // loadTorque flow synthesis
 // (output disabled for TBD type)
+
+
+// stepperServoActive flow acquisition
+// (input disabled for Flag type)
+// stepperServoActive flow synthesis
+// (output disabled for Flag type)
+
+
+// stepperAngleFdback flow acquisition
+// (input disabled for Variable type)
+// stepperAngleFdback flow synthesis
+// (output disabled for Variable type)

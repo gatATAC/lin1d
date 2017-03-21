@@ -120,12 +120,12 @@ void prjOutput(void) {
         }
     }
     polStepper.setMaxSpeed(CFG_POL_ACCELSTEPPER_MAX_SPEED);
-    drePOL.pwmServoAngleFdback = polStepper.currentPosition();
+    drePOL.stepperAngleFdback = polStepper.currentPosition();
     if (drePOL.stepperEnable) {
         polStepper.enableOutputs();
         polStepper.moveTo(drePOL.stepperSetPoint);
     } else {
-        polStepper.moveTo(drePOL.pwmServoAngleFdback);
+        polStepper.moveTo(drePOL.stepperAngleFdback);
         polStepper.disableOutputs();
     }
     polStepper.run();
