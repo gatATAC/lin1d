@@ -8,7 +8,7 @@
 #define ID_FM1DOWNSWITCHACQ_NOTDETECTED 1
 #define ID_FM1DOWNSWITCHACQ_DETECTED 2
 
-void FM1downSwitchAcq(  );
+void FM1downSwitchAcq();
 /* ['FM1downSwitchAcq' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1upSwitchAcq' begin (DON'T REMOVE THIS LINE!)] */
@@ -17,7 +17,7 @@ void FM1downSwitchAcq(  );
 #define ID_FM1UPSWITCHACQ_NOTDETECTED 4
 #define ID_FM1UPSWITCHACQ_DETECTED 5
 
-void FM1upSwitchAcq(  );
+void FM1upSwitchAcq();
 /* ['FM1upSwitchAcq' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1ActRectifier' begin (DON'T REMOVE THIS LINE!)] */
@@ -27,7 +27,7 @@ void FM1upSwitchAcq(  );
 #define ID_FM1ACTRECTIFIER_FW 8
 #define ID_FM1ACTRECTIFIER_BW 9
 
-void FM1ActRectifier(  );
+void FM1ActRectifier();
 /* ['FM1ActRectifier' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1ActDriving' begin (DON'T REMOVE THIS LINE!)] */
@@ -37,7 +37,7 @@ void FM1ActRectifier(  );
 #define ID_FM1ACTDRIVING_WORK 12
 #define ID_FM1ACTDRIVING_DISSIPATE 13
 
-void FM1ActDriving(  );
+void FM1ActDriving();
 /* ['FM1ActDriving' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1ActEnabler' begin (DON'T REMOVE THIS LINE!)] */
@@ -46,7 +46,7 @@ void FM1ActDriving(  );
 #define ID_FM1ACTENABLER_DISABLED 15
 #define ID_FM1ACTENABLER_ENABLED 16
 
-void FM1ActEnabler(  );
+void FM1ActEnabler();
 /* ['FM1ActEnabler' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1PosControl' begin (DON'T REMOVE THIS LINE!)] */
@@ -56,7 +56,7 @@ void FM1ActEnabler(  );
 #define ID_FM1POSCONTROL_GOINGUP 19
 #define ID_FM1POSCONTROL_GOINGDOWN 20
 
-void FM1PosControl(  );
+void FM1PosControl();
 /* ['FM1PosControl' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1ModeSelector' begin (DON'T REMOVE THIS LINE!)] */
@@ -67,7 +67,7 @@ void FM1PosControl(  );
 #define ID_FM1MODESELECTOR_DOWN 24
 #define ID_FM1MODESELECTOR_STOPWAIT 25
 
-void FM1ModeSelector(  );
+void FM1ModeSelector();
 /* ['FM1ModeSelector' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1UpButAcq' begin (DON'T REMOVE THIS LINE!)] */
@@ -76,7 +76,7 @@ void FM1ModeSelector(  );
 #define ID_FM1UPBUTACQ_NOTPRESSED 27
 #define ID_FM1UPBUTACQ_PRESSED 28
 
-void FM1UpButAcq(  );
+void FM1UpButAcq();
 /* ['FM1UpButAcq' end (DON'T REMOVE THIS LINE!)] */
 
 /* ['FM1DownButAcq' begin (DON'T REMOVE THIS LINE!)] */
@@ -85,5 +85,5 @@ void FM1UpButAcq(  );
 #define ID_FM1DOWNBUTACQ_NOTPRESSED 30
 #define ID_FM1DOWNBUTACQ_PRESSED 31
 
-void FM1DownButAcq(  );
+void FM1DownButAcq();
 /* ['FM1DownButAcq' end (DON'T REMOVE THIS LINE!)] */

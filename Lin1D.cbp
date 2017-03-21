@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="Lin1D" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/Lin1D" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-					<Add option="-DDUMMY_COMPILATION" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/Lin1D" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-			<Add directory="../dummylib" />
-			<Add directory="../libraries/gatArduinOSEK" />
-		</Compiler>
-		<Unit filename="fsm/Lin1D.cdp" />
-		<Unit filename="fsm/Lin1D.xcos" />
-		<Unit filename="maincb.cpp" />
-		<Unit filename="maincl.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
-		<Unit filename="mainnb.cpp">
-			<Option compile="0" />
-			<Option link="0" />
-		</Unit>
-		<Unit filename="src/DRE.cpp" />
-		<Unit filename="src/DRE.h" />
-		<Unit filename="src/ProjectFlows.h" />
-		<Unit filename="src/ProjectFunctions.cpp" />
-		<Unit filename="src/ProjectFunctions.h" />
-		<Unit filename="src/ProjectTypes.h" />
-		<Unit filename="src/lin1dFSM.cpp" />
-		<Unit filename="src/lin1dFSM.h" />
-		<Unit filename="src/lin1dFSM_CI.cpp" />
-		<Unit filename="src/lin1dFSM_CI.h" />
-		<Unit filename="src/prj_cfg.h" />
-		<Unit filename="src/prj_input.cpp" />
-		<Unit filename="src/prj_input.h" />
-		<Unit filename="src/prj_output.cpp" />
-		<Unit filename="src/prj_output.h" />
-		<Unit filename="src/prj_pinout.cpp" />
-		<Unit filename="src/prj_pinout.h" />
-		<Unit filename="src/src.ino">
-			<Option compile="1" />
-			<Option link="1" />
-			<Option compiler="gcc" use="1" buildCommand="g++.exe  -x c++ -Wall -fexceptions -g -DDUMMY_COMPILATION -I..\dummylib -I..\libraries\gatArduinOSEK -c $file_dir/$file_name.ino -o obj/Debug/src/$file_name.o\n" />
-		</Unit>
-		<Extensions>
-			<code_completion />
-			<debugger />
-			<envvars />
-		</Extensions>
-	</Project>
+    <FileVersion major="1" minor="6" />
+    <Project>
+        <Option title="Lin1D" />
+        <Option pch_mode="2" />
+        <Option compiler="gcc" />
+        <Build>
+            <Target title="Debug">
+                <Option output="bin/Debug/Lin1D" prefix_auto="1" extension_auto="1" />
+                <Option object_output="obj/Debug/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Compiler>
+                    <Add option="-g" />
+                    <Add option="-DDUMMY_COMPILATION" />
+                </Compiler>
+            </Target>
+            <Target title="Release">
+                <Option output="bin/Release/Lin1D" prefix_auto="1" extension_auto="1" />
+                <Option object_output="obj/Release/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Compiler>
+                    <Add option="-O2" />
+                </Compiler>
+                <Linker>
+                    <Add option="-s" />
+                </Linker>
+            </Target>
+        </Build>
+        <Compiler>
+            <Add option="-Wall" />
+            <Add option="-fexceptions" />
+            <Add directory="../dummylib" />
+            <Add directory="../libraries/gatArduinOSEK" />
+        </Compiler>
+        <Unit filename="fsm/Lin1D.cdp" />
+        <Unit filename="fsm/Lin1D.xcos" />
+        <Unit filename="maincb.cpp" />
+        <Unit filename="maincl.cpp">
+            <Option compile="0" />
+            <Option link="0" />
+        </Unit>
+        <Unit filename="mainnb.cpp">
+            <Option compile="0" />
+            <Option link="0" />
+        </Unit>
+        <Unit filename="src/DRE.cpp" />
+        <Unit filename="src/DRE.h" />
+        <Unit filename="src/ProjectFlows.h" />
+        <Unit filename="src/ProjectFunctions.cpp" />
+        <Unit filename="src/ProjectFunctions.h" />
+        <Unit filename="src/ProjectTypes.h" />
+        <Unit filename="src/lin1dFSM.cpp" />
+        <Unit filename="src/lin1dFSM.h" />
+        <Unit filename="src/lin1dFSM_CI.cpp" />
+        <Unit filename="src/lin1dFSM_CI.h" />
+        <Unit filename="src/prj_cfg.h" />
+        <Unit filename="src/prj_input.cpp" />
+        <Unit filename="src/prj_input.h" />
+        <Unit filename="src/prj_output.cpp" />
+        <Unit filename="src/prj_output.h" />
+        <Unit filename="src/prj_pinout.cpp" />
+        <Unit filename="src/prj_pinout.h" />
+        <Unit filename="src/src.ino">
+            <Option compile="1" />
+            <Option link="1" />
+            <Option compiler="gcc" use="1" buildCommand="g++.exe  -x c++ -Wall -fexceptions -g -DDUMMY_COMPILATION -I..\dummylib -I..\libraries\gatArduinOSEK -c $file_dir/$file_name.ino -o obj/Debug/src/$file_name.o\n" />
+        </Unit>
+        <Extensions>
+            <code_completion />
+            <debugger />
+            <envvars />
+        </Extensions>
+    </Project>
 </CodeBlocks_project_file>

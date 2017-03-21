@@ -13,7 +13,7 @@
  -- Please visit the wiki page for this project in http://gatatac.org/projects/gttcosarduino/wiki/GatArduinOSEKino_example_1
 
 
-***** Project configuration include (before OSEK includes to allow OSEK configuration ******/
+ ***** Project configuration include (before OSEK includes to allow OSEK configuration ******/
 #include <Arduino.h>
 
 #include "prj_cfg.h"
@@ -46,7 +46,7 @@ TM1638 module(PORT_FM1hmidata, PORT_FM1hmiclock, PORT_FM1hmistrobe);
 extern t_dreFM1 dreFM1;
 extern t_drePOL drePOL;
 
-void dreInit(){
+void dreInit() {
     // Button -- Does not need declaration upReq;
     // Button -- Does not need declaration downReq;
     // Position -- Does not need declaration loadPos;
@@ -129,71 +129,70 @@ void dreInit(){
     drePOL.downSwitchTimer = 0L;
     drePOL.hmibuttons = 0;
     drePOL.hmileds = 0;
-    drePOL.hmidigits = 0L;    
+    drePOL.hmidigits = 0L;
 }
 
 /* ---------------------------------------*/
 
 /***** FSM tasks *****/
 void fsmTasks(void) {
-  // Acquisition
-  FM1UpButAcq(  );
-  FM1DownButAcq(  );
-  FM1upSwitchAcq(  );
-  FM1downSwitchAcq(  );
+    // Acquisition
+    FM1UpButAcq();
+    FM1DownButAcq();
+    FM1upSwitchAcq();
+    FM1downSwitchAcq();
 
-  // Government
-  FM1ModeSelector(  );
-  FM1PosControl(  );
+    // Government
+    FM1ModeSelector();
+    FM1PosControl();
 
-  // Actuation
-  FM1ActEnabler(  );
-  FM1ActDriving(  );
+    // Actuation
+    FM1ActEnabler();
+    FM1ActDriving();
 
     // Acquisition
-  POLUpButAcq(  );
-  POLDownButAcq(  );
-  POLupSwitchAcq(  );
-  POLdownSwitchAcq(  );
+    POLUpButAcq();
+    POLDownButAcq();
+    POLupSwitchAcq();
+    POLdownSwitchAcq();
 
-  // Government
-  POLModeSelector(  );
-  POLPosControl(  );
+    // Government
+    POLModeSelector();
+    POLPosControl();
 
-  // Actuation
-  POLActEnabler(  );
-  POLActDriving(  );
+    // Actuation
+    POLActEnabler();
+    POLActDriving();
 }
-
 
 /***** Setup & Startup functions *****/
 
 void setup() {
 
-  ////////////// Platform init
-  timerSetCycleTime(CYCLE_TIME_IN_MICROS);
+    ////////////// Platform init
+    timerSetCycleTime(CYCLE_TIME_IN_MICROS);
 
-  ////////////// DRE init
-  dreInit();
+    ////////////// DRE init
+    dreInit();
 
-  ////////////// Pinout init
-  //pinoutInit();
+    ////////////// Pinout init
+    //pinoutInit();
 
-  ////////////// Input init
-  prjInputInit();
+    ////////////// Input init
+    prjInputInit();
 
-  ////////////// FSM init
-  fsmTasks();
+    ////////////// FSM init
+    fsmTasks();
 
-  ////////////// Output Init
-  prjOutputInit();
+    ////////////// Output Init
+    prjOutputInit();
 
-  ////////////// Monitor Init
-  monitorInit();
-  
-  ////////////// Comms init 
-  // initialize serial communication at 115200 bits per second:
-  //Serial.begin(115200);
+    ////////////// Monitor Init
+    monitorInit();
+
+    ////////////// Comms init 
+    // initialize serial communication at 115200 bits per second:
+    //Serial.begin(115200);
 
 }
 
@@ -201,33 +200,32 @@ void setup() {
 
 /***** Main Loop *****/
 
-void loop()
-{
-  // ----------- Functionality ----------------
+void loop() {
+    // ----------- Functionality ----------------
 
-  ////////////// Input task 
-  prjInput();
+    ////////////// Input task 
+    prjInput();
 
-  ////////////// FSM tasks
-  fsmTasks();
+    ////////////// FSM tasks
+    fsmTasks();
 
-  ////////////// Monitoring tasks 
-  monitorExec();
-  
-  // ----------- End of Cycle Synchronization ----------------
+    ////////////// Monitoring tasks 
+    monitorExec();
+
+    // ----------- End of Cycle Synchronization ----------------
 #if 1
-  // Now the microcontroller will loose time until the end of cycle sincronization time expires
-  boolean timSync=timerSync();
-  while(timSync==false){
-    if ((CYCLE_TIME_IN_MICROS-elapsedMicros)>CYCLE_SECURITY_TIME_MICROS){
+    // Now the microcontroller will loose time until the end of cycle sincronization time expires
+    boolean timSync = timerSync();
+    while (timSync == false) {
+        if ((CYCLE_TIME_IN_MICROS - elapsedMicros) > CYCLE_SECURITY_TIME_MICROS) {
+        }
+        // timerSync returns true when the end of cycle syncronization time expired.
+        timSync = timerSync();
     }
-    // timerSync returns true when the end of cycle syncronization time expired.
-    timSync=timerSync();
-  }
 #endif  
 
-  ////////////// Output task 
-  prjOutput();
+    ////////////// Output task 
+    prjOutput();
 
 }
 
