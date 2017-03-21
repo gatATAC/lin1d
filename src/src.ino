@@ -47,9 +47,6 @@ extern t_dreFM1 dreFM1;
 extern t_drePOL drePOL;
 
 void dreInit() {
-    // Button -- Does not need declaration upReq;
-    // Button -- Does not need declaration downReq;
-    // Position -- Does not need declaration loadPos;
     dreFM1.upReqAcq = FALSE;
     dreFM1.downReqAcq = FALSE;
     dreFM1.upReqDI = FALSE;
@@ -65,9 +62,6 @@ void dreInit() {
     dreFM1.loadPosAcq = 0;
     dreFM1.appliedActDirection = CFG_ACT_DIRECTION_QUIET;
     dreFM1.actDrvTimer = 0L;
-    // Power -- Does not need declaration loadTorque;
-    // Power -- Does not need declaration actPosPow;
-    // Power -- Does not need declaration actNegPow;
     dreFM1.loadPosAI = 0;
     dreFM1.upButTimer = 0L;
     dreFM1.downButTimer = 0L;
@@ -75,7 +69,6 @@ void dreInit() {
     dreFM1.loadPosDownSwchDI = FALSE;
     dreFM1.posAchieved = FALSE;
     dreFM1.ctrlError = FALSE;
-    // Current -- Does not need declaration driveCurrent;
     dreFM1.driveCurrentAI = 0;
     dreFM1.driveCurrentAcq = 0;
     dreFM1.currentError = FALSE;
@@ -88,10 +81,19 @@ void dreInit() {
     dreFM1.hmibuttons = 0;
     dreFM1.hmileds = 0;
     dreFM1.hmidigits = 0L;
-
-    // Button -- Does not need declaration upReq;
-    // Button -- Does not need declaration downReq;
-    // Position -- Does not need declaration loadPos;
+    dreFM1.forcedPos = 0L;
+    dreFM1.stepperSetPoint = 0L;
+    dreFM1.stepperEnable = FALSE;
+    dreFM1.stepCtrlA = FALSE;
+    dreFM1.stepCtrlB = FALSE;
+    dreFM1.pwmServoAngleFdback = 0L;
+    dreFM1.pwmServoEnable = FALSE;
+    dreFM1.pwmServoSetPoint = 0L;
+    dreFM1.pwmServoActive = FALSE;
+    dreFM1.pwmServoPwm = 0;
+    dreFM1.stepperServoActive = FALSE;
+    dreFM1.stepperAngleFdback = 0L;
+    
     drePOL.upReqAcq = FALSE;
     drePOL.downReqAcq = FALSE;
     drePOL.upReqDI = FALSE;
@@ -107,9 +109,6 @@ void dreInit() {
     drePOL.loadPosAcq = 0;
     drePOL.appliedActDirection = CFG_ACT_DIRECTION_QUIET;
     drePOL.actDrvTimer = 0L;
-    // Power -- Does not need declaration loadTorque;
-    // Power -- Does not need declaration actPosPow;
-    // Power -- Does not need declaration actNegPow;
     drePOL.loadPosAI = 0;
     drePOL.upButTimer = 0L;
     drePOL.downButTimer = 0L;
@@ -117,7 +116,6 @@ void dreInit() {
     drePOL.loadPosDownSwchDI = FALSE;
     drePOL.posAchieved = FALSE;
     drePOL.ctrlError = FALSE;
-    // Current -- Does not need declaration driveCurrent;
     drePOL.driveCurrentAI = 0;
     drePOL.driveCurrentAcq = 0;
     drePOL.currentError = FALSE;
@@ -130,6 +128,18 @@ void dreInit() {
     drePOL.hmibuttons = 0;
     drePOL.hmileds = 0;
     drePOL.hmidigits = 0L;
+    drePOL.forcedPos = 0L;
+    drePOL.stepperSetPoint = 0L;
+    drePOL.stepperEnable = FALSE;
+    drePOL.stepCtrlA = FALSE;
+    drePOL.stepCtrlB = FALSE;
+    drePOL.pwmServoAngleFdback = 0L;
+    drePOL.pwmServoEnable = FALSE;
+    drePOL.pwmServoSetPoint = 0L;
+    drePOL.pwmServoActive = FALSE;
+    drePOL.pwmServoPwm = 0;
+    drePOL.stepperServoActive = FALSE;
+    drePOL.stepperAngleFdback = 0L;
 }
 
 /* ---------------------------------------*/
@@ -189,11 +199,6 @@ void setup() {
 
     ////////////// Monitor Init
     monitorInit();
-
-    ////////////// Comms init 
-    // initialize serial communication at 115200 bits per second:
-    //Serial.begin(115200);
-
 }
 
 /* ---------------------------------------*/

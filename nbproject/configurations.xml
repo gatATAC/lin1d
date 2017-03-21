@@ -14,6 +14,7 @@
         <itemPath>src/ProjectFlows.h</itemPath>
         <itemPath>src/ProjectFunctions.h</itemPath>
         <itemPath>src/ProjectTypes.h</itemPath>
+        <itemPath>src/PwmServoCtrl.h</itemPath>
         <itemPath>src/monitor.h</itemPath>
         <itemPath>src/prj_cfg.h</itemPath>
         <itemPath>src/prj_input.h</itemPath>
@@ -36,6 +37,7 @@
         <itemPath>src/POLlin1dFSM.cpp</itemPath>
         <itemPath>src/POLlin1dFSM_CI.cpp</itemPath>
         <itemPath>src/ProjectFunctions.cpp</itemPath>
+        <itemPath>src/PwmServoCtrl.cpp</itemPath>
         <itemPath>src/monitor.cpp</itemPath>
         <itemPath>src/prj_input.cpp</itemPath>
         <itemPath>src/prj_output.cpp</itemPath>
@@ -121,6 +123,10 @@
       <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PwmServoCtrl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/PwmServoCtrl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/monitor.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -209,6 +215,10 @@
       <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PwmServoCtrl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/PwmServoCtrl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/monitor.cpp" ex="false" tool="1" flavor2="0">
       </item>

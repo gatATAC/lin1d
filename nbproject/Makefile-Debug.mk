@@ -43,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/POLlin1dFSM.o \
 	${OBJECTDIR}/src/POLlin1dFSM_CI.o \
 	${OBJECTDIR}/src/ProjectFunctions.o \
+	${OBJECTDIR}/src/PwmServoCtrl.o \
 	${OBJECTDIR}/src/monitor.o \
 	${OBJECTDIR}/src/prj_input.o \
 	${OBJECTDIR}/src/prj_output.o \
@@ -115,6 +116,11 @@ ${OBJECTDIR}/src/ProjectFunctions.o: src/ProjectFunctions.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.c) -g -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.cpp
+
+${OBJECTDIR}/src/PwmServoCtrl.o: src/PwmServoCtrl.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/PwmServoCtrl.o src/PwmServoCtrl.cpp
 
 ${OBJECTDIR}/src/monitor.o: src/monitor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

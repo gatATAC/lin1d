@@ -26,7 +26,7 @@ typedef uint16_t t_drivecurrentacq;
 typedef byte t_hmibuttons;
 typedef word t_hmileds;
 typedef unsigned long t_hmidigits;
-typedef t_tbd t_forcedpos;
+typedef long t_forcedpos;
 typedef t_tbd t_pwmservoenable;
 typedef t_tbd t_pwmservosetpoint;
 typedef long t_steppersetpoint;
