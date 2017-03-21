@@ -17,17 +17,23 @@ extern t_drePOL drePOL;
 
 AccelStepper fm1Stepper(AccelStepper::FULL4WIRE, CFG_FM1_ACCELSTEPPER_IN1_PIN, CFG_FM1_ACCELSTEPPER_IN2_PIN, CFG_FM1_ACCELSTEPPER_IN3_PIN, CFG_FM1_ACCELSTEPPER_IN4_PIN);
 #endif
+#ifdef CFG_POL_USE_ACCELSTEPPER
+#include <AccelStepper.h>
+
+AccelStepper polStepper(AccelStepper::FULL4WIRE, CFG_POL_ACCELSTEPPER_IN1_PIN, CFG_POL_ACCELSTEPPER_IN2_PIN, CFG_POL_ACCELSTEPPER_IN3_PIN, CFG_POL_ACCELSTEPPER_IN4_PIN);
+#endif
 
 #ifdef CFG_FM1_USE_SERVO
 #include <Servo.h>
-Servo fm1Servo;  // create servo object to control a servo
+Servo fm1Servo; // create servo object to control a servo
 #endif
 #ifdef CFG_POL_USE_SERVO
 #include <Servo.h>
-Servo polServo;  // create servo object to control a servo
+Servo polServo; // create servo object to control a servo
 #endif
 
 #ifdef CFG_USE_MOTORCTRL
+
 void processMotorCtrl(void) {
     if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
         digitalWrite(PORT_doDirFw, HIGH);
@@ -50,6 +56,10 @@ void prjOutputInit(void) {
     fm1Stepper.setMaxSpeed(CFG_FM1_ACCELSTEPPER_MAX_SPEED);
 #endif
 
+#ifdef CFG_POL_USE_ACCELSTEPPER
+    polStepper.setAcceleration(CFG_POL_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
+#endif
+
 #ifdef CFG_USE_MOTORCTRL
     //analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
     processMotorCtrl();
@@ -60,7 +70,7 @@ void prjOutputInit(void) {
         digitalWrite(CFG_LED_STATUS, HIGH);
     } else {
         digitalWrite(CFG_LED_STATUS, LOW);
-    }  
+    }
 }
 
 char buf[17];
@@ -77,16 +87,16 @@ void prjOutput(void) {
 #endif
 
 #ifdef CFG_FM1_USE_ACCELSTEPPER
-    if (dreFM1.posMode == CFG_POS_MODE_UP){
-      dreFM1.stepperEnable = TRUE;
-      dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_ACTIVE_POS;
-    } else {
-      if (dreFM1.posMode == CFG_POS_MODE_DOWN){
+    if (dreFM1.posMode == CFG_POS_MODE_UP) {
         dreFM1.stepperEnable = TRUE;
-        dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_PARKED_POS;
-      } else {
-        dreFM1.stepperEnable = FALSE;
-      }
+        dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_ACTIVE_POS;
+    } else {
+        if (dreFM1.posMode == CFG_POS_MODE_DOWN) {
+            dreFM1.stepperEnable = TRUE;
+            dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_PARKED_POS;
+        } else {
+            dreFM1.stepperEnable = FALSE;
+        }
     }
     if (dreFM1.stepperEnable) {
         fm1Stepper.enableOutputs();
@@ -97,45 +107,69 @@ void prjOutput(void) {
     fm1Stepper.run();
 #endif
 
-#ifdef CFG_FM1_USE_SERVO
-    if (dreFM1.posMode == CFG_POS_MODE_UP){
-      dreFM1.pwmServoEnable = TRUE;
-      dreFM1.pwmServoSetPoint = CFG_FM1_SERVO_ACTIVE_ANGLE;
+#ifdef CFG_POL_USE_ACCELSTEPPER
+    if (drePOL.posMode == CFG_POS_MODE_UP) {
+        drePOL.stepperEnable = true;
+        drePOL.stepperSetPoint = CFG_POL_ACCELSTEPPER_ACTIVE_POS;
     } else {
-      if (dreFM1.posMode == CFG_POS_MODE_DOWN){
+        if (drePOL.posMode == CFG_POS_MODE_DOWN) {
+            drePOL.stepperEnable = true;
+            drePOL.stepperSetPoint = CFG_POL_ACCELSTEPPER_PARKED_POS;
+        } else {
+            drePOL.stepperEnable = false;
+        }
+    }
+    polStepper.setMaxSpeed(CFG_POL_ACCELSTEPPER_MAX_SPEED);
+    drePOL.pwmServoAngleFdback = polStepper.currentPosition();
+    if (drePOL.stepperEnable) {
+        polStepper.enableOutputs();
+        polStepper.moveTo(drePOL.stepperSetPoint);
+    } else {
+        polStepper.moveTo(drePOL.pwmServoAngleFdback);
+        polStepper.disableOutputs();
+    }
+    polStepper.run();
+#endif
+
+#ifdef CFG_FM1_USE_SERVO
+    if (dreFM1.posMode == CFG_POS_MODE_UP) {
         dreFM1.pwmServoEnable = TRUE;
-        dreFM1.pwmServoSetPoint = CFG_FM1_SERVO_PARKED_ANGLE;
-      } else {
-        dreFM1.pwmServoEnable = FALSE;
-        dreFM1.pwmServoSetPoint = 0;   
-      }
+        dreFM1.pwmServoSetPoint = CFG_FM1_SERVO_ACTIVE_ANGLE;
+    } else {
+        if (dreFM1.posMode == CFG_POS_MODE_DOWN) {
+            dreFM1.pwmServoEnable = TRUE;
+            dreFM1.pwmServoSetPoint = CFG_FM1_SERVO_PARKED_ANGLE;
+        } else {
+            dreFM1.pwmServoEnable = FALSE;
+            dreFM1.pwmServoSetPoint = 0;
+        }
     }
     if (dreFM1.pwmServoEnable) {
-      fm1Servo.attach(CFG_FM1_SERVO_PIN);  // attaches the servo on pin CFG_FM1_SERVO_PIN to the servo object
-      fm1Servo.write(dreFM1.pwmServoSetPoint);  
+        fm1Servo.attach(CFG_FM1_SERVO_PIN); // attaches the servo on pin CFG_FM1_SERVO_PIN to the servo object
+        fm1Servo.write(dreFM1.pwmServoSetPoint);
     } else {
-      fm1Servo.detach();  // dettaches the servo
+        fm1Servo.detach(); // dettaches the servo
     }
 #endif
 
 #ifdef CFG_POL_USE_SERVO
-    if (drePOL.posMode==CFG_POS_MODE_UP){
-      drePOL.pwmServoEnable = TRUE;
-      drePOL.pwmServoSetPoint = CFG_POL_SERVO_ACTIVE_ANGLE;
-    } else {
-      if (drePOL.posMode==CFG_POS_MODE_DOWN){
+    if (drePOL.posMode == CFG_POS_MODE_UP) {
         drePOL.pwmServoEnable = TRUE;
-        drePOL.pwmServoSetPoint = CFG_POL_SERVO_PARKED_ANGLE;        
-      } else {
-        drePOL.pwmServoEnable = FALSE;
-        drePOL.pwmServoSetPoint = 0;
-      }
+        drePOL.pwmServoSetPoint = CFG_POL_SERVO_ACTIVE_ANGLE;
+    } else {
+        if (drePOL.posMode == CFG_POS_MODE_DOWN) {
+            drePOL.pwmServoEnable = TRUE;
+            drePOL.pwmServoSetPoint = CFG_POL_SERVO_PARKED_ANGLE;
+        } else {
+            drePOL.pwmServoEnable = FALSE;
+            drePOL.pwmServoSetPoint = 0;
+        }
     }
     if (drePOL.pwmServoEnable) {
-      polServo.attach(CFG_POL_SERVO_PIN);  // attaches the servo on pin CFG_POL_SERVO_PIN  to the servo object
-      polServo.write(drePOL.pwmServoSetPoint);
+        polServo.attach(CFG_POL_SERVO_PIN); // attaches the servo on pin CFG_POL_SERVO_PIN  to the servo object
+        polServo.write(drePOL.pwmServoSetPoint);
     } else {
-      polServo.detach();  // dettaches the servo
+        polServo.detach(); // dettaches the servo
     }
 #endif
 }

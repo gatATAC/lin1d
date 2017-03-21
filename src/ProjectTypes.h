@@ -3,6 +3,12 @@
 
 #include <Arduino.h>
 
+#define TRUE true
+#define FALSE false
+
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
+
 typedef uint16_t t_tbd;
 
 typedef uint8_t BOOL;
@@ -21,13 +27,10 @@ typedef byte t_hmibuttons;
 typedef word t_hmileds;
 typedef unsigned long t_hmidigits;
 typedef t_tbd  t_forcedpos;
-typedef t_tbd  t_pwmservoanglefdback;
 typedef t_tbd t_pwmservoenable;
 typedef t_tbd t_pwmservosetpoint;
-typedef t_tbd t_steppersetpoint;
-
-#define TRUE (1==1)
-#define FALSE (1==0)
+typedef long t_steppersetpoint;
+typedef t_steppersetpoint t_pwmservoanglefdback;
 
 #define CFG_ACT_DIRECTION_QUIET 0
 #define CFG_ACT_DIRECTION_FW 1

@@ -757,10 +757,21 @@ return analogRead(PORT_POLloadPosAcq);
 // actNegPow flow synthesis
 // (output disabled for Power type)
 
-  
+#define MINDELTA 10
+uint16_t filtervalue = 0;  
+uint16_t newvalue = 0;  
+
 // loadPosAI flow acquisition
 uint16_t acquire_POLloadPosAI(void){ 
-return analogRead(PORT_POLloadPosAI); 
+    newvalue=analogRead(PORT_POLloadPosAI);
+    if (newvalue > (filtervalue + MINDELTA)){
+        filtervalue = newvalue;
+    } else {
+        if (newvalue < ( MAX(MINDELTA,filtervalue) - MINDELTA)){
+            filtervalue = newvalue;
+        }
+    }
+return filtervalue;
 };
 // loadPosAI flow synthesis
 // (output disabled for ADC type)

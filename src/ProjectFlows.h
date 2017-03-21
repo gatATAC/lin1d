@@ -62,7 +62,7 @@
 #define PORT_FM1doDirFw 19
 #define PORT_FM1doDirBw 18
 #define PORT_FM1loadPosAcq 5
-#define PORT_FM1loadPosAI 6
+#define PORT_FM1loadPosAI 3
 #define PORT_FM1loadPosUpSwchDI 20
 #define PORT_FM1loadPosDownSwchDI 21
 #define PORT_FM1driveCurrentAI 9
@@ -76,9 +76,9 @@
 #define PORT_POLdoDirFw 19
 #define PORT_POLdoDirBw 18
 #define PORT_POLloadPosAcq 5
-#define PORT_POLloadPosAI 6
-#define PORT_POLloadPosUpSwchDI 20
-#define PORT_POLloadPosDownSwchDI 21
+#define PORT_POLloadPosAI 3
+#define PORT_POLloadPosUpSwchDI 22
+#define PORT_POLloadPosDownSwchDI 23
 #define PORT_POLdriveCurrentAI 9
 #define PORT_POLhmidata 8
 #define PORT_POLhmiclock 9
@@ -160,6 +160,24 @@
 
 #endif
 
+#ifdef CFG_POL_USE_ACCELSTEPPER
+
+#define CFG_POL_ACCELSTEPPER_IN1_PIN 12
+#define CFG_POL_ACCELSTEPPER_IN2_PIN 11
+#define CFG_POL_ACCELSTEPPER_IN3_PIN 19
+#define CFG_POL_ACCELSTEPPER_IN4_PIN 18
+#define CFG_POL_ACCELSTEPPER_PARKED_POS 0
+#define CFG_POL_ACCELSTEPPER_ACTIVE_POS 2000
+#define CFG_POL_ACCELSTEPPER_ACCEL 2000.0
+#ifdef CTE_DEBUG_STEP_SPEED
+#define CFG_POL_ACCELSTEPPER_MAX_SPEED (CFG_DEBUG_STEP_SPEED_OFFSET + (drePOL.loadPosAI * CFG_DEBUG_STEP_SPEED_FACTOR))
+#else
+#define CFG_POL_ACCELSTEPPER_MAX_SPEED (550.0) 
+#endif    
+
+
+#endif
+
 #ifdef CFG_FM1_USE_SERVO
 #include <Servo.h>
 #define CFG_FM1_SERVO_PIN 9
@@ -177,6 +195,28 @@
 #define CFG_POL_SERVO_PARKED_ANGLE 30
 #define CFG_POL_SERVO_ACTIVE_ANGLE 150
 #endif
+
+//// Doubled input potentiometer slider
+#ifdef CFG_FM1_USE_SLIDER
+#define CFG_FM1_SLIDER_DTA_PIN 3 // Pin DIO 17
+#endif
+
+//// Doubled input potentiometer slider
+#ifdef CFG_POL_USE_SLIDER
+#define CFG_POL_SLIDER_DTA_PIN 3 // Pin DIO 17
+#endif
+
+//// BCD Encoder
+//#define CFG_USE_BCDPOT 1
+#ifdef CFG_USE_BCDPOT
+#define CFG_BCDPOT_PIN_NUMBER 4
+#define CFG_BCDPOT_PIN1 9
+#define CFG_BCDPOT_PIN2 10
+#define CFG_BCDPOT_PIN3 11
+#define CFG_BCDPOT_PIN4 12
+#endif
+
+
 
 #endif
 
