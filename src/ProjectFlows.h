@@ -58,9 +58,9 @@
 
 #define PORT_FM1upReqDI 0
 #define PORT_FM1downReqDI 1
-#define PORT_FM1pwmActAction 17
-#define PORT_FM1doDirFw 19
-#define PORT_FM1doDirBw 18
+#define PORT_FM1pwmActAction 6
+#define PORT_FM1doDirFw 14
+#define PORT_FM1doDirBw 13
 #define PORT_FM1loadPosAcq 5
 #define PORT_FM1loadPosAI 3
 #define PORT_FM1loadPosUpSwchDI 20

@@ -109,19 +109,18 @@ void processPOLAccelStepper() {
 }
 #endif
 #ifdef CFG_USE_MOTORCTRL
-
 void processMotorCtrl(void) {
     if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
-        digitalWrite(PORT_doDirFw, HIGH);
+        digitalWrite(PORT_FM1doDirFw, HIGH);
     } else {
-        digitalWrite(PORT_doDirBw, LOW);
+        digitalWrite(PORT_FM1doDirBw, LOW);
     }
     if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_BW) {
-        digitalWrite(PORT_doDirFw, LOW);
+        digitalWrite(PORT_FM1doDirFw, LOW);
     } else {
-        digitalWrite(PORT_doDirBw, HIGH);
+        digitalWrite(PORT_FM1doDirBw, HIGH);
     }
-    analogWrite(PORT_pwmActAction, dreFM1.appliedActAction);
+    analogWrite(PORT_FM1pwmActAction, dreFM1.appliedActAction);
 }
 #endif
 
