@@ -15,15 +15,18 @@ extern t_drePOL drePOL;
 
 #ifdef CFG_FM1_USE_ACCELSTEPPER
 #include <AccelStepper.h>
-
+#if CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE
+AccelStepper fm1Stepper(AccelStepper::DRIVER, CFG_FM1_ACCELSTEPPER_IN1_PIN, CFG_FM1_ACCELSTEPPER_IN2_PIN);
+#else
 AccelStepper fm1Stepper(AccelStepper::FULL4WIRE, CFG_FM1_ACCELSTEPPER_IN1_PIN, CFG_FM1_ACCELSTEPPER_IN2_PIN, CFG_FM1_ACCELSTEPPER_IN3_PIN, CFG_FM1_ACCELSTEPPER_IN4_PIN);
+#endif
 
 void processFM1AccelStepper() {
     if (dreFM1.loadPosDownSwchAcq) {
-        polStepper.setCurrentPosition(0);
+        fm1Stepper.setCurrentPosition(0);
     }
 
-#ifdef CFG_FM1_USE_ACCELSTEPPER_SETPOINT 
+#ifdef CFG_FM1_USE_ACCELSTEPPER_SETPOINT
     if (dreFM1.posMode == CFG_POS_MODE_UP) {
         dreFM1.stepperEnable = true;
         dreFM1.stepperSetPoint = CFG_FM1_ACCELSTEPPER_ACTIVE_POS;
@@ -36,7 +39,7 @@ void processFM1AccelStepper() {
         }
     }
 #else
-    dreFM1.stepperAngleFdback = polStepper.currentPosition();
+    dreFM1.stepperAngleFdback = fm1Stepper.currentPosition();
     if (dreFM1.posMode == CFG_POS_MODE_UP && !dreFM1.loadPosUpSwchAcq) {
         dreFM1.stepperEnable = true;
         dreFM1.stepperSetPoint = dreFM1.stepperAngleFdback + CFG_FM1_ACCELSTEPPER_INCREMENT;
@@ -49,15 +52,15 @@ void processFM1AccelStepper() {
         }
     }
 #endif
-    polStepper.setMaxSpeed(CFG_FM1_ACCELSTEPPER_MAX_SPEED);
+    fm1Stepper.setMaxSpeed(CFG_FM1_ACCELSTEPPER_MAX_SPEED);
     if (dreFM1.stepperEnable) {
-        polStepper.enableOutputs();
-        polStepper.moveTo(dreFM1.stepperSetPoint);
+        fm1Stepper.enableOutputs();
+        fm1Stepper.moveTo(dreFM1.stepperSetPoint);
     } else {
-        polStepper.moveTo(dreFM1.stepperAngleFdback);
-        polStepper.disableOutputs();
+        fm1Stepper.moveTo(dreFM1.stepperAngleFdback);
+        fm1Stepper.disableOutputs();
     }
-    polStepper.run();
+    fm1Stepper.run();
 }
 
 #endif
@@ -71,7 +74,7 @@ void processPOLAccelStepper() {
         polStepper.setCurrentPosition(0);
     }
 
-#ifdef CFG_POL_USE_ACCELSTEPPER_SETPOINT 
+#ifdef CFG_POL_USE_ACCELSTEPPER_SETPOINT
     if (drePOL.posMode == CFG_POS_MODE_UP) {
         drePOL.stepperEnable = true;
         drePOL.stepperSetPoint = CFG_POL_ACCELSTEPPER_ACTIVE_POS;
@@ -152,7 +155,7 @@ void prjOutputInit(void) {
 }
 
 void prjOutput(void) {
-    
+
 #ifdef CFG_FM1_USE_SERVO
     fm1PwmServoCtrl();
 #endif

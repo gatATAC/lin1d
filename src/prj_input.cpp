@@ -71,24 +71,7 @@ void prjInput(void) {
     drePOL.loadPosDownSwchDI = adquirir_POLloadPosDownSwchDI();
 
 #ifdef CFG_POL_USE_SLIDER
-    drePOL.loadPosAI = acquire_POLloadPosAI();
+    dreFM1.loadPosAI = acquire_FM1loadPosAI();
 #endif
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

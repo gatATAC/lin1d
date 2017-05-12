@@ -7,6 +7,9 @@
 #define CYCLE_SECURITY_TIME_MICROS 100L
 #define CFG_MAX_TIMER 20000000L
 
+//////// Interface config //////////
+#define CFG_USE_DIRECT_INTERFACE 1
+
 //////// Peripherals ///////////
 
 //// Status LED
@@ -16,8 +19,8 @@
 #define CFG_USE_MOTORCTRL 1
 
 //// STEPPING MOTOR USING ACCELSTEPPER LIBRARY (NOT BLOCKING)
-// #define CFG_FM1_USE_ACCELSTEPPER
-#define CFG_POL_USE_ACCELSTEPPER
+#define CFG_FM1_USE_ACCELSTEPPER
+//#define CFG_POL_USE_ACCELSTEPPER
 
 #ifdef CFG_FM1_USE_ACCELSTEPPER
 //#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
@@ -26,8 +29,8 @@
 //#define CFG_POL_USE_ACCELSTEPPER_SETPOINT
 #endif
 
-#define CFG_FM1_USE_SERVO
-#define CFG_POL_USE_SERVO
+//#define CFG_FM1_USE_SERVO
+//#define CFG_POL_USE_SERVO
 
 //#define CFG_FM1_USE_SLIDER
 #define CFG_POL_USE_SLIDER
@@ -37,8 +40,8 @@
 
 #define CTE_FM1_DEBUG_STEP_SPEED
 #ifdef CTE_FM1_DEBUG_STEP_SPEED
-#define CFG_FM1_DEBUG_STEP_SPEED_FACTOR (0.9)
-#define CFG_FM1_DEBUG_STEP_SPEED_OFFSET (100.0)
+#define CFG_FM1_DEBUG_STEP_SPEED_FACTOR (0.8)
+#define CFG_FM1_DEBUG_STEP_SPEED_OFFSET (200.0)
 #endif
 
 #define CTE_POL_DEBUG_STEP_SPEED
@@ -50,20 +53,3 @@
 //#define CFG_POL_USE_SLIDER
 
 #endif /* _PRJ_CFG_H */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

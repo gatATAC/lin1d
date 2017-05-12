@@ -93,7 +93,7 @@ void dreInit() {
     dreFM1.pwmServoPwm = 0;
     dreFM1.stepperServoActive = FALSE;
     dreFM1.stepperAngleFdback = 0L;
-    
+
     drePOL.upReqAcq = FALSE;
     drePOL.downReqAcq = FALSE;
     drePOL.upReqDI = FALSE;
@@ -153,7 +153,19 @@ void fsmTasks(void) {
     FM1downSwitchAcq();
 
     // Government
-    FM1ModeSelector();
+    if (CFG_USE_DIRECT_INTERFACE) {
+      if (dreFM1.upReqAcq) {
+        dreFM1.posMode = CFG_POS_MODE_UP;
+      } else {
+        if (dreFM1.downReqAcq) {
+          dreFM1.posMode = CFG_POS_MODE_DOWN;
+        } else {
+          dreFM1.posMode = CFG_POS_MODE_STOP;
+        }
+      }
+    } else {
+      FM1ModeSelector();
+    }
     FM1PosControl();
 
     // Actuation
@@ -167,7 +179,19 @@ void fsmTasks(void) {
     POLdownSwitchAcq();
 
     // Government
-    POLModeSelector();
+    if (CFG_USE_DIRECT_INTERFACE) {
+      if (drePOL.upReqAcq) {
+        drePOL.posMode = CFG_POS_MODE_UP;
+      } else {
+        if (drePOL.downReqAcq) {
+          drePOL.posMode = CFG_POS_MODE_DOWN;
+        } else {
+          drePOL.posMode = CFG_POS_MODE_STOP;
+        }
+      }
+    } else {
+      POLModeSelector();
+    }
     POLPosControl();
 
     // Actuation
@@ -208,13 +232,13 @@ void setup() {
 void loop() {
     // ----------- Functionality ----------------
 
-    ////////////// Input task 
+    ////////////// Input task
     prjInput();
 
     ////////////// FSM tasks
     fsmTasks();
 
-    ////////////// Monitoring tasks 
+    ////////////// Monitoring tasks
     monitorExec();
 
     // ----------- End of Cycle Synchronization ----------------
@@ -227,27 +251,9 @@ void loop() {
         // timerSync returns true when the end of cycle syncronization time expired.
         timSync = timerSync();
     }
-#endif  
+#endif
 
-    ////////////// Output task 
+    ////////////// Output task
     prjOutput();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
