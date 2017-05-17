@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Cygwin-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
+CND_PLATFORM_Debug=GNU-Linux-x86
+CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
 CND_ARTIFACT_NAME_Debug=liblin1d.a
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/liblin1d.a
-CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/liblin1d.a
+CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Debug=lin1d.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/lin1d.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/lin1d.tar
 # Release configuration
-CND_PLATFORM_Release=Cygwin-Windows
-CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
+CND_PLATFORM_Release=GNU-Linux-x86
+CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
 CND_ARTIFACT_NAME_Release=liblin1d.a
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/liblin1d.a
-CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/liblin1d.a
+CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Release=lin1d.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/lin1d.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/lin1d.tar
 #
 # include compiler specific variables
 #
