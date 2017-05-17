@@ -18,13 +18,8 @@ void prjInputInit(void) {
 
 }
 
-void prjInput(void) {
-    // Acquire TM1638 buttons
-    dreFM1.hmibuttons = module.getButtons();
-
-#define DEBUG_SWITCHES
-
-#ifdef DEBUG_SWITCHES
+#ifdef CFG_SWITCHES_EMULATED_BY_HMI
+void prjInputDiag(void){
     diagFM1.enable_loadPosUpSwchDI = TRUE;
     if (dreFM1.hmibuttons & CFG_FM1_HMIBUT_SWITCH_UP_MASK) {
         diagFM1.loadPosUpSwchDI = TRUE;
@@ -38,12 +33,21 @@ void prjInput(void) {
     } else {
         diagFM1.loadPosDownSwchDI = FALSE;
     }
+}
+#endif
+
+void prjInput(void) {
+    // Acquire TM1638 buttons
+    dreFM1.hmibuttons = module.getButtons();
+
+#ifdef CFG_SWITCHES_EMULATED_BY_HMI
+    prjInputDiag();
 #else
     diagFM1.enable_loadPosUpSwchDI = FALSE;
     diagFM1.enable_loadPosDownSwchDI = FALSE;
 #endif
 
-#ifdef DEBUG_SWITCHES
+#ifdef CFG_SWITCHES_EMULATED_BY_HMI
     diagPOL.enable_loadPosUpSwchDI = TRUE;
     if (dreFM1.hmibuttons & CFG_POL_HMIBUT_SWITCH_UP_MASK) { // Both subsystems (POL and FM1) share same hmi
         diagPOL.loadPosUpSwchDI = TRUE;

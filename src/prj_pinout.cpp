@@ -18,7 +18,7 @@ void pinoutInit(void) {
 
     module.setDisplayToDecNumber(101010, 0);
 
-#ifdef CFG_USE_MOTORCTRL
+#ifdef CFG_FM1_USE_MOTORCTRL
     analogWriteFrequency(PORT_FM1pwmActAction, CFG_MOTORCTRL_FREQUENCY);
     pinMode(PORT_FM1pwmActAction, OUTPUT);
     pinMode(PORT_FM1doDirFw, OUTPUT);

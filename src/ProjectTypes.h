@@ -41,7 +41,7 @@ typedef t_steppersetpoint t_stepperanglefdback;
 #define CFG_POS_MODE_UP 1
 #define CFG_POS_MODE_DOWN 2
 
-#ifdef CFG_USE_MOTORCTRL
+#ifdef CFG_FM1_USE_MOTORCTRL
 
 #define CFG_MOTORCTRL_DIR_QUIET 0
 #define CFG_MOTORCTRL_DIR_FW 1

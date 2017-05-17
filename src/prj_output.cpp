@@ -62,12 +62,16 @@ void processFM1AccelStepper() {
     }
     fm1Stepper.run();
 }
-
 #endif
+
 #ifdef CFG_POL_USE_ACCELSTEPPER
 #include <AccelStepper.h>
 
+#if CFG_POL_USE_ACCELSTEPPER_DRIVERMODE
+AccelStepper polStepper(AccelStepper::DRIVER, CFG_POL_ACCELSTEPPER_IN1_PIN, CFG_POL_ACCELSTEPPER_IN2_PIN);
+#else
 AccelStepper polStepper(AccelStepper::FULL4WIRE, CFG_POL_ACCELSTEPPER_IN1_PIN, CFG_POL_ACCELSTEPPER_IN2_PIN, CFG_POL_ACCELSTEPPER_IN3_PIN, CFG_POL_ACCELSTEPPER_IN4_PIN);
+#endif
 
 void processPOLAccelStepper() {
     if (drePOL.loadPosDownSwchAcq) {
@@ -111,8 +115,9 @@ void processPOLAccelStepper() {
     polStepper.run();
 }
 #endif
-#ifdef CFG_USE_MOTORCTRL
-void processMotorCtrl(void) {
+
+#ifdef CFG_FM1_USE_MOTORCTRL
+void processFM1MotorCtrl(void) {
     if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
         digitalWrite(PORT_FM1doDirFw, HIGH);
     } else {
@@ -124,6 +129,22 @@ void processMotorCtrl(void) {
         digitalWrite(PORT_FM1doDirBw, HIGH);
     }
     analogWrite(PORT_FM1pwmActAction, dreFM1.appliedActAction);
+}
+#endif
+
+#ifdef CFG_POL_USE_MOTORCTRL
+void processPOLMotorCtrl(void) {
+    if (drePOL.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
+        digitalWrite(PORT_POLdoDirFw, HIGH);
+    } else {
+        digitalWrite(PORT_POLdoDirBw, LOW);
+    }
+    if (drePOL.appliedActDirection == CFG_MOTORCTRL_DIR_BW) {
+        digitalWrite(PORT_POLdoDirFw, LOW);
+    } else {
+        digitalWrite(PORT_POLdoDirBw, HIGH);
+    }
+    analogWrite(PORT_POLpwmActAction, drePOL.appliedActAction);
 }
 #endif
 
@@ -141,9 +162,11 @@ void prjOutputInit(void) {
 #ifdef CFG_POL_USE_ACCELSTEPPER
     polStepper.setAcceleration(CFG_POL_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
 #endif
-#ifdef CFG_USE_MOTORCTRL
-    //analogWrite(CFG_MOTORCTRL_DEBUGPWM_PIN,10);
-    processMotorCtrl();
+#ifdef CFG_FM1_USE_MOTORCTRL
+    processFM1MotorCtrl();
+#endif
+#ifdef CFG_POL_USE_MOTORCTRL
+    processPOLMotorCtrl();
 #endif
 
     // If motor works, then the status led will be light on
@@ -168,7 +191,10 @@ void prjOutput(void) {
 #ifdef CFG_POL_USE_ACCELSTEPPER
     processPOLAccelStepper();
 #endif
-#ifdef CFG_USE_MOTORCTRL
-    processMotorCtrl();
+#ifdef CFG_FM1_USE_MOTORCTRL
+    processFM1MotorCtrl();
+#endif
+#ifdef CFG_POL_USE_MOTORCTRL
+    processPOLMotorCtrl();
 #endif
 }
