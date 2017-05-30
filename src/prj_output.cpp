@@ -21,6 +21,7 @@ AccelStepper fm1Stepper(AccelStepper::DRIVER, CFG_FM1_ACCELSTEPPER_IN1_STP_PIN, 
 AccelStepper fm1Stepper(AccelStepper::FULL4WIRE, CFG_FM1_ACCELSTEPPER_IN1_STP_PIN, CFG_FM1_ACCELSTEPPER_IN2_DIR_PIN, CFG_FM1_ACCELSTEPPER_IN3_PIN, CFG_FM1_ACCELSTEPPER_IN4_PIN);
 #endif
 
+bool working = true;
 void processFM1AccelStepper() {
     if (dreFM1.loadPosDownSwchAcq) {
         fm1Stepper.setCurrentPosition(0);
@@ -56,8 +57,12 @@ void processFM1AccelStepper() {
     if (dreFM1.stepperEnable) {
         fm1Stepper.enableOutputs();
         fm1Stepper.moveTo(dreFM1.stepperSetPoint);
+        working = true;
     } else {
-        fm1Stepper.moveTo(dreFM1.stepperAngleFdback);
+        if (working){
+            working = false;
+            fm1Stepper.moveTo(dreFM1.stepperAngleFdback);
+        }
         fm1Stepper.disableOutputs();
     }
     fm1Stepper.run();
@@ -70,7 +75,7 @@ void processFM1AccelStepper() {
 #if CFG_POL_USE_ACCELSTEPPER_DRIVERMODE
 AccelStepper polStepper(AccelStepper::DRIVER, CFG_POL_ACCELSTEPPER_IN1_STP_PIN, CFG_POL_ACCELSTEPPER_IN2_DIR_PIN);
 #else
-AccelStepper polStepper(AccelStepper::FULL4WIRE, CFG_POL_ACCELSTEPPER_IN1_STP_PIN, CFG_POL_ACCELSTEPPER_IN2_DIR_PIN, CFG_POL_ACCELSTEPPER_IN3_PIN, CFG_POL_ACCELSTEPPER_IN4_PIN);
+AccelStepper polStepper(AccelStepper::FULL4WIRE, CFG_POL_ACCELSTEPPER_IN1_STP_PIN, CFG_POL_ACCELSTEPPER_IN3_PIN, CFG_POL_ACCELSTEPPER_IN2_DIR_PIN, CFG_POL_ACCELSTEPPER_IN4_PIN);
 #endif
 
 void processPOLAccelStepper() {

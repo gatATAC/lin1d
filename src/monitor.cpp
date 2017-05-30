@@ -89,8 +89,9 @@ void monitorExec() {
     //dreFM1.hmidigits += ((drePOL.actDrvTimer/100)*(CYCLE_TIME_IN_MICROS))/1000L;  // Both subsystems (POL and FM1) share same hmi
     //dreFM1.hmidigits += drePOL.stepperSetPoint;
     //dreFM1.hmidigits += 10000L * drePOL.stepperAngleFdback;
-    dreFM1.hmidigits += CFG_FM1_ACCELSTEPPER_MAX_SPEED;
-    dreFM1.hmidigits += 10000L * dreFM1.loadPosAI;
+    dreFM1.hmidigits += 10000L * CFG_FM1_ACCELSTEPPER_MAX_SPEED;
+    dreFM1.hmidigits += CFG_POL_ACCELSTEPPER_MAX_SPEED;
+    //dreFM1.hmidigits += 10000L * dreFM1.loadPosAI;
 #endif
 
     // Set leds & digits

@@ -22,6 +22,14 @@ CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/liblin1d.a
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Release=lin1d.tar
 CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/lin1d.tar
+# Maqueta configuration
+CND_PLATFORM_Maqueta=GNU-Linux-x86
+CND_ARTIFACT_DIR_Maqueta=dist/Maqueta/GNU-Linux-x86
+CND_ARTIFACT_NAME_Maqueta=liblin1d.a
+CND_ARTIFACT_PATH_Maqueta=dist/Maqueta/GNU-Linux-x86/liblin1d.a
+CND_PACKAGE_DIR_Maqueta=dist/Maqueta/GNU-Linux-x86/package
+CND_PACKAGE_NAME_Maqueta=lin1d.tar
+CND_PACKAGE_PATH_Maqueta=dist/Maqueta/GNU-Linux-x86/package/lin1d.tar
 #
 # include compiler specific variables
 #
