@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=lin1d
 
 # Active Configuration
-DEFAULTCONF=Debug
+DEFAULTCONF=Maqueta
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Debug Release Maqueta 
+ALLCONFS=Maqueta IFU TestBox 
 
 
 # build

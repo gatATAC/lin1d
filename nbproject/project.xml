@@ -8,19 +8,21 @@
             <cpp-extensions>cpp,ino</cpp-extensions>
             <header-extensions>h</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
-            <make-dep-projects/>
+            <make-dep-projects>
+                <make-dep-project>../dummylib</make-dep-project>
+            </make-dep-projects>
             <sourceRootList/>
             <confList>
                 <confElem>
-                    <name>Debug</name>
-                    <type>3</type>
-                </confElem>
-                <confElem>
-                    <name>Release</name>
-                    <type>3</type>
-                </confElem>
-                <confElem>
                     <name>Maqueta</name>
+                    <type>3</type>
+                </confElem>
+                <confElem>
+                    <name>IFU</name>
+                    <type>3</type>
+                </confElem>
+                <confElem>
+                    <name>TestBox</name>
                     <type>3</type>
                 </confElem>
             </confList>

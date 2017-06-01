@@ -63,190 +63,6 @@
   </logicalFolder>
   <projectmakefile>nb-Makefile.mk</projectmakefile>
   <confs>
-    <conf name="Debug" type="3">
-      <toolsSet>
-        <compilerSet>default</compilerSet>
-        <dependencyChecking>true</dependencyChecking>
-        <rebuildPropChanged>false</rebuildPropChanged>
-      </toolsSet>
-      <compileType>
-        <cTool>
-          <incDir>
-            <pElem>../dummylib</pElem>
-            <pElem>../libraries/gatArduinOSEK</pElem>
-          </incDir>
-          <preprocessorList>
-            <Elem>CFG_USE_SCALEMODEL</Elem>
-            <Elem>DUMMY_COMPILATION</Elem>
-          </preprocessorList>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>../dummylib</pElem>
-            <pElem>../libraries/gatArduinOSEK</pElem>
-          </incDir>
-          <preprocessorList>
-            <Elem>DUMMY_COMPILATION</Elem>
-          </preprocessorList>
-        </ccTool>
-        <archiverTool>
-        </archiverTool>
-      </compileType>
-      <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1DRE.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1DRE.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/POLDRE.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/POLDRE.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectFunctions.cpp" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectVariants.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/PwmServoCtrl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/PwmServoCtrl.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/monitor.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/monitor.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_input.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/prj_input.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_output.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/prj_output.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_pinout.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/src.ino" ex="false" tool="1" flavor2="0">
-        <ccTool>
-          <commandLine>-x c++</commandLine>
-        </ccTool>
-      </item>
-    </conf>
-    <conf name="Release" type="3">
-      <toolsSet>
-        <compilerSet>default</compilerSet>
-        <dependencyChecking>true</dependencyChecking>
-        <rebuildPropChanged>false</rebuildPropChanged>
-      </toolsSet>
-      <compileType>
-        <cTool>
-          <developmentMode>5</developmentMode>
-          <incDir>
-            <pElem>../dummylib</pElem>
-            <pElem>../libraries/gatArduinOSEK</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <developmentMode>5</developmentMode>
-          <incDir>
-            <pElem>../dummylib</pElem>
-            <pElem>../libraries/gatArduinOSEK</pElem>
-          </incDir>
-        </ccTool>
-        <fortranCompilerTool>
-          <developmentMode>5</developmentMode>
-        </fortranCompilerTool>
-        <asmTool>
-          <developmentMode>5</developmentMode>
-        </asmTool>
-        <archiverTool>
-        </archiverTool>
-      </compileType>
-      <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1DRE.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1DRE.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/FM1lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/POLDRE.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/POLDRE.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM_CI.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/POLlin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectFunctions.cpp" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/ProjectVariants.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/PwmServoCtrl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/PwmServoCtrl.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/monitor.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/monitor.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_input.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/prj_input.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_output.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/prj_output.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/prj_pinout.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/src.ino" ex="false" tool="3" flavor2="0">
-      </item>
-    </conf>
     <conf name="Maqueta" type="3">
       <toolsSet>
         <compilerSet>default</compilerSet>
@@ -255,12 +71,38 @@
       </toolsSet>
       <compileType>
         <cTool>
+          <incFile>
+            <pElem>../dummylib</pElem>
+          </incFile>
           <preprocessorList>
-            <Elem>CFG_USE_SCALEMODEL</Elem>
+            <Elem>CFG_VARIANT = CFG_VARIANT_SCALEMODEL</Elem>
+            <Elem>DUMMY_COMPILATION</Elem>
           </preprocessorList>
         </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>../dummylib</pElem>
+            <pElem>../libraries/gatArduinOSEK</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CFG_VARIANT =  CFG_VARIANT_SCALEMODEL</Elem>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
+        </ccTool>
         <archiverTool>
         </archiverTool>
+        <requiredProjects>
+          <makeArtifact PL="../dummylib"
+                        CT="3"
+                        CN="Debug"
+                        AC="true"
+                        BL="false"
+                        WD="../dummylib"
+                        BC="${MAKE}  -f nb-Makefile CONF=Debug"
+                        CC="${MAKE}  -f nb-Makefile CONF=Debug clean"
+                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libdummylib.a">
+          </makeArtifact>
+        </requiredProjects>
       </compileType>
       <item path="mainnb.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -321,6 +163,210 @@
       <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/src.ino" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="IFU" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incFile>
+            <pElem>../dummylib</pElem>
+          </incFile>
+          <preprocessorList>
+            <Elem>CFG_VARIANT =  CFG_VARIANT_FM1</Elem>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>../dummylib</pElem>
+            <pElem>../libraries/gatArduinOSEK</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CFG_VARIANT =  CFG_VARIANT_FM1</Elem>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
+        </ccTool>
+        <archiverTool>
+        </archiverTool>
+        <requiredProjects>
+          <makeArtifact PL="../dummylib"
+                        CT="3"
+                        CN="Debug"
+                        AC="true"
+                        BL="false"
+                        WD="../dummylib"
+                        BC="${MAKE}  -f nb-Makefile CONF=Debug"
+                        CC="${MAKE}  -f nb-Makefile CONF=Debug clean"
+                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libdummylib.a">
+          </makeArtifact>
+        </requiredProjects>
+      </compileType>
+      <item path="mainnb.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1DRE.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1lin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLDRE.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/POLDRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/POLlin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM_CI.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/POLlin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectVariants.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PwmServoCtrl.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/PwmServoCtrl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/monitor.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/monitor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_input.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/prj_input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_output.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/prj_output.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_pinout.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/src.ino" ex="false" tool="1" flavor2="9">
+      </item>
+    </conf>
+    <conf name="TestBox" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incFile>
+            <pElem>../dummylib</pElem>
+          </incFile>
+          <preprocessorList>
+            <Elem>"CFG_VARIANT =  CFG_VARIANT_TESTBOX"</Elem>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>../dummylib</pElem>
+            <pElem>../libraries/gatArduinOSEK</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>CFG_VARIANT =  CFG_VARIANT_TESTBOX</Elem>
+            <Elem>DUMMY_COMPILATION</Elem>
+          </preprocessorList>
+        </ccTool>
+        <archiverTool>
+        </archiverTool>
+        <requiredProjects>
+          <makeArtifact PL="../dummylib"
+                        CT="3"
+                        CN="Debug"
+                        AC="true"
+                        BL="false"
+                        WD="../dummylib"
+                        BC="${MAKE}  -f nb-Makefile CONF=Debug"
+                        CC="${MAKE}  -f nb-Makefile CONF=Debug clean"
+                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libdummylib.a">
+          </makeArtifact>
+        </requiredProjects>
+      </compileType>
+      <item path="mainnb.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1DRE.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1DRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1lin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/FM1lin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLDRE.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/POLDRE.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/POLlin1dFSM.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/POLlin1dFSM_CI.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/POLlin1dFSM_CI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFlows.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectFunctions.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/ProjectFunctions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectTypes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ProjectVariants.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/PwmServoCtrl.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/PwmServoCtrl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/monitor.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/monitor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_cfg.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_input.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/prj_input.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_output.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/prj_output.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/prj_pinout.cpp" ex="false" tool="1" flavor2="9">
+      </item>
+      <item path="src/prj_pinout.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/src.ino" ex="false" tool="1" flavor2="9">
       </item>
     </conf>
   </confs>

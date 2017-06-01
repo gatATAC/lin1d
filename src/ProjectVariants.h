@@ -5,15 +5,28 @@
 extern "C" {
 #endif
 
+/**
+ Definitions of variant identifiers
+*/    
+    
 #define CFG_VARIANT_TESTBOX 0
 #define CFG_VARIANT_SCALEMODEL 1    
-#define CFG_VARIANT_FM1 2    
+#define CFG_VARIANT_FM1 2
 
+#ifndef CFG_VARIANT
+//#define CFG_VARIANT CFG_VARIANT_TESTBOX
 #define CFG_VARIANT CFG_VARIANT_SCALEMODEL
-
+//#define CFG_VARIANT CFG_VARIANT_FM1
+#endif
+    
 #if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)
-    //////// Interface config //////////
+/**
+ Configuration for scale variant
+*/    
+//////// Interface config //////////
 #define CFG_USE_DIRECT_INTERFACE 1
+
+// Configure if motors must block when idle    
 #define CFG_BLOCK_FM1_MOTOR (true)
 #define CFG_BLOCK_POL_MOTOR (true)
 
@@ -31,34 +44,52 @@ extern "C" {
 
 #else
 #if (CFG_VARIANT == CFG_VARIANT_FM1)
-    //////// Interface config //////////
+/**
+ Configuration for FM1 variant 
+*/    
+
+//////// Interface config //////////
 #define CFG_USE_DIRECT_INTERFACE 1
 
+// Configure if motors must block when idle    
 #define CFG_BLOCK_FM1_MOTOR (false)
 #define CFG_BLOCK_POL_MOTOR (false)
 
-    //// STEPPER MOTORS 
+//// STEPPER MOTORS 
 #define CFG_FM1_USE_ACCELSTEPPER
 #define CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE 1
-    //#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
+//#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
 #define CFG_POL_USE_ACCELSTEPPER
-    //#define CFG_POL_USE_ACCELSTEPPER_DRIVERMODE 1
-    //#define CFG_POL_USE_ACCELSTEPPER_SETPOINT
+//#define CFG_POL_USE_ACCELSTEPPER_DRIVERMODE 1
+//#define CFG_POL_USE_ACCELSTEPPER_SETPOINT
 
-    //// DC MOTORS
-    //#define CFG_FM1_USE_MOTORCTRL 1
-    //#define CFG_POL_USE_MOTORCTRL 1
+//// DC MOTORS
+//#define CFG_FM1_USE_MOTORCTRL 1
+//#define CFG_POL_USE_MOTORCTRL 1
 
 #else
 
+/**
+ Configuration for TEXTBOX variant 
+*/    
+//////// Interface config //////////
+// #define CFG_USE_DIRECT_INTERFACE 1
+    
+// Configure if motors must block when idle    
 #define CFG_BLOCK_FM1_MOTOR (false)
 #define CFG_BLOCK_POL_MOTOR (false)
 
-#define CFG_FM1_USE_ACCELSTEPPER
-    //#define CFG_POL_USE_ACCELSTEPPER
-    //// DC MOTORS
+//// STEPPER MOTORS 
+//#define CFG_FM1_USE_ACCELSTEPPER
+//#define CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE 1
+//#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
+#define CFG_POL_USE_ACCELSTEPPER
+//#define CFG_POL_USE_ACCELSTEPPER_DRIVERMODE 1
+//#define CFG_POL_USE_ACCELSTEPPER_SETPOINT
+
+//// DC MOTORS
 #define CFG_FM1_USE_MOTORCTRL 1
-    //#define CFG_POL_USE_MOTORCTRL 1
+//#define CFG_POL_USE_MOTORCTRL 1
 
 #endif
 #endif

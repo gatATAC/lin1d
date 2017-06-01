@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=GNU-Linux-x86
 CND_DLIB_EXT=so
-CND_CONF=Release
+CND_CONF=IFU
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -47,7 +47,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/monitor.o \
 	${OBJECTDIR}/src/prj_input.o \
 	${OBJECTDIR}/src/prj_output.o \
-	${OBJECTDIR}/src/prj_pinout.o
+	${OBJECTDIR}/src/prj_pinout.o \
+	${OBJECTDIR}/src/src.o
 
 
 # C Compiler Flags
@@ -79,67 +80,72 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblin1d.a: ${OBJECTFILES}
 ${OBJECTDIR}/mainnb.o: mainnb.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
 
 ${OBJECTDIR}/src/FM1DRE.o: src/FM1DRE.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1DRE.o src/FM1DRE.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1DRE.o src/FM1DRE.cpp
 
 ${OBJECTDIR}/src/FM1lin1dFSM.o: src/FM1lin1dFSM.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1lin1dFSM.o src/FM1lin1dFSM.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1lin1dFSM.o src/FM1lin1dFSM.cpp
 
 ${OBJECTDIR}/src/FM1lin1dFSM_CI.o: src/FM1lin1dFSM_CI.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1lin1dFSM_CI.o src/FM1lin1dFSM_CI.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/FM1lin1dFSM_CI.o src/FM1lin1dFSM_CI.cpp
 
 ${OBJECTDIR}/src/POLDRE.o: src/POLDRE.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLDRE.o src/POLDRE.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLDRE.o src/POLDRE.cpp
 
 ${OBJECTDIR}/src/POLlin1dFSM.o: src/POLlin1dFSM.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLlin1dFSM.o src/POLlin1dFSM.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLlin1dFSM.o src/POLlin1dFSM.cpp
 
 ${OBJECTDIR}/src/POLlin1dFSM_CI.o: src/POLlin1dFSM_CI.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLlin1dFSM_CI.o src/POLlin1dFSM_CI.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/POLlin1dFSM_CI.o src/POLlin1dFSM_CI.cpp
 
 ${OBJECTDIR}/src/ProjectFunctions.o: src/ProjectFunctions.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ProjectFunctions.o src/ProjectFunctions.cpp
 
 ${OBJECTDIR}/src/PwmServoCtrl.o: src/PwmServoCtrl.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/PwmServoCtrl.o src/PwmServoCtrl.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/PwmServoCtrl.o src/PwmServoCtrl.cpp
 
 ${OBJECTDIR}/src/monitor.o: src/monitor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/monitor.o src/monitor.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/monitor.o src/monitor.cpp
 
 ${OBJECTDIR}/src/prj_input.o: src/prj_input.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_input.o src/prj_input.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_input.o src/prj_input.cpp
 
 ${OBJECTDIR}/src/prj_output.o: src/prj_output.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_output.o src/prj_output.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_output.o src/prj_output.cpp
 
 ${OBJECTDIR}/src/prj_pinout.o: src/prj_pinout.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_pinout.o src/prj_pinout.cpp
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_pinout.o src/prj_pinout.cpp
+
+${OBJECTDIR}/src/src.o: src/src.ino 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_FM1 -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/src.o src/src.ino
 
 # Subprojects
 .build-subprojects:
