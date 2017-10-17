@@ -228,7 +228,8 @@ void setup() {
 /* ---------------------------------------*/
 
 /***** Main Loop *****/
-
+int atencion=0;
+bool llamado_atencion=false;
 void loop() {
     // ----------- Functionality ----------------
 
@@ -243,11 +244,17 @@ void loop() {
 
     // ----------- End of Cycle Synchronization ----------------
 #if 1
+    llamado_atencion=false;
     // Now the microcontroller will loose time until the end of cycle sincronization time expires
     boolean timSync = timerSync();
+    if (timSync) {
+      Serial.print("Ciclo violado!");
+    }
+    if ((CYCLE_TIME_IN_MICROS - elapsedMicros) < CYCLE_SECURITY_TIME_MICROS) {
+        Serial.print("Atencion!"); Serial.println(atencion++);
+        Serial.println(elapsedMicros);
+    }
     while (timSync == false) {
-        if ((CYCLE_TIME_IN_MICROS - elapsedMicros) > CYCLE_SECURITY_TIME_MICROS) {
-        }
         // timerSync returns true when the end of cycle syncronization time expired.
         timSync = timerSync();
     }
