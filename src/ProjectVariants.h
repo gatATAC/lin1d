@@ -7,10 +7,10 @@ extern "C" {
 
 /**
  Definitions of variant identifiers
-*/    
-    
+*/
+
 #define CFG_VARIANT_TESTBOX 0
-#define CFG_VARIANT_SCALEMODEL 1    
+#define CFG_VARIANT_SCALEMODEL 1
 #define CFG_VARIANT_FM1 2
 
 #ifndef CFG_VARIANT
@@ -18,19 +18,19 @@ extern "C" {
 #define CFG_VARIANT CFG_VARIANT_SCALEMODEL
 //#define CFG_VARIANT CFG_VARIANT_FM1
 #endif
-    
+
 #if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)
 /**
  Configuration for scale variant
-*/    
+*/
 //////// Interface config //////////
 #define CFG_USE_DIRECT_INTERFACE 1
 
-// Configure if motors must block when idle    
+// Configure if motors must block when idle
 #define CFG_BLOCK_FM1_MOTOR (true)
 #define CFG_BLOCK_POL_MOTOR (true)
 
-//// STEPPER MOTORS 
+//// STEPPER MOTORS
 #define CFG_FM1_USE_ACCELSTEPPER
 #define CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE 1
 //#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
@@ -45,17 +45,17 @@ extern "C" {
 #else
 #if (CFG_VARIANT == CFG_VARIANT_FM1)
 /**
- Configuration for FM1 variant 
-*/    
+ Configuration for FM1 variant
+*/
 
 //////// Interface config //////////
 #define CFG_USE_DIRECT_INTERFACE 1
 
-// Configure if motors must block when idle    
+// Configure if motors must block when idle
 #define CFG_BLOCK_FM1_MOTOR (false)
 #define CFG_BLOCK_POL_MOTOR (false)
 
-//// STEPPER MOTORS 
+//// STEPPER MOTORS
 #define CFG_FM1_USE_ACCELSTEPPER
 #define CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE 1
 //#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
@@ -70,16 +70,16 @@ extern "C" {
 #else
 
 /**
- Configuration for TEXTBOX variant 
-*/    
+ Configuration for TEXTBOX variant
+*/
 //////// Interface config //////////
 // #define CFG_USE_DIRECT_INTERFACE 1
-    
-// Configure if motors must block when idle    
+
+// Configure if motors must block when idle
 #define CFG_BLOCK_FM1_MOTOR (false)
 #define CFG_BLOCK_POL_MOTOR (false)
 
-//// STEPPER MOTORS 
+//// STEPPER MOTORS
 //#define CFG_FM1_USE_ACCELSTEPPER
 //#define CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE 1
 //#define CFG_FM1_USE_ACCELSTEPPER_SETPOINT
@@ -96,8 +96,8 @@ extern "C" {
 
 #define CFG_FM1_ACCELSTEPPER_PARKED_POS 0
 #define CFG_FM1_ACCELSTEPPER_ACTIVE_POS 4000
-#define CFG_FM1_ACCELSTEPPER_ACCEL 3000.0
-#define CFG_FM1_ACCELSTEPPER_INCREMENT 3000.0
+#define CFG_FM1_ACCELSTEPPER_ACCEL 30000.0
+#define CFG_FM1_ACCELSTEPPER_INCREMENT 30000.0
 
     //#define CTE_FM1_DEBUG_STEP_SPEED
 
@@ -106,17 +106,17 @@ extern "C" {
 #define CFG_FM1_DEBUG_STEP_SPEED_OFFSET (-1.0)
 #define CFG_FM1_ACCELSTEPPER_MAX_SPEED (CFG_FM1_DEBUG_STEP_SPEED_OFFSET + (dreFM1.loadPosAI * CFG_FM1_DEBUG_STEP_SPEED_FACTOR))
 #else
-#if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)    
-#define CFG_FM1_ACCELSTEPPER_MAX_SPEED (10.0)
+#if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)
+#define CFG_FM1_ACCELSTEPPER_MAX_SPEED (250.0)
 #else
 #define CFG_FM1_ACCELSTEPPER_MAX_SPEED (150.0)
-#endif        
-#endif    
+#endif
+#endif
 
 #define CFG_POL_ACCELSTEPPER_PARKED_POS 0
 #define CFG_POL_ACCELSTEPPER_ACTIVE_POS 4000
 #define CFG_POL_ACCELSTEPPER_ACCEL 3000.0
-#define CFG_POL_ACCELSTEPPER_INCREMENT 3000.0   
+#define CFG_POL_ACCELSTEPPER_INCREMENT 3000.0
 
     //#define CTE_POL_DEBUG_STEP_SPEED
 
@@ -125,11 +125,11 @@ extern "C" {
 #define CFG_POL_DEBUG_STEP_SPEED_OFFSET (50.0)
 #define CFG_POL_ACCELSTEPPER_MAX_SPEED (CFG_POL_DEBUG_STEP_SPEED_OFFSET + (drePOL.loadPosAI * CFG_POL_DEBUG_STEP_SPEED_FACTOR))
 #else
-#if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)    
+#if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)
 #define CFG_POL_ACCELSTEPPER_MAX_SPEED (300.0)
 #else
 #define CFG_POL_ACCELSTEPPER_MAX_SPEED (150.0)
-#endif        
+#endif
 #endif
 
 //#define CFG_FM1_USE_SERVO
@@ -139,7 +139,7 @@ extern "C" {
 //#define CFG_POL_USE_SLIDER
 
     /////// Diagnostics ////////////
-#define _DIAG_ACTIVE 0    
+#define _DIAG_ACTIVE 0
 
 
 #ifdef	__cplusplus
@@ -147,4 +147,3 @@ extern "C" {
 #endif
 
 #endif	/* PROJECTVARIANTS_H */
-
