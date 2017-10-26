@@ -68,11 +68,30 @@ void prjInput(void) {
 
     // Acquire end-of-travels for FM1
     dreFM1.loadPosUpSwchDI = adquirir_FM1loadPosUpSwchDI();
+    #if _DEBUG_FM1_UPSWITCH
+    if (dreFM1.loadPosUpSwchDI == 0) {
+      Serial.println("FM1 Arriba!");
+    }
+    #endif
     dreFM1.loadPosDownSwchDI = adquirir_FM1loadPosDownSwchDI();
-
+    #if _DEBUG_FM1_DOWNSWITCH    
+    if (dreFM1.loadPosDownSwchDI == 0) {
+      Serial.println("FM1 Abajo!");
+    }
+    #endif
     // Acquire end-of-travels for POL
     drePOL.loadPosUpSwchDI = adquirir_POLloadPosUpSwchDI();
+    #if _DEBUG_POL_UPSWITCH
+    if (drePOL.loadPosUpSwchDI == 0) {
+      Serial.println("POL Arriba!");
+    }
+    #endif
     drePOL.loadPosDownSwchDI = adquirir_POLloadPosDownSwchDI();
+    #if _DEBUG_POL_DOWNSWITCH
+    if (drePOL.loadPosDownSwchDI == 0) {
+      Serial.println("POL Abajo!");
+    }
+    #endif
 
 #ifdef CFG_FM1_USE_SLIDER
     dreFM1.loadPosAI = acquire_FM1loadPosAI();

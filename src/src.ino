@@ -210,7 +210,7 @@ void setup() {
     dreInit();
 
     ////////////// Pinout init
-    //pinoutInit();
+    pinoutInit();
 
     ////////////// Input init
     prjInputInit();

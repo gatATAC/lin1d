@@ -621,15 +621,15 @@ void setup_FM1stepCtrlB_output(void) {
 // upReqDI flow acquisition
 
 BOOL adquirir_FM1upReqDI(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_upReqDI == TRUE) {
         return diagFM1.upReqDI;
     } else {
-#endif 
-        return digitalRead(PORT_FM1upReqDI);
-#ifdef _DIAG_ACTIVE 
+#endif
+        return !digitalRead(PORT_FM1upReqDI);
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // upReqDI flow synthesis
 // (output disabled for DI_pu type)
@@ -638,15 +638,15 @@ BOOL adquirir_FM1upReqDI(void) {
 // downReqDI flow acquisition
 
 BOOL adquirir_FM1downReqDI(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_downReqDI == TRUE) {
         return diagFM1.downReqDI;
     } else {
-#endif 
-        return digitalRead(PORT_FM1downReqDI);
-#ifdef _DIAG_ACTIVE 
+#endif
+        return !digitalRead(PORT_FM1downReqDI);
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // downReqDI flow synthesis
 // (output disabled for DI_pu type)
@@ -676,56 +676,56 @@ void synthesize_FM1pwmActAction(t_pwm value) {
 // doDirFw flow acquisition
 
 BOOL adquirir_FM1doDirFw(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirFw == TRUE) {
         return diagFM1.doDirFw;
     } else {
-#endif 
+#endif
         return digitalRead(PORT_FM1doDirFw);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // doDirFw flow synthesis
 
 void sintetizar_FM1doDirFw(BOOL valor) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirFw == TRUE) {
         digitalWrite(PORT_FM1doDirFw, diagFM1.doDirFw);
     } else {
-#endif 
+#endif
         digitalWrite(PORT_FM1doDirFw, valor);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 
 
 // doDirBw flow acquisition
 
 BOOL adquirir_FM1doDirBw(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirBw == TRUE) {
         return diagFM1.doDirBw;
     } else {
-#endif 
+#endif
         return digitalRead(PORT_FM1doDirBw);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // doDirBw flow synthesis
 
 void sintetizar_FM1doDirBw(BOOL valor) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirBw == TRUE) {
         digitalWrite(PORT_FM1doDirBw, diagFM1.doDirBw);
     } else {
-#endif 
+#endif
         digitalWrite(PORT_FM1doDirBw, valor);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 
 
@@ -822,15 +822,15 @@ uint16_t acquire_FM1loadPosAI(void) {
 // loadPosUpSwchDI flow acquisition
 
 BOOL adquirir_FM1loadPosUpSwchDI(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_loadPosUpSwchDI == TRUE) {
         return diagFM1.loadPosUpSwchDI;
     } else {
-#endif 
+#endif
         return digitalRead(PORT_FM1loadPosUpSwchDI);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type)
@@ -839,15 +839,15 @@ BOOL adquirir_FM1loadPosUpSwchDI(void) {
 // loadPosDownSwchDI flow acquisition
 
 BOOL adquirir_FM1loadPosDownSwchDI(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_loadPosDownSwchDI == TRUE) {
         return diagFM1.loadPosDownSwchDI;
     } else {
-#endif 
+#endif
         return digitalRead(PORT_FM1loadPosDownSwchDI);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type)
@@ -1141,56 +1141,56 @@ uint16_t acquire_FM1driveCurrentAI(void) {
 // stepCtrlA flow acquisition
 
 BOOL adquirir_FM1stepCtrlA(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlA == TRUE) {
         return diagFM1.stepCtrlA;
     } else {
-#endif 
+#endif
         return digitalRead(PORT_FM1stepCtrlA);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // stepCtrlA flow synthesis
 
 void sintetizar_FM1stepCtrlA(BOOL valor) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlA == TRUE) {
         digitalWrite(PORT_FM1stepCtrlA, diagFM1.stepCtrlA);
     } else {
-#endif 
+#endif
         digitalWrite(PORT_FM1stepCtrlA, valor);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 
 
 // stepCtrlB flow acquisition
 
 BOOL adquirir_FM1stepCtrlB(void) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlB == TRUE) {
         return diagFM1.stepCtrlB;
     } else {
-#endif 
+#endif
         return digitalRead(PORT_FM1stepCtrlB);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 // stepCtrlB flow synthesis
 
 void sintetizar_FM1stepCtrlB(BOOL valor) {
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlB == TRUE) {
         digitalWrite(PORT_FM1stepCtrlB, diagFM1.stepCtrlB);
     } else {
-#endif 
+#endif
         digitalWrite(PORT_FM1stepCtrlB, valor);
-#ifdef _DIAG_ACTIVE 
+#ifdef _DIAG_ACTIVE
     }
-#endif 
+#endif
 };
 
 

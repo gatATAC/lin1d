@@ -13,6 +13,6 @@
 //// Status LED
 #define CFG_LED_STATUS 13
 
-#define CFG_SWITCHES_EMULATED_BY_HMI
+//#define CFG_SWITCHES_EMULATED_BY_HMI
 
 #endif /* _PRJ_CFG_H */

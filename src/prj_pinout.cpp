@@ -1,6 +1,8 @@
 #include "gttc_types.h"
 #include "prj_cfg.h"
 #include "prj_pinout.h"
+#include "FM1DRE.h"
+#include "POLDRE.h"
 #include <Arduino.h>
 
 #include <TM1638.h>
@@ -10,8 +12,10 @@ void pinoutInit(void) {
 
     uint8_t i;
 
-    pinMode(PORT_FM1loadPosUpSwchDI, INPUT_PULLUP);
-    pinMode(PORT_FM1loadPosDownSwchDI, INPUT_PULLUP);
+    setup_FM1loadPosUpSwchDI();
+    setup_POLloadPosUpSwchDI();
+    setup_FM1loadPosDownSwchDI();
+    setup_POLloadPosDownSwchDI();
 
     pinMode(CFG_SLIDER_DTA_PIN, INPUT);
     pinMode(CFG_SLIDER_DTB_PIN, INPUT);
@@ -25,20 +29,3 @@ void pinoutInit(void) {
     pinMode(PORT_FM1doDirBw, OUTPUT);
 #endif
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
