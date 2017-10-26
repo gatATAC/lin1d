@@ -22,10 +22,23 @@ AccelStepper fm1Stepper(AccelStepper::FULL4WIRE, CFG_FM1_ACCELSTEPPER_IN1_STP_PI
 #endif
 
 bool working = true;
+#ifdef DEBUG_ACTUATION
+bool antEnable = false;
+#endif
+
+// Variables to apply changes only when something happens
+bool antDwnSwitch = false;
+int tmpSpeed = 0;
+int antSpeed = 0;
+
 void processFM1AccelStepper() {
-    if (dreFM1.loadPosDownSwchAcq) {
-        fm1Stepper.setCurrentPosition(0);
+    if (antDwnSwitch == TRUE && dreFM1.loadPosDownSwchAcq == FALSE) {
+      fm1Stepper.setCurrentPosition(0);
+#ifdef DEBUG_ACTUATION
+      Serial.println("Homing!");
+#endif
     }
+    antDwnSwitch = dreFM1.loadPosDownSwchAcq;
 
 #ifdef CFG_FM1_USE_ACCELSTEPPER_SETPOINT
     if (dreFM1.posMode == CFG_POS_MODE_UP) {
@@ -53,7 +66,21 @@ void processFM1AccelStepper() {
         }
     }
 #endif
-    fm1Stepper.setMaxSpeed(min(CFG_FM1_ACCELSTEPPER_MAX_SPEED,dreFM1.appliedActAction));
+    tmpSpeed = min(CFG_FM1_ACCELSTEPPER_MAX_SPEED,dreFM1.appliedActAction);
+    tmpSpeed = max(-CFG_FM1_ACCELSTEPPER_MAX_SPEED,dreFM1.appliedActAction);
+    if (tmpSpeed != antSpeed){
+      fm1Stepper.setMaxSpeed(tmpSpeed);
+      antSpeed = tmpSpeed;
+#ifdef DEBUG_ACTUATION
+      Serial.print("spd: "); Serial.println(tmpSpeed);
+#endif
+    }
+#ifdef DEBUG_ACTUATION
+    if (antEnable != dreFM1.stepperEnable){
+      Serial.print("enab: ");Serial.println(dreFM1.stepperEnable);
+      antEnable = dreFM1.stepperEnable;
+    }
+#endif
     if (dreFM1.stepperEnable) {
         fm1Stepper.enableOutputs();
         fm1Stepper.moveTo(dreFM1.stepperSetPoint);

@@ -15,4 +15,6 @@
 
 //#define CFG_SWITCHES_EMULATED_BY_HMI
 
+#define DEBUG_ACTUATION
+
 #endif /* _PRJ_CFG_H */

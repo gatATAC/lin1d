@@ -144,6 +144,9 @@ void dreInit() {
 
 /* ---------------------------------------*/
 
+int antPos=0;
+int antState=0;
+int curState=0;
 /***** FSM tasks *****/
 void fsmTasks(void) {
   // Acquisition
@@ -166,12 +169,23 @@ void fsmTasks(void) {
   } else {
     FM1ModeSelector();
   }
+#ifdef DEBUG_ACTUATION
+  if (dreFM1.posMode != antPos){
+    Serial.println(dreFM1.posMode);
+    antPos = dreFM1.posMode;
+  }
+#endif
   FM1PosControl();
 
   // Actuation
   FM1ActEnabler();
-  FM1ActDriving();
-
+#ifdef DEBUG_ACTUATION
+  curState = dreFM1.appliedActAction;
+  if (antState != curState){
+    antState = curState;
+    Serial.print("act: "); Serial.println(curState);
+  }
+#endif
   // Acquisition
   POLUpButAcq();
   POLDownButAcq();
@@ -223,6 +237,7 @@ void setup() {
 
   ////////////// Monitor Init
   monitorInit();
+  Serial.begin(115200);
 }
 
 /* ---------------------------------------*/
