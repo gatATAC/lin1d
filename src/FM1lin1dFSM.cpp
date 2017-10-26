@@ -553,7 +553,7 @@ void FM1PosControl() {
             /* Transition ID: ID_FM1POSCONTROL_INITIAL */
             /* Actions: */
             /* ['<global>::stopAction' begin] */
-            actAction = CFG_ACT_ACTION_STOP;
+            actAction = CFG_FM1_ACT_ACTION_STOP;
             /* ['<global>::stopAction' end] */
             /* ['<global>::cleanError' begin] */
             ctrlError = FALSE;
@@ -568,7 +568,7 @@ void FM1PosControl() {
                 /* Transition ID: ID_FM1POSCONTROL_TOUP */
                 /* Actions: */
                 /* ['<global>::upAction' begin] */
-                actAction = CFG_ACT_ACTION_UP;
+                actAction = CFG_FM1_ACT_ACTION_UP;
                 posAchieved = FALSE;
                 /* ['<global>::upAction' end] */
                 state = ID_FM1POSCONTROL_GOINGUP;
@@ -576,7 +576,7 @@ void FM1PosControl() {
                 /* Transition ID: ID_FM1POSCONTROL_TODOWN */
                 /* Actions: */
                 /* ['<global>::downAction' begin] */
-                actAction = CFG_ACT_ACTION_DOWN;
+                actAction = CFG_FM1_ACT_ACTION_DOWN;
                 posAchieved = FALSE;
                 /* ['<global>::downAction' end] */
                 state = ID_FM1POSCONTROL_GOINGDOWN;
@@ -590,7 +590,7 @@ void FM1PosControl() {
                 /* Transition ID: ID_FM1POSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_FM1_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::setError' begin] */
                 ctrlError = TRUE;
@@ -600,14 +600,14 @@ void FM1PosControl() {
                 /* Transition ID: ID_FM1POSCONTROL_CANCEL */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_FM1_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 state = ID_FM1POSCONTROL_STOP;
             } else if (loadPosUpSwchAcq == TRUE) {
                 /* Transition ID: ID_FM1POSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_FM1_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::notifyAchieved' begin] */
                 posAchieved = TRUE;
@@ -623,7 +623,7 @@ void FM1PosControl() {
                 /* Transition ID: ID_FM1POSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_FM1_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::setError' begin] */
                 ctrlError = TRUE;
@@ -633,14 +633,14 @@ void FM1PosControl() {
                 /* Transition ID: ID_FM1POSCONTROL_CANCEL */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_FM1_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 state = ID_FM1POSCONTROL_STOP;
             } else if (loadPosDownSwchAcq == TRUE) {
                 /* Transition ID: ID_FM1POSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_FM1_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::notifyAchieved' begin] */
                 posAchieved = TRUE;

@@ -4535,7 +4535,7 @@
       <property name="id" type="long">90011</property>
       <property name="name" type="string">stopAction</property>
       <property name="description" type="string">Actuation STOPPED</property>
-      <property name="code" type="string">actAction=CFG_ACT_ACTION_STOP;</property>
+      <property name="code" type="string">actAction=CFG_POL_ACT_ACTION_STOP;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::stopAction#90011</property>
       <property name="inline" type="bool">1</property>
@@ -4563,7 +4563,7 @@
       <property name="id" type="long">90013</property>
       <property name="name" type="string">upAction</property>
       <property name="description" type="string">Actuation towards UP position.</property>
-      <property name="code" type="string">actAction=CFG_ACT_ACTION_UP;
+      <property name="code" type="string">actAction=CFG_POL_ACT_ACTION_UP;
                 posAchieved=FALSE;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::upAction#90013</property>
@@ -4578,7 +4578,7 @@
       <property name="id" type="long">90014</property>
       <property name="name" type="string">downAction</property>
       <property name="description" type="string">Actuation towards DOWN position.</property>
-      <property name="code" type="string">actAction=CFG_ACT_ACTION_DOWN;
+      <property name="code" type="string">actAction=CFG_POL_ACT_ACTION_DOWN;
                 posAchieved=FALSE;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::downAction#90014</property>
@@ -4621,7 +4621,7 @@
       <property name="id" type="long">90017</property>
       <property name="name" type="string">setActuationQuiet</property>
       <property name="description" type="string">Sets the direction of the actuators to not move.</property>
-      <property name="code" type="string">rectifiedActAction=(t_pwm)0; 
+      <property name="code" type="string">rectifiedActAction=(t_pwm)0;
                 actDirection=CFG_ACT_DIRECTION_QUIET;</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::setActuationQuiet#90017</property>
