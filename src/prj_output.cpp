@@ -53,7 +53,7 @@ void processFM1AccelStepper() {
         }
     }
 #endif
-    fm1Stepper.setMaxSpeed(CFG_FM1_ACCELSTEPPER_MAX_SPEED);
+    fm1Stepper.setMaxSpeed(min(CFG_FM1_ACCELSTEPPER_MAX_SPEED,dreFM1.appliedActAction));
     if (dreFM1.stepperEnable) {
         fm1Stepper.enableOutputs();
         fm1Stepper.moveTo(dreFM1.stepperSetPoint);
@@ -109,7 +109,7 @@ void processPOLAccelStepper() {
         }
     }
 #endif
-    polStepper.setMaxSpeed(CFG_POL_ACCELSTEPPER_MAX_SPEED);
+    polStepper.setMaxSpeed(min(CFG_POL_ACCELSTEPPER_MAX_SPEED,drePOL.appliedActAction));
     if (drePOL.stepperEnable) {
         polStepper.enableOutputs();
         polStepper.moveTo(drePOL.stepperSetPoint);

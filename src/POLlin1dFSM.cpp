@@ -555,7 +555,7 @@ void POLPosControl() {
             /* Transition ID: ID_POLPOSCONTROL_INITIAL */
             /* Actions: */
             /* ['<global>::stopAction' begin] */
-            actAction = CFG_ACT_ACTION_STOP;
+            actAction = CFG_POL_ACT_ACTION_STOP;
             /* ['<global>::stopAction' end] */
             /* ['<global>::cleanError' begin] */
             ctrlError = FALSE;
@@ -570,7 +570,7 @@ void POLPosControl() {
                 /* Transition ID: ID_POLPOSCONTROL_TOUP */
                 /* Actions: */
                 /* ['<global>::upAction' begin] */
-                actAction = CFG_ACT_ACTION_UP;
+                actAction = CFG_POL_ACT_ACTION_UP;
                 posAchieved = FALSE;
                 /* ['<global>::upAction' end] */
                 state = ID_POLPOSCONTROL_GOINGUP;
@@ -578,7 +578,7 @@ void POLPosControl() {
                 /* Transition ID: ID_POLPOSCONTROL_TODOWN */
                 /* Actions: */
                 /* ['<global>::downAction' begin] */
-                actAction = CFG_ACT_ACTION_DOWN;
+                actAction = CFG_POL_ACT_ACTION_DOWN;
                 posAchieved = FALSE;
                 /* ['<global>::downAction' end] */
                 state = ID_POLPOSCONTROL_GOINGDOWN;
@@ -592,7 +592,7 @@ void POLPosControl() {
                 /* Transition ID: ID_POLPOSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_POL_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::setError' begin] */
                 ctrlError = TRUE;
@@ -602,14 +602,14 @@ void POLPosControl() {
                 /* Transition ID: ID_POLPOSCONTROL_CANCEL */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_POL_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 state = ID_POLPOSCONTROL_STOP;
             } else if (loadPosUpSwchAcq == TRUE) {
                 /* Transition ID: ID_POLPOSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_POL_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::notifyAchieved' begin] */
                 posAchieved = TRUE;
@@ -625,7 +625,7 @@ void POLPosControl() {
                 /* Transition ID: ID_POLPOSCONTROL_ERROR */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_POL_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::setError' begin] */
                 ctrlError = TRUE;
@@ -635,14 +635,14 @@ void POLPosControl() {
                 /* Transition ID: ID_POLPOSCONTROL_CANCEL */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_POL_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 state = ID_POLPOSCONTROL_STOP;
             } else if (loadPosDownSwchAcq == TRUE) {
                 /* Transition ID: ID_POLPOSCONTROL_FINISHED */
                 /* Actions: */
                 /* ['<global>::stopAction' begin] */
-                actAction = CFG_ACT_ACTION_STOP;
+                actAction = CFG_POL_ACT_ACTION_STOP;
                 /* ['<global>::stopAction' end] */
                 /* ['<global>::notifyAchieved' begin] */
                 posAchieved = TRUE;
