@@ -529,7 +529,7 @@ STATE_T DecodeMotorCmd(  )
             dre.tmpBuf = dre.mX->cmd;
 
             dre.tmpBuf.remove(0,2);
-            dre.mX->posarg = dre.tmpBuf.ToInt();
+            dre.mX->posarg = dre.tmpBuf.toInt();
             /* ['<global>::programLA' end] */
             state = ID_DECODEMOTORCMD_FINAL;
         }
@@ -538,14 +538,14 @@ STATE_T DecodeMotorCmd(  )
             /* Transition ID: ID_DECODEMOTORCMD_TRANSITION_CONNECTION */
             /* Actions: */
             /* ['<global>::programLR' begin] */
-            // LR is similar to LA 
+            // LR is similar to LA
 
             dre.mX->la = true;
             dre.tmpBuf = dre.mX->cmd;
 
             dre.tmpBuf.remove(0,2);
 
-            dre.mX->posarg = dre.mX->pos + dre.tmpBuf.ToInt();
+            dre.mX->posarg = dre.mX->pos + dre.tmpBuf.toInt();
             /* ['<global>::programLR' end] */
             state = ID_DECODEMOTORCMD_FINAL;
         }
@@ -586,7 +586,7 @@ STATE_T DecodeMotorCmd(  )
 
             dre.tmpBuf.remove(0,2);
 
-            dre.mX->spdarg = dre.tmpBuf.ToInt();
+            dre.mX->spdarg = dre.tmpBuf.toInt();
             /* ['<global>::programSP' end] */
             state = ID_DECODEMOTORCMD_FINAL;
         }
@@ -690,7 +690,7 @@ STATE_T ProgramMotors(  )
     /* set initial state */
     STATE_T state = ID_PROGRAMMOTORS_INITIAL;
 
-    for( ;; )
+    // for( ;; )
     {
         /* State ID: ID_PROGRAMMOTORS_INITIAL */
         if( state==ID_PROGRAMMOTORS_INITIAL )

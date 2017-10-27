@@ -1182,7 +1182,7 @@ dre.mX-&gt;error = false;</property>
       <property name="code" type="string">dre.mX-&gt;la = true;&#xD;
 dre.tmpBuf = dre.mX-&gt;cmd;&#xD;
 dre.tmpBuf.remove(0,2);
-dre.mX-&gt;posarg = dre.tmpBuf.ToInt();</property>
+dre.mX-&gt;posarg = dre.tmpBuf.toInt();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::programLA#128</property>
       <property name="inline" type="bool">1</property>
@@ -1200,7 +1200,7 @@ dre.mX-&gt;posarg = dre.tmpBuf.ToInt();</property>
 dre.mX-&gt;la = true;
 dre.tmpBuf = dre.mX-&gt;cmd;&#xD;
 dre.tmpBuf.remove(0,2);&#xD;
-dre.mX-&gt;posarg = dre.mX-&gt;pos + dre.tmpBuf.ToInt();</property>
+dre.mX-&gt;posarg = dre.mX-&gt;pos + dre.tmpBuf.toInt();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::programLR#129</property>
       <property name="inline" type="bool">1</property>
@@ -1245,7 +1245,7 @@ dre.mX-&gt;posarg = dre.mX-&gt;pos + dre.tmpBuf.ToInt();</property>
       <property name="code" type="string">dre.mX-&gt;spd = true;
 dre.tmpBuf = dre.mX-&gt;cmd;&#xD;
 dre.tmpBuf.remove(0,2);&#xD;
-dre.mX-&gt;spdarg = dre.tmpBuf.ToInt();</property>
+dre.mX-&gt;spdarg = dre.tmpBuf.toInt();</property>
       <property name="scope" type="string">&lt;global&gt;</property>
       <property name="signature" type="string">&lt;global&gt;::programSP#132</property>
       <property name="inline" type="bool">1</property>
@@ -2604,7 +2604,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
                         <object type="uddLabelElement">
                           <property name="id" type="long">22</property>
                           <property name="relative_position" type="realpoint">-88.000000,-7.000000</property>
-                          <property name="size" type="realpoint">200.000000,15.000000</property>
+                          <property name="size" type="realpoint">196.000000,15.000000</property>
                           <property name="text" type="string">&lt;&lt; newReq(dre.m2.req, false) / [] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
@@ -2640,7 +2640,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
                         <object type="uddLabelElement">
                           <property name="id" type="long">24</property>
                           <property name="relative_position" type="realpoint">-88.000000,-7.000000</property>
-                          <property name="size" type="realpoint">200.000000,15.000000</property>
+                          <property name="size" type="realpoint">196.000000,15.000000</property>
                           <property name="text" type="string">&lt;&lt; newReq(dre.m2.req, false) / [] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
@@ -2677,7 +2677,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
                         <object type="uddLabelElement">
                           <property name="id" type="long">26</property>
                           <property name="relative_position" type="realpoint">-118.000000,-77.000000</property>
-                          <property name="size" type="realpoint">200.000000,15.000000</property>
+                          <property name="size" type="realpoint">196.000000,15.000000</property>
                           <property name="text" type="string">&lt;&lt; newReq(dre.m3.req, false) / [] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
@@ -2754,7 +2754,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
                         <object type="uddLabelElement">
                           <property name="id" type="long">30</property>
                           <property name="relative_position" type="realpoint">-98.000000,-7.000000</property>
-                          <property name="size" type="realpoint">200.000000,15.000000</property>
+                          <property name="size" type="realpoint">196.000000,15.000000</property>
                           <property name="text" type="string">&lt;&lt; newReq(dre.m3.req, false) / [] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
@@ -2827,7 +2827,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
                         <object type="uddLabelElement">
                           <property name="id" type="long">34</property>
                           <property name="relative_position" type="realpoint">-88.000000,3.000000</property>
-                          <property name="size" type="realpoint">200.000000,15.000000</property>
+                          <property name="size" type="realpoint">196.000000,15.000000</property>
                           <property name="text" type="string">&lt;&lt; newReq(dre.m1.req, false) / [] &gt;&gt;</property>
                           <property name="label_type" type="int">3</property>
                         </object>
@@ -2915,7 +2915,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
       <property name="inline" type="bool">0</property>
       <diagram>
         <object type="umlInitialItem">
-          <property name="id" type="long">3</property>
+          <property name="id" type="long">1</property>
           <property name="relative_position" type="realpoint">340.000000,50.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udInitialElementItem">
@@ -2928,7 +2928,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">0,0,0,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">4</property>
+              <property name="id" type="long">2</property>
               <property name="relative_position" type="realpoint">0.000000,25.000000</property>
               <property name="size" type="realpoint">29.000000,15.000000</property>
               <property name="text" type="string">Initial</property>
@@ -2937,7 +2937,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">5</property>
+          <property name="id" type="long">3</property>
           <property name="relative_position" type="realpoint">510.000000,300.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -2966,12 +2966,12 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">51</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">49</property>
           <property name="source_offset" type="realpoint">0.500000,0.500000</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">6</property>
+              <property name="id" type="long">4</property>
               <property name="relative_position" type="realpoint">-61.000000,-7.000000</property>
               <property name="size" type="realpoint">298.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 2 : checkCharAtPos(0, 'L', true) / [resetDecoder()] &gt;&gt;</property>
@@ -2980,7 +2980,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">7</property>
+          <property name="id" type="long">5</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -2989,11 +2989,11 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               <property name="description" type="string">Transition's description...</property>
             </object>
           </property>
-          <property name="source" type="long">51</property>
-          <property name="target" type="long">13</property>
+          <property name="source" type="long">49</property>
+          <property name="target" type="long">11</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">8</property>
+              <property name="id" type="long">6</property>
               <property name="relative_position" type="realpoint">-42.000000,-9.000000</property>
               <property name="size" type="realpoint">49.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
@@ -3002,7 +3002,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">9</property>
+          <property name="id" type="long">7</property>
           <property name="relative_position" type="realpoint">510.000000,300.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3031,12 +3031,12 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">51</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">49</property>
+          <property name="target" type="long">17</property>
           <property name="target_offset" type="realpoint">0.500000,0.500000</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">10</property>
+              <property name="id" type="long">8</property>
               <property name="relative_position" type="realpoint">-241.000000,-7.000000</property>
               <property name="size" type="realpoint">284.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(1, 'A', true) / [programLA()] &gt;&gt;</property>
@@ -3045,7 +3045,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">11</property>
+          <property name="id" type="long">9</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3054,14 +3054,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               <property name="description" type="string">Transition's description...</property>
             </object>
           </property>
-          <property name="source" type="long">21</property>
-          <property name="target" type="long">13</property>
+          <property name="source" type="long">19</property>
+          <property name="target" type="long">11</property>
           <property name="control_points" type="listrealpoint">
             <item>590.000000,280.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">12</property>
+              <property name="id" type="long">10</property>
               <property name="relative_position" type="realpoint">-12.000000,-29.000000</property>
               <property name="size" type="realpoint">49.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
@@ -3070,7 +3070,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">13</property>
+          <property name="id" type="long">11</property>
           <property name="relative_position" type="realpoint">249.000000,380.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3083,11 +3083,36 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">14</property>
+              <property name="id" type="long">12</property>
               <property name="relative_position" type="realpoint">37.000000,5.000000</property>
               <property name="size" type="realpoint">28.000000,15.000000</property>
               <property name="text" type="string">Error</property>
               <property name="label_type" type="int">1</property>
+            </object>
+          </property>
+        </object>
+        <object type="umlTransitionItem">
+          <property name="id" type="long">13</property>
+          <property name="relative_position" type="realpoint">500.000000,280.000000</property>
+          <property name="user_data" type="serializabledynamic">
+            <object type="udTransElementItem">
+              <property name="id" type="long">0</property>
+              <property name="name" type="string">Transition connection</property>
+              <property name="description" type="string">Transition's description...</property>
+            </object>
+          </property>
+          <property name="source" type="long">41</property>
+          <property name="target" type="long">11</property>
+          <property name="control_points" type="listrealpoint">
+            <item>527.000000,375.000000</item>
+          </property>
+          <property name="label" type="serializabledynamicnocreate">
+            <object type="uddLabelElement">
+              <property name="id" type="long">14</property>
+              <property name="relative_position" type="realpoint">-42.000000,-9.000000</property>
+              <property name="size" type="realpoint">49.000000,15.000000</property>
+              <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
+              <property name="label_type" type="int">3</property>
             </object>
           </property>
         </object>
@@ -3101,11 +3126,8 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               <property name="description" type="string">Transition's description...</property>
             </object>
           </property>
-          <property name="source" type="long">43</property>
-          <property name="target" type="long">13</property>
-          <property name="control_points" type="listrealpoint">
-            <item>527.000000,375.000000</item>
-          </property>
+          <property name="source" type="long">27</property>
+          <property name="target" type="long">11</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
               <property name="id" type="long">16</property>
@@ -3116,30 +3138,8 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
             </object>
           </property>
         </object>
-        <object type="umlTransitionItem">
-          <property name="id" type="long">17</property>
-          <property name="relative_position" type="realpoint">500.000000,280.000000</property>
-          <property name="user_data" type="serializabledynamic">
-            <object type="udTransElementItem">
-              <property name="id" type="long">0</property>
-              <property name="name" type="string">Transition connection</property>
-              <property name="description" type="string">Transition's description...</property>
-            </object>
-          </property>
-          <property name="source" type="long">29</property>
-          <property name="target" type="long">13</property>
-          <property name="label" type="serializabledynamicnocreate">
-            <object type="uddLabelElement">
-              <property name="id" type="long">18</property>
-              <property name="relative_position" type="realpoint">-42.000000,-9.000000</property>
-              <property name="size" type="realpoint">49.000000,15.000000</property>
-              <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
-              <property name="label_type" type="int">3</property>
-            </object>
-          </property>
-        </object>
         <object type="umlFinalItem">
-          <property name="id" type="long">19</property>
+          <property name="id" type="long">17</property>
           <property name="relative_position" type="realpoint">1310.000000,310.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udFinalElementItem">
@@ -3151,7 +3151,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="size" type="realpoint">20.000000,20.000000</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">20</property>
+              <property name="id" type="long">18</property>
               <property name="relative_position" type="realpoint">0.000000,25.000000</property>
               <property name="size" type="realpoint">27.000000,15.000000</property>
               <property name="text" type="string">Final</property>
@@ -3160,7 +3160,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">21</property>
+          <property name="id" type="long">19</property>
           <property name="relative_position" type="realpoint">880.000000,0.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3172,7 +3172,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">22</property>
+              <property name="id" type="long">20</property>
               <property name="relative_position" type="realpoint">23.000000,5.000000</property>
               <property name="size" type="realpoint">55.000000,15.000000</property>
               <property name="text" type="string">Nreceived</property>
@@ -3181,7 +3181,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">23</property>
+          <property name="id" type="long">21</property>
           <property name="relative_position" type="realpoint">510.000000,300.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3210,14 +3210,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">21</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">19</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>1170.000000,50.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">24</property>
+              <property name="id" type="long">22</property>
               <property name="relative_position" type="realpoint">-146.000000,-7.000000</property>
               <property name="size" type="realpoint">288.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(1, 'P', true) / [programNP()] &gt;&gt;</property>
@@ -3226,7 +3226,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">25</property>
+          <property name="id" type="long">23</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3255,14 +3255,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">51</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">49</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>1040.000000,180.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">26</property>
+              <property name="id" type="long">24</property>
               <property name="relative_position" type="realpoint">-306.000000,11.000000</property>
               <property name="size" type="realpoint">288.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 2 : checkCharAtPos(1, 'R', true) / [programLR()] &gt;&gt;</property>
@@ -3271,7 +3271,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">27</property>
+          <property name="id" type="long">25</property>
           <property name="relative_position" type="realpoint">449.000000,530.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3284,7 +3284,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">28</property>
+              <property name="id" type="long">26</property>
               <property name="relative_position" type="realpoint">22.000000,5.000000</property>
               <property name="size" type="realpoint">59.000000,15.000000</property>
               <property name="text" type="string">SReceived</property>
@@ -3293,7 +3293,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">29</property>
+          <property name="id" type="long">27</property>
           <property name="relative_position" type="realpoint">849.000000,520.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3306,7 +3306,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">30</property>
+              <property name="id" type="long">28</property>
               <property name="relative_position" type="realpoint">17.000000,5.000000</property>
               <property name="size" type="realpoint">68.000000,15.000000</property>
               <property name="text" type="string">POReceived</property>
@@ -3315,7 +3315,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">31</property>
+          <property name="id" type="long">29</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3337,14 +3337,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">43</property>
-          <property name="target" type="long">29</property>
+          <property name="source" type="long">41</property>
+          <property name="target" type="long">27</property>
           <property name="control_points" type="listrealpoint">
             <item>810.000000,440.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">32</property>
+              <property name="id" type="long">30</property>
               <property name="relative_position" type="realpoint">-131.000000,-9.000000</property>
               <property name="size" type="realpoint">217.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(1, 'O', true) / [] &gt;&gt;</property>
@@ -3353,7 +3353,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">33</property>
+          <property name="id" type="long">31</property>
           <property name="relative_position" type="realpoint">690.000000,340.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3362,11 +3362,11 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               <property name="description" type="string">Transition's description...</property>
             </object>
           </property>
-          <property name="source" type="long">27</property>
-          <property name="target" type="long">13</property>
+          <property name="source" type="long">25</property>
+          <property name="target" type="long">11</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">34</property>
+              <property name="id" type="long">32</property>
               <property name="relative_position" type="realpoint">-42.000000,-9.000000</property>
               <property name="size" type="realpoint">49.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
@@ -3375,7 +3375,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">35</property>
+          <property name="id" type="long">33</property>
           <property name="relative_position" type="realpoint">630.000000,310.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3404,14 +3404,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">27</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">25</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>910.000000,630.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">36</property>
+              <property name="id" type="long">34</property>
               <property name="relative_position" type="realpoint">-447.000000,-19.000000</property>
               <property name="size" type="realpoint">287.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(1, 'P', true) / [programSP()] &gt;&gt;</property>
@@ -3420,7 +3420,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">37</property>
+          <property name="id" type="long">35</property>
           <property name="relative_position" type="realpoint">630.000000,310.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3449,14 +3449,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">27</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">25</property>
           <property name="control_points" type="listrealpoint">
             <item>440.000000,430.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">38</property>
+              <property name="id" type="long">36</property>
               <property name="relative_position" type="realpoint">-52.000000,-29.000000</property>
               <property name="size" type="realpoint">299.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 5 : checkCharAtPos(0, 'S', true) / [resetDecoder()] &gt;&gt;</property>
@@ -3465,7 +3465,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">39</property>
+          <property name="id" type="long">37</property>
           <property name="relative_position" type="realpoint">500.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3494,11 +3494,11 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">29</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">27</property>
+          <property name="target" type="long">17</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">40</property>
+              <property name="id" type="long">38</property>
               <property name="relative_position" type="realpoint">-287.000000,51.000000</property>
               <property name="size" type="realpoint">296.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(2, 'S', true) / [programPOS()] &gt;&gt;</property>
@@ -3507,7 +3507,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">41</property>
+          <property name="id" type="long">39</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3523,14 +3523,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">13</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">11</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>1090.000000,640.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">42</property>
+              <property name="id" type="long">40</property>
               <property name="relative_position" type="realpoint">95.000000,-129.000000</property>
               <property name="size" type="realpoint">125.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt;  / [decodeError()] &gt;&gt;</property>
@@ -3539,7 +3539,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">43</property>
+          <property name="id" type="long">41</property>
           <property name="relative_position" type="realpoint">969.000000,370.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3552,7 +3552,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">44</property>
+              <property name="id" type="long">42</property>
               <property name="relative_position" type="realpoint">22.000000,5.000000</property>
               <property name="size" type="realpoint">59.000000,15.000000</property>
               <property name="text" type="string">PReceived</property>
@@ -3561,7 +3561,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">45</property>
+          <property name="id" type="long">43</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3590,15 +3590,15 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">43</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">41</property>
           <property name="control_points" type="listrealpoint">
             <item>490.000000,290.000000</item>
             <item>730.000000,350.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">46</property>
+              <property name="id" type="long">44</property>
               <property name="relative_position" type="realpoint">20.000000,51.000000</property>
               <property name="size" type="realpoint">299.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 3 : checkCharAtPos(0, 'P', true) / [resetDecoder()] &gt;&gt;</property>
@@ -3607,7 +3607,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">47</property>
+          <property name="id" type="long">45</property>
           <property name="relative_position" type="realpoint">560.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3636,14 +3636,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">55</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">53</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>930.000000,300.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">48</property>
+              <property name="id" type="long">46</property>
               <property name="relative_position" type="realpoint">-162.000000,-7.000000</property>
               <property name="size" type="realpoint">326.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(2, 'H', true) / [programGoHoSeq()] &gt;&gt;</property>
@@ -3652,7 +3652,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">49</property>
+          <property name="id" type="long">47</property>
           <property name="relative_position" type="realpoint">500.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3680,14 +3680,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">55</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">53</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>880.000000,330.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">50</property>
+              <property name="id" type="long">48</property>
               <property name="relative_position" type="realpoint">-139.000000,-7.000000</property>
               <property name="size" type="realpoint">274.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; checkCharAtPos(2, 'I', true) / [programGoIx()] &gt;&gt;</property>
@@ -3696,7 +3696,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">51</property>
+          <property name="id" type="long">49</property>
           <property name="relative_position" type="realpoint">500.000000,180.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3708,7 +3708,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">52</property>
+              <property name="id" type="long">50</property>
               <property name="relative_position" type="realpoint">21.000000,5.000000</property>
               <property name="size" type="realpoint">58.000000,15.000000</property>
               <property name="text" type="string">LReceived</property>
@@ -3717,7 +3717,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">53</property>
+          <property name="id" type="long">51</property>
           <property name="relative_position" type="realpoint">500.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3726,14 +3726,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               <property name="description" type="string">Transition's description...</property>
             </object>
           </property>
-          <property name="source" type="long">55</property>
-          <property name="target" type="long">13</property>
+          <property name="source" type="long">53</property>
+          <property name="target" type="long">11</property>
           <property name="control_points" type="listrealpoint">
             <item>160.000000,320.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">54</property>
+              <property name="id" type="long">52</property>
               <property name="relative_position" type="realpoint">-23.000000,-7.000000</property>
               <property name="size" type="realpoint">49.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt;  / [] &gt;&gt;</property>
@@ -3742,7 +3742,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlSimpleStateItem">
-          <property name="id" type="long">55</property>
+          <property name="id" type="long">53</property>
           <property name="relative_position" type="realpoint">40.000000,190.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udSimpleStateElementItem">
@@ -3754,7 +3754,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           <property name="fill" type="brush">254,253,211,255 100</property>
           <property name="title" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">56</property>
+              <property name="id" type="long">54</property>
               <property name="relative_position" type="realpoint">20.000000,5.000000</property>
               <property name="size" type="realpoint">60.000000,15.000000</property>
               <property name="text" type="string">GReceived</property>
@@ -3763,7 +3763,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">57</property>
+          <property name="id" type="long">55</property>
           <property name="relative_position" type="realpoint">500.000000,280.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3799,14 +3799,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">19</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">17</property>
           <property name="control_points" type="listrealpoint">
             <item>950.000000,110.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">58</property>
+              <property name="id" type="long">56</property>
               <property name="relative_position" type="realpoint">-121.000000,11.000000</property>
               <property name="size" type="realpoint">370.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 4 : checkCharAtPos(0, 'M', true) / [resetDecoder(), programM()] &gt;&gt;</property>
@@ -3815,7 +3815,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">59</property>
+          <property name="id" type="long">57</property>
           <property name="relative_position" type="realpoint">500.000000,260.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3844,14 +3844,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">55</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">53</property>
           <property name="control_points" type="listrealpoint">
             <item>160.000000,110.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">60</property>
+              <property name="id" type="long">58</property>
               <property name="relative_position" type="realpoint">-132.000000,-7.000000</property>
               <property name="size" type="realpoint">300.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 6 : checkCharAtPos(0, 'G', true) / [resetDecoder()] &gt;&gt;</property>
@@ -3860,7 +3860,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">61</property>
+          <property name="id" type="long">59</property>
           <property name="relative_position" type="realpoint">510.000000,250.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3876,11 +3876,11 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">13</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">11</property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">62</property>
+              <property name="id" type="long">60</property>
               <property name="relative_position" type="realpoint">-100.000000,71.000000</property>
               <property name="size" type="realpoint">132.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt;  / [resetDecoder()] &gt;&gt;</property>
@@ -3889,7 +3889,7 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
           </property>
         </object>
         <object type="umlTransitionItem">
-          <property name="id" type="long">1</property>
+          <property name="id" type="long">61</property>
           <property name="relative_position" type="realpoint">510.000000,300.000000</property>
           <property name="user_data" type="serializabledynamic">
             <object type="udTransElementItem">
@@ -3918,14 +3918,14 @@ dre.command_rx_buf.indexOf(27) &gt;= 0</property>
               </object>
             </object>
           </property>
-          <property name="source" type="long">3</property>
-          <property name="target" type="long">21</property>
+          <property name="source" type="long">1</property>
+          <property name="target" type="long">19</property>
           <property name="control_points" type="listrealpoint">
             <item>540.000000,40.000000</item>
           </property>
           <property name="label" type="serializabledynamicnocreate">
             <object type="uddLabelElement">
-              <property name="id" type="long">2</property>
+              <property name="id" type="long">62</property>
               <property name="relative_position" type="realpoint">-34.000000,-17.000000</property>
               <property name="size" type="realpoint">300.000000,15.000000</property>
               <property name="text" type="string">&lt;&lt; 1 : checkCharAtPos(0, 'N', true) / [resetDecoder()] &gt;&gt;</property>
