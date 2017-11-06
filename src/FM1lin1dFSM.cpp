@@ -569,6 +569,8 @@ void FM1PosControl() {
                 /* Actions: */
                 /* ['<global>::upAction' begin] */
                 actAction = CFG_FM1_ACT_ACTION_UP;
+                Serial.print("actAction up: ");
+                Serial.println(actAction);
                 posAchieved = FALSE;
                 /* ['<global>::upAction' end] */
                 state = ID_FM1POSCONTROL_GOINGUP;
@@ -577,6 +579,8 @@ void FM1PosControl() {
                 /* Actions: */
                 /* ['<global>::downAction' begin] */
                 actAction = CFG_FM1_ACT_ACTION_DOWN;
+                Serial.print("actAction down: ");
+                Serial.println(actAction);
                 posAchieved = FALSE;
                 /* ['<global>::downAction' end] */
                 state = ID_FM1POSCONTROL_GOINGDOWN;

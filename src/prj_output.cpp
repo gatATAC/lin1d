@@ -189,10 +189,21 @@ void prjOutputInit(void) {
     polPwmServoCtrlInit();
 #endif
 #ifdef CFG_FM1_USE_ACCELSTEPPER
-    fm1Stepper.setAcceleration(CFG_FM1_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
+if (CFG_BLOCK_FM1_MOTOR == false){
+  fm1Stepper.disableOutputs();
+  fm1Stepper.setEnablePin(CFG_FM1_ACCELSTEPPER_ENABLE_PIN);
+  fm1Stepper.setPinsInverted(false,false,true);
+}
+fm1Stepper.setAcceleration(CFG_FM1_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
+
 #endif
 #ifdef CFG_POL_USE_ACCELSTEPPER
-    polStepper.setAcceleration(CFG_POL_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
+if (CFG_BLOCK_POL_MOTOR == false){
+  polStepper.disableOutputs();
+  polStepper.setEnablePin(CFG_POL_ACCELSTEPPER_ENABLE_PIN);
+  polStepper.setPinsInverted(false,false,true);
+}
+polStepper.setAcceleration(CFG_POL_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
 #endif
 #ifdef CFG_FM1_USE_MOTORCTRL
     processFM1MotorCtrl();
