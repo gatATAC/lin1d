@@ -256,16 +256,17 @@ void loop() {
 
   ////////////// Monitoring tasks
   monitorExec();
-  
+
   // ----------- End of Cycle Synchronization ----------------
-  #if _DEBUG_CYCLE_TIME
+  #ifdef DEBUG_CYCLE_TIME
   llamado_atencion=false;
   // Now the microcontroller will loose time until the end of cycle sincronization time expires
   #endif
+  //delay(1000);
   boolean timSync = timerSync();
-  #if _DEBUG_CYCLE_TIME
+  #ifdef DEBUG_CYCLE_TIME
   if (timSync) {
-    Serial.print("Ciclo violado!");
+    Serial.println("Ciclo violado!");
   }
   if ((CYCLE_TIME_IN_MICROS - elapsedMicros) < CYCLE_SECURITY_TIME_MICROS) {
     Serial.print("Atencion!"); Serial.println(atencion++);

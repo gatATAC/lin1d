@@ -49,7 +49,7 @@ extern "C" {
 */
 
 //////// Interface config //////////
-#define CFG_USE_DIRECT_INTERFACE 1
+#define CFG_USE_DIRECT_INTERFACE 0
 
 // Configure if motors must block when idle
 #define CFG_BLOCK_FM1_MOTOR (false)
@@ -109,7 +109,7 @@ extern "C" {
 #if (CFG_VARIANT == CFG_VARIANT_SCALEMODEL)
 #define CFG_FM1_ACCELSTEPPER_MAX_SPEED (250.0)
 #else
-#define CFG_FM1_ACCELSTEPPER_MAX_SPEED (150.0)
+#define CFG_FM1_ACCELSTEPPER_MAX_SPEED (400.0)
 #endif
 #endif
 
