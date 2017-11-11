@@ -150,17 +150,17 @@ void processPOLAccelStepper() {
 
 #ifdef CFG_FM1_USE_MOTORCTRL
 void processFM1MotorCtrl(void) {
-    if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
-        digitalWrite(PORT_FM1doDirFw, HIGH);
-    } else {
-        digitalWrite(PORT_FM1doDirBw, LOW);
-    }
-    if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_BW) {
-        digitalWrite(PORT_FM1doDirFw, LOW);
-    } else {
-        digitalWrite(PORT_FM1doDirBw, HIGH);
-    }
-    analogWrite(PORT_FM1pwmActAction, dreFM1.appliedActAction);
+  if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
+      digitalWrite(PORT_FM1doDirFw, HIGH);
+  } else {
+      digitalWrite(PORT_FM1doDirFw, LOW);
+  }
+  if (dreFM1.appliedActDirection == CFG_MOTORCTRL_DIR_BW) {
+      digitalWrite(PORT_FM1doDirBw, HIGH);
+  } else {
+      digitalWrite(PORT_FM1doDirBw, LOW);
+  }
+  analogWrite(PORT_FM1pwmActAction, dreFM1.appliedActAction);
 }
 #endif
 
@@ -169,12 +169,12 @@ void processPOLMotorCtrl(void) {
     if (drePOL.appliedActDirection == CFG_MOTORCTRL_DIR_FW) {
         digitalWrite(PORT_POLdoDirFw, HIGH);
     } else {
-        digitalWrite(PORT_POLdoDirBw, LOW);
+        digitalWrite(PORT_POLdoDirFw, LOW);
     }
     if (drePOL.appliedActDirection == CFG_MOTORCTRL_DIR_BW) {
-        digitalWrite(PORT_POLdoDirFw, LOW);
-    } else {
         digitalWrite(PORT_POLdoDirBw, HIGH);
+    } else {
+        digitalWrite(PORT_POLdoDirBw, LOW);
     }
     analogWrite(PORT_POLpwmActAction, drePOL.appliedActAction);
 }
