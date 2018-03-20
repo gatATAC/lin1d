@@ -5,6 +5,13 @@
 #include "ProjectFunctions.h"
 #include "prj_cfg.h"
 
+#ifdef ESP32
+#include "esp32-hal-ledc.h"
+void analogWriteResolution(uint8_t res);
+void analogWriteFrequency(uint8_t port, uint32_t freq);
+void analogWrite(uint8_t port, uint8_t duty);
+#endif
+
 //// Doubled input potentiometer slider
 #define CFG_SLIDER_DTA_PIN 22 // Pin DIO 20
 #define CFG_SLIDER_DTB_PIN 9 // Pin DIO 23
@@ -56,44 +63,129 @@
 #define CFG_POL_DOWN_SWITCH_UNDETECT_TIMER_IN_MS 20
 #define CFG_POL_DOWN_SWITCH_UNDETECT_TIMER ((CFG_POL_DOWN_SWITCH_UNDETECT_TIMER_IN_MS*1000L)/(CYCLE_TIME_IN_MICROS))
 
+// Unused ports (for standarization)
+#ifdef CFG_FM1_USE_REQBUTTONS
+#error "Request buttons not defined"
+#else
 #define PORT_FM1upReqDI 0
-#define PORT_FM1downReqDI 1
+#define PORT_FM1downReqDI 0
+#endif
+
+#ifdef CFG_FM1_USE_MOTORCTRL
+#ifdef TEENSY31
 #define PORT_FM1pwmActAction 6
 #define PORT_FM1doDirFw 14
 #define PORT_FM1doDirBw 13
-#define PORT_FM1loadPosAcq 5
-#define PORT_FM1loadPosAI 3
+#else
+#error "FM1 MotorCtrl pins not defined"
+#endif
+#else
+#define PORT_FM1pwmActAction -1
+#define PORT_FM1doDirFw -1
+#define PORT_FM1doDirBw -1
+#endif
+
+#ifdef CFG_FM1_USE_POSACQ
+#error "FM1 position acquisition pins not defined"
+#else
+#define PORT_FM1loadPosAcq -1
+#define PORT_FM1loadPosAI -1
+#endif
+
+#ifndef CFG_FM1_USE_CURRENT_SENSOR
+#define PORT_FM1driveCurrentAI -1
+#else
+#error "FM1 CURRENT SENSOR PORT not defined"
+#endif
+
+#ifdef TEENSY31
 #define PORT_FM1loadPosUpSwchDI 20
 #define PORT_FM1loadPosDownSwchDI 21
-#define PORT_FM1driveCurrentAI 9
 #define PORT_FM1hmidata 8
 #define PORT_FM1hmiclock 2
 #define PORT_FM1hmistrobe 7
+#else
+#ifdef ESP32
+#define PORT_FM1loadPosUpSwchDI 34
+#define PORT_FM1loadPosDownSwchDI 35
+#define PORT_FM1hmidata 32
+#define PORT_FM1hmiclock 33
+#define PORT_FM1hmistrobe 25
+#else
+#error "no ports defined"
+#endif
+#endif
 
+
+#ifdef CFG_POL_USE_REQBUTTONS
+#error "Request buttons not defined"
+#else
 #define PORT_POLupReqDI 0
-#define PORT_POLdownReqDI 1
+#define PORT_POLdownReqDI 0
+#endif
+
+#ifdef CFG_POL_USE_MOTORCTRL
+#ifdef TEENSY31
 #define PORT_POLpwmActAction 17
 #define PORT_POLdoDirFw 19
 #define PORT_POLdoDirBw 18
-#define PORT_POLloadPosAcq 5
-#define PORT_POLloadPosAI 3
+#else
+#error "POL MotorCtrl pins not defined"
+#endif
+#else
+#define PORT_POLpwmActAction -1
+#define PORT_POLdoDirFw -1
+#define PORT_POLdoDirBw -1
+#endif
+
+#ifdef CFG_POL_USE_POSACQ
+#error "POL position acquisition pins not defined"
+#else
+#define PORT_POLloadPosAcq -1
+#define PORT_POLloadPosAI -1
+#endif
+
+#ifndef CFG_POL_USE_CURRENT_SENSOR
+#define PORT_POLdriveCurrentAI -1
+#else
+#error "POL CURRENT SENSOR PORT not defined"
+#endif
+#ifdef TEENSY31
 #define PORT_POLloadPosUpSwchDI 22
 #define PORT_POLloadPosDownSwchDI 23
-#define PORT_POLdriveCurrentAI 9
 #define PORT_POLhmidata PORT_FM1hmidata
 #define PORT_POLhmiclock PORT_FM1hmiclock
 #define PORT_POLhmistrobe PORT_FM1hmistrobe
+#else
+#ifdef ESP32
+#define PORT_POLloadPosUpSwchDI 26
+#define PORT_POLloadPosDownSwchDI 27
+#define PORT_POLhmidata PORT_FM1hmidata
+#define PORT_POLhmiclock PORT_FM1hmiclock
+#define PORT_POLhmistrobe PORT_FM1hmistrobe
+#else
+#error "no ports defined"
+#endif
+#endif
 
-#define PORT_FM1stepCtrlA 0
-#define PORT_FM1stepCtrlB 0
-#define PORT_FM1stepA 0
-#define PORT_FM1stepB 0
 
-#define PORT_POLstepCtrlA 0
-#define PORT_POLstepCtrlB 0
-#define PORT_POLstepA 0
-#define PORT_POLstepB 0
+#ifndef CFG_FM1_USE_CLASSICSTEPPER
+#define PORT_FM1stepCtrlA -1
+#define PORT_FM1stepCtrlB -1
+#define PORT_FM1stepA -1
+#define PORT_FM1stepB -1
+#else
+#error "no stepper ports defined"
+#endif
 
+#ifndef CFG_POL_USE_CLASSICSTEPPER
+#define PORT_POLstepCtrlA -1
+#define PORT_POLstepCtrlB -1
+#define PORT_POLstepA -1
+#define PORT_POLstepB -1
+#else
+#error "no stepper ports defined"
+#endif
 
 #define CFG_PWM_RESOLUTION 12
 
@@ -149,9 +241,8 @@
 #define CFG_MOTORCTRL_FREQUENCY 100
 
 #endif
-
 #ifdef CFG_FM1_USE_ACCELSTEPPER
-
+#ifdef TEENSY31
 #define CFG_FM1_ACCELSTEPPER_IN1_STP_PIN 16
 #define CFG_FM1_ACCELSTEPPER_IN2_DIR_PIN 15
 
@@ -164,11 +255,13 @@
 #define CFG_FM1_ACCELSTEPPER_ENABLE_PIN 14
 #endif
 #endif
-
+#else
+#error "FM1 accelstepeer ports not defined"
+#endif
 #endif
 
 #ifdef CFG_POL_USE_ACCELSTEPPER
-
+#ifdef TEENSY31
 #define CFG_POL_ACCELSTEPPER_IN1_STP_PIN 12
 #define CFG_POL_ACCELSTEPPER_IN2_DIR_PIN 11
 
@@ -181,11 +274,17 @@
 #define CFG_POL_ACCELSTEPPER_ENABLE_PIN 19
 #endif
 #endif
-
+#else
+#error "POL accelstepeer ports not defined"
+#endif
 #endif
 
 #ifdef CFG_FM1_USE_SERVO
+#ifndef ESP32
+#ifndef TEENSY31
 #include <Servo.h>
+#endif
+#endif
 #define CFG_FM1_SERVO_PIN 9
 #define CFG_FM1_SERVO_POS_MIN 0
 #define CFG_FM1_SERVO_POS_MAX 179
@@ -194,7 +293,11 @@
 #endif
 
 #ifdef CFG_POL_USE_SERVO
+#ifndef ESP32
+#ifndef TEENSY31
 #include <Servo.h>
+#endif
+#endif
 #define CFG_POL_SERVO_PIN 10
 #define CFG_POL_SERVO_POS_MIN 0
 #define CFG_POL_SERVO_POS_MAX 179

@@ -10,7 +10,11 @@ extern t_dreFM1 dreFM1;
 extern t_drePOL drePOL;
 
 #ifdef CFG_FM1_USE_SERVO
+#ifndef ESP32
+#ifndef TEENSY31
 #include <Servo.h>
+#endif
+#endif
 Servo fm1Servo; // create servo object to control a servo
 
 void fm1PwmServoCtrlInit(void) {
@@ -39,7 +43,11 @@ void fm1PwmServoCtrl() {
 #endif
 
 #ifdef CFG_POL_USE_SERVO
+#ifndef ESP32
+#ifndef TEENSY31
 #include <Servo.h>
+#endif
+#endif
 Servo polServo; // create servo object to control a servo
 
 void polPwmServoCtrlInit(void) {
@@ -66,4 +74,3 @@ void polPwmServoCtrl() {
     }
 }
 #endif
-

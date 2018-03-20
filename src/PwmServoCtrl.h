@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   PwmServoCtrl.h
  * Author: txinto
  *
@@ -9,8 +9,12 @@
 #define PWMSERVOCTRL_H
 
 #include "prj_cfg.h"
-    
+
+#ifndef ESP32
+#ifndef TEENSY31
 #include <Servo.h>
+#endif
+#endif
 #ifdef CFG_FM1_USE_SERVO
    void fm1PwmServoCtrlInit();
    void fm1PwmServoCtrl();
@@ -22,4 +26,3 @@
 #endif
 
 #endif /* PWMSERVOCTRL_H */
-
