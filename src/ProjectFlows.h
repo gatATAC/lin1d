@@ -250,7 +250,7 @@ void analogWrite(uint8_t port, uint8_t duty);
 #define CFG_FM1_ACCELSTEPPER_IN3_PIN 14
 #define CFG_FM1_ACCELSTEPPER_IN4_PIN 13
 #else
-#if CFG_BLOCK_FM1_MOTOR
+#ifdef CFG_BLOCK_FM1_MOTOR
 #else
 #define CFG_FM1_ACCELSTEPPER_ENABLE_PIN 14
 #endif

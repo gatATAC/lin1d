@@ -27,8 +27,8 @@ extern "C" {
 #define CFG_USE_DIRECT_INTERFACE 1
 
 // Configure if motors must block when idle
-#define CFG_BLOCK_FM1_MOTOR (true)
-#define CFG_BLOCK_POL_MOTOR (true)
+#define CFG_BLOCK_FM1_MOTOR
+#define CFG_BLOCK_POL_MOTOR
 
 //// STEPPER MOTORS
 #define CFG_FM1_USE_ACCELSTEPPER
@@ -52,8 +52,8 @@ extern "C" {
 #define CFG_USE_DIRECT_INTERFACE 0
 
 // Configure if motors must block when idle
-#define CFG_BLOCK_FM1_MOTOR (false)
-#define CFG_BLOCK_POL_MOTOR (false)
+//#define CFG_BLOCK_FM1_MOTOR
+//#define CFG_BLOCK_POL_MOTOR
 
 //// STEPPER MOTORS
 #define CFG_FM1_USE_ACCELSTEPPER
@@ -76,9 +76,9 @@ extern "C" {
 // #define CFG_USE_DIRECT_INTERFACE 1
 
 // Configure if motors must block when idle
-#define CFG_BLOCK_FM1_MOTOR (false)
-#define CFG_BLOCK_POL_MOTOR (false)
-
+//#define CFG_BLOCK_FM1_MOTOR
+//#define CFG_BLOCK_POL_MOTOR
+    
 //// STEPPER MOTORS
 //#define CFG_FM1_USE_ACCELSTEPPER
 //#define CFG_FM1_USE_ACCELSTEPPER_DRIVERMODE 1

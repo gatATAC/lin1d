@@ -66,8 +66,8 @@ void processFM1AccelStepper() {
         }
     }
 #endif
-    tmpSpeed = min(CFG_FM1_ACCELSTEPPER_MAX_SPEED,dreFM1.appliedActAction);
-    tmpSpeed = max(-CFG_FM1_ACCELSTEPPER_MAX_SPEED,dreFM1.appliedActAction);
+    tmpSpeed = min((float)CFG_FM1_ACCELSTEPPER_MAX_SPEED,(float)dreFM1.appliedActAction);
+    tmpSpeed = max((float)-CFG_FM1_ACCELSTEPPER_MAX_SPEED,(float)dreFM1.appliedActAction);
     if (tmpSpeed != antSpeed){
       fm1Stepper.setMaxSpeed(tmpSpeed);
       antSpeed = tmpSpeed;
@@ -136,7 +136,7 @@ void processPOLAccelStepper() {
         }
     }
 #endif
-    polStepper.setMaxSpeed(min(CFG_POL_ACCELSTEPPER_MAX_SPEED,drePOL.appliedActAction));
+    polStepper.setMaxSpeed(min((float)CFG_POL_ACCELSTEPPER_MAX_SPEED,(float)drePOL.appliedActAction));
     if (drePOL.stepperEnable) {
         polStepper.enableOutputs();
         polStepper.moveTo(drePOL.stepperSetPoint);
@@ -189,20 +189,20 @@ void prjOutputInit(void) {
     polPwmServoCtrlInit();
 #endif
 #ifdef CFG_FM1_USE_ACCELSTEPPER
-if (CFG_BLOCK_FM1_MOTOR == false){
+#ifndef CFG_BLOCK_FM1_MOTOR
   fm1Stepper.disableOutputs();
   fm1Stepper.setEnablePin(CFG_FM1_ACCELSTEPPER_ENABLE_PIN);
   fm1Stepper.setPinsInverted(false,false,true);
-}
+#endif
 fm1Stepper.setAcceleration(CFG_FM1_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
 
 #endif
 #ifdef CFG_POL_USE_ACCELSTEPPER
-if (CFG_BLOCK_POL_MOTOR == false){
+#ifndef CFG_BLOCK_POL_MOTOR
   polStepper.disableOutputs();
   polStepper.setEnablePin(CFG_POL_ACCELSTEPPER_ENABLE_PIN);
   polStepper.setPinsInverted(false,false,true);
-}
+#endif
 polStepper.setAcceleration(CFG_POL_ACCELSTEPPER_ACCEL); // 1000 para zapp  // 4000 para sanyo denki
 #endif
 #ifdef CFG_FM1_USE_MOTORCTRL
