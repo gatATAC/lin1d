@@ -36,6 +36,15 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/mainnb.o \
+	${OBJECTDIR}/src/BATMode/BATDiscretizer1D.o \
+	${OBJECTDIR}/src/BATMode/BATModePrj.o \
+	${OBJECTDIR}/src/BATMode/BATModeScheduler.o \
+	${OBJECTDIR}/src/BATMode/BATTimeFilter.o \
+	${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o \
+	${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o \
+	${OBJECTDIR}/src/CommonLibrary/Discretizer1DUpRange.o \
+	${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o \
+	${OBJECTDIR}/src/CommonLibrary/TimeFilter.o \
 	${OBJECTDIR}/src/FM1DRE.o \
 	${OBJECTDIR}/src/FM1lin1dFSM.o \
 	${OBJECTDIR}/src/FM1lin1dFSM_CI.o \
@@ -44,6 +53,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/POLlin1dFSM_CI.o \
 	${OBJECTDIR}/src/ProjectFunctions.o \
 	${OBJECTDIR}/src/PwmServoCtrl.o \
+	${OBJECTDIR}/src/S1Mode/S1Discretizer1D.o \
+	${OBJECTDIR}/src/S1Mode/S1ModePrj.o \
+	${OBJECTDIR}/src/S1Mode/S1ModeScheduler.o \
+	${OBJECTDIR}/src/S1Mode/S1TimeFilter.o \
 	${OBJECTDIR}/src/monitor.o \
 	${OBJECTDIR}/src/prj_input.o \
 	${OBJECTDIR}/src/prj_output.o \
@@ -81,6 +94,51 @@ ${OBJECTDIR}/mainnb.o: mainnb.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainnb.o mainnb.cpp
+
+${OBJECTDIR}/src/BATMode/BATDiscretizer1D.o: src/BATMode/BATDiscretizer1D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATDiscretizer1D.o src/BATMode/BATDiscretizer1D.cpp
+
+${OBJECTDIR}/src/BATMode/BATModePrj.o: src/BATMode/BATModePrj.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATModePrj.o src/BATMode/BATModePrj.cpp
+
+${OBJECTDIR}/src/BATMode/BATModeScheduler.o: src/BATMode/BATModeScheduler.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATModeScheduler.o src/BATMode/BATModeScheduler.cpp
+
+${OBJECTDIR}/src/BATMode/BATTimeFilter.o: src/BATMode/BATTimeFilter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/BATMode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/BATMode/BATTimeFilter.o src/BATMode/BATTimeFilter.cpp
+
+${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o: src/CommonLibrary/CommonLibrary.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o src/CommonLibrary/CommonLibrary.cpp
+
+${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o: src/CommonLibrary/Discretizer1D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o src/CommonLibrary/Discretizer1D.cpp
+
+${OBJECTDIR}/src/CommonLibrary/Discretizer1DUpRange.o: src/CommonLibrary/Discretizer1DUpRange.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/Discretizer1DUpRange.o src/CommonLibrary/Discretizer1DUpRange.cpp
+
+${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o: src/CommonLibrary/FlagQualifier.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o src/CommonLibrary/FlagQualifier.cpp
+
+${OBJECTDIR}/src/CommonLibrary/TimeFilter.o: src/CommonLibrary/TimeFilter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/TimeFilter.o src/CommonLibrary/TimeFilter.cpp
 
 ${OBJECTDIR}/src/FM1DRE.o: src/FM1DRE.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -122,6 +180,26 @@ ${OBJECTDIR}/src/PwmServoCtrl.o: src/PwmServoCtrl.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/PwmServoCtrl.o src/PwmServoCtrl.cpp
 
+${OBJECTDIR}/src/S1Mode/S1Discretizer1D.o: src/S1Mode/S1Discretizer1D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1Discretizer1D.o src/S1Mode/S1Discretizer1D.cpp
+
+${OBJECTDIR}/src/S1Mode/S1ModePrj.o: src/S1Mode/S1ModePrj.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1ModePrj.o src/S1Mode/S1ModePrj.cpp
+
+${OBJECTDIR}/src/S1Mode/S1ModeScheduler.o: src/S1Mode/S1ModeScheduler.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1ModeScheduler.o src/S1Mode/S1ModeScheduler.cpp
+
+${OBJECTDIR}/src/S1Mode/S1TimeFilter.o: src/S1Mode/S1TimeFilter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/S1Mode
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/S1Mode/S1TimeFilter.o src/S1Mode/S1TimeFilter.cpp
+
 ${OBJECTDIR}/src/monitor.o: src/monitor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -142,10 +220,10 @@ ${OBJECTDIR}/src/prj_pinout.o: src/prj_pinout.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/prj_pinout.o src/prj_pinout.cpp
 
-${OBJECTDIR}/src/src.o: src/src.ino 
+${OBJECTDIR}/src/src.o: src/src.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/src.o src/src.ino
+	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/src.o src/src.cpp
 
 # Subprojects
 .build-subprojects:

@@ -3,7 +3,8 @@
 
 #include "ProjectTypes.h"
 #include "ProjectFlows.h"
-
+#include "BATMode/BATModePrj.h"
+#include "S1Mode/S1ModePrj.h"
 typedef struct {
     // Button -- Does not need declaration upReq;
     // Button -- Does not need declaration downReq;
@@ -93,7 +94,11 @@ typedef struct {
     // TBD -- Does not need declaration loadTorque;
     BOOL stepperServoActive;
     t_stepperanglefdback stepperAngleFdback;
-
+    
+    uint16_t bat_sense;
+    t_enum_bat_mode bat_mode;
+    uint16_t s1_sense;
+    t_enum_s1_mode s1_mode;
 } t_dreFM1;
 
 typedef struct {
