@@ -75,13 +75,13 @@ void FM1downSwitchAcq() {
                 loadPosDownSwchAcq = TRUE;
                 /* ['<global>::setDownSwitch' end] */
                 state = ID_FM1DOWNSWITCHACQ_DETECTED;
-            } else if ((loadPosDownSwchDI == TRUE)) {
+            } else if (loadPosDownSwchDI == TRUE) {
                 /* Transition ID: ID_FM1DOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
                 /* ['<global>::incrementDownSwitchTimer' end] */
-            } else if ((loadPosDownSwchDI == FALSE)) {
+            } else if (loadPosDownSwchDI == FALSE) {
                 /* Transition ID: ID_FM1DOWNSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
@@ -103,13 +103,13 @@ void FM1downSwitchAcq() {
                 loadPosDownSwchAcq = FALSE;
                 /* ['<global>::clearDownSwitch' end] */
                 state = ID_FM1DOWNSWITCHACQ_NOTDETECTED;
-            } else if ((loadPosDownSwchDI == FALSE)) {
+            } else if (loadPosDownSwchDI == FALSE) {
                 /* Transition ID: ID_FM1DOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
                 /* ['<global>::incrementDownSwitchTimer' end] */
-            } else if ((loadPosDownSwchDI == TRUE)) {
+            } else if (loadPosDownSwchDI == TRUE) {
                 /* Transition ID: ID_FM1DOWNSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
@@ -155,13 +155,13 @@ void FM1upSwitchAcq() {
                 loadPosUpSwchAcq = TRUE;
                 /* ['<global>::setUpSwitch' end] */
                 state = ID_FM1UPSWITCHACQ_DETECTED;
-            } else if ((loadPosUpSwchDI == TRUE)) {
+            } else if (loadPosUpSwchDI == TRUE) {
                 /* Transition ID: ID_FM1UPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpSwitchTimer' begin] */
                 upSwitchTimer++;
                 /* ['<global>::incrementUpSwitchTimer' end] */
-            } else if ((loadPosUpSwchDI == FALSE)) {
+            } else if (loadPosUpSwchDI == FALSE) {
                 /* Transition ID: ID_FM1UPSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */
@@ -183,13 +183,13 @@ void FM1upSwitchAcq() {
                 loadPosUpSwchAcq = FALSE;
                 /* ['<global>::clearUpSwitch' end] */
                 state = ID_FM1UPSWITCHACQ_NOTDETECTED;
-            } else if ((loadPosUpSwchDI == FALSE)) {
+            } else if (loadPosUpSwchDI == FALSE) {
                 /* Transition ID: ID_FM1UPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpSwitchTimer' begin] */
                 upSwitchTimer++;
                 /* ['<global>::incrementUpSwitchTimer' end] */
-            } else if ((loadPosUpSwchDI == TRUE)) {
+            } else if (loadPosUpSwchDI == TRUE) {
                 /* Transition ID: ID_FM1UPSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */

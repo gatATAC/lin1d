@@ -19,10 +19,10 @@ static void RestoreS1TimefilterContext(void)
     SetCurrentTimeFilterState(tf_block->current_state);
 }
 
-void S1TimeFilter_init(void)
+void S1TimeFilterInit(void)
 {
     CreateS1TimefilterContext();
-    TimeFilter_init();
+    TimeFilterInit();
     SaveS1TimefilterContext();
 }
 

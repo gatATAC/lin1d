@@ -620,7 +620,7 @@ void setup_POLstepCtrlB_output(void) {
 
 // upReqDI flow acquisition
 
-BOOL adquirir_POLupReqDI(void) {
+bool adquirir_POLupReqDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_upReqDI == TRUE) {
         return diagPOL.upReqDI;
@@ -637,7 +637,7 @@ BOOL adquirir_POLupReqDI(void) {
 
 // downReqDI flow acquisition
 
-BOOL adquirir_POLdownReqDI(void) {
+bool adquirir_POLdownReqDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_downReqDI == TRUE) {
         return diagPOL.downReqDI;
@@ -675,7 +675,7 @@ void synthesize_POLpwmActAction(t_pwm value) {
 
 // doDirFw flow acquisition
 
-BOOL adquirir_POLdoDirFw(void) {
+bool adquirir_POLdoDirFw(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_doDirFw == TRUE) {
         return diagPOL.doDirFw;
@@ -688,7 +688,7 @@ BOOL adquirir_POLdoDirFw(void) {
 };
 // doDirFw flow synthesis
 
-void sintetizar_POLdoDirFw(BOOL valor) {
+void sintetizar_POLdoDirFw(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_doDirFw == TRUE) {
         digitalWrite(PORT_POLdoDirFw, diagPOL.doDirFw);
@@ -703,7 +703,7 @@ void sintetizar_POLdoDirFw(BOOL valor) {
 
 // doDirBw flow acquisition
 
-BOOL adquirir_POLdoDirBw(void) {
+bool adquirir_POLdoDirBw(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_doDirBw == TRUE) {
         return diagPOL.doDirBw;
@@ -716,7 +716,7 @@ BOOL adquirir_POLdoDirBw(void) {
 };
 // doDirBw flow synthesis
 
-void sintetizar_POLdoDirBw(BOOL valor) {
+void sintetizar_POLdoDirBw(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_doDirBw == TRUE) {
         digitalWrite(PORT_POLdoDirBw, diagPOL.doDirBw);
@@ -832,7 +832,7 @@ uint16_t acquire_POLloadPosAI(void) {
 
 // loadPosUpSwchDI flow acquisition
 
-BOOL adquirir_POLloadPosUpSwchDI(void) {
+bool adquirir_POLloadPosUpSwchDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_loadPosUpSwchDI == TRUE) {
         return diagPOL.loadPosUpSwchDI;
@@ -849,7 +849,7 @@ BOOL adquirir_POLloadPosUpSwchDI(void) {
 
 // loadPosDownSwchDI flow acquisition
 
-BOOL adquirir_POLloadPosDownSwchDI(void) {
+bool adquirir_POLloadPosDownSwchDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_loadPosDownSwchDI == TRUE) {
         return diagPOL.loadPosDownSwchDI;
@@ -1151,7 +1151,7 @@ uint16_t acquire_POLdriveCurrentAI(void) {
 
 // stepCtrlA flow acquisition
 
-BOOL adquirir_POLstepCtrlA(void) {
+bool adquirir_POLstepCtrlA(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_stepCtrlA == TRUE) {
         return diagPOL.stepCtrlA;
@@ -1164,7 +1164,7 @@ BOOL adquirir_POLstepCtrlA(void) {
 };
 // stepCtrlA flow synthesis
 
-void sintetizar_POLstepCtrlA(BOOL valor) {
+void sintetizar_POLstepCtrlA(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_stepCtrlA == TRUE) {
         digitalWrite(PORT_POLstepCtrlA, diagPOL.stepCtrlA);
@@ -1179,7 +1179,7 @@ void sintetizar_POLstepCtrlA(BOOL valor) {
 
 // stepCtrlB flow acquisition
 
-BOOL adquirir_POLstepCtrlB(void) {
+bool adquirir_POLstepCtrlB(void) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_stepCtrlB == TRUE) {
         return diagPOL.stepCtrlB;
@@ -1192,7 +1192,7 @@ BOOL adquirir_POLstepCtrlB(void) {
 };
 // stepCtrlB flow synthesis
 
-void sintetizar_POLstepCtrlB(BOOL valor) {
+void sintetizar_POLstepCtrlB(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagPOL.enable_stepCtrlB == TRUE) {
         digitalWrite(PORT_POLstepCtrlB, diagPOL.stepCtrlB);

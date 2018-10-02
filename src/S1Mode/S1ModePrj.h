@@ -77,11 +77,11 @@ extern uint16_t s1_mode_hyst_values[5]; /*!< vector to contain the "hystheresis"
 
 
 /**** FSM includes ****/
-void S1Discretizer1D_init(void);
+void S1Discretizer1DInit(void);
 void S1Discretizer1D(void); /*!< Function that discretizes a continuous value in ranges */
-void S1TimeFilter_init(void);
+void S1TimeFilterInit(void);
 void S1TimeFilter(void); /*!< Function that filters a value in time */
-void S1ModeScheduler_init(void);
+void S1ModeSchedulerInit(void);
 void S1ModeScheduler(void); /*!< Manager that commands the mode detection */
 
 /*** Manually added definitions ***/

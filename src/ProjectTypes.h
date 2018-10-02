@@ -11,13 +11,12 @@
 
 typedef uint16_t t_tbd;
 
-typedef uint8_t BOOL;
 typedef uint8_t t_upreqacq;
 typedef uint8_t t_downreqacq;
 typedef uint8_t t_posmode;
 typedef uint16_t t_pwm;
 typedef int16_t t_actaction;
-typedef BOOL t_actenable;
+typedef bool t_actenable;
 typedef uint8_t t_actdirection;
 typedef t_pwm t_pwm_duty;
 typedef uint8_t t_appliedactdirection;

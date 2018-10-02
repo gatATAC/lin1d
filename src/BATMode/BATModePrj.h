@@ -77,11 +77,11 @@ extern uint16_t bat_mode_hyst_values[5]; /*!< vector to contain the "hystheresis
 
 
 /**** FSM includes ****/
-void BATDiscretizer1D_init(void);
+void BATDiscretizer1DInit(void);
 void BATDiscretizer1D(void); /*!< Function that discretizes a continuous value in ranges */
-void BATTimeFilter_init(void);
+void BATTimeFilterInit(void);
 void BATTimeFilter(void); /*!< Function that filters a value in time */
-void BATModeScheduler_init(void);
+void BATModeSchedulerInit(void);
 void BATModeScheduler(void); /*!< Manager that commands the mode detection */
 
 /*** Manually added definitions ***/

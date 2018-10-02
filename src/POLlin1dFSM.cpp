@@ -77,13 +77,13 @@ void POLdownSwitchAcq() {
                 loadPosDownSwchAcq = TRUE;
                 /* ['<global>::setDownSwitch' end] */
                 state = ID_POLDOWNSWITCHACQ_DETECTED;
-            } else if ((loadPosDownSwchDI == TRUE)) {
+            } else if (loadPosDownSwchDI == TRUE) {
                 /* Transition ID: ID_POLDOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
                 /* ['<global>::incrementDownSwitchTimer' end] */
-            } else if ((loadPosDownSwchDI == FALSE)) {
+            } else if (loadPosDownSwchDI == FALSE) {
                 /* Transition ID: ID_POLDOWNSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
@@ -105,13 +105,13 @@ void POLdownSwitchAcq() {
                 loadPosDownSwchAcq = FALSE;
                 /* ['<global>::clearDownSwitch' end] */
                 state = ID_POLDOWNSWITCHACQ_NOTDETECTED;
-            } else if ((loadPosDownSwchDI == FALSE)) {
+            } else if (loadPosDownSwchDI == FALSE) {
                 /* Transition ID: ID_POLDOWNSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementDownSwitchTimer' begin] */
                 downSwitchTimer++;
                 /* ['<global>::incrementDownSwitchTimer' end] */
-            } else if ((loadPosDownSwchDI == TRUE)) {
+            } else if (loadPosDownSwchDI == TRUE) {
                 /* Transition ID: ID_POLDOWNSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetDownSwitchTimer' begin] */
@@ -157,13 +157,13 @@ void POLupSwitchAcq() {
                 loadPosUpSwchAcq = TRUE;
                 /* ['<global>::setUpSwitch' end] */
                 state = ID_POLUPSWITCHACQ_DETECTED;
-            } else if ((loadPosUpSwchDI == TRUE)) {
+            } else if (loadPosUpSwchDI == TRUE) {
                 /* Transition ID: ID_POLUPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpSwitchTimer' begin] */
                 upSwitchTimer++;
                 /* ['<global>::incrementUpSwitchTimer' end] */
-            } else if ((loadPosUpSwchDI == FALSE)) {
+            } else if (loadPosUpSwchDI == FALSE) {
                 /* Transition ID: ID_POLUPSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */
@@ -185,13 +185,13 @@ void POLupSwitchAcq() {
                 loadPosUpSwchAcq = FALSE;
                 /* ['<global>::clearUpSwitch' end] */
                 state = ID_POLUPSWITCHACQ_NOTDETECTED;
-            } else if ((loadPosUpSwchDI == FALSE)) {
+            } else if (loadPosUpSwchDI == FALSE) {
                 /* Transition ID: ID_POLUPSWITCHACQ_TIMERINCREMENT */
                 /* Actions: */
                 /* ['<global>::incrementUpSwitchTimer' begin] */
                 upSwitchTimer++;
                 /* ['<global>::incrementUpSwitchTimer' end] */
-            } else if ((loadPosUpSwchDI == TRUE)) {
+            } else if (loadPosUpSwchDI == TRUE) {
                 /* Transition ID: ID_POLUPSWITCHACQ_LOOP */
                 /* Actions: */
                 /* ['<global>::resetUpSwitchTimer' begin] */

@@ -1,4 +1,4 @@
-#include "BatModePrj.h"
+#include "BATModePrj.h"
 
 t_d1d_block bat_d1d_block;
 
@@ -19,10 +19,10 @@ static void SaveBATD1dContext(void)
 {
 }
 
-void BATDiscretizer1D_init(void)
+void BATDiscretizer1DInit(void)
 {
     CreateBATD1dContext();
-    Discretizer1D_init();
+    Discretizer1DInit();
     SaveBATD1dContext();    
 }
 

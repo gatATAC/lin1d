@@ -23,7 +23,7 @@ static void FlagQualifier0(void);
 static void NotQualified(void);
 static void Qualified(void);
 
-void FlagQualifier_init(void)
+void FlagQualifierInit(void)
 {
     state_flagqualifier = STATE_0_FLAGQUALIFIER;
 

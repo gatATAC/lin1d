@@ -4962,7 +4962,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10315</property>
@@ -4974,7 +4974,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10316</property>
@@ -5022,7 +5022,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10320</property>
@@ -5034,7 +5034,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10321</property>
@@ -5154,7 +5154,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10338</property>
@@ -5166,7 +5166,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10339</property>
@@ -5178,7 +5178,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10340</property>
@@ -5190,7 +5190,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10342</property>
@@ -5226,7 +5226,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10345</property>
@@ -5238,7 +5238,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10346</property>
@@ -5250,7 +5250,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10347</property>
@@ -5262,7 +5262,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10348</property>
@@ -5274,7 +5274,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10349</property>
@@ -5370,7 +5370,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10387</property>
@@ -5382,7 +5382,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10389</property>
@@ -5394,7 +5394,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10390</property>
@@ -5442,7 +5442,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
     <object type="udGenericVariableItem">
       <property name="id" type="long">10394</property>
@@ -5454,7 +5454,7 @@
       <property name="data_type" type="int">0</property>
       <property name="data_modifier" type="int">7</property>
       <property name="user_decl_place" type="int">0</property>
-      <property name="user_data_type" type="string">BOOL</property>
+      <property name="user_data_type" type="string">bool</property>
     </object>
   </object>
 </project>

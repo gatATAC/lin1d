@@ -23,7 +23,7 @@ static void TimeFilter0(void);
 static void NotChangeDetected(void);
 static void ChangeDetected(void);
 
-void TimeFilter_init(void)
+void TimeFilterInit(void)
 {
     state_timefilter = STATE_0_TIMEFILTER;
 

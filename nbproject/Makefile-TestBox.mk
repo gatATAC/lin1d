@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-MacOSX
+CND_DLIB_EXT=dylib
 CND_CONF=TestBox
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -42,7 +42,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/BATMode/BATTimeFilter.o \
 	${OBJECTDIR}/src/CommonLibrary/CommonLibrary.o \
 	${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o \
-	${OBJECTDIR}/src/CommonLibrary/Discretizer1DUpRange.o \
 	${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o \
 	${OBJECTDIR}/src/CommonLibrary/TimeFilter.o \
 	${OBJECTDIR}/src/FM1DRE.o \
@@ -124,11 +123,6 @@ ${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o: src/CommonLibrary/Discretizer1D.
 	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/Discretizer1D.o src/CommonLibrary/Discretizer1D.cpp
-
-${OBJECTDIR}/src/CommonLibrary/Discretizer1DUpRange.o: src/CommonLibrary/Discretizer1DUpRange.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -DCFG_VARIANT\ =\ \ CFG_VARIANT_TESTBOX -DDUMMY_COMPILATION -I../dummylib -I../libraries/gatArduinOSEK -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/CommonLibrary/Discretizer1DUpRange.o src/CommonLibrary/Discretizer1DUpRange.cpp
 
 ${OBJECTDIR}/src/CommonLibrary/FlagQualifier.o: src/CommonLibrary/FlagQualifier.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/CommonLibrary

@@ -11,13 +11,13 @@ typedef struct {
     // Position -- Does not need declaration loadPos;
     t_upreqacq upReqAcq;
     t_downreqacq downReqAcq;
-    BOOL upReqDI;
-    BOOL downReqDI;
+    bool upReqDI;
+    bool downReqDI;
     t_posmode posMode;
     t_actaction actAction;
     t_pwm pwmActAction;
-    BOOL doDirFw;
-    BOOL doDirBw;
+    bool doDirFw;
+    bool doDirBw;
     t_actenable actEnable;
     t_actdirection actDirection;
     t_pwm_duty appliedActAction;
@@ -32,18 +32,18 @@ typedef struct {
     t_timer downButTimer;
     // Switch -- Does not need declaration loadPosUpSwch;
     // Switch -- Does not need declaration loadPosDownSwch;
-    BOOL loadPosUpSwchDI;
-    BOOL loadPosDownSwchDI;
-    BOOL posAchieved;
-    BOOL ctrlError;
+    bool loadPosUpSwchDI;
+    bool loadPosDownSwchDI;
+    bool posAchieved;
+    bool ctrlError;
     // Current -- Does not need declaration driveCurrent;
     uint16_t driveCurrentAI;
     t_drivecurrentacq driveCurrentAcq;
-    BOOL currentError;
-    BOOL brokenChainError;
-    BOOL stuckActError;
-    BOOL loadPosUpSwchAcq;
-    BOOL loadPosDownSwchAcq;
+    bool currentError;
+    bool brokenChainError;
+    bool stuckActError;
+    bool loadPosUpSwchAcq;
+    bool loadPosDownSwchAcq;
     t_timer upSwitchTimer;
     t_timer downSwitchTimer;
     // Button -- Does not need declaration hmibut0;
@@ -80,19 +80,19 @@ typedef struct {
     t_forcedpos forcedPos;
     // Position -- Does not need declaration stepperAngle;
     t_steppersetpoint stepperSetPoint;
-    BOOL stepperEnable;
-    BOOL stepCtrlA;
-    BOOL stepCtrlB;
+    bool stepperEnable;
+    bool stepCtrlA;
+    bool stepCtrlB;
     // Power -- Does not need declaration stepA;
     // Power -- Does not need declaration stepB;
     t_pwmservoanglefdback pwmServoAngleFdback;
     t_pwmservoenable pwmServoEnable;
     t_pwmservosetpoint pwmServoSetPoint;
-    BOOL pwmServoActive;
-    BOOL pwmServoPwm;
+    bool pwmServoActive;
+    bool pwmServoPwm;
     // Position -- Does not need declaration pwmServoAngle;
     // TBD -- Does not need declaration loadTorque;
-    BOOL stepperServoActive;
+    bool stepperServoActive;
     t_stepperanglefdback stepperAngleFdback;
     
     uint16_t bat_sense;
@@ -105,73 +105,73 @@ typedef struct {
     // (null) No diag variables for upReq
     // (null) No diag variables for downReq
     // (null) No diag variables for loadPos
-    BOOL enable_upReqAcq;
+    bool enable_upReqAcq;
     t_upreqacq upReqAcq;
-    BOOL enable_downReqAcq;
+    bool enable_downReqAcq;
     t_downreqacq downReqAcq;
-    BOOL enable_upReqDI;
-    BOOL upReqDI;
-    BOOL enable_downReqDI;
-    BOOL downReqDI;
-    BOOL enable_posMode;
+    bool enable_upReqDI;
+    bool upReqDI;
+    bool enable_downReqDI;
+    bool downReqDI;
+    bool enable_posMode;
     t_posmode posMode;
-    BOOL enable_actAction;
+    bool enable_actAction;
     t_actaction actAction;
-    BOOL enable_pwmActAction;
+    bool enable_pwmActAction;
     t_pwm pwmActAction;
-    BOOL enable_doDirFw;
-    BOOL doDirFw;
-    BOOL enable_doDirBw;
-    BOOL doDirBw;
-    BOOL enable_actEnable;
+    bool enable_doDirFw;
+    bool doDirFw;
+    bool enable_doDirBw;
+    bool doDirBw;
+    bool enable_actEnable;
     t_actenable actEnable;
-    BOOL enable_actDirection;
+    bool enable_actDirection;
     t_actdirection actDirection;
-    BOOL enable_appliedActAction;
+    bool enable_appliedActAction;
     t_pwm_duty appliedActAction;
-    BOOL enable_loadPosAcq;
+    bool enable_loadPosAcq;
     uint16_t loadPosAcq;
-    BOOL enable_appliedActDirection;
+    bool enable_appliedActDirection;
     t_appliedactdirection appliedActDirection;
-    BOOL enable_actDrvTimer;
+    bool enable_actDrvTimer;
     t_timer actDrvTimer;
     // (null) No diag variables for dcTorque
     // (null) No diag variables for actPosPow
     // (null) No diag variables for actNegPow
-    BOOL enable_loadPosAI;
+    bool enable_loadPosAI;
     uint16_t loadPosAI;
-    BOOL enable_upButTimer;
+    bool enable_upButTimer;
     t_timer upButTimer;
-    BOOL enable_downButTimer;
+    bool enable_downButTimer;
     t_timer downButTimer;
     // (null) No diag variables for loadPosUpSwch
     // (null) No diag variables for loadPosDownSwch
-    BOOL enable_loadPosUpSwchDI;
-    BOOL loadPosUpSwchDI;
-    BOOL enable_loadPosDownSwchDI;
-    BOOL loadPosDownSwchDI;
-    BOOL enable_posAchieved;
-    BOOL posAchieved;
-    BOOL enable_ctrlError;
-    BOOL ctrlError;
+    bool enable_loadPosUpSwchDI;
+    bool loadPosUpSwchDI;
+    bool enable_loadPosDownSwchDI;
+    bool loadPosDownSwchDI;
+    bool enable_posAchieved;
+    bool posAchieved;
+    bool enable_ctrlError;
+    bool ctrlError;
     // (null) No diag variables for driveCurrent
-    BOOL enable_driveCurrentAI;
+    bool enable_driveCurrentAI;
     uint16_t driveCurrentAI;
-    BOOL enable_driveCurrentAcq;
+    bool enable_driveCurrentAcq;
     t_drivecurrentacq driveCurrentAcq;
-    BOOL enable_currentError;
-    BOOL currentError;
-    BOOL enable_brokenChainError;
-    BOOL brokenChainError;
-    BOOL enable_stuckActError;
-    BOOL stuckActError;
-    BOOL enable_loadPosUpSwchAcq;
-    BOOL loadPosUpSwchAcq;
-    BOOL enable_loadPosDownSwchAcq;
-    BOOL loadPosDownSwchAcq;
-    BOOL enable_upSwitchTimer;
+    bool enable_currentError;
+    bool currentError;
+    bool enable_brokenChainError;
+    bool brokenChainError;
+    bool enable_stuckActError;
+    bool stuckActError;
+    bool enable_loadPosUpSwchAcq;
+    bool loadPosUpSwchAcq;
+    bool enable_loadPosDownSwchAcq;
+    bool loadPosDownSwchAcq;
+    bool enable_upSwitchTimer;
     t_timer upSwitchTimer;
-    BOOL enable_downSwitchTimer;
+    bool enable_downSwitchTimer;
     t_timer downSwitchTimer;
     // (null) No diag variables for hmibut0
     // (null) No diag variables for hmibut1
@@ -200,42 +200,42 @@ typedef struct {
     // (null) No diag variables for hmidata
     // (null) No diag variables for hmiclock
     // (null) No diag variables for hmistrobe
-    BOOL enable_hmibuttons;
+    bool enable_hmibuttons;
     t_hmibuttons hmibuttons;
-    BOOL enable_hmileds;
+    bool enable_hmileds;
     t_hmileds hmileds;
-    BOOL enable_hmidigits;
+    bool enable_hmidigits;
     t_hmidigits hmidigits;
-    BOOL enable_rectifiedActAction;
+    bool enable_rectifiedActAction;
     t_pwm_duty rectifiedActAction;
-    BOOL enable_forcedPos;
+    bool enable_forcedPos;
     t_forcedpos forcedPos;
     // (null) No diag variables for stepperAngle
-    BOOL enable_stepperSetPoint;
+    bool enable_stepperSetPoint;
     t_steppersetpoint stepperSetPoint;
-    BOOL enable_stepperEnable;
-    BOOL stepperEnable;
-    BOOL enable_stepCtrlA;
-    BOOL stepCtrlA;
-    BOOL enable_stepCtrlB;
-    BOOL stepCtrlB;
+    bool enable_stepperEnable;
+    bool stepperEnable;
+    bool enable_stepCtrlA;
+    bool stepCtrlA;
+    bool enable_stepCtrlB;
+    bool stepCtrlB;
     // (null) No diag variables for stepA
     // (null) No diag variables for stepB
-    BOOL enable_pwmServoAngleFdback;
+    bool enable_pwmServoAngleFdback;
     t_pwmservoanglefdback pwmServoAngleFdback;
-    BOOL enable_pwmServoEnable;
+    bool enable_pwmServoEnable;
     t_pwmservoenable pwmServoEnable;
-    BOOL enable_pwmServoSetPoint;
+    bool enable_pwmServoSetPoint;
     t_pwmservosetpoint pwmServoSetPoint;
-    BOOL enable_pwmServoActive;
-    BOOL pwmServoActive;
-    BOOL enable_pwmServoPwm;
-    BOOL pwmServoPwm;
+    bool enable_pwmServoActive;
+    bool pwmServoActive;
+    bool enable_pwmServoPwm;
+    bool pwmServoPwm;
     // (null) No diag variables for pwmServoAngle
     // (null) No diag variables for loadTorque
-    BOOL enable_stepperServoActive;
-    BOOL stepperServoActive;
-    BOOL enable_stepperAngleFdback;
+    bool enable_stepperServoActive;
+    bool stepperServoActive;
+    bool enable_stepperAngleFdback;
     t_stepperanglefdback stepperAngleFdback;
 
 } t_diagFM1;
@@ -712,12 +712,12 @@ void setup_FM1stepCtrlB_output(void);
 // (output disabled for Variable type);
 
 // upReqDI flow acquisition
-BOOL adquirir_FM1upReqDI(void);
+bool adquirir_FM1upReqDI(void);
 // upReqDI flow synthesis
 // (output disabled for DI_pu type);
 
 // downReqDI flow acquisition
-BOOL adquirir_FM1downReqDI(void);
+bool adquirir_FM1downReqDI(void);
 // downReqDI flow synthesis
 // (output disabled for DI_pu type);
 
@@ -737,14 +737,14 @@ BOOL adquirir_FM1downReqDI(void);
 void synthesize_FM1pwmActAction(t_pwm value);
 
 // doDirFw flow acquisition
-BOOL adquirir_FM1doDirFw(void);
+bool adquirir_FM1doDirFw(void);
 // doDirFw flow synthesis
-void sintetizar_FM1doDirFw(BOOL valor);
+void sintetizar_FM1doDirFw(bool valor);
 
 // doDirBw flow acquisition
-BOOL adquirir_FM1doDirBw(void);
+bool adquirir_FM1doDirBw(void);
 // doDirBw flow synthesis
-void sintetizar_FM1doDirBw(BOOL valor);
+void sintetizar_FM1doDirBw(bool valor);
 
 // actEnable flow acquisition
 // (input disabled for Variable type);
@@ -817,12 +817,12 @@ uint16_t acquire_FM1loadPosAI(void);
 // (output disabled for Switch type);
 
 // loadPosUpSwchDI flow acquisition
-BOOL adquirir_FM1loadPosUpSwchDI(void);
+bool adquirir_FM1loadPosUpSwchDI(void);
 // loadPosUpSwchDI flow synthesis
 // (output disabled for DI_pu type);
 
 // loadPosDownSwchDI flow acquisition
-BOOL adquirir_FM1loadPosDownSwchDI(void);
+bool adquirir_FM1loadPosDownSwchDI(void);
 // loadPosDownSwchDI flow synthesis
 // (output disabled for DI_pu type);
 
@@ -1062,14 +1062,14 @@ uint16_t acquire_FM1driveCurrentAI(void);
 // (output disabled for Flag type);
 
 // stepCtrlA flow acquisition
-BOOL adquirir_FM1stepCtrlA(void);
+bool adquirir_FM1stepCtrlA(void);
 // stepCtrlA flow synthesis
-void sintetizar_FM1stepCtrlA(BOOL valor);
+void sintetizar_FM1stepCtrlA(bool valor);
 
 // stepCtrlB flow acquisition
-BOOL adquirir_FM1stepCtrlB(void);
+bool adquirir_FM1stepCtrlB(void);
 // stepCtrlB flow synthesis
-void sintetizar_FM1stepCtrlB(BOOL valor);
+void sintetizar_FM1stepCtrlB(bool valor);
 
 // stepA flow acquisition
 // (input disabled for Power type);

@@ -620,7 +620,7 @@ void setup_FM1stepCtrlB_output(void) {
 
 // upReqDI flow acquisition
 
-BOOL adquirir_FM1upReqDI(void) {
+bool adquirir_FM1upReqDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_upReqDI == TRUE) {
         return diagFM1.upReqDI;
@@ -637,7 +637,7 @@ BOOL adquirir_FM1upReqDI(void) {
 
 // downReqDI flow acquisition
 
-BOOL adquirir_FM1downReqDI(void) {
+bool adquirir_FM1downReqDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_downReqDI == TRUE) {
         return diagFM1.downReqDI;
@@ -675,7 +675,7 @@ void synthesize_FM1pwmActAction(t_pwm value) {
 
 // doDirFw flow acquisition
 
-BOOL adquirir_FM1doDirFw(void) {
+bool adquirir_FM1doDirFw(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirFw == TRUE) {
         return diagFM1.doDirFw;
@@ -688,7 +688,7 @@ BOOL adquirir_FM1doDirFw(void) {
 };
 // doDirFw flow synthesis
 
-void sintetizar_FM1doDirFw(BOOL valor) {
+void sintetizar_FM1doDirFw(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirFw == TRUE) {
         digitalWrite(PORT_FM1doDirFw, diagFM1.doDirFw);
@@ -703,7 +703,7 @@ void sintetizar_FM1doDirFw(BOOL valor) {
 
 // doDirBw flow acquisition
 
-BOOL adquirir_FM1doDirBw(void) {
+bool adquirir_FM1doDirBw(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirBw == TRUE) {
         return diagFM1.doDirBw;
@@ -716,7 +716,7 @@ BOOL adquirir_FM1doDirBw(void) {
 };
 // doDirBw flow synthesis
 
-void sintetizar_FM1doDirBw(BOOL valor) {
+void sintetizar_FM1doDirBw(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_doDirBw == TRUE) {
         digitalWrite(PORT_FM1doDirBw, diagFM1.doDirBw);
@@ -821,7 +821,7 @@ uint16_t acquire_FM1loadPosAI(void) {
 
 // loadPosUpSwchDI flow acquisition
 
-BOOL adquirir_FM1loadPosUpSwchDI(void) {
+bool adquirir_FM1loadPosUpSwchDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_loadPosUpSwchDI == TRUE) {
         return diagFM1.loadPosUpSwchDI;
@@ -838,7 +838,7 @@ BOOL adquirir_FM1loadPosUpSwchDI(void) {
 
 // loadPosDownSwchDI flow acquisition
 
-BOOL adquirir_FM1loadPosDownSwchDI(void) {
+bool adquirir_FM1loadPosDownSwchDI(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_loadPosDownSwchDI == TRUE) {
         return diagFM1.loadPosDownSwchDI;
@@ -1140,7 +1140,7 @@ uint16_t acquire_FM1driveCurrentAI(void) {
 
 // stepCtrlA flow acquisition
 
-BOOL adquirir_FM1stepCtrlA(void) {
+bool adquirir_FM1stepCtrlA(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlA == TRUE) {
         return diagFM1.stepCtrlA;
@@ -1153,7 +1153,7 @@ BOOL adquirir_FM1stepCtrlA(void) {
 };
 // stepCtrlA flow synthesis
 
-void sintetizar_FM1stepCtrlA(BOOL valor) {
+void sintetizar_FM1stepCtrlA(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlA == TRUE) {
         digitalWrite(PORT_FM1stepCtrlA, diagFM1.stepCtrlA);
@@ -1168,7 +1168,7 @@ void sintetizar_FM1stepCtrlA(BOOL valor) {
 
 // stepCtrlB flow acquisition
 
-BOOL adquirir_FM1stepCtrlB(void) {
+bool adquirir_FM1stepCtrlB(void) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlB == TRUE) {
         return diagFM1.stepCtrlB;
@@ -1181,7 +1181,7 @@ BOOL adquirir_FM1stepCtrlB(void) {
 };
 // stepCtrlB flow synthesis
 
-void sintetizar_FM1stepCtrlB(BOOL valor) {
+void sintetizar_FM1stepCtrlB(bool valor) {
 #ifdef _DIAG_ACTIVE
     if (diagFM1.enable_stepCtrlB == TRUE) {
         digitalWrite(PORT_FM1stepCtrlB, diagFM1.stepCtrlB);

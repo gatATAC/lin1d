@@ -19,10 +19,10 @@ static void RestoreBATTimefilterContext(void)
     SetCurrentTimeFilterState(tf_block->current_state);
 }
 
-void BATTimeFilter_init(void)
+void BATTimeFilterInit(void)
 {
     CreateBATTimefilterContext();
-    TimeFilter_init();
+    TimeFilterInit();
     SaveBATTimefilterContext();
 }
 

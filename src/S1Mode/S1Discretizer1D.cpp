@@ -19,10 +19,10 @@ static void SaveS1D1dContext(void)
 {
 }
 
-void S1Discretizer1D_init(void)
+void S1Discretizer1DInit(void)
 {
     CreateS1D1dContext();
-    Discretizer1D_init();
+    Discretizer1DInit();
     SaveS1D1dContext();    
 }
 
